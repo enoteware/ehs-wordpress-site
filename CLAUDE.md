@@ -151,6 +151,285 @@ cd ehs-wordpress-local
 - `assign-theme-builder-templates.php` - Assigns templates to locations
 - `copy-meta-data.php` - Copies post meta data
 
+### Elementor CLI Commands
+
+Elementor integrates with WP-CLI for command-line operations. All commands work via DDEV.
+
+**Core Elementor CLI Commands:**
+```bash
+# Clear and regenerate all CSS files
+ddev exec wp elementor flush-css
+
+# Replace URLs across all Elementor data (faster than search-replace)
+ddev exec wp elementor replace-urls --from=https://oldsite.com --to=https://newsite.com
+
+# Sync Elementor template library
+ddev exec wp elementor sync-library
+
+# Update Elementor database structure
+ddev exec wp elementor update-db
+
+# Import/Export Kit (templates + settings)
+ddev exec wp elementor import-kit /path/to/kit.zip
+ddev exec wp elementor export-kit --output=/path/to/export.zip
+```
+
+**Production Server Commands:**
+```bash
+# Via SSH on production
+ssh a96c427e_1@832f87585d.nxcli.net "cd /home/a96c427e/832f87585d.nxcli.net/html && wp elementor flush-css --allow-root"
+
+# Replace URLs on production (use with caution)
+ssh a96c427e_1@832f87585d.nxcli.net "cd /home/a96c427e/832f87585d.nxcli.net/html && wp elementor replace-urls --from=old.com --to=new.com --allow-root"
+```
+
+**Common Debugging Commands:**
+```bash
+# Regenerate CSS after template changes
+ddev exec wp elementor flush-css
+
+# Clear Elementor cache
+ddev exec wp cache flush
+ddev exec wp transient delete --all
+
+# Check Elementor version
+ddev exec wp plugin list | grep elementor
+
+# Get Elementor system info
+ddev exec wp elementor system-info
+
+# List all Elementor templates
+ddev exec wp post list --post_type=elementor_library --posts_per_page=-1
+```
+
+**Template-Specific Commands:**
+```bash
+# Export specific template by ID
+ddev exec wp post get <template-id> --format=json > template-backup.json
+
+# Delete template
+ddev exec wp post delete <template-id> --force
+
+# Duplicate template
+ddev exec wp post duplicate <template-id>
+
+# List templates by type
+ddev exec wp post list --post_type=elementor_library --meta_key=elementor_template_type --meta_value=page
+```
+
+### Elementor APIs and Hooks
+
+**PHP Hooks for Custom Development:**
+
+```php
+// Register custom widgets
+add_action('elementor/widgets/register', function($widgets_manager) {
+    require_once(__DIR__ . '/widgets/custom-widget.php');
+    $widgets_manager->register(new \Custom_Widget());
+});
+
+// Add custom widget category
+add_action('elementor/elements/categories_registered', function($elements_manager) {
+    $elements_manager->add_category(
+        'ehs-custom',
+        [
+            'title' => 'EHS Custom Widgets',
+            'icon' => 'fa fa-plug'
+        ]
+    );
+});
+
+// Modify element output before render
+add_action('elementor/frontend/before_render', function($element) {
+    // Modify element settings or output
+    if ($element->get_name() === 'button') {
+        // Custom logic for buttons
+    }
+});
+
+// Add custom CSS before Elementor CSS
+add_action('elementor/frontend/before_enqueue_styles', function() {
+    wp_enqueue_style('custom-elementor-styles', get_stylesheet_directory_uri() . '/elementor-custom.css');
+});
+```
+
+**Elementor Pro Forms API:**
+
+```php
+// Custom form validation
+add_action('elementor_pro/forms/validation', function($field, $record, $ajax_handler) {
+    if ('custom_field' === $field['id']) {
+        if (empty($field['value'])) {
+            $ajax_handler->add_error($field['id'], 'This field is required');
+        }
+    }
+}, 10, 3);
+
+// Custom form action after submit
+add_action('elementor_pro/forms/new_record', function($record, $handler) {
+    $form_name = $record->get_form_settings('form_name');
+    $fields = $record->get_formatted_data();
+
+    // Custom logic (e.g., send to CRM, custom email, etc.)
+}, 10, 2);
+
+// Add custom webhook
+add_action('elementor_pro/forms/actions/register', function($form_actions_registrar) {
+    require_once(__DIR__ . '/form-actions/custom-webhook.php');
+    $form_actions_registrar->register(new \Custom_Webhook());
+});
+```
+
+**Dynamic Tags API:**
+
+```php
+// Register custom dynamic tag
+add_action('elementor/dynamic_tags/register', function($dynamic_tags_manager) {
+    require_once(__DIR__ . '/dynamic-tags/custom-tag.php');
+    $dynamic_tags_manager->register(new \Custom_Dynamic_Tag());
+});
+```
+
+**JavaScript API (Frontend):**
+
+```javascript
+// Wait for Elementor frontend to load
+jQuery(window).on('elementor/frontend/init', function() {
+    // Add custom handlers
+    elementorFrontend.hooks.addAction('frontend/element_ready/button.default', function($scope) {
+        // Custom button logic
+        $scope.find('.elementor-button').on('click', function(e) {
+            // Custom click handler
+        });
+    });
+});
+
+// Access Elementor settings
+var elementorSettings = elementorFrontend.config;
+
+// Run code on specific widget
+elementorFrontend.hooks.addAction('frontend/element_ready/heading.default', function($scope) {
+    console.log('Heading widget loaded');
+});
+```
+
+**Editor JavaScript API:**
+
+```javascript
+// Only runs in Elementor editor
+elementor.hooks.addAction('panel/open_editor/widget', function(panel, model, view) {
+    // Runs when widget settings panel opens
+    console.log('Widget type:', model.get('widgetType'));
+});
+
+// Listen for changes
+elementor.channels.editor.on('change', function() {
+    console.log('Editor content changed');
+});
+```
+
+### Elementor Workflow Automation
+
+**Combined Sync + CSS Regeneration:**
+Create `ehs-wordpress-local/elementor-sync-full.sh`:
+```bash
+#!/bin/bash
+# Full Elementor sync with CSS regeneration
+
+echo "Starting full Elementor sync..."
+
+# Sync templates from production
+./sync-elementor-templates.sh
+
+# Regenerate CSS
+echo "Regenerating CSS..."
+ddev exec wp elementor flush-css
+
+# Clear all caches
+echo "Clearing caches..."
+ddev exec wp cache flush
+ddev exec wp transient delete --all
+
+echo "Sync complete!"
+```
+
+**Elementor Debug Mode:**
+Add to `wp-config.php` for debugging:
+```php
+define('ELEMENTOR_DEBUG', true);  // Enable debug mode
+define('WP_DEBUG', true);
+define('WP_DEBUG_LOG', true);
+define('WP_DEBUG_DISPLAY', false);
+```
+
+**Performance Optimization:**
+```bash
+# Regenerate CSS for production (minified)
+ddev exec wp elementor flush-css --network
+
+# Clear font cache
+ddev exec wp option delete elementor_remote_info_library
+
+# Clear Elementor experiments cache
+ddev exec wp option delete elementor_experiment-*
+```
+
+**Troubleshooting Commands:**
+```bash
+# Fix broken templates (regenerate CSS and cache)
+ddev exec wp elementor flush-css && ddev exec wp cache flush
+
+# Reset Elementor settings to default
+ddev exec wp option delete elementor_*
+
+# Check for conflicting plugins
+ddev exec wp plugin list --status=active
+
+# Verify Elementor requirements
+ddev exec wp elementor system-info | grep -A 10 "Server Environment"
+
+# Check for JavaScript errors in templates
+ddev exec wp post list --post_type=elementor_library --fields=ID,post_title | while read id title; do
+    echo "Checking: $title"
+    ddev exec wp post get $id --field=meta | grep -i "error" || echo "OK"
+done
+```
+
+### Elementor Template Structure
+
+**Template Post Meta Fields:**
+- `_elementor_data` - JSON structure of page layout
+- `_elementor_template_type` - Type: page, section, widget, header, footer
+- `_elementor_edit_mode` - Edit mode: builder or wp-editor
+- `_elementor_version` - Elementor version used
+- `_elementor_conditions` - Display conditions for Theme Builder templates
+- `_elementor_css` - Generated CSS for the template
+
+**Querying Templates Programmatically:**
+```php
+// Get all header templates
+$headers = get_posts([
+    'post_type' => 'elementor_library',
+    'meta_key' => '_elementor_template_type',
+    'meta_value' => 'header',
+    'posts_per_page' => -1
+]);
+
+// Get template data
+$template_id = 123;
+$elementor_data = get_post_meta($template_id, '_elementor_data', true);
+$template_data = json_decode($elementor_data, true);
+```
+
+**Accessing Template Conditions:**
+```bash
+# List all Theme Builder assignments
+ddev exec wp option get elementor_pro_theme_builder_conditions
+
+# Update template conditions via WP-CLI
+ddev exec wp option patch update elementor_pro_theme_builder_conditions header "include/general"
+```
+
 ## Migration Planning
 
 Active planning for migrating 24 WordPress sites from Nexcess ($328/month) to DigitalOcean VPS ($48/month).
@@ -285,6 +564,7 @@ All service pages follow consistent two-column layout:
 - Main content area with hero section, full-width background
 - Sidebar with service navigation menu
 - Color scheme: Navy blue (#003366) with gold/yellow accents
+- Typography: All headings use Maven Pro font, 700 weight (bold)
 - Mobile responsive design required
 - Cross-linking between related services
 - SEO optimization via Yoast
