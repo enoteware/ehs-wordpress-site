@@ -1,0 +1,526 @@
+═══════════════════════════════════════════════════════════════
+DESIGN AND BRANDING GUIDE
+constructionsafety.consulting
+═══════════════════════════════════════════════════════════════
+
+BRAND IDENTITY
+═══════════════════════════════════════════════════════════════
+
+SITE NAME: Construction Safety Consulting
+
+TAGLINE: "Expert Safety Solutions for Federal & California Construction"
+
+RELATIONSHIP STATEMENT:
+"A Division of EHS Analytical Solutions, Inc."
+(This should appear on every page, typically in footer)
+
+BRAND POSITIONING:
+- Professional, credible, trustworthy
+- Veteran-owned (USMC & Navy)
+- Highly qualified (CIH, CSP credentials)
+- Federal + California expertise
+- SDVOSB & DVBE certified
+
+TARGET AUDIENCE PERCEPTION:
+Contractors should see this site and think:
+"These are serious professionals who understand federal and California 
+construction safety. They have the credentials and experience I need."
+
+═══════════════════════════════════════════════════════════════
+
+LOGO DESIGN
+═══════════════════════════════════════════════════════════════
+
+OPTION 1: Simple Text Logo (Recommended)
+
+CONSTRUCTION SAFETY
+    CONSULTING
+
+Typography: Bold, sans-serif font (e.g., Montserrat Bold, Open Sans Bold)
+Layout: Two lines, "CONSULTING" slightly smaller
+Color: Navy blue (#003366) or dark gray (#2C3E50)
+
+Below logo (smaller text):
+"A Division of EHS Analytical Solutions, Inc."
+Typography: Regular weight, sans-serif
+Color: Medium gray (#6C757D)
+
+OPTION 2: With Icon
+
+[Hard Hat Icon] CONSTRUCTION SAFETY
+                    CONSULTING
+
+Icon: Simple hard hat silhouette or safety shield
+Icon color: Safety orange (#FF6600) or safety yellow (#FFC107)
+Text: Same as Option 1
+
+OPTION 3: Abbreviated
+
+CSS | CONSTRUCTION
+      SAFETY
+      CONSULTING
+
+Abbreviated version for mobile/small spaces
+"CSS" as visual identifier
+
+LOGO USAGE:
+- Primary logo: Full text version (Option 1 or 2)
+- Mobile logo: Abbreviated version or icon only
+- Favicon: Hard hat icon or "CSS" letters
+
+═══════════════════════════════════════════════════════════════
+
+COLOR PALETTE
+═══════════════════════════════════════════════════════════════
+
+PRIMARY COLORS:
+
+Navy Blue (Primary Brand Color)
+Hex: #003366
+RGB: 0, 51, 102
+Use for: Headers, navigation, primary buttons, footer background
+
+Safety Orange (Accent Color)
+Hex: #FF6600
+RGB: 255, 102, 0
+Use for: CTA buttons, important highlights, icons
+
+SECONDARY COLORS:
+
+White
+Hex: #FFFFFF
+Use for: Background, text on dark backgrounds
+
+Light Gray (Background)
+Hex: #F8F9FA
+RGB: 248, 249, 250
+Use for: Section backgrounds, alternating sections
+
+Dark Gray (Text)
+Hex: #2C3E50
+RGB: 44, 62, 80
+Use for: Body text, headings
+
+Medium Gray (Secondary Text)
+Hex: #6C757D
+RGB: 108, 117, 125
+Use for: Secondary text, captions, metadata
+
+ACCENT COLORS (Optional):
+
+Safety Yellow
+Hex: #FFC107
+RGB: 255, 193, 7
+Use for: Warning highlights, certification badges
+
+Green (Success)
+Hex: #28A745
+RGB: 40, 167, 69
+Use for: Success messages, checkmarks
+
+CONSTRUCTION INDUSTRY FEEL:
+The navy blue + safety orange combination evokes:
+- Professional safety industry
+- Federal/military construction (navy blue = Navy, Air Force)
+- High visibility safety (orange = construction safety color)
+- Trustworthy and authoritative
+
+═══════════════════════════════════════════════════════════════
+
+TYPOGRAPHY
+═══════════════════════════════════════════════════════════════
+
+FONT FAMILIES:
+
+Primary Font (Headings): Montserrat
+- H1: Montserrat Bold, 42px-48px, Navy Blue
+- H2: Montserrat Bold, 32px-36px, Navy Blue
+- H3: Montserrat SemiBold, 24px-28px, Dark Gray
+- Uppercase for major headings (optional)
+
+Secondary Font (Body Text): Open Sans
+- Body: Open Sans Regular, 16px-18px, Dark Gray
+- Line height: 1.6-1.8 (good readability)
+- Paragraph spacing: 1.2em
+
+Alternative Font Pairing: 
+- Headings: Roboto Condensed Bold
+- Body: Lato Regular
+
+FONT WEIGHTS:
+- Bold (700): Major headings, emphasis
+- SemiBold (600): Subheadings
+- Regular (400): Body text
+- Light (300): Captions (use sparingly)
+
+MOBILE TYPOGRAPHY:
+- Reduce heading sizes by 20-30% on mobile
+- Maintain body text at 16px minimum (readability)
+- Increase line height slightly on mobile (1.7-1.9)
+
+═══════════════════════════════════════════════════════════════
+
+BUTTON STYLES
+═══════════════════════════════════════════════════════════════
+
+PRIMARY BUTTON:
+Background: Safety Orange (#FF6600)
+Text: White (#FFFFFF)
+Font: Montserrat SemiBold, 16px
+Padding: 14px 32px
+Border radius: 4px
+Hover: Darken orange by 10% (#E65C00)
+Shadow: Subtle drop shadow on hover
+
+Example: [Request Quote] [Call Now]
+
+SECONDARY BUTTON:
+Background: Transparent
+Border: 2px solid Navy Blue (#003366)
+Text: Navy Blue (#003366)
+Font: Montserrat SemiBold, 16px
+Padding: 12px 30px
+Border radius: 4px
+Hover: Fill with Navy Blue, text becomes white
+
+Example: [Learn More] [View Services]
+
+BUTTON PLACEMENT:
+- Hero section: 1-2 prominent buttons
+- End of each section: Relevant CTA button
+- Sticky mobile button (optional): Call or Contact
+
+═══════════════════════════════════════════════════════════════
+
+LAYOUT & SPACING
+═══════════════════════════════════════════════════════════════
+
+PAGE LAYOUT:
+
+Container Width: 1200px maximum
+Content Width: 800px for text-heavy sections
+Padding: 60px-80px between major sections
+Margin: 20px sides on mobile, 40px on tablet+
+
+GRID SYSTEM:
+- Use 12-column grid for flexibility
+- Service boxes: 3 columns on desktop, 1 on mobile
+- Why choose us: 3 columns on desktop, 1 on mobile
+- Content + sidebar: 8+4 or 9+3 column split
+
+WHITE SPACE:
+- Generous white space between elements
+- Don't crowd content
+- Let sections breathe
+
+SECTION ALTERNATION:
+- Alternate between white and light gray backgrounds
+- Example: White section → Light gray section → White section
+
+═══════════════════════════════════════════════════════════════
+
+HERO SECTION DESIGN
+═══════════════════════════════════════════════════════════════
+
+STYLE: Full-width with background image or solid color
+
+WITH BACKGROUND IMAGE:
+- Large hero image (construction site, safety professional)
+- Dark overlay (40-50% opacity) over image
+- White text on dark overlay
+- Height: 500-600px on desktop, 400px on mobile
+
+WITHOUT BACKGROUND IMAGE:
+- Solid navy blue background
+- White text
+- Height: 400-500px on desktop, 350px on mobile
+
+HERO CONTENT:
+- H1 heading (large, bold, white)
+- Subheading (medium, white, 60-70% opacity)
+- 2-3 sentences intro text
+- 1-2 CTA buttons (orange primary + white secondary)
+- Image aligned right or as background (optional)
+
+═══════════════════════════════════════════════════════════════
+
+SERVICE BOXES / FEATURE CARDS
+═══════════════════════════════════════════════════════════════
+
+DESIGN:
+
+Box Style:
+- White background
+- Light border (1px #E9ECEF) or subtle shadow
+- Border radius: 8px
+- Padding: 30px
+- Icon/image at top
+- Heading (H3)
+- Description text (2-3 sentences)
+- "Learn More" link or button at bottom
+
+Icon Style:
+- Size: 64x64px or 80x80px
+- Color: Safety orange or navy blue
+- Simple line icons or solid icons
+- Centered above heading
+
+Hover Effect:
+- Subtle shadow increase
+- Border color change to orange
+- Slight scale increase (1.02x)
+- Smooth transition (0.3s)
+
+Layout:
+- 3 columns on desktop (4 boxes = 1 row of 3, 1 row of 1 centered)
+- 2 columns on tablet
+- 1 column on mobile
+- Equal height boxes
+
+═══════════════════════════════════════════════════════════════
+
+NAVIGATION DESIGN
+═══════════════════════════════════════════════════════════════
+
+DESKTOP NAVIGATION:
+
+Header Style:
+- Background: White
+- Height: 80-100px
+- Sticky on scroll (optional)
+- Subtle shadow on scroll
+
+Logo Placement:
+- Left side
+- Click to return home
+
+Menu Items:
+- Right side
+- Horizontal list
+- Font: Montserrat Medium, 16px
+- Color: Dark gray, hover to orange
+- Underline on hover (optional)
+
+Contact Button:
+- Far right
+- Orange button style
+- "Contact" or "Get Quote"
+
+MOBILE NAVIGATION:
+
+Hamburger Menu:
+- Top right corner
+- 3-line icon (navy blue)
+- Animated to X when open
+
+Mobile Menu:
+- Slide from right or top
+- Full screen overlay or partial
+- Large touch targets (minimum 44x44px)
+- Click-to-call button prominent
+
+═══════════════════════════════════════════════════════════════
+
+FOOTER DESIGN
+═══════════════════════════════════════════════════════════════
+
+Style:
+- Background: Navy blue (#003366)
+- Text: White or light gray
+- Padding: 60px vertical
+
+Layout:
+- 4 columns on desktop
+- 2 columns on tablet
+- 1 column on mobile (stacked)
+
+Content:
+- Column 1: Company info, address, phone, email
+- Column 2: Services links
+- Column 3: Company links
+- Column 4: Certifications/badges
+
+Bottom Bar:
+- Copyright notice
+- Privacy policy link
+- Terms of service link
+- Social media icons (if applicable)
+
+═══════════════════════════════════════════════════════════════
+
+IMAGE STYLE & TREATMENT
+═══════════════════════════════════════════════════════════════
+
+IMAGE TYPES NEEDED:
+
+Hero Images:
+- Professional construction site photos
+- Safety professionals in action
+- Modern, high-quality images
+- Bright, well-lit, clear
+
+Section Images:
+- Safety inspections
+- Safety meetings/training
+- Construction workers in proper PPE
+- Military installations (for SSHO page)
+
+Icons:
+- Simple, modern line icons
+- Safety-related (hard hat, clipboard, checklist)
+- Consistent style across site
+
+IMAGE TREATMENT:
+- High quality (not pixelated)
+- Proper aspect ratios maintained
+- Optimized for web (under 200KB)
+- Alt tags for accessibility
+
+PHOTO STYLE:
+- Realistic (avoid overly staged stock photos)
+- Diverse representation
+- Safety equipment visible and prominent
+- Professional but approachable
+
+═══════════════════════════════════════════════════════════════
+
+RESPONSIVE DESIGN REQUIREMENTS
+═══════════════════════════════════════════════════════════════
+
+BREAKPOINTS:
+
+Mobile: < 576px
+Tablet: 576px - 991px
+Desktop: 992px - 1199px
+Large Desktop: 1200px+
+
+MOBILE CONSIDERATIONS:
+✓ Touch-friendly buttons (44x44px minimum)
+✓ Readable text without zooming (16px minimum)
+✓ Easy-to-tap navigation
+✓ Click-to-call phone numbers
+✓ Simplified navigation menu
+✓ Stacked layouts (no side-by-side on mobile)
+✓ Fast loading (< 3 seconds)
+
+TABLET CONSIDERATIONS:
+✓ 2-column layouts where appropriate
+✓ Readable text sizes
+✓ Touch-friendly but more content density than mobile
+
+DESKTOP CONSIDERATIONS:
+✓ Take advantage of screen width
+✓ 3-column layouts for service boxes
+✓ Hover effects on interactive elements
+✓ Larger, more impactful hero sections
+
+═══════════════════════════════════════════════════════════════
+
+CERTIFICATION BADGES & TRUST SIGNALS
+═══════════════════════════════════════════════════════════════
+
+DISPLAY PROMINENTLY:
+
+SDVOSB Badge:
+- Service-Disabled Veteran-Owned Small Business
+- Include official logo/badge if available
+- Link to verification page (if applicable)
+
+DVBE Badge:
+- Disabled Veteran Business Enterprise #2017031
+- Include certification number
+- California seal/badge
+
+Professional Certifications:
+- CIH (Certified Industrial Hygienist)
+- CSP (Certified Safety Professional)  
+- CHST (Construction Health & Safety Technician)
+- Display as text or badge icons
+
+Placement:
+- Homepage: Prominent section dedicated to certifications
+- Footer: Small badges/text
+- Service pages: Mention in qualifications sections
+
+═══════════════════════════════════════════════════════════════
+
+DESIGN INSPIRATION / STYLE REFERENCES
+═══════════════════════════════════════════════════════════════
+
+STYLE DIRECTION: Professional Safety Industry
+
+Think:
+- Modern but not trendy
+- Trustworthy and authoritative
+- Clean and organized
+- Easy to navigate
+- Mobile-friendly
+
+Similar to:
+- Professional services websites (law firms, consulting)
+- Safety equipment manufacturers (3M, Honeywell)
+- Engineering firms
+- Government contractor sites
+
+Avoid:
+- Overly flashy animations
+- Cluttered layouts
+- Too much color
+- Difficult navigation
+- Slow-loading elements
+
+═══════════════════════════════════════════════════════════════
+
+ACCESSIBILITY REQUIREMENTS
+═══════════════════════════════════════════════════════════════
+
+WCAG 2.1 LEVEL AA COMPLIANCE:
+
+Color Contrast:
+✓ Text on background: Minimum 4.5:1 ratio
+✓ Large text (18pt+): Minimum 3:1 ratio
+✓ Test with contrast checker tools
+
+Keyboard Navigation:
+✓ All interactive elements accessible via keyboard
+✓ Visible focus indicators
+✓ Logical tab order
+
+Screen Reader Support:
+✓ Alt text for all images
+✓ Proper heading hierarchy (H1 > H2 > H3)
+✓ ARIA labels where needed
+✓ Descriptive link text (no "click here")
+
+Forms (if any):
+✓ Proper label associations
+✓ Error messaging
+✓ Clear instructions
+
+═══════════════════════════════════════════════════════════════
+
+DESIGN CHECKLIST FOR WEB DEVELOPER
+═══════════════════════════════════════════════════════════════
+
+BEFORE LAUNCH:
+
+□ Logo created and implemented
+□ Color scheme applied consistently
+□ Typography implemented (headings and body)
+□ Navigation working on all devices
+□ Footer complete with all links
+□ Hero sections designed for all 3 pages
+□ Service boxes/cards styled consistently
+□ CTA buttons functional and styled
+□ All images optimized and have alt tags
+□ Mobile responsive (test on real devices)
+□ Touch targets minimum 44x44px
+□ Text readable without zooming
+□ Colors meet contrast requirements
+□ Forms styled (if applicable)
+□ Loading speed < 3 seconds
+□ Cross-browser testing (Chrome, Safari, Firefox, Edge)
+
+═══════════════════════════════════════════════════════════════
+END OF DESIGN AND BRANDING GUIDE
+═══════════════════════════════════════════════════════════════

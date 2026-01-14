@@ -1,0 +1,54 @@
+# WordPress Core Files - Don't index WordPress core
+ehs-wordpress-local/wordpress/wp-admin/
+ehs-wordpress-local/wordpress/wp-includes/
+ehs-wordpress-local/wordpress/wp-*.php
+ehs-wordpress-local/wordpress/xmlrpc.php
+ehs-wordpress-local/wordpress/license.txt
+ehs-wordpress-local/wordpress/readme.html
+
+# WordPress Content - Plugins (don't index plugins)
+ehs-wordpress-local/wordpress/wp-content/plugins/
+
+# WordPress Content - Parent Themes (don't index parent themes)
+ehs-wordpress-local/wordpress/wp-content/themes/hello-elementor/
+ehs-wordpress-local/wordpress/wp-content/themes/twenty*/
+ehs-wordpress-local/wordpress/wp-content/themes/elementor-hello-theme-master/
+ehs-wordpress-local/wordpress/wp-content/themes/index.php
+
+# WordPress Content - Uploads (don't index media files)
+ehs-wordpress-local/wordpress/wp-content/uploads/
+
+# WordPress Content - Cache and temporary files
+ehs-wordpress-local/wordpress/wp-content/cache/
+ehs-wordpress-local/wordpress/wp-content/upgrade/
+ehs-wordpress-local/wordpress/wp-content/backup-db/
+ehs-wordpress-local/wordpress/wp-content/backups/
+
+# Exports Directory (don't index backup/export files)
+ehs-wordpress-local/exports/
+
+# Database files
+*.sql
+*.sql.gz
+
+# Keep these indexed:
+# - ehs-wordpress-local/wordpress/wp-config.php
+# - ehs-wordpress-local/wordpress/wp-config-ddev.php
+# - ehs-wordpress-local/wordpress/wp-content/themes/hello-elementor-child/
+# - ehs-wordpress-local/WP_CREDENTIALS.md
+
+# OS Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# Logs
+*.log
+ehs-wordpress-local/wordpress/debug.log
+
+# Temporary files
+*.tmp
+*.bak
+*.cache

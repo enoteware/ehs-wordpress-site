@@ -1,0 +1,86 @@
+# WordPress Core Files - Ignore most core files
+ehs-wordpress-local/wordpress/wp-admin/
+ehs-wordpress-local/wordpress/wp-includes/
+ehs-wordpress-local/wordpress/wp-*.php
+ehs-wordpress-local/wordpress/xmlrpc.php
+ehs-wordpress-local/wordpress/license.txt
+ehs-wordpress-local/wordpress/readme.html
+ehs-wordpress-local/wordpress/nginx.conf
+
+# WordPress Content - Plugins (ignore all plugins)
+ehs-wordpress-local/wordpress/wp-content/plugins/
+
+# WordPress Content - Parent Themes (keep only child theme)
+ehs-wordpress-local/wordpress/wp-content/themes/hello-elementor/
+ehs-wordpress-local/wordpress/wp-content/themes/twenty*/
+ehs-wordpress-local/wordpress/wp-content/themes/elementor-hello-theme-master/
+ehs-wordpress-local/wordpress/wp-content/themes/index.php
+
+# WordPress Content - Uploads (media files)
+ehs-wordpress-local/wordpress/wp-content/uploads/
+
+# WordPress Content - Other directories
+ehs-wordpress-local/wordpress/wp-content/upgrade/
+ehs-wordpress-local/wordpress/wp-content/cache/
+ehs-wordpress-local/wordpress/wp-content/backup-db/
+ehs-wordpress-local/wordpress/wp-content/backups/
+ehs-wordpress-local/wordpress/wp-content/blogs.dir/
+ehs-wordpress-local/wordpress/wp-content/upgrade/
+ehs-wordpress-local/wordpress/wp-content/advanced-cache.php
+ehs-wordpress-local/wordpress/wp-content/wp-cache-config.php
+
+# Exports Directory (backup/export files)
+ehs-wordpress-local/exports/
+
+# Database exports
+*.sql
+*.sql.gz
+
+# Keep these essential files:
+# - ehs-wordpress-local/wordpress/wp-config.php (needed for local dev)
+# - ehs-wordpress-local/wordpress/wp-config-ddev.php (DDEV config)
+# - ehs-wordpress-local/wordpress/wp-content/themes/hello-elementor-child/ (child theme)
+# - ehs-wordpress-local/WP_CREDENTIALS.md (documentation)
+
+# OS Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehs-wordpress-local/wordpress/.htaccess
+
+# IDE Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+ehs-wordpress-local/wordpress/debug.log
+
+# Temporary files
+*.tmp
+*.bak
+*.cache
+
+# Environment files (contain secrets)
+.env
+.env.local
+.env.*
+
+# Node modules
+node_modules/
+
+# Debug/test PHP files
+ehs-wordpress-local/*.php
+!ehs-wordpress-local/export-elementor-templates.php
+!ehs-wordpress-local/import-elementor-templates.php
+!ehs-wordpress-local/assign-theme-builder-templates.php
+!ehs-wordpress-local/create-menus.php
+
+# Playwright
+.playwright-mcp/
+project-organization/02-micro-site-vercel/deployed-site/constructionsafety-microsite/

@@ -1,0 +1,386 @@
+═══════════════════════════════════════════════════════════════
+TECHNICAL SEO SPECIFICATIONS
+constructionsafety.consulting
+═══════════════════════════════════════════════════════════════
+
+PAGE 1: HOMEPAGE
+═══════════════════════════════════════════════════════════════
+
+URL: constructionsafety.consulting/
+
+PAGE TITLE (60 characters max):
+Construction Safety Consulting | SDVOSB & DVBE Certified
+
+META DESCRIPTION (160 characters max):
+SDVOSB/DVBE construction safety consulting. SSHO services, safety reps, EM 385-1-1 compliance. Federal & California projects. San Diego-based.
+
+H1 HEADING:
+Construction Safety Consulting
+
+H2 HEADINGS:
+- Our Construction Safety Services
+- Why Construction Companies Choose Us
+- Construction Markets We Serve
+- California & Nationwide Service
+- Our Credentials & Certifications
+- About Construction Safety Consulting
+- Partner with Construction Safety Consulting
+
+PRIMARY KEYWORDS:
+- construction safety consulting
+- construction safety consultant
+- construction safety services
+
+SECONDARY KEYWORDS:
+- SDVOSB construction safety
+- DVBE construction safety
+- California construction safety
+- construction safety San Diego
+
+LONG-TAIL KEYWORDS:
+- construction safety consulting services
+- SSHO services California
+- construction safety representative
+- federal construction safety
+
+KEYWORD DENSITY TARGET: 1-2% (natural integration)
+
+IMAGE ALT TAGS:
+- Construction safety consultants conducting jobsite safety inspection
+- Site Safety Health Officer providing EM 385-1-1 compliance services
+- CIH and CSP certified construction safety professional
+- SDVOSB and DVBE certified construction safety consulting company
+
+SCHEMA MARKUP:
+- LocalBusiness
+- ProfessionalService
+- Organization (with SDVOSB, DVBE certifications)
+
+CANONICAL URL: https://constructionsafety.consulting/
+
+═══════════════════════════════════════════════════════════════
+
+PAGE 2: SSHO SERVICES
+═══════════════════════════════════════════════════════════════
+
+URL: constructionsafety.consulting/ssho-services/
+
+PAGE TITLE (60 characters max):
+SSHO Services | Site Safety Health Officer | SDVOSB
+
+META DESCRIPTION (160 characters max):
+SDVOSB-certified SSHO services for federal construction. EM 385-1-1 compliant Site Safety Officers for USACE, NAVFAC, VA projects. Nationwide.
+
+H1 HEADING:
+SSHO Services for Federal Military Construction
+
+H2 HEADINGS:
+- What is a Site Safety and Health Officer?
+- Comprehensive SSHO Services
+- Federal Construction Projects We Support
+- California Military Installation Experience
+- SSHO Qualifications & Experience
+- Why Federal Contractors Choose Our SSHO Services
+- Fast Mobilization & Nationwide Availability
+- SSHO Frequently Asked Questions
+- Request SSHO Services for Your Federal Project
+
+PRIMARY KEYWORDS:
+- SSHO services
+- Site Safety Health Officer
+- EM 385-1-1
+
+SECONDARY KEYWORDS:
+- USACE SSHO
+- NAVFAC SSHO
+- federal construction safety
+- SDVOSB SSHO
+- military construction SSHO
+
+LONG-TAIL KEYWORDS:
+- SSHO services California
+- Site Safety Health Officer San Diego
+- EM 385-1-1 compliance
+- federal military construction SSHO
+- USACE approved SSHO
+
+KEYWORD DENSITY TARGET: 1.5-2% (natural integration)
+
+IMAGE ALT TAGS:
+- Site Safety Health Officer providing EM 385-1-1 compliance at federal construction project
+- SSHO managing Activity Hazard Analysis and safety training at USACE project
+- Federal military construction project requiring SSHO services
+- Certified Industrial Hygienist and Safety Professional SSHO
+
+SCHEMA MARKUP:
+- Service (SSHO Services)
+- ProfessionalService
+- Offer (with geographic coverage)
+
+CANONICAL URL: https://constructionsafety.consulting/ssho-services/
+
+INTERNAL LINKS:
+- Link to Homepage: "Construction Safety Consulting" (in breadcrumb)
+- Link to Safety Representatives page: "Also see our Safety Representative services"
+- Link to ehsanalytical.com: "Learn more about EHS Analytical Solutions"
+
+═══════════════════════════════════════════════════════════════
+
+PAGE 3: SAFETY REPRESENTATIVES
+═══════════════════════════════════════════════════════════════
+
+URL: constructionsafety.consulting/safety-representatives/
+
+PAGE TITLE (60 characters max):
+Safety Representatives | Construction Safety Officers
+
+META DESCRIPTION (160 characters max):
+Professional safety representatives for construction. On-site oversight, Cal-OSHA compliance, inspections, training. California & nationwide.
+
+H1 HEADING:
+Safety Representatives for Construction Projects
+
+H2 HEADINGS:
+- What Does a Safety Representative Do?
+- Safety Representative Services
+- Construction Projects We Support
+- California Construction Safety Expertise
+- Safety Representative Qualifications
+- Flexible Engagement Options
+- Why Contractors Choose Our Safety Representatives
+- Safety Representative Frequently Asked Questions
+- Request Safety Representative Services
+
+PRIMARY KEYWORDS:
+- safety representatives
+- construction safety representative
+- on-site safety manager
+
+SECONDARY KEYWORDS:
+- construction safety officer
+- Cal-OSHA safety representative
+- Caltrans safety representative
+- construction safety services
+
+LONG-TAIL KEYWORDS:
+- safety representative California
+- construction safety rep San Diego
+- hire construction safety representative
+- on-site safety management
+- Caltrans safety representative services
+
+KEYWORD DENSITY TARGET: 1.5-2% (natural integration)
+
+IMAGE ALT TAGS:
+- Construction safety representative providing on-site safety oversight and compliance verification
+- Safety representative conducting daily toolbox talk and worker safety training
+- Professional safety representative conducting daily safety inspection
+- Cal-OSHA compliant construction safety representative services in California
+
+SCHEMA MARKUP:
+- Service (Safety Representative Services)
+- ProfessionalService
+- Offer (with flexible engagement options)
+
+CANONICAL URL: https://constructionsafety.consulting/safety-representatives/
+
+INTERNAL LINKS:
+- Link to Homepage: "Construction Safety Consulting" (in breadcrumb)
+- Link to SSHO Services page: "For federal projects, see our SSHO Services"
+- Link to ehsanalytical.com: "Part of EHS Analytical Solutions"
+
+═══════════════════════════════════════════════════════════════
+
+SITE-WIDE SEO REQUIREMENTS
+═══════════════════════════════════════════════════════════════
+
+TECHNICAL SEO CHECKLIST:
+
+□ SSL Certificate (HTTPS) - REQUIRED
+□ Mobile-responsive design - REQUIRED
+□ Page load speed < 3 seconds - TARGET
+□ XML Sitemap created and submitted to Google
+□ Robots.txt file configured
+□ Google Search Console connected
+□ Google Analytics installed
+□ Schema markup on all pages
+□ All images optimized (WebP format preferred)
+□ All images have descriptive alt tags
+□ Proper heading hierarchy (H1 > H2 > H3)
+□ Internal linking between all pages
+□ External links to ehsanalytical.com
+□ 301 redirect from onsitesafety.consulting
+□ Canonical tags on all pages
+□ Meta descriptions on all pages (unique)
+□ Title tags on all pages (unique, under 60 chars)
+□ Breadcrumb navigation
+□ Clean URLs (no parameters or session IDs)
+
+═══════════════════════════════════════════════════════════════
+
+IMAGE OPTIMIZATION
+═══════════════════════════════════════════════════════════════
+
+IMAGE FORMAT: WebP (preferred) or JPG
+IMAGE SIZE: Maximum 200KB per image
+IMAGE DIMENSIONS: 
+- Hero images: 1920x1080px
+- Section images: 800x600px
+- Icons: 256x256px
+
+COMPRESSION: Use tools like TinyPNG or ImageOptim
+LAZY LOADING: Implement for below-the-fold images
+CDN: Consider using CDN for faster image delivery
+
+ALL IMAGES MUST HAVE:
+- Descriptive filename (safety-representative-inspection.jpg)
+- Alt tag (descriptive, includes keywords naturally)
+- Title tag (optional but recommended)
+
+═══════════════════════════════════════════════════════════════
+
+GOOGLE SEARCH CONSOLE SETUP
+═══════════════════════════════════════════════════════════════
+
+1. Add property: constructionsafety.consulting
+2. Verify ownership (DNS or HTML file method)
+3. Submit XML sitemap
+4. Request indexing for all 3 pages
+5. Set geographic target: United States (California focus)
+6. Monitor for crawl errors weekly
+7. Track search performance (impressions, clicks, CTR)
+
+═══════════════════════════════════════════════════════════════
+
+GOOGLE ANALYTICS SETUP
+═══════════════════════════════════════════════════════════════
+
+1. Create GA4 property
+2. Install tracking code on all pages
+3. Set up goals/conversions:
+   - Contact form submissions
+   - Phone number clicks
+   - Email link clicks
+   - PDF downloads (if any)
+4. Create custom reports:
+   - Page performance
+   - Traffic sources
+   - Keyword rankings (via GSC integration)
+   - Geographic distribution
+
+═══════════════════════════════════════════════════════════════
+
+SCHEMA MARKUP EXAMPLES
+═══════════════════════════════════════════════════════════════
+
+LOCALBUSINESS SCHEMA (Homepage):
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Construction Safety Consulting",
+  "description": "Expert construction safety consulting services",
+  "url": "https://constructionsafety.consulting",
+  "telephone": "+16192883094",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "San Diego",
+    "addressRegion": "CA",
+    "addressCountry": "US"
+  },
+  "areaServed": ["California", "United States"],
+  "parentOrganization": {
+    "@type": "Organization",
+    "name": "EHS Analytical Solutions, Inc.",
+    "url": "https://ehsanalytical.com"
+  }
+}
+
+SERVICE SCHEMA (Service Pages):
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "SSHO Services",
+  "provider": {
+    "@type": "Organization",
+    "name": "Construction Safety Consulting"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "United States"
+  },
+  "audience": {
+    "@type": "BusinessAudience",
+    "name": "Construction Contractors"
+  }
+}
+
+═══════════════════════════════════════════════════════════════
+
+REDIRECT SETUP
+═══════════════════════════════════════════════════════════════
+
+REDIRECT REQUIRED:
+onsitesafety.consulting → constructionsafety.consulting
+
+REDIRECT TYPE: 301 (Permanent)
+
+IMPLEMENTATION OPTIONS:
+
+Option A: DNS-level redirect (recommended)
+- Set up at domain registrar
+- Fastest and cleanest
+
+Option B: .htaccess redirect (Apache servers)
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^onsitesafety\.consulting$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.onsitesafety\.consulting$
+RewriteRule (.*)$ https://constructionsafety.consulting/$1 [R=301,L]
+
+Option C: Server configuration (Nginx)
+server {
+    server_name onsitesafety.consulting www.onsitesafety.consulting;
+    return 301 https://constructionsafety.consulting$request_uri;
+}
+
+═══════════════════════════════════════════════════════════════
+
+SITEMAP.XML STRUCTURE
+═══════════════════════════════════════════════════════════════
+
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://constructionsafety.consulting/</loc>
+    <lastmod>2025-01-XX</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://constructionsafety.consulting/ssho-services/</loc>
+    <lastmod>2025-01-XX</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://constructionsafety.consulting/safety-representatives/</loc>
+    <lastmod>2025-01-XX</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>
+
+═══════════════════════════════════════════════════════════════
+
+ROBOTS.TXT
+═══════════════════════════════════════════════════════════════
+
+User-agent: *
+Allow: /
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+
+Sitemap: https://constructionsafety.consulting/sitemap.xml
+
+═══════════════════════════════════════════════════════════════
+END OF TECHNICAL SEO SPECIFICATIONS
+═══════════════════════════════════════════════════════════════

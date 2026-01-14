@@ -1,0 +1,361 @@
+═══════════════════════════════════════════════════════════════
+CLAUDE CODE PROMPT FOR WEB DEVELOPER
+EHS Analytical Solutions Website Implementation
+December 2025
+═══════════════════════════════════════════════════════════════
+
+INSTRUCTIONS FOR WEB DEVELOPER:
+1. Open Claude Code (command line interface)
+2. Navigate to your project directory
+3. Have the JSON files or original content files accessible
+4. Copy and paste the prompt below
+5. Follow up with specific requests as needed
+
+═══════════════════════════════════════════════════════════════
+START OF PROMPT - COPY EVERYTHING BELOW THIS LINE
+═══════════════════════════════════════════════════════════════
+
+I'm building new pages and updates for the EHS Analytical Solutions website (ehsanalytical.com). I have content files that need to be converted into production-ready HTML/CSS.
+
+PROJECT CONTEXT:
+- Company: EHS Analytical Solutions, Inc. (California-based EHS consulting)
+- Industry: Environmental Health & Safety, Construction Safety
+- Target: Federal contractors, Caltrans bidders, California businesses
+- Current tech stack: [FILL IN: WordPress/Static HTML/React/etc.]
+- Design style: Professional, clean, trustworthy (government contractor aesthetic)
+
+CONTENT FILES:
+I have 5 content packages that need implementation:
+
+1. SSHO Services Page (NEW PAGE - Priority: HIGHEST)
+   - URL: /ssho-services-california/
+   - Target: Federal contractors needing SSHO for military construction
+   - File: 1_Web_Designer_Instructions_Part1_SSHO.json (or .docx)
+
+2. Lead Compliance Plan Services Page (NEW PAGE - Priority: HIGH)
+   - URL: /lead-compliance-plan-services/
+   - Target: Caltrans bidders needing Lead Compliance Plans
+   - File: 2_Web_Designer_Instructions_Part2_LeadCompliance.json (or .docx)
+
+3. Caltrans Construction Safety Services Page (NEW PAGE - Priority: MEDIUM-HIGH)
+   - URL: /caltrans-construction-safety-services/
+   - Target: Caltrans bidders needing Safety Representatives, SQCM, monitoring
+   - File: 3_Part3_Caltrans_Construction_Safety_NEW.json (or .txt)
+
+4. Federal Contracting Page + Construction Safety Updates (Priority: MEDIUM)
+   - URL: /federal-contracting-sdvosb/ (new) + updates to existing Construction Safety page
+   - File: 4_Web_Designer_Instructions_Part4_Federal_Contracting.json (or .docx)
+
+5. Global Site Updates (Priority: MEDIUM)
+   - Navigation menu, footer, homepage, About Us page updates
+   - File: 5_Web_Designer_Instructions_Part5_Global_Updates.json (or .docx)
+
+WHAT I NEED YOU TO DO:
+
+PHASE 1: REVIEW & UNDERSTAND
+1. Read through all 5 content files to understand the scope
+2. Identify the existing website structure and style patterns
+3. Confirm the tech stack and build approach
+
+PHASE 2: CREATE PAGES (in priority order)
+For each new page, create:
+- Semantic HTML5 structure
+- Responsive CSS (mobile-first)
+- SEO-optimized markup (title tags, meta descriptions, structured data)
+- Accessible markup (ARIA labels, proper heading hierarchy)
+- Performance-optimized (lazy loading images, minified assets)
+
+PHASE 3: IMPLEMENT UPDATES
+- Update navigation menus (add 4 new service links in correct positions)
+- Update footer (add new service links)
+- Update homepage (add new service boxes)
+- Update About Us page (add federal contracting section)
+
+DESIGN REQUIREMENTS:
+
+COLOR SCHEME:
+- Primary: Navy blue (#003366) for headings, navigation
+- Accent: Professional blue/teal for CTAs
+- SDVOSB/DVBE emphasis: Highlight these certifications prominently
+- Background: White with light gray sections (#F5F5F5)
+- Text: Dark gray (#333333)
+
+TYPOGRAPHY:
+- Headings: Bold, professional sans-serif (e.g., Montserrat, Roboto, Open Sans)
+- Body: Clean, readable sans-serif (16px minimum, 1.6 line-height)
+- Maintain existing site typography if established
+
+LAYOUT PATTERNS:
+
+Hero Section:
+- Full-width background (solid color or subtle image)
+- H1 heading prominently displayed
+- Subheading/tagline
+- 1-2 CTA buttons
+- Mobile: Stack vertically, reduce padding
+
+3-Column Benefits/Services:
+- Desktop: 3 equal columns with icons
+- Tablet: 2 columns
+- Mobile: Single column, full width
+- Icons: 64x64px, professional style
+- Equal height cards
+
+FAQ Section:
+- Accordion or simple Q&A format
+- Questions as bold headings
+- Answers in regular text
+- Mobile-friendly spacing
+
+CTA Sections:
+- Full-width background color
+- Centered text
+- Prominent button(s)
+- Phone number and email clearly visible
+
+TECHNICAL REQUIREMENTS:
+
+SEO:
+- Each page MUST have unique <title> tag (from content files)
+- Each page MUST have unique meta description (from content files)
+- All images MUST have descriptive alt text
+- Implement structured data (LocalBusiness schema for company, Service schema for service pages)
+- Canonical URLs for each page
+- Open Graph tags for social sharing
+
+Performance:
+- Lazy load images below the fold
+- Minify CSS and JavaScript
+- Optimize images (WebP format preferred, max 200KB per image)
+- Target PageSpeed score: 90+
+
+Responsive:
+- Mobile-first approach
+- Breakpoints: 576px (mobile), 768px (tablet), 992px (desktop), 1200px (large desktop)
+- Touch-friendly buttons (44x44px minimum)
+- No horizontal scrolling on any device
+
+Accessibility:
+- WCAG 2.1 Level AA compliance
+- Proper heading hierarchy (H1 > H2 > H3)
+- Keyboard navigation support
+- Color contrast ratio 4.5:1 minimum
+- ARIA labels where appropriate
+- Screen reader friendly
+
+INTERNAL LINKING (CRITICAL):
+These cross-links are essential for SEO:
+
+From Caltrans Construction Safety page → Lead Compliance Plan page:
+- Service Box 1 (Lead Compliance Plans) should link to /lead-compliance-plan-services/
+
+From Lead Compliance Plan page → Caltrans Construction Safety page:
+- "Related Services" section should link to /caltrans-construction-safety-services/
+
+From SSHO Services page → Federal Contracting page:
+- Mention and link to /federal-contracting-sdvosb/
+
+All service pages → Main Construction Safety page:
+- Link to /construction-safety-consulting/ (or current URL)
+
+NAVIGATION MENU STRUCTURE:
+Services (dropdown)
+├── Environmental Health and Safety (EHS) Consulting (EXISTING)
+├── EHS Staff Outsourcing (EXISTING)
+├── Construction Safety Consulting (EXISTING)
+├── SSHO Services ← ADD (after Construction Safety)
+├── Lead Compliance Plan Services ← ADD (after SSHO)
+├── Caltrans Construction Safety Services ← ADD (after Lead Compliance)
+├── Industrial Hygiene Services (EXISTING)
+├── Indoor Air Quality Testing (EXISTING)
+├── Mold Testing (EXISTING)
+├── Asbestos Testing (EXISTING)
+├── Water Damage Assessments (EXISTING)
+├── Fire & Smoke Assessments (EXISTING)
+└── Federal Contracting Services ← ADD (at end)
+
+COMPANY INFORMATION (for consistency):
+- Company: EHS Analytical Solutions, Inc.
+- Phone: (619) 288-3094
+- Email: adam@ehsanalytical.com
+- Location: San Diego, California
+- Service Area: California (statewide) and Nationwide for federal projects
+- Certifications: DVBE #2017031, SDVOSB, CIH, CSP
+- Founded: Veteran-owned (USMC & Navy)
+
+BRAND VOICE:
+- Professional but approachable
+- Emphasize credibility (CIH/CSP credentials, veteran-owned)
+- Action-oriented (clear CTAs, benefit-focused)
+- Technical but not overly complex
+- Trust-building (emphasize certifications, experience, compliance expertise)
+
+IMPLEMENTATION APPROACH:
+
+START WITH: SSHO Services Page (highest priority)
+1. Review the SSHO content file thoroughly
+2. Extract all sections (hero, why choose us, services, FAQ, etc.)
+3. Create semantic HTML structure
+4. Apply responsive CSS
+5. Implement SEO tags and structured data
+6. Add images (provide placeholder recommendations if actual images not available)
+7. Test on mobile, tablet, desktop
+8. Validate HTML, check accessibility, test performance
+
+THEN: Lead Compliance Plan Page → Caltrans Construction Safety Page → Federal Contracting → Global Updates
+
+SPECIFIC REQUESTS:
+
+For each page, I need:
+1. Complete HTML file (or component if using framework)
+2. Associated CSS (inline, external stylesheet, or CSS modules)
+3. Any JavaScript needed (form validation, accordions, etc.)
+4. Image specifications and alt text recommendations
+5. Schema markup (JSON-LD format)
+
+CODE STYLE PREFERENCES:
+- Clean, well-commented code
+- Semantic HTML5 elements (<header>, <nav>, <section>, <article>, <footer>)
+- BEM naming convention for CSS (or existing site convention)
+- Reusable components where possible
+- Follow existing site patterns for consistency
+
+QUESTIONS FOR YOU BEFORE I START:
+1. What's the current tech stack? (WordPress, static HTML, React, Next.js, etc.)
+2. Do you have an existing CSS framework? (Bootstrap, Tailwind, custom)
+3. Should I match existing page templates/layouts?
+4. Do you have a style guide or design system I should follow?
+5. Are there existing components I should reuse?
+6. What's your preferred way to handle forms? (HTML form, JavaScript framework, third-party service)
+7. Do you have analytics/tracking code that needs to be included?
+8. Any specific browser compatibility requirements?
+
+DELIVERABLES CHECKLIST:
+For each page, confirm:
+□ HTML structure is semantic and accessible
+□ CSS is responsive (mobile, tablet, desktop)
+□ SEO tags implemented (title, meta, structured data)
+□ Images have alt text
+□ Internal links are correct
+□ CTA buttons are prominent
+□ Phone/email contact info visible
+□ Performance optimized
+□ Cross-browser tested
+□ Accessibility validated
+
+LET'S START WITH THE SSHO SERVICES PAGE:
+Please read the SSHO content file (Part 1) and create a production-ready implementation. Show me the HTML structure first, then we'll refine the CSS and add the remaining elements.
+
+═══════════════════════════════════════════════════════════════
+END OF PROMPT
+═══════════════════════════════════════════════════════════════
+
+FOLLOW-UP PROMPTS YOUR WEB DEVELOPER CAN USE:
+
+After the initial response, use these prompts for specific tasks:
+
+"Create the responsive CSS for the SSHO page with mobile-first approach"
+
+"Add the JSON-LD structured data for LocalBusiness and Service schemas"
+
+"Create the navigation menu with the 4 new service links in the correct positions"
+
+"Optimize all images for web (WebP format, lazy loading, proper dimensions)"
+
+"Create the FAQ section with accessible accordion functionality"
+
+"Add the contact form with validation and submission handling"
+
+"Generate the complete meta tags including Open Graph for social sharing"
+
+"Create a staging checklist for testing before going live"
+
+"Show me how to implement the internal linking between the new pages"
+
+"Create responsive CSS Grid layouts for the 3-column benefit sections"
+
+═══════════════════════════════════════════════════════════════
+
+TIPS FOR WORKING WITH CLAUDE CODE:
+
+1. BE SPECIFIC: The more context you provide, the better the output
+   - Good: "Create a responsive hero section with navy blue background, white text, and two CTA buttons"
+   - Bad: "Make a hero section"
+
+2. ITERATE: Start with structure, then refine
+   - First: Get the HTML structure right
+   - Then: Add CSS styling
+   - Finally: Add interactivity and optimization
+
+3. REFERENCE FILES: Tell Claude Code which file to read
+   - "Read the file 1_Web_Designer_Instructions_Part1_SSHO.json"
+   - "Extract the hero section content from the SSHO file"
+
+4. REQUEST EXPLANATIONS: Ask Claude Code to explain decisions
+   - "Why did you choose this HTML structure?"
+   - "Explain the accessibility considerations in this code"
+
+5. ASK FOR ALTERNATIVES: Get different approaches
+   - "Show me 3 different ways to implement the FAQ section"
+   - "What are the pros and cons of using CSS Grid vs Flexbox here?"
+
+6. INCREMENTAL BUILDS: Build page by page, section by section
+   - Don't try to build all 5 pages at once
+   - Start with one page, get it perfect, then move to next
+
+7. TEST AS YOU GO: Request testing strategies
+   - "How can I test this on different screen sizes?"
+   - "What accessibility tools should I use to validate this?"
+
+8. PERFORMANCE CHECKS: Ask for optimization
+   - "How can I improve the page load speed?"
+   - "Are there any performance bottlenecks in this code?"
+
+═══════════════════════════════════════════════════════════════
+
+EXAMPLE CONVERSATION FLOW WITH CLAUDE CODE:
+
+WEB DEVELOPER: [Pastes the main prompt above]
+
+CLAUDE CODE: [Responds with questions about tech stack and asks to see first file]
+
+WEB DEVELOPER: "We're using WordPress with a custom theme. Here's the SSHO content file: [attaches or pastes JSON]"
+
+CLAUDE CODE: [Analyzes content and proposes HTML structure]
+
+WEB DEVELOPER: "Looks good. Now create the responsive CSS for this, matching our existing site style which uses navy blue (#003366) for headings."
+
+CLAUDE CODE: [Provides CSS code]
+
+WEB DEVELOPER: "Perfect. Now add the FAQ accordion section with smooth animations and keyboard accessibility."
+
+CLAUDE CODE: [Provides FAQ code with JavaScript]
+
+WEB DEVELOPER: "Great! Now show me how to add this to our WordPress theme."
+
+CLAUDE CODE: [Provides WordPress integration instructions]
+
+And so on... Build iteratively, test frequently, refine as needed.
+
+═══════════════════════════════════════════════════════════════
+
+FINAL NOTES FOR WEB DEVELOPER:
+
+✓ All content files are provided (JSON and/or original Word/text files)
+✓ Priority order is clearly specified (SSHO first, then Lead Compliance, etc.)
+✓ Technical requirements are comprehensive (SEO, performance, accessibility)
+✓ Internal linking strategy is critical for SEO - don't skip this
+✓ Company information is consistent across all pages
+✓ SDVOSB and DVBE certifications should be prominent
+✓ Mobile-first, responsive design is mandatory
+✓ Test on actual devices before going live
+
+Claude Code will help you build these pages efficiently, but you remain in control of the final implementation decisions.
+
+Questions? Contact Adam at EHS Analytical Solutions:
+Phone: (619) 288-3094
+Email: adam@ehsanalytical.com
+
+═══════════════════════════════════════════════════════════════
+END OF CLAUDE CODE PROMPT DOCUMENT
+═══════════════════════════════════════════════════════════════

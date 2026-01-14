@@ -1,0 +1,295 @@
+═══════════════════════════════════════════════════════════════
+INTERNAL LINKING STRATEGY
+constructionsafety.consulting
+═══════════════════════════════════════════════════════════════
+
+NAVIGATION STRUCTURE
+═══════════════════════════════════════════════════════════════
+
+TOP NAVIGATION MENU (All Pages):
+
+[LOGO] Construction Safety Consulting → Links to homepage
+
+Menu Items:
+- SSHO Services → /ssho-services/
+- Safety Representatives → /safety-representatives/
+- About → Scroll to About section on homepage OR create dedicated About page
+- Contact → Button/link to contact form or scroll to contact section
+
+MOBILE NAVIGATION:
+- Hamburger menu with same items
+- Click-to-call button prominent: (619) 288-3094
+
+═══════════════════════════════════════════════════════════════
+
+FOOTER STRUCTURE (All Pages)
+═══════════════════════════════════════════════════════════════
+
+COLUMN 1: Company Info
+Construction Safety Consulting
+A Division of EHS Analytical Solutions, Inc.
+
+Phone: (619) 288-3094
+Email: adam@ehsanalytical.com
+San Diego, California
+
+COLUMN 2: Services
+- SSHO Services → /ssho-services/
+- Safety Representatives → /safety-representatives/
+- View All Services → homepage
+
+COLUMN 3: Company
+- About Us → homepage #about section OR /about/
+- Parent Company → https://ehsanalytical.com
+- Certifications → homepage #credentials section
+
+COLUMN 4: Certifications
+SDVOSB Certified
+DVBE #2017031
+CIH | CSP | CHST
+
+FOOTER BOTTOM:
+© 2025 Construction Safety Consulting. All rights reserved.
+Privacy Policy | Terms of Service
+
+═══════════════════════════════════════════════════════════════
+
+INTERNAL LINKING BETWEEN PAGES
+═══════════════════════════════════════════════════════════════
+
+FROM HOMEPAGE:
+
+To SSHO Services Page:
+- Service box: "SSHO Services for Federal Construction" → [Learn More] button
+- Text link in federal markets section: "See our SSHO Services"
+- Navigation menu: SSHO Services
+
+To Safety Representatives Page:
+- Service box: "Safety Representatives" → [Learn More] button
+- Text link in services section: "Learn about our Safety Representative services"
+- Navigation menu: Safety Representatives
+
+───────────────────────────────────────────────────────────────
+
+FROM SSHO SERVICES PAGE:
+
+To Homepage:
+- Breadcrumb: Home > SSHO Services
+- Logo click
+- Footer: View All Services
+
+To Safety Representatives Page:
+- Text link in intro: "We also provide Safety Representative services for non-federal projects"
+- Related services box: "For non-federal projects, see our Safety Representatives"
+- Footer navigation
+
+───────────────────────────────────────────────────────────────
+
+FROM SAFETY REPRESENTATIVES PAGE:
+
+To Homepage:
+- Breadcrumb: Home > Safety Representatives
+- Logo click
+- Footer: View All Services
+
+To SSHO Services Page:
+- Text link in intro: "For federal projects requiring SSHOs, see our SSHO Services"
+- Related services box: "Federal projects? See our SSHO Services"
+- Footer navigation
+
+═══════════════════════════════════════════════════════════════
+
+EXTERNAL LINKS TO EHS ANALYTICAL SOLUTIONS
+═══════════════════════════════════════════
+
+FROM ALL PAGES (Footer):
+"Construction Safety Consulting - A Division of EHS Analytical Solutions, Inc."
+→ Links to: https://ehsanalytical.com
+
+FROM HOMEPAGE (About Section):
+"Learn more about EHS Analytical Solutions"
+→ Links to: https://ehsanalytical.com/about-us/
+
+FROM SSHO SERVICES PAGE:
+"See our complete safety consulting services at EHS Analytical Solutions"
+→ Links to: https://ehsanalytical.com/construction-safety-consulting/
+
+FROM SAFETY REPRESENTATIVES PAGE:
+"Part of EHS Analytical Solutions, Inc."
+→ Links to: https://ehsanalytical.com
+
+ANCHOR TEXT STRATEGY:
+- Use "EHS Analytical Solutions" as anchor text
+- Use "parent company" occasionally
+- Use "learn more about EHS Analytical Solutions"
+- Never use "click here"
+
+═══════════════════════════════════════════════════════════════
+
+LINKS FROM EHS ANALYTICAL TO CONSTRUCTION SAFETY
+═══════════════════════════════════════════════════════════════
+
+RECOMMENDED UPDATES TO EHSANALYTICAL.COM:
+
+1. Construction Safety Consulting Page:
+   Add this text near top of page:
+   "Visit our dedicated Construction Safety Consulting division at 
+    constructionsafety.consulting for specialized SSHO services, 
+    safety representatives, and comprehensive construction safety solutions."
+   
+   Link: constructionsafety.consulting
+
+2. EHS Staff Outsourcing Page:
+   Add this text:
+   "Looking for construction safety professionals? Our Construction Safety 
+    Consulting division provides SSHO services and safety representatives 
+    for construction projects. Learn more at constructionsafety.consulting"
+   
+   Link: constructionsafety.consulting
+
+3. Footer (Optional):
+   Add under "Our Divisions" or "Services":
+   "Construction Safety Consulting - constructionsafety.consulting"
+
+4. Homepage (Optional):
+   In services section, add note:
+   "Visit our Construction Safety Consulting division for specialized 
+    construction safety services"
+
+═══════════════════════════════════════════════════════════════
+
+BREADCRUMB NAVIGATION
+═══════════════════════════════════════════════════════════════
+
+FORMAT: Home > Current Page
+
+HOMEPAGE:
+No breadcrumb (you're at home)
+
+SSHO SERVICES PAGE:
+Home > SSHO Services
+
+SAFETY REPRESENTATIVES PAGE:
+Home > Safety Representatives
+
+IMPLEMENTATION:
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li><a href="/">Home</a></li>
+    <li aria-current="page">SSHO Services</li>
+  </ol>
+</nav>
+
+═══════════════════════════════════════════════════════════════
+
+CALL-TO-ACTION LINKS
+═══════════════════════════════════════════════════════════════
+
+PHONE NUMBER LINKS:
+All phone numbers should be clickable (tel: links)
+Format: <a href="tel:+16192883094">(619) 288-3094</a>
+
+EMAIL LINKS:
+All emails should be clickable (mailto: links)
+Format: <a href="mailto:adam@ehsanalytical.com">adam@ehsanalytical.com</a>
+
+CTA BUTTONS:
+- "Request Quote" → Links to contact form or opens email
+- "Call Now" → tel: link to phone
+- "Email Us" → mailto: link to email
+- "Learn More" → Links to relevant service page
+
+═══════════════════════════════════════════════════════════════
+
+LINKING BEST PRACTICES
+═══════════════════════════════════════════════════════════════
+
+DO:
+✓ Use descriptive anchor text ("SSHO Services" not "click here")
+✓ Link to relevant pages naturally within content
+✓ Use consistent navigation across all pages
+✓ Make all links easily clickable on mobile (44x44px minimum)
+✓ Use noopener for external links: target="_blank" rel="noopener"
+✓ Ensure all links work (test before launch)
+
+DON'T:
+✗ Use generic anchor text like "click here" or "read more"
+✗ Over-optimize anchor text (don't stuff keywords)
+✗ Link to broken pages
+✗ Use too many links on one page (dilutes value)
+✗ Forget to update links if URLs change
+
+═══════════════════════════════════════════════════════════════
+
+ANCHOR TEXT EXAMPLES
+═══════════════════════════════════════════════════════════════
+
+GOOD ANCHOR TEXT:
+- "SSHO services for federal construction"
+- "Learn more about our safety representative services"
+- "Construction Safety Consulting homepage"
+- "EHS Analytical Solutions parent company"
+- "Request an SSHO quote"
+
+BAD ANCHOR TEXT:
+- "Click here"
+- "Read more"
+- "This page"
+- "Link"
+- Over-optimized: "best SSHO services San Diego California federal"
+
+═══════════════════════════════════════════════════════════════
+
+CROSS-PROMOTION OPPORTUNITIES
+═══════════════════════════════════════════════════════════════
+
+FROM CONSTRUCTIONSAFETY.CONSULTING:
+
+When leadcomplianceplans.com launches:
+- Add link on homepage: "Need a Lead Compliance Plan? Visit leadcomplianceplans.com"
+- Add link on Safety Reps page: "Caltrans projects? See leadcomplianceplans.com"
+
+When caltransleadcomplianceplan.com launches:
+- Add link on homepage: "Bidding Caltrans? Visit caltransleadcomplianceplan.com"
+- Add link in California expertise section
+
+═══════════════════════════════════════════════════════════════
+
+LINK TRACKING & ANALYTICS
+═══════════════════════════════════════════════════════════════
+
+USE UTM PARAMETERS for tracking link performance from EHS Analytical:
+
+Example link from ehsanalytical.com to constructionsafety.consulting:
+https://constructionsafety.consulting/?utm_source=ehsanalytical&utm_medium=referral&utm_campaign=site-link
+
+This allows you to track:
+- How many visitors come from ehsanalytical.com
+- Which pages they visit
+- Conversion rates from referral traffic
+
+═══════════════════════════════════════════════════════════════
+
+LINK MAINTENANCE CHECKLIST
+═══════════════════════════════════════════════════════════════
+
+MONTHLY:
+□ Check all internal links work (no 404 errors)
+□ Verify external links to ehsanalytical.com work
+□ Review Google Search Console for crawl errors
+□ Check mobile navigation works properly
+
+QUARTERLY:
+□ Review and update anchor text if needed
+□ Add new relevant internal links to new content
+□ Update footer links if services change
+□ Review link performance in Analytics
+
+ANNUALLY:
+□ Comprehensive link audit
+□ Update any outdated content links
+□ Review linking strategy effectiveness
+
+═══════════════════════════════════════════════════════════════
+END OF INTERNAL LINKING STRATEGY
+═══════════════════════════════════════════════════════════════

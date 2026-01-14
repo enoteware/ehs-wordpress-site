@@ -1,0 +1,192 @@
+WEB DESIGNER INSTRUCTIONS - PART 4
+GLOBAL UPDATES & TECHNICAL SEO
+SECTION 6: GLOBAL WEBSITE UPDATES
+These updates apply across multiple pages to improve SEO and user experience.
+6.1 NAVIGATION MENU UPDATES
+Current Services Dropdown Menu:
+	•	• Environmental Health and Safety (EHS) Consulting
+	•	• EHS Staff Outsourcing
+	•	• Construction Safety Consulting
+	•	• Industrial Hygiene Services
+	•	• Indoor Air Quality Testing
+	•	• Mold Testing
+	•	• Asbestos Testing
+	•	• Water Damage Assessments
+	•	• Fire & Smoke Assessments
+UPDATED Services Dropdown Menu (add these 3 items):
+	•	• Environmental Health and Safety (EHS) Consulting
+	•	• EHS Staff Outsourcing
+	•	• Construction Safety Consulting
+	•	• SSHO Services ← NEW
+	•	• Lead Compliance Plan Services ← NEW
+	•	• Industrial Hygiene Services
+	•	• Indoor Air Quality Testing
+	•	• Mold Testing
+	•	• Asbestos Testing
+	•	• Water Damage Assessments
+	•	• Fire & Smoke Assessments
+	•	• Federal Contracting Services ← NEW (or add as standalone top-level menu item)
+6.2 ABOUT US PAGE ADDITIONS
+Page: /about-us/
+ADD NEW SECTION: 'Working with Federal Contractors'
+Location: Insert after the certifications section but before the team bios
+H2 Heading:
+Supporting Federal Contractors & Government Projects
+Content:
+As a certified Service-Disabled Veteran-Owned Small Business (SDVOSB) and Disabled Veteran Business Enterprise (DVBE), EHS Analytical Solutions is uniquely positioned to support prime contractors on federal military construction and California state projects.
+Our SDVOSB certification helps federal prime contractors meet their small business subcontracting goals on USACE, NAVFAC, Air Force, Army, and VA construction projects. By partnering with us for Site Safety Health Officer (SSHO) services, industrial hygiene, and environmental support, contractors can satisfy SDVOSB participation requirements while receiving professional EHS services from a veteran-owned firm.
+On California state projects, our DVBE certification helps contractors meet their disabled veteran business participation goals on Caltrans and other public works contracts. This is particularly valuable for contractors bidding Caltrans highway projects requiring Lead Compliance Plans and safety services.
+Our veteran leadership brings firsthand military experience (USMC & U.S. Navy), enabling us to work effectively on active military installations and understand the unique requirements of federal construction projects. We're not just meeting certification requirements - we're veteran business owners who understand the mission and are committed to excellence.
+6.3 HOMEPAGE UPDATES
+Page: Homepage (/)
+Update #1: Add SSHO & Lead Compliance to Services Grid
+The homepage currently has a services grid with icons. Add two new service boxes:
+New Service Box #1:
+	•	Title: 'SSHO Services'
+	•	Description: 'Site Safety Health Officers for federal military construction projects'
+	•	Link: /ssho-services-california/
+	•	Icon: Hard hat with safety vest or similar construction safety icon
+New Service Box #2:
+	•	Title: 'Lead Compliance Plans'
+	•	Description: 'Cal/OSHA lead compliance for Caltrans & California construction'
+	•	Link: /lead-compliance-plan-services/
+	•	Icon: Highway/bridge or monitoring equipment icon
+Update #2: Add SDVOSB/DVBE Highlight
+Consider adding a banner or callout box prominently on the homepage:
+Suggested text: 'Certified SDVOSB & DVBE | Supporting Federal Contractors & California Public Works'
+Location: Near top of page, perhaps below hero section or as a strip banner
+6.4 FOOTER UPDATES
+Update Services Links in Footer:
+	•	If the footer includes a services list, add links to the three new pages:
+	•	  • SSHO Services
+	•	  • Lead Compliance Plan Services
+	•	  • Federal Contracting Services
+6.5 GEOGRAPHIC/SERVICE AREA KEYWORDS
+Add to Multiple Pages:
+Consider adding a 'Service Areas' section to the footer or creating a dedicated 'Service Areas' page that lists:
+California Cities & Regions:
+San Diego, Los Angeles, Orange County, Irvine, Long Beach, Bay Area, Oakland, San Jose, San Francisco, Sacramento, Fresno, Bakersfield, Central Valley, Inland Empire (Riverside, San Bernardino)
+California Military Bases:
+Naval Base San Diego, Camp Pendleton, Marine Corps Air Station Miramar, Naval Air Station North Island, Marine Corps Recruit Depot San Diego, Edwards Air Force Base, Vandenberg Space Force Base, Travis Air Force Base, Beale Air Force Base, Naval Air Weapons Station China Lake, Naval Base Ventura County, Marine Corps Air Ground Combat Center Twentynine Palms, Naval Postgraduate School Monterey
+Caltrans Districts:
+All 12 Caltrans districts - District 1 (Eureka), District 2 (Redding), District 3 (Marysville/Sacramento), District 4 (Oakland/Bay Area), District 5 (San Luis Obispo), District 6 (Fresno), District 7 (Los Angeles), District 8 (San Bernardino), District 9 (Bishop), District 10 (Stockton), District 11 (San Diego), District 12 (Orange County)
+Nationwide Coverage:
+Add text like: 'While based in San Diego, California, we provide EHS services nationwide for federal construction projects at military installations throughout the United States.'
+Implementation Options:
+	•	Option A: Create a dedicated 'Service Areas' page
+	•	Option B: Add a service areas section to the footer on all pages
+	•	Option C: Add service area sections to individual service pages (already done in new pages)
+	•	Recommendation: Option C (already implemented in new pages) + Option B (add abbreviated list to footer)
+SECTION 7: TECHNICAL SEO REQUIREMENTS
+These technical updates improve search engine visibility and user experience.
+7.1 META DESCRIPTIONS
+Requirement: Every page must have a unique meta description under 160 characters
+Meta descriptions for NEW pages (already provided above):
+	•	✓ SSHO Services page: Already specified in Part 1
+	•	✓ Lead Compliance Plan page: Already specified in Part 2
+	•	✓ Federal Contracting page: Already specified in Part 3
+	•	✓ Construction Safety page: Updated meta description in Part 3
+Action: Review ALL existing pages and ensure they have optimized meta descriptions with target keywords
+7.2 IMAGE ALT TEXT
+Requirement: Every image must have descriptive alt text that includes relevant keywords naturally
+Examples of good alt text for new pages:
+	•	SSHO page: 'Site Safety Health Officer conducting safety inspection at federal military construction project'
+	•	Lead Compliance page: 'Industrial hygienist conducting lead exposure monitoring on Caltrans bridge project'
+	•	Federal Contracting page: 'SDVOSB certified construction safety consultant reviewing plans with federal contractor'
+Action: Audit all existing images and add/improve alt text site-wide
+7.3 INTERNAL LINKING STRATEGY
+Requirement: Cross-link related service pages to improve SEO and user navigation
+Recommended Internal Links:
+FROM SSHO Services page → LINK TO:
+	•	• Federal Contracting Services page
+	•	• Construction Safety Consulting page
+	•	• Industrial Hygiene Services page
+FROM Lead Compliance Plan page → LINK TO:
+	•	• Industrial Hygiene Services page
+	•	• Construction Safety Consulting page
+	•	• Existing blog article on Lead Compliance Plans
+FROM Federal Contracting page → LINK TO:
+	•	• SSHO Services page
+	•	• Industrial Hygiene Services page
+	•	• Construction Safety Consulting page
+FROM Construction Safety page → LINK TO:
+	•	• SSHO Services page
+	•	• Lead Compliance Plan Services page
+	•	• Federal Contracting Services page
+7.4 SCHEMA MARKUP (Optional but Recommended)
+What is Schema: Structured data that helps search engines understand your business
+Recommended Schema Types:
+	•	1. LocalBusiness Schema (for homepage)
+	•	   Include: Business name, address, phone, hours, service areas
+	•	2. Organization Schema (for homepage)
+	•	   Include: Company info, certifications, social media links
+	•	3. Service Schema (for each service page)
+	•	   Include: Service name, description, area served
+Note: Schema markup implementation requires technical knowledge. If unsure, prioritize other items first.
+7.5 PAGE SPEED & MOBILE OPTIMIZATION
+Action Items:
+	•	1. Ensure all new pages load quickly on mobile devices
+	•	2. Optimize images (compress, use modern formats like WebP)
+	•	3. Test all pages on mobile before launch
+	•	4. Use Google PageSpeed Insights to identify issues
+7.6 XML SITEMAP UPDATE
+Requirement: Update XML sitemap to include 3 new pages
+	•	• /ssho-services-california/
+	•	• /lead-compliance-plan-services/
+	•	• /federal-contracting-sdvosb/
+Action: After publishing new pages, submit updated sitemap to Google Search Console
+SECTION 8: TESTING CHECKLIST
+Complete this checklist for each new page before going live.
+PRE-LAUNCH TESTING:
+Content & Formatting:
+	•	☐ All content copied correctly (no typos or missing text)
+	•	☐ Headings formatted correctly (H1, H2, etc.)
+	•	☐ Bullet points and lists display properly
+	•	☐ Images display correctly and are optimized
+	•	☐ All images have descriptive alt text
+Links & Navigation:
+	•	☐ All internal links work correctly
+	•	☐ Call-to-action buttons link to correct pages
+	•	☐ Navigation menu updated with new pages
+	•	☐ Footer links updated
+	•	☐ Phone number links work (click-to-call)
+SEO Elements:
+	•	☐ Page title (browser tab) is correct and under 60 characters
+	•	☐ Meta description is present and under 160 characters
+	•	☐ URL structure is correct (matches specifications)
+	•	☐ H1 heading is present and unique
+	•	☐ Only ONE H1 per page
+Mobile Responsiveness:
+	•	☐ Page displays correctly on mobile phones
+	•	☐ Page displays correctly on tablets
+	•	☐ All buttons are easily clickable on mobile
+	•	☐ Text is readable without zooming
+	•	☐ Images don't break layout on small screens
+Browser Testing:
+	•	☐ Test in Chrome
+	•	☐ Test in Safari
+	•	☐ Test in Firefox
+	•	☐ Test in Edge
+POST-LAUNCH TASKS:
+	•	☐ Submit updated sitemap to Google Search Console
+	•	☐ Request indexing of new pages in Google Search Console
+	•	☐ Monitor Google Analytics for traffic to new pages
+	•	☐ Check for any broken links site-wide
+	•	☐ Test contact forms on new pages (if applicable)
+FINAL NOTES FOR WEB DESIGNER:
+Priority Order:
+	•	Week 1: Create SSHO Services page
+	•	Week 2: Create Lead Compliance Plan Services page
+	•	Week 3: Update Construction Safety page + Create Federal Contracting page
+	•	Week 4: Global updates (navigation, About Us, footer, technical SEO)
+Style Consistency:
+	•	• Match existing website design (fonts, colors, spacing, button styles)
+	•	• Use same icon style as existing service pages
+	•	• Maintain consistent header/footer across all pages
+	•	• Keep similar content structure as existing service pages
+Questions or Clarifications:
+All content is provided as copy/paste ready. If anything is unclear or you need additional details, contact the client for clarification before proceeding.
+Success Metrics:
+After 60-90 days, these pages should begin ranking for target keywords and driving qualified contractor leads. Monitor Google Search Console and Analytics to track performance.
+═══════════ END OF WEB DESIGNER INSTRUCTIONS ═══════════
+All 4 parts provided. Good luck with implementation!

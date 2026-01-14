@@ -1,0 +1,513 @@
+/* Construction Safety Consulting - Shared Styles */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap');
+
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #2C3E50;
+    background-color: #FFFFFF;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #003366;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+h1 {
+    font-size: 42px;
+}
+
+h2 {
+    font-size: 32px;
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #2C3E50;
+}
+
+p {
+    margin-bottom: 1.2rem;
+}
+
+a {
+    color: #003366;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #FF6600;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.content-width {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Navigation */
+header {
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.logo {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: #003366;
+}
+
+.logo-subtitle {
+    font-size: 12px;
+    color: #6C757D;
+    font-weight: 400;
+    display: block;
+    margin-top: -4px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-links a {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.contact-btn {
+    background-color: #FF6600;
+    color: #FFFFFF;
+    padding: 10px 24px;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.contact-btn:hover {
+    background-color: #E65C00;
+    color: #FFFFFF;
+}
+
+/* Mobile Menu */
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #003366;
+    cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, #003366 0%, #004080 100%);
+    color: #FFFFFF;
+    padding: 80px 0;
+    text-align: center;
+}
+
+.hero h1 {
+    color: #FFFFFF;
+    font-size: 48px;
+    margin-bottom: 1rem;
+}
+
+.hero .subheading {
+    font-size: 24px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+}
+
+.hero-text {
+    font-size: 18px;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    line-height: 1.8;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 14px 32px;
+    border-radius: 4px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    text-align: center;
+    transition: all 0.3s;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary {
+    background-color: #FF6600;
+    color: #FFFFFF;
+}
+
+.btn-primary:hover {
+    background-color: #E65C00;
+    color: #FFFFFF;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid #FFFFFF;
+    color: #FFFFFF;
+}
+
+.btn-secondary:hover {
+    background-color: #FFFFFF;
+    color: #003366;
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 2px solid #003366;
+    color: #003366;
+}
+
+.btn-outline:hover {
+    background-color: #003366;
+    color: #FFFFFF;
+}
+
+/* Sections */
+section {
+    padding: 60px 0;
+}
+
+.section-gray {
+    background-color: #F8F9FA;
+}
+
+.section-intro {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    font-size: 18px;
+}
+
+/* Service Boxes */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.service-box {
+    background-color: #FFFFFF;
+    border: 1px solid #E9ECEF;
+    border-radius: 8px;
+    padding: 30px;
+    transition: all 0.3s;
+}
+
+.service-box:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-color: #FF6600;
+    transform: translateY(-2px);
+}
+
+.service-icon {
+    width: 64px;
+    height: 64px;
+    background-color: #FF6600;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    font-size: 32px;
+}
+
+.service-box h3 {
+    margin-bottom: 1rem;
+}
+
+/* Why Choose Us */
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.why-column {
+    background-color: #FFFFFF;
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+.why-column h3 {
+    color: #FF6600;
+    margin-bottom: 1rem;
+}
+
+/* Two Column Layout */
+.two-column {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* Lists */
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+ul li {
+    padding-left: 1.5rem;
+    position: relative;
+    margin-bottom: 0.5rem;
+}
+
+ul li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #28A745;
+    font-weight: bold;
+}
+
+.market-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.market-item {
+    background-color: #FFFFFF;
+    padding: 1.5rem;
+    border-left: 4px solid #FF6600;
+    border-radius: 4px;
+}
+
+.market-item h4 {
+    color: #003366;
+    margin-bottom: 0.5rem;
+    font-size: 18px;
+}
+
+.market-item ul {
+    margin-top: 0.5rem;
+}
+
+.market-item ul li {
+    font-size: 14px;
+    color: #6C757D;
+}
+
+/* FAQ */
+.faq-item {
+    background-color: #FFFFFF;
+    border: 1px solid #E9ECEF;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.faq-question {
+    font-weight: 600;
+    color: #003366;
+    margin-bottom: 0.5rem;
+    font-size: 18px;
+}
+
+.faq-answer {
+    color: #6C757D;
+    line-height: 1.7;
+}
+
+/* Credentials */
+.credentials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.credential-section {
+    background-color: #FFFFFF;
+    padding: 2rem;
+    border-radius: 8px;
+    border-top: 4px solid #FF6600;
+}
+
+.credential-section h3 {
+    color: #003366;
+    margin-bottom: 1rem;
+}
+
+/* Footer */
+footer {
+    background-color: #003366;
+    color: #FFFFFF;
+    padding: 60px 0 30px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-column h4 {
+    color: #FFFFFF;
+    margin-bottom: 1rem;
+    font-size: 18px;
+}
+
+.footer-column a {
+    color: rgba(255,255,255,0.8);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.footer-column a:hover {
+    color: #FF6600;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.2);
+    padding-top: 2rem;
+    text-align: center;
+    color: rgba(255,255,255,0.7);
+    font-size: 14px;
+}
+
+.certifications {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+    font-size: 14px;
+    color: rgba(255,255,255,0.9);
+}
+
+/* Contact Info */
+.contact-info {
+    background-color: #F8F9FA;
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.contact-info p {
+    margin-bottom: 0.5rem;
+}
+
+.contact-info a {
+    color: #FF6600;
+    font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .mobile-menu-toggle {
+        display: block;
+    }
+    
+    h1 {
+        font-size: 32px;
+    }
+    
+    h2 {
+        font-size: 28px;
+    }
+    
+    .hero h1 {
+        font-size: 36px;
+    }
+    
+    .hero {
+        padding: 60px 0;
+    }
+    
+    section {
+        padding: 40px 0;
+    }
+    
+    .services-grid,
+    .why-grid,
+    .two-column {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+    }
+    
+    .btn {
+        width: 100%;
+    }
+}
+
+/* Utilities */
+.text-center {
+    text-align: center;
+}
+
+.mt-2 {
+    margin-top: 2rem;
+}
+
+.mb-2 {
+    margin-bottom: 2rem;
+}

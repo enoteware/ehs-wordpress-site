@@ -1,0 +1,182 @@
+WEB DESIGNER INSTRUCTIONS
+PART 1: SSHO SERVICES PAGE
+
+EHS Analytical Solutions, Inc.
+December 2025
+
+
+TABLE OF CONTENTS
+• Page Overview & Specifications
+• Page Content (Copy/Paste Ready)
+  - Hero Section
+  - Why Choose Us Section
+  - SSHO Services Section
+  - Federal Agencies Section
+  - Service Areas Section
+  - Qualifications Section
+  - Call-to-Action Section
+  - FAQ Section
+• Image Recommendations
+• SEO Keywords Reference
+
+PAGE OVERVIEW
+Purpose: Target federal contractors needing SSHO services for military construction projects. Emphasize SDVOSB certification and EM 385-1-1 expertise.
+Target Audience: Prime contractors bidding USACE, NAVFAC, VA, and other federal construction projects requiring Site Safety Health Officers
+Priority: HIGHEST - Create this page first (Week 1)
+
+TECHNICAL SPECIFICATIONS
+URL: /ssho-services-california/
+Page Title: SSHO Services California | Site Safety Health Officer | SDVOSB
+Meta Description: SDVOSB-certified SSHO services for federal military construction in California. EM 385-1-1 compliant Site Safety Health Officers. USACE, NAVFAC, VA projects.
+H1 Heading: SSHO Services for Federal Military Construction Projects
+Target Keywords: SSHO, Site Safety Health Officer, SSHO California, SSHO San Diego, SDVOSB SSHO, EM 385-1-1, USACE SSHO, NAVFAC SSHO, military construction safety
+
+NAVIGATION PLACEMENT
+Add to Services dropdown menu:
+Services
+  ├── Construction Safety
+  ├── SSHO Services   ← ADD HERE (between Construction Safety and Industrial Hygiene)
+  ├── Industrial Hygiene
+  └── [other services]
+
+═══════════════════════════════════════
+PAGE CONTENT (COPY/PASTE READY)
+═══════════════════════════════════════
+
+─── HERO SECTION ───
+H1 Heading:
+SSHO Services for Federal Military Construction Projects
+Subheading:
+SDVOSB-Certified Site Safety Health Officers | EM 385-1-1 Experts | California & Nationwide
+Hero Text:
+EHS Analytical Solutions provides certified Site Safety and Health Officers (SSHO) for federal military construction projects throughout California and nationwide. As a Service-Disabled Veteran-Owned Small Business (SDVOSB), we help prime contractors meet their small business subcontracting goals while ensuring full compliance with EM 385-1-1 safety requirements on USACE, NAVFAC, Air Force, and VA construction projects.
+CTA Button:
+Request SSHO Quote
+Image Recommendation: Construction site with workers wearing hard hats and safety vests, or military installation construction project
+
+─── WHY CHOOSE US SECTION ───
+Section Heading (H2):
+Why Federal Contractors Choose EHS Analytical Solutions for SSHO Services
+Intro Text:
+As a prime contractor on federal military construction projects, you need SSHO services from a qualified partner who understands EM 385-1-1 requirements and can help you meet small business subcontracting goals.
+Layout: 3-column layout with icons
+
+Column 1: SDVOSB Certified
+We're a certified Service-Disabled Veteran-Owned Small Business (SDVOSB), helping you meet federal subcontracting goals on USACE, NAVFAC, Air Force, Army, and VA construction projects. Our veteran leadership (USMC & Navy) understands military culture and base operations.
+Column 2: EM 385-1-1 Experts
+Our Certified Industrial Hygienists (CIH) and Certified Safety Professionals (CSP) are experts in EM 385-1-1 safety requirements. We develop site-specific Accident Prevention Plans (APP), Activity Hazard Analyses (AHA), conduct safety inspections, provide training, and ensure full compliance on your federal construction projects.
+Column 3: California & Nationwide Coverage
+Based in San Diego with extensive experience at California military installations and nationwide federal facilities. We provide dedicated SSHO services for projects of all sizes - from small renovations to major multi-year construction programs.
+
+─── SSHO SERVICES SECTION ───
+Section Heading (H2):
+Comprehensive SSHO Services for Federal Construction
+Intro Text:
+Our Site Safety and Health Officers provide complete construction safety support throughout your project lifecycle, from pre-construction planning through project closeout.
+Services List (with checkmarks):
+✓ Accident Prevention Plan (APP) Development
+✓ Activity Hazard Analysis (AHA) Creation & Review
+✓ Daily Safety Inspections & Documentation
+✓ Worker Safety Training & Toolbox Talks
+✓ Safety Meeting Facilitation
+✓ Incident Investigation & Reporting
+✓ Cal/OSHA & OSHA Compliance Support
+✓ Government Safety Inspection Support
+✓ Subcontractor Safety Coordination
+✓ Construction Safety Program Implementation
+✓ EM 385-1-1 Compliance Verification
+✓ Safety Record Keeping & Reporting
+
+─── FEDERAL AGENCIES SECTION ───
+Section Heading (H2):
+Federal Construction Projects We Support
+Intro Text:
+Our SSHO team has extensive experience supporting contractors on federal construction projects for:
+U.S. Army Corps of Engineers (USACE) - Military construction, civil works, environmental remediation
+Naval Facilities Engineering Systems Command (NAVFAC) - Navy and Marine Corps facilities construction, renovation, and repair projects
+Department of Veterans Affairs (VA) - Medical center construction, renovation, and facility improvements
+U.S. Air Force and Space Force - Installation construction, airfield improvements, facility modernization
+Department of Defense (DoD) - Multi-agency military construction programs
+General Services Administration (GSA) - Federal building construction and renovation
+
+─── SERVICE AREAS SECTION ───
+Section Heading (H2):
+California Military Installations & Nationwide Coverage
+Intro Text:
+Based in San Diego, California, we provide SSHO services throughout California and nationwide. Our team has extensive experience at major California military installations including:
+San Diego Area:
+• Naval Base San Diego
+• Marine Corps Air Station Miramar
+• Naval Air Station North Island
+• Marine Corps Recruit Depot San Diego
+• Camp Pendleton (Oceanside)
+Southern California:
+• Edwards Air Force Base
+• Naval Air Weapons Station China Lake
+• Marine Corps Air Ground Combat Center Twentynine Palms
+• Naval Base Ventura County (Point Mugu)
+Central & Northern California:
+• Vandenberg Space Force Base
+• Travis Air Force Base
+• Beale Air Force Base
+• Naval Postgraduate School (Monterey)
+
+We also provide SSHO services nationwide for federal construction projects at military installations throughout the United States.
+
+─── QUALIFICATIONS SECTION ───
+Section Heading (H2):
+Certified Safety Professionals You Can Trust
+Intro Text:
+Our Site Safety and Health Officers hold the highest industry certifications:
+• Certified Industrial Hygienist (CIH)
+• Certified Safety Professional (CSP)
+• Construction Health and Safety Technician (CHST)
+• 30-Hour OSHA Construction Safety Certification
+• EM 385-1-1 Safety and Health Requirements Training
+
+Our veteran-owned leadership brings military experience (USMC & U.S. Navy) and understands the unique requirements of working on active military installations.
+
+─── CALL-TO-ACTION SECTION ───
+Section Heading (H2):
+Partner with an SDVOSB for Your Next Federal Construction Project
+Body Text:
+Looking for a reliable SSHO partner for your USACE, NAVFAC, or other federal construction project? Contact us today for a capability statement and project quote. We respond to all inquiries within 24 hours.
+CTA Buttons (side by side):
+Button 1: 'Request Capability Statement' → Link to Contact page
+Button 2: 'Call (619) 288-3094' → Phone link
+
+─── FAQ SECTION ───
+Section Heading (H2):
+Frequently Asked Questions About SSHO Services
+Q1: What is an SSHO?
+A Site Safety and Health Officer (SSHO) is a qualified safety professional who serves as the contractor's primary safety representative on federal construction projects. The SSHO ensures compliance with EM 385-1-1 safety requirements, conducts daily inspections, develops safety plans, provides worker training, and serves as the main point of contact for government safety inspectors.
+Q2: When is an SSHO required?
+USACE, NAVFAC, and most federal construction contracts require a dedicated SSHO when the contract value exceeds $5 million or when the contracting officer determines project hazards warrant it. Review your contract's Section 01 35 26 for specific SSHO requirements.
+Q3: What qualifications does your SSHO staff have?
+Our SSHO team includes Certified Industrial Hygienists (CIH), Certified Safety Professionals (CSP), and Construction Health and Safety Technicians (CHST). All staff have 30-Hour OSHA Construction Safety certification, EM 385-1-1 training, and extensive experience on federal military construction projects.
+Q4: How does working with an SDVOSB help my company?
+As a certified Service-Disabled Veteran-Owned Small Business, we help prime contractors meet their small business subcontracting goals on federal projects. Subcontracting with us counts toward your SDVOSB participation requirements, helping you maintain compliance and improve your past performance record for future federal opportunities.
+Q5: What's your geographic coverage?
+We're based in San Diego and primarily serve California military installations, but we provide SSHO services nationwide for federal construction projects. Contact us to discuss your project location.
+Q6: How quickly can you mobilize an SSHO?
+We maintain a team of ready SSHO professionals and can typically mobilize within 1-2 weeks of contract award, depending on base access clearance timelines.
+
+IMAGE RECOMMENDATIONS
+Hero Image: Construction site with workers wearing hard hats and safety gear, preferably at a military installation or large-scale project
+Section Images: Safety inspection, worker training, safety meeting, military construction site
+Certification Logos: SDVOSB, CIH, CSP, CHST (use existing logos from About Us page)
+
+SEO KEYWORDS REFERENCE
+(Keywords already integrated into page content above)
+
+Primary Keywords:
+SSHO, Site Safety Health Officer, SSHO California, SSHO San Diego, SDVOSB SSHO
+Secondary Keywords:
+EM 385-1-1, USACE SSHO, NAVFAC SSHO, federal construction safety, military construction safety
+Long-tail Keywords:
+SSHO services Camp Pendleton, Site Safety Health Officer San Diego, veteran-owned SSHO, SDVOSB safety services
+
+
+═══════════════════════════════════════
+END OF PART 1 - SSHO SERVICES PAGE
+═══════════════════════════════════════

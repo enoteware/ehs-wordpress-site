@@ -1,0 +1,5 @@
+organize the repo with a better structure
+
+learn about the wp setup. 
+
+create backup files

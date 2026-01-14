@@ -1,0 +1,171 @@
+WEB DESIGNER INSTRUCTIONS - PART 3
+CONSTRUCTION SAFETY UPDATE + FEDERAL CONTRACTING PAGE
+SECTION 4: UPDATE EXISTING PAGE - CONSTRUCTION SAFETY CONSULTING
+TASK: Expand existing Construction Safety Consulting page with new content
+Current URL: /construction-safety-consulting/ (keep same URL)
+Update Page Title: Construction Safety Consulting | Federal & California Projects | SDVOSB
+Update Meta Description: Construction safety consulting for federal military, Caltrans, and private projects. SDVOSB/DVBE certified. EM 385-1-1 experts. California & nationwide.
+CONTENT TO ADD (Insert into existing page):
+INSTRUCTIONS: Keep all existing content. ADD the following new sections below. The goal is to make the page more comprehensive and keyword-rich.
+═══ NEW SECTION TO ADD: Markets We Serve ═══
+H2 Heading:
+Construction Safety Services Across All Market Segments
+Intro paragraph:
+EHS Analytical Solutions provides construction safety consulting services for federal military construction, California public works, and private sector projects. As an SDVOSB and DVBE-certified firm, we're uniquely positioned to support contractors on a wide range of construction projects.
+3-Column Market Breakdown:
+Column 1: Federal Military Construction
+We provide Site Safety Health Officer (SSHO) services, safety program development, and EM 385-1-1 compliance support for USACE, NAVFAC, Air Force, Army, and VA construction projects. Our SDVOSB certification helps prime contractors meet small business subcontracting goals while ensuring full safety compliance on military installations throughout California and nationwide.
+Services: SSHO staffing, APP development, AHA creation, safety inspections, EM 385-1-1 compliance
+Column 2: California Public Works & Caltrans
+Our DVBE certification makes us an ideal partner for contractors on Caltrans highway projects, state facility construction, and municipal public works. We provide Lead Compliance Plans, site safety representatives, exposure monitoring, and full Cal/OSHA compliance support. Our expertise in Caltrans specifications ensures your project stays compliant and on schedule.
+Services: Lead Compliance Plans, Safety Quality Control Manager (SQCM), Work Area Monitoring, Cal/OSHA compliance
+Column 3: Private Sector Construction
+We support general contractors, commercial developers, and industrial facility owners with construction safety consulting for projects of all sizes. From safety program development to on-site safety representation, we provide cost-effective solutions that reduce liability and improve safety performance. Our team has experience in biotech, pharmaceutical, aerospace, manufacturing, and commercial construction.
+Services: Safety program development, site safety officers, OSHA compliance, contractor safety management
+═══ NEW SECTION TO ADD: Why SDVOSB/DVBE Matters ═══
+H2 Heading:
+Veteran-Owned Excellence in Construction Safety
+Content:
+EHS Analytical Solutions is proudly owned and operated by disabled military veterans with decades of construction safety experience. Our certifications provide real value to your projects:
+SDVOSB Certification (Service-Disabled Veteran-Owned Small Business)
+Helps federal prime contractors meet small business subcontracting goals on USACE, NAVFAC, VA, and DoD construction projects. Subcontracting with us demonstrates your commitment to supporting veteran-owned businesses and improves your past performance ratings.
+DVBE Certification (Disabled Veteran Business Enterprise)
+Helps contractors meet DVBE participation goals on Caltrans and California state projects. Using DVBE subcontractors strengthens your bid competitiveness and supports your small business utilization plan.
+Veteran Leadership
+Our principals include USMC and U.S. Navy veterans who understand military culture, base access protocols, and the unique requirements of working on active military installations.
+═══ NEW SECTION TO ADD: Compliance Expertise ═══
+H2 Heading:
+Expert Knowledge of Federal & California Safety Requirements
+Content:
+Our construction safety consultants are experts in both federal and California-specific safety regulations:
+EM 385-1-1 Safety Requirements:
+The U.S. Army Corps of Engineers Safety and Health Requirements Manual (EM 385-1-1) governs all federal military construction. Our team has extensive experience developing Accident Prevention Plans (APP), Activity Hazard Analyses (AHA), conducting safety inspections, and ensuring full compliance with EM 385-1-1 on USACE and NAVFAC projects.
+Cal/OSHA Expertise:
+California has some of the most stringent construction safety requirements in the nation. Our Certified Industrial Hygienists and Certified Safety Professionals are experts in Cal/OSHA Title 8 construction standards, including lead compliance, silica exposure, confined space entry, fall protection, excavation safety, and more.
+OSHA Compliance:
+We support contractors nationwide with OSHA 1926 construction standards compliance, including development of site-specific safety plans, worker training, hazard assessments, and OSHA inspection support.
+═══ NEW SECTION TO ADD: Geographic Coverage ═══
+H2 Heading:
+California-Based with Nationwide Construction Safety Services
+Content:
+Headquartered in San Diego, California, we provide construction safety consulting throughout California and nationwide:
+	•	California Coverage: San Diego, Los Angeles, Orange County, Bay Area (Oakland, San Jose), Sacramento, Central Valley (Fresno, Bakersfield), and all 12 Caltrans districts
+	•	Nationwide Projects: We support federal construction projects at military installations throughout the United States
+	•	Military Installations: Naval Base San Diego, Camp Pendleton, MCAS Miramar, NAS North Island, Edwards AFB, Vandenberg SFB, Travis AFB, Beale AFB, and military bases nationwide
+PLACEMENT NOTE: Insert these 4 new sections after the existing introductory content but before the final call-to-action. They should flow naturally with the existing page structure.
+ADDITIONAL KEYWORDS TO NATURALLY INTEGRATE:
+Throughout the existing and new content, ensure these keywords appear naturally:
+	•	• Construction safety California
+	•	• Military construction safety
+	•	• Federal construction safety consultant
+	•	• USACE construction safety
+	•	• Caltrans safety services
+	•	• Construction site safety representative
+	•	• Heavy civil construction safety
+═══════════ END OF CONSTRUCTION SAFETY UPDATES ═══════════
+SECTION 5: NEW PAGE #3 - FEDERAL CONTRACTING SERVICES
+PRIORITY: MEDIUM-HIGH
+PAGE SPECIFICATIONS:
+Page URL: /federal-contracting-sdvosb/
+Page Title: SDVOSB EHS Services for Federal Contractors | Veteran-Owned Safety Partner
+Meta Description: Partner with an SDVOSB for EHS services on federal construction projects. Help meet subcontracting goals with veteran-owned safety, SSHO, and IH services.
+Navigation Menu: Add under 'Services' dropdown OR as standalone top-level menu item
+PAGE CONTENT (Copy/Paste Ready):
+═══ HERO SECTION ═══
+H1 Headline:
+Your SDVOSB Partner for Federal Construction EHS Services
+Subheadline:
+Certified Service-Disabled Veteran-Owned Small Business | USACE, NAVFAC & DoD Projects
+Hero Paragraph:
+EHS Analytical Solutions is a certified Service-Disabled Veteran-Owned Small Business (SDVOSB) providing safety, industrial hygiene, and environmental services for federal construction projects. As your SDVOSB subcontractor, we help you meet small business subcontracting goals while delivering professional EHS services on USACE, NAVFAC, Air Force, Army, and VA construction projects nationwide.
+CTA Button:
+Button Text: 'Request Capability Statement'
+Button Link: Contact page
+═══ MAIN CONTENT SECTION 1: Why Partner With Us ═══
+H2 Heading:
+Why Federal Prime Contractors Choose EHS Analytical Solutions
+Intro paragraph:
+As a federal prime contractor, you need reliable SDVOSB partners who understand military construction requirements and deliver quality results. Here's what makes us different:
+3-Column Benefits:
+Column 1: Meet Your SDVOSB Goals
+Federal construction contracts require prime contractors to meet small business subcontracting goals, including SDVOSB participation targets. Subcontracting EHS services with us helps you achieve these goals while ensuring professional safety compliance. Our work counts toward your subcontracting plan and strengthens your past performance record.
+Column 2: Proven Federal Experience
+We understand EM 385-1-1 requirements, base access procedures, government inspections, and the unique challenges of working on active military installations. Our Certified Industrial Hygienists (CIH) and Certified Safety Professionals (CSP) have extensive experience supporting federal construction projects across the country.
+Column 3: Veteran Leadership
+Our company is owned and operated by disabled veterans (USMC & U.S. Navy) who understand military culture and the importance of mission success. We're not just checking a box - we're fellow veterans committed to supporting the contractors who build America's military infrastructure.
+═══ MAIN CONTENT SECTION 2: Services ═══
+H2 Heading:
+SDVOSB EHS Services for Federal Construction
+Intro:
+We provide comprehensive EHS support for your federal construction projects:
+Site Safety and Health Officer (SSHO) Services
+Dedicated safety professionals who serve as your on-site safety representative, develop Accident Prevention Plans (APP) and Activity Hazard Analyses (AHA), conduct daily inspections, provide worker training, and ensure EM 385-1-1 compliance. Required on most federal construction projects over $5 million.
+Industrial Hygiene Services
+Exposure monitoring, air quality assessments, hazardous materials surveys (lead, asbestos, silica), indoor air quality investigations, and compliance support from Certified Industrial Hygienists (CIH).
+Construction Safety Program Development
+Site-specific safety plans, confined space programs, fall protection plans, excavation safety procedures, crane safety programs, and comprehensive construction safety and health programs.
+Environmental Consulting
+Environmental compliance support, stormwater pollution prevention plans (SWPPP), spill prevention, hazardous waste management, and environmental inspections.
+Worker Safety Training
+OSHA 10/30-hour construction training, competent person training, toolbox talks, new hire orientations, and project-specific safety training.
+═══ MAIN CONTENT SECTION 3: Federal Agencies ═══
+H2 Heading:
+Federal Construction Projects We Support
+Content:
+Our team has experience supporting prime contractors on federal construction projects for:
+	•	• U.S. Army Corps of Engineers (USACE) - Military construction, civil works, environmental projects
+	•	• Naval Facilities Engineering Systems Command (NAVFAC) - Navy and Marine Corps facilities
+	•	• U.S. Air Force and Space Force - Installation construction and modernization
+	•	• U.S. Army - Installation construction and support facilities
+	•	• Department of Veterans Affairs (VA) - Medical center construction and renovation
+	•	• General Services Administration (GSA) - Federal building construction
+	•	• Department of Energy (DOE) - National laboratory and energy facility projects
+═══ MAIN CONTENT SECTION 4: Partnership Process ═══
+H2 Heading:
+How to Partner with Us on Your Next Federal Project
+Content (numbered steps):
+1. Request Our Capability Statement
+Contact us to receive our SDVOSB capability statement, which includes our NAICS codes, past performance, certifications, and service offerings. We respond within 24 hours.
+2. Discuss Your Project Requirements
+Share your RFP/solicitation and project scope. We'll review requirements and identify where our SDVOSB EHS services fit your subcontracting plan.
+3. Receive Competitive Pricing
+We provide detailed cost proposals that align with your budget and project timeline. Our pricing is competitive while maintaining the highest quality standards.
+4. Execute Subcontract & Mobilize
+Once you're awarded the prime contract, we execute our subcontract and mobilize quickly. We handle all base access clearances, badging, and compliance requirements.
+5. Deliver Excellence Throughout Your Project
+Our team works seamlessly with your project management to deliver professional EHS services on time and on budget. We maintain regular communication and documentation to support your reporting requirements.
+═══ MAIN CONTENT SECTION 5: Certifications ═══
+H2 Heading:
+Certifications & Qualifications
+Content:
+Small Business Certifications:
+	•	• Service-Disabled Veteran-Owned Small Business (SDVOSB) - Certified by SBA
+	•	• Disabled Veteran Business Enterprise (DVBE) - California State Certification #2017031
+	•	• Small Local Business Enterprise (SLBE) - San Diego County
+Professional Certifications:
+	•	• Certified Industrial Hygienist (CIH)
+	•	• Certified Safety Professional (CSP)
+	•	• Certified Asbestos Consultant (CAC)
+	•	• Construction Health and Safety Technician (CHST)
+	•	• 30-Hour OSHA Construction Safety
+Registrations:
+	•	• SAM.gov Registered (Active)
+	•	• California Public Works License #PW-LR-1000582275
+═══ CALL-TO-ACTION SECTION ═══
+H2 Heading:
+Ready to Partner on Your Next Federal Project?
+Content:
+Whether you're pursuing a USACE construction contract, NAVFAC project, or other federal opportunity, we're here to support your SDVOSB subcontracting requirements with professional EHS services. Contact us today for a capability statement and to discuss your upcoming projects.
+CTA Buttons:
+	•	Button 1: 'Request Capability Statement' → Contact page
+	•	Button 2: 'Schedule a Call' → Contact page or Calendly link
+	•	Button 3: 'Call (619) 288-3094' → Phone link
+IMAGE RECOMMENDATIONS:
+	•	Hero Image: Military construction site, prime contractor meeting, or federal building construction
+	•	Section Images: SDVOSB certification logo (official), handshake/partnership imagery, construction safety scene
+	•	Icons: Professional certification badges (CIH, CSP, SDVOSB)
+TARGET SEO KEYWORDS:
+	•	Primary: SDVOSB, SDVOSB subcontractor, veteran-owned safety services, federal contractor EHS
+	•	Secondary: USACE subcontractor, NAVFAC subcontractor, federal construction safety, SDVOSB safety
+	•	Long-tail: SDVOSB SSHO services, veteran-owned industrial hygiene, disabled veteran business safety
+═══════════ END OF PAGE #3 CONTENT ═══════════
