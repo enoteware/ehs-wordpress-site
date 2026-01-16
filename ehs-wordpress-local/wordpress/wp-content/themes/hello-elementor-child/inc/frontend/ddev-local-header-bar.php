@@ -93,6 +93,11 @@ function ehs_ddev_local_banner() {
         return;
     }
 
+    // Check if banner is disabled in settings
+    if (!get_option('ehs_show_local_banner', true)) {
+        return;
+    }
+
     $hostname = gethostname();
     $server_info = $hostname ?: 'Unknown Server';
     ?>
@@ -111,3 +116,42 @@ add_action('wp_head', 'ehs_ddev_admin_bar_local_badge_styles');
 add_action('admin_head', 'ehs_ddev_admin_bar_local_badge_styles');
 add_action('wp_body_open', 'ehs_ddev_local_banner', 1);
 add_action('wp_footer', 'ehs_ddev_local_banner', 1);
+
+/**
+ * Register admin setting to toggle the local dev banner.
+ */
+function ehs_ddev_register_settings() {
+    if (!ehs_is_ddev_environment()) {
+        return;
+    }
+
+    register_setting('general', 'ehs_show_local_banner', array(
+        'type' => 'boolean',
+        'default' => true,
+        'sanitize_callback' => 'rest_sanitize_boolean',
+    ));
+
+    add_settings_field(
+        'ehs_show_local_banner',
+        'Local Dev Banner',
+        'ehs_ddev_banner_toggle_callback',
+        'general',
+        'default',
+        array('label_for' => 'ehs_show_local_banner')
+    );
+}
+add_action('admin_init', 'ehs_ddev_register_settings');
+
+/**
+ * Render the toggle checkbox.
+ */
+function ehs_ddev_banner_toggle_callback() {
+    $value = get_option('ehs_show_local_banner', true);
+    ?>
+    <label>
+        <input type="checkbox" name="ehs_show_local_banner" id="ehs_show_local_banner" value="1" <?php checked($value, true); ?>>
+        Show the orange "LOCAL DEVELOPMENT" banner at the top of all pages
+    </label>
+    <p class="description">Uncheck to hide the local development banner while keeping the admin bar badge.</p>
+    <?php
+}

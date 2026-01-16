@@ -115,7 +115,9 @@ p, div, span, a, li {
 
 /* Default Link Styles */
 /* Override any Elementor global styles with brand-consistent link colors */
-a {
+/* Visited links styled same as unvisited to prevent color change */
+a,
+a:visited {
     color: var(--ehs-navy);
     text-decoration: none;
     transition: color 0.2s ease;
@@ -124,10 +126,6 @@ a {
 a:hover,
 a:focus {
     color: var(--ehs-gold);
-}
-
-a:visited {
-    color: var(--ehs-navy);
 }
 
 /* Service Hero Section */
@@ -760,9 +758,45 @@ a:visited {
 }
 
 .service-related__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Horizontal cards in related services */
+.service-related .service-card {
+    flex-direction: row;
+    align-items: stretch;
+}
+
+.service-related .service-card__image,
+.service-related .service-card__icon {
+    flex: 0 0 280px;
+    width: 280px;
+    height: auto;
+    min-height: 160px;
+}
+
+.service-related .service-card__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 24px 30px;
+}
+
+/* Related services mobile - stack vertically */
+@media (max-width: 768px) {
+    .service-related .service-card {
+        flex-direction: column;
+    }
+
+    .service-related .service-card__image,
+    .service-related .service-card__icon {
+        flex: none;
+        width: 100%;
+        height: 180px;
+    }
 }
 
 /* Service Card */
@@ -1349,6 +1383,58 @@ a:visited {
     }
 }
 
+/* ========================================
+   HORIZONTAL CARD VARIANT
+   Full-width cards with image left, content right
+   ======================================== */
+
+.card-horizontal {
+    flex-direction: row !important;
+    align-items: stretch;
+    width: 100%;
+}
+
+/* Image - fixed width left side */
+.card-horizontal .service-card__image,
+.card-horizontal .service-card__icon,
+.card-horizontal .credential-card__image,
+.card-horizontal .article-card__image,
+.card-horizontal .ehs-post-card-image {
+    flex: 0 0 280px;
+    width: 280px;
+    height: auto;
+    min-height: 180px;
+}
+
+/* Content - fills remaining space */
+.card-horizontal .service-card__content,
+.card-horizontal .credential-card__content,
+.card-horizontal .article-card__content,
+.card-horizontal .ehs-post-card-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 24px 30px;
+}
+
+/* Responsive: Stack on mobile */
+@media (max-width: 768px) {
+    .card-horizontal {
+        flex-direction: column !important;
+    }
+
+    .card-horizontal .service-card__image,
+    .card-horizontal .service-card__icon,
+    .card-horizontal .credential-card__image,
+    .card-horizontal .article-card__image,
+    .card-horizontal .ehs-post-card-image {
+        flex: none;
+        width: 100%;
+        height: 200px;
+    }
+}
+
 /* Credential Single Template */
 .credential-single-logo {
     max-width: 100%;
@@ -1424,11 +1510,6 @@ a:visited {
         margin-bottom: 30px;
     }
 
-    /* Related Services - 2 columns */
-    .service-related__grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
     /* Article Cards - 2 columns */
     .article-related__grid {
         grid-template-columns: repeat(2, 1fr);
@@ -1436,12 +1517,6 @@ a:visited {
 }
 
 @media (max-width: 768px) {
-    /* Related Services - single column */
-    .service-related__grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
     .service-related__title {
         font-size: 1.5rem;
         margin-bottom: 30px;
@@ -1618,6 +1693,10 @@ a:visited {
     box-shadow: 0 8px 20px rgba(21, 117, 55, 0.4);
 }
 
+.ehs-btn-solid-green:visited {
+    color: #ffffff;
+}
+
 /* Solid Gold (Darker) */
 .ehs-btn-solid-gold-dark {
     background-color: #d28c0e;
@@ -1764,6 +1843,8 @@ a:visited {
     .ehs-btn-lg {
         padding: 18px 36px;
         font-size: 16px;
+        width: 100%;
+        text-align: center;
     }
 }
 
@@ -2814,6 +2895,8 @@ a:visited {
     top: 100%;
     left: 0;
     right: 0;
+    padding-top: 16px;
+    padding-bottom: 22px;
     background: var(--ehs-white);
     box-shadow: 0 3px 10px rgba(30, 64, 90, 0.31);
     max-height: 0;
@@ -3008,16 +3091,25 @@ a:visited {
     }
 
     /* Show button in mobile menu */
-    .ehs-header-mobile-menu .ehs-header-button {
+    .ehs-header-mobile-menu .hero-cta-group {
         display: block;
         margin-top: 20px;
         padding: 0 20px;
+        width: 100%;
+        box-sizing: border-box;
     }
 
-    .ehs-header-mobile-menu .ehs-header-button .ehs-btn {
+    .ehs-header-mobile-menu .hero-cta-group .ehs-btn {
         width: 100%;
         text-align: center;
         display: block;
+        box-sizing: border-box;
+    }
+
+    /* Prevent visited color change on mobile menu button */
+    .ehs-header-mobile-menu .hero-cta-group .ehs-btn:visited {
+        color: #ffffff !important;
+        background-color: #157537 !important;
     }
 }
 

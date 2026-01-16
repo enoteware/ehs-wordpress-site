@@ -111,8 +111,8 @@ $contact_url = esc_url( home_url( '/contact/' ) );
 				// PHPCS - escaped by WordPress with "wp_nav_menu"
 				echo $mobile_nav_menu; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				?>
-				<div class="ehs-header-button">
-					<a href="<?php echo $contact_url; ?>" class="ehs-btn ehs-btn-solid-primary ehs-btn-md">
+				<div class="hero-cta-group">
+					<a href="<?php echo $contact_url; ?>" class="ehs-btn ehs-btn-solid-green ehs-btn-lg">
 						Get Started
 					</a>
 				</div>
