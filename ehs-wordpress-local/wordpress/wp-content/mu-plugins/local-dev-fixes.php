@@ -47,6 +47,31 @@ add_filter( 'deprecated_argument_trigger_error', '__return_false', 999 );
 add_filter( 'deprecated_hook_trigger_error', '__return_false', 999 );
 
 /**
+ * Suppress jQuery Migrate console warnings
+ * jQuery Migrate is included by WordPress for compatibility but shows console warnings
+ * This is harmless but can clutter the console in development
+ */
+add_action('wp_enqueue_scripts', function() {
+    if (!is_admin()) {
+        // Override jQuery Migrate's console.warn to suppress migration warnings
+        wp_add_inline_script('jquery-migrate', '
+            (function() {
+                if (typeof console !== "undefined" && console.warn) {
+                    var originalWarn = console.warn;
+                    console.warn = function() {
+                        // Suppress jQuery Migrate warnings
+                        if (arguments[0] && typeof arguments[0] === "string" && arguments[0].indexOf("JQMIGRATE") === 0) {
+                            return;
+                        }
+                        originalWarn.apply(console, arguments);
+                    };
+                }
+            })();
+        ', 'after');
+    }
+}, 999);
+
+/**
  * Allow SVG uploads in local DDEV only (admin only).
  * This is for importing a small SVG icon set for Services.
  */

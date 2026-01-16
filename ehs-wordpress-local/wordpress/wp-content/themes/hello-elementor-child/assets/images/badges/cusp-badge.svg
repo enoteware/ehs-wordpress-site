@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
+  <rect width="120" height="120" rx="10" fill="#003366"/>
+  <circle cx="60" cy="35" r="22" fill="#FFB81C"/>
+  <text x="60" y="44" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#003366">CUSP</text>
+  <text x="60" y="72" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">Certified Utility</text>
+  <text x="60" y="83" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">Safety</text>
+  <text x="60" y="94" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">Professional</text>
+</svg>

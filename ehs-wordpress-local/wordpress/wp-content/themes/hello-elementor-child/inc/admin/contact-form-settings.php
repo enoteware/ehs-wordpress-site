@@ -33,9 +33,10 @@ function ehs_render_contact_form_settings_page() {
         update_option('ehs_resend_api_key', sanitize_text_field($_POST['ehs_resend_api_key']));
         update_option('ehs_resend_from_email', sanitize_email($_POST['ehs_resend_from_email']));
         update_option('ehs_resend_to_email', sanitize_email($_POST['ehs_resend_to_email']));
+        update_option('ehs_resend_bcc_email', sanitize_email($_POST['ehs_resend_bcc_email']));
         update_option('ehs_resend_from_name', sanitize_text_field($_POST['ehs_resend_from_name']));
-        update_option('ehs_recaptcha_site_key', sanitize_text_field($_POST['ehs_recaptcha_site_key']));
-        update_option('ehs_recaptcha_secret_key', sanitize_text_field($_POST['ehs_recaptcha_secret_key']));
+        update_option('ehs_turnstile_site_key', sanitize_text_field($_POST['ehs_turnstile_site_key']));
+        update_option('ehs_turnstile_secret_key', sanitize_text_field($_POST['ehs_turnstile_secret_key']));
         
         echo '<div class="notice notice-success"><p>Settings saved successfully!</p></div>';
     }
@@ -44,9 +45,10 @@ function ehs_render_contact_form_settings_page() {
     $resend_api_key = get_option('ehs_resend_api_key', '');
     $resend_from_email = get_option('ehs_resend_from_email', get_option('admin_email'));
     $resend_to_email = get_option('ehs_resend_to_email', get_option('admin_email'));
+    $resend_bcc_email = get_option('ehs_resend_bcc_email', '');
     $resend_from_name = get_option('ehs_resend_from_name', get_bloginfo('name'));
-    $recaptcha_site_key = get_option('ehs_recaptcha_site_key', '');
-    $recaptcha_secret_key = get_option('ehs_recaptcha_secret_key', '');
+    $turnstile_site_key = get_option('ehs_turnstile_site_key', '');
+    $turnstile_secret_key = get_option('ehs_turnstile_secret_key', '');
     ?>
     <div class="wrap">
         <h1>Contact Form Settings</h1>
@@ -119,42 +121,65 @@ function ehs_render_contact_form_settings_page() {
                         <p class="description">Email address to receive contact form submissions</p>
                     </td>
                 </tr>
+                <tr>
+                    <th scope="row">
+                        <label for="ehs_resend_bcc_email">BCC Email</label>
+                    </th>
+                    <td>
+                        <input
+                            type="email"
+                            id="ehs_resend_bcc_email"
+                            name="ehs_resend_bcc_email"
+                            value="<?php echo esc_attr($resend_bcc_email); ?>"
+                            class="regular-text"
+                        />
+                        <p class="description">Optional: Send a blind copy to this address</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">Test Email</th>
+                    <td>
+                        <button type="button" id="ehs-test-resend" class="button button-secondary">Send Test Email</button>
+                        <span id="ehs-test-resend-status" style="margin-left: 10px;"></span>
+                        <p class="description">Send a test email to verify your Resend API configuration (saves settings first)</p>
+                    </td>
+                </tr>
             </table>
 
-            <h2>reCAPTCHA v3 Configuration (Optional)</h2>
-            <p>Add bot protection using Google reCAPTCHA v3. Get your keys from <a href="https://www.google.com/recaptcha/admin" target="_blank">Google reCAPTCHA</a></p>
-            
+            <h2>Cloudflare Turnstile Configuration (Recommended)</h2>
+            <p>Add privacy-friendly bot protection using Cloudflare Turnstile. Get your keys from <a href="https://dash.cloudflare.com/?to=/:account/turnstile" target="_blank">Cloudflare Dashboard</a></p>
+
             <table class="form-table">
                 <tr>
                     <th scope="row">
-                        <label for="ehs_recaptcha_site_key">Site Key</label>
+                        <label for="ehs_turnstile_site_key">Site Key</label>
                     </th>
                     <td>
-                        <input 
-                            type="text" 
-                            id="ehs_recaptcha_site_key" 
-                            name="ehs_recaptcha_site_key" 
-                            value="<?php echo esc_attr($recaptcha_site_key); ?>" 
+                        <input
+                            type="text"
+                            id="ehs_turnstile_site_key"
+                            name="ehs_turnstile_site_key"
+                            value="<?php echo esc_attr($turnstile_site_key); ?>"
                             class="regular-text"
-                            placeholder="6Lcxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+                            placeholder="0x4AAAAAAxxxxxxxxxxxxxx"
                         />
-                        <p class="description">reCAPTCHA v3 Site Key (public)</p>
+                        <p class="description">Turnstile Site Key (public)</p>
                     </td>
                 </tr>
                 <tr>
                     <th scope="row">
-                        <label for="ehs_recaptcha_secret_key">Secret Key</label>
+                        <label for="ehs_turnstile_secret_key">Secret Key</label>
                     </th>
                     <td>
-                        <input 
-                            type="text" 
-                            id="ehs_recaptcha_secret_key" 
-                            name="ehs_recaptcha_secret_key" 
-                            value="<?php echo esc_attr($recaptcha_secret_key); ?>" 
+                        <input
+                            type="text"
+                            id="ehs_turnstile_secret_key"
+                            name="ehs_turnstile_secret_key"
+                            value="<?php echo esc_attr($turnstile_secret_key); ?>"
                             class="regular-text"
-                            placeholder="6Lcxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+                            placeholder="0x4AAAAAAxxxxxxxxxxxxxx"
                         />
-                        <p class="description">reCAPTCHA v3 Secret Key (private)</p>
+                        <p class="description">Turnstile Secret Key (private)</p>
                     </td>
                 </tr>
             </table>
@@ -198,5 +223,105 @@ echo ehs_render_contact_form(array(
 &lt;!-- Trigger button --&gt;
 &lt;button onclick="ehsOpenContactModal('contact-modal')"&gt;Open Contact Form&lt;/button&gt;</code></pre>
     </div>
+
+    <script>
+    jQuery(document).ready(function($) {
+        $('#ehs-test-resend').on('click', function() {
+            var $btn = $(this);
+            var $status = $('#ehs-test-resend-status');
+
+            $btn.prop('disabled', true).text('Sending...');
+            $status.html('');
+
+            $.ajax({
+                url: ajaxurl,
+                type: 'POST',
+                data: {
+                    action: 'ehs_test_resend_email',
+                    nonce: '<?php echo wp_create_nonce("ehs_test_resend_nonce"); ?>',
+                    api_key: $('#ehs_resend_api_key').val(),
+                    from_email: $('#ehs_resend_from_email').val(),
+                    from_name: $('#ehs_resend_from_name').val(),
+                    to_email: $('#ehs_resend_to_email').val()
+                },
+                success: function(response) {
+                    if (response.success) {
+                        $status.html('<span style="color: green;">✓ ' + response.data.message + '</span>');
+                    } else {
+                        $status.html('<span style="color: red;">✗ ' + response.data.message + '</span>');
+                    }
+                },
+                error: function() {
+                    $status.html('<span style="color: red;">✗ Request failed</span>');
+                },
+                complete: function() {
+                    $btn.prop('disabled', false).text('Send Test Email');
+                }
+            });
+        });
+    });
+    </script>
     <?php
 }
+
+/**
+ * AJAX handler for test email
+ */
+function ehs_handle_test_resend_email() {
+    if (!current_user_can('manage_options')) {
+        wp_send_json_error(array('message' => 'Unauthorized'));
+        return;
+    }
+
+    if (!isset($_POST['nonce']) || !wp_verify_nonce($_POST['nonce'], 'ehs_test_resend_nonce')) {
+        wp_send_json_error(array('message' => 'Security check failed'));
+        return;
+    }
+
+    $api_key = sanitize_text_field($_POST['api_key'] ?? '');
+    $from_email = sanitize_email($_POST['from_email'] ?? '');
+    $from_name = sanitize_text_field($_POST['from_name'] ?? get_bloginfo('name'));
+    $to_email = sanitize_email($_POST['to_email'] ?? '');
+
+    if (empty($api_key)) {
+        wp_send_json_error(array('message' => 'API key is required'));
+        return;
+    }
+
+    if (empty($from_email) || empty($to_email)) {
+        wp_send_json_error(array('message' => 'From and To email addresses are required'));
+        return;
+    }
+
+    // Send test email via Resend API
+    $response = wp_remote_post('https://api.resend.com/emails', array(
+        'headers' => array(
+            'Authorization' => 'Bearer ' . $api_key,
+            'Content-Type' => 'application/json',
+        ),
+        'body' => json_encode(array(
+            'from' => $from_name . ' <' . $from_email . '>',
+            'to' => array($to_email),
+            'subject' => 'EHS Analytical - Test Email',
+            'html' => '<h2>Test Email from EHS Analytical Contact Form</h2><p>This is a test email to verify your Resend API configuration is working correctly.</p><p>Sent at: ' . current_time('mysql') . '</p>',
+            'text' => "Test Email from EHS Analytical Contact Form\n\nThis is a test email to verify your Resend API configuration is working correctly.\n\nSent at: " . current_time('mysql'),
+        )),
+        'timeout' => 15,
+    ));
+
+    if (is_wp_error($response)) {
+        wp_send_json_error(array('message' => 'API Error: ' . $response->get_error_message()));
+        return;
+    }
+
+    $status_code = wp_remote_retrieve_response_code($response);
+    $body = json_decode(wp_remote_retrieve_body($response), true);
+
+    if ($status_code === 200) {
+        wp_send_json_success(array('message' => 'Test email sent to ' . $to_email));
+    } else {
+        $error_msg = isset($body['message']) ? $body['message'] : 'Unknown error (HTTP ' . $status_code . ')';
+        wp_send_json_error(array('message' => $error_msg));
+    }
+}
+add_action('wp_ajax_ehs_test_resend_email', 'ehs_handle_test_resend_email');

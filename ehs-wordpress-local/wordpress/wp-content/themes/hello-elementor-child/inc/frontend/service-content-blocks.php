@@ -152,14 +152,56 @@ function ehs_service_faq($faqs = array(), $section_title = 'Frequently Asked Que
 }
 
 /**
- * Output call-to-action section
+ * Output unified call-to-action section (consistent across all pages)
  * 
+ * This function provides a consistent CTA that matches across all pages.
+ * Use this instead of custom CTA implementations for consistency.
+ * 
+ * @param string $title Optional custom title (defaults to standard CTA title)
+ * @param string $text Optional custom text (defaults to standard CTA text)
+ * @param bool $show_phone_button Whether to show phone button (default: true)
+ */
+function ehs_unified_cta($title = '', $text = '', $show_phone_button = true) {
+    // Default unified CTA content
+    if (empty($title)) {
+        $title = 'Ready to Work with California\'s Leading EHS Firm?';
+    }
+    if (empty($text)) {
+        $text = 'Contact us today to discuss your project needs with our certified EHS professionals.';
+    }
+    
+    $contact_url = home_url('/contact/');
+    $phone_number = ehs_get_option('phone');
+    $phone_link = ehs_get_phone(true);
+    ?>
+    <section class="service-cta">
+        <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <h2><?php echo esc_html($title); ?></h2>
+            <p><?php echo wp_kses_post($text); ?></p>
+            <div class="service-cta-buttons">
+                <a href="<?php echo esc_url($contact_url); ?>" class="ehs-btn ehs-btn-solid-secondary ehs-btn-lg">Contact Us Today</a>
+                <?php if ($show_phone_button && $phone_number) : ?>
+                    <a href="tel:<?php echo esc_attr($phone_link); ?>" class="ehs-btn ehs-btn-outline-white ehs-btn-lg">
+                        <span style="font-size: 1.2rem; font-weight: 700;"><?php echo esc_html($phone_number); ?></span>
+                    </a>
+                <?php endif; ?>
+            </div>
+        </div>
+    </section>
+    <?php
+}
+
+/**
+ * Output call-to-action section (legacy function - use ehs_unified_cta instead)
+ * 
+ * @deprecated Use ehs_unified_cta() for consistency across all pages
  * @param string $title CTA title
  * @param string $text CTA text
  * @param string $button_text Button text
  * @param string $button_url Button URL
  */
 function ehs_service_cta($title = '', $text = '', $button_text = 'Get a Free Quote', $button_url = '') {
+    // For backward compatibility, call unified CTA with defaults
     if (empty($title)) {
         $title = 'Ready to Get Started?';
     }
@@ -169,12 +211,27 @@ function ehs_service_cta($title = '', $text = '', $button_text = 'Get a Free Quo
     if (empty($button_url)) {
         $button_url = home_url('/contact/');
     }
+    
+    // Use unified CTA but allow custom button text
     ?>
-    <div class="service-cta">
-        <h2><?php echo esc_html($title); ?></h2>
-        <p><?php echo wp_kses_post($text); ?></p>
-        <a href="<?php echo esc_url($button_url); ?>" class="service-cta-button"><?php echo esc_html($button_text); ?></a>
-    </div>
+    <section class="service-cta">
+        <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <h2><?php echo esc_html($title); ?></h2>
+            <p><?php echo wp_kses_post($text); ?></p>
+            <div class="service-cta-buttons">
+                <a href="<?php echo esc_url($button_url); ?>" class="ehs-btn ehs-btn-solid-secondary ehs-btn-lg"><?php echo esc_html($button_text); ?></a>
+                <?php
+                $phone_number = ehs_get_option('phone');
+                $phone_link = ehs_get_phone(true);
+                if ($phone_number) :
+                ?>
+                    <a href="tel:<?php echo esc_attr($phone_link); ?>" class="ehs-btn ehs-btn-outline-white ehs-btn-lg">
+                        <span style="font-size: 1.2rem; font-weight: 700;"><?php echo esc_html($phone_number); ?></span>
+                    </a>
+                <?php endif; ?>
+            </div>
+        </div>
+    </section>
     <?php
 }
 
@@ -466,7 +523,21 @@ function ehs_render_service_card($service) {
         return '';
     }
 
-    $short_desc = get_post_meta($service->ID, 'service_short_description', true);
+    // Get excerpt first (SEO-optimized), fallback to short description
+    $excerpt = get_post_field('post_excerpt', $service->ID);
+    if (empty($excerpt) || strlen(trim($excerpt)) < 20) {
+        $short_desc = get_post_meta($service->ID, 'service_short_description', true);
+        $excerpt = $short_desc ? $short_desc : '';
+    }
+    
+    // Clean excerpt - remove ellipses and HTML entities
+    if (!empty($excerpt)) {
+        $excerpt = html_entity_decode($excerpt, ENT_QUOTES, 'UTF-8');
+        $excerpt = rtrim($excerpt, '.…');
+        $excerpt = preg_replace('/\.{2,}/', '.', $excerpt);
+        $excerpt = trim($excerpt);
+    }
+    
     $thumbnail = get_the_post_thumbnail_url($service->ID, 'medium');
     $icon_id = get_post_meta($service->ID, 'service_icon', true);
 
@@ -488,9 +559,9 @@ function ehs_render_service_card($service) {
             <h3 class="service-card__title">
                 <?php echo esc_html($service->post_title); ?>
             </h3>
-            <?php if ($short_desc) : ?>
+            <?php if (!empty($excerpt)) : ?>
                 <p class="service-card__excerpt">
-                    <?php echo esc_html(wp_trim_words($short_desc, 20)); ?>
+                    <?php echo esc_html(wp_trim_words($excerpt, 20)); ?>
                 </p>
             <?php endif; ?>
             <a href="<?php echo esc_url(get_permalink($service->ID)); ?>"

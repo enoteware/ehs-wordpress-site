@@ -1,0 +1,46 @@
+{
+  "permissions": {
+    "read": {
+      "deny": [
+        ".env",
+        ".env.*",
+        "**/.env",
+        "**/.env.*",
+        "ehs-wordpress-local/.ddev/traefik/certs/",
+        "**/*.crt",
+        "**/*.key",
+        "**/*.pem",
+        "uploads-backup.tar.gz",
+        "**/*.sql",
+        "**/*.sql.gz"
+      ]
+    },
+    "write": {
+      "deny": [
+        ".env",
+        ".env.*",
+        "**/.env",
+        "**/.env.*",
+        "ehs-wordpress-local/.ddev/traefik/certs/",
+        "**/*.crt",
+        "**/*.key",
+        "**/*.pem"
+      ]
+    }
+  },
+  "indexing": {
+    "exclude": [
+      "ehs-wordpress-local/wordpress/wp-content/uploads/",
+      "ehs-wordpress-local/wordpress/wp-content/plugins/",
+      "ehs-wordpress-local/wordpress/wp-admin/",
+      "ehs-wordpress-local/wordpress/wp-includes/",
+      "ehs-wordpress-local/exports/",
+      "node_modules/",
+      "**/node_modules/",
+      "project-organization/02-micro-site-vercel/deployed-site/",
+      "ehs-wordpress-local/screenshots-comparison/",
+      "__pycache__/",
+      "**/__pycache__/"
+    ]
+  }
+}

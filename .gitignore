@@ -84,3 +84,60 @@ ehs-wordpress-local/*.php
 # Playwright
 .playwright-mcp/
 project-organization/02-micro-site-vercel/deployed-site/constructionsafety-microsite/
+
+# Node modules (anywhere in repo)
+node_modules/
+**/node_modules/
+
+# Temporary and generated files
+*.tmp
+temp_*.json
+tmp-*.json
+*.bak
+*.swp
+*.swo
+*~
+
+# Screenshots and comparison files (generated artifacts)
+ehs-wordpress-local/screenshots-comparison/
+*.png
+*.jpg
+*.jpeg
+!ehs-wordpress-local/wordpress/wp-content/themes/hello-elementor-child/assets/**/*.png
+!ehs-wordpress-local/wordpress/wp-content/themes/hello-elementor-child/assets/**/*.jpg
+!ehs-wordpress-local/wordpress/wp-content/themes/hello-elementor-child/assets/**/*.jpeg
+!ehs_logo_sq.svg
+
+# DDEV certificates and keys (sensitive)
+ehs-wordpress-local/.ddev/traefik/certs/
+*.crt
+*.key
+*.pem
+
+# Large backup archives
+uploads-backup.tar.gz
+*.tar.gz
+*.zip
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# IDE and editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehs-wordpress-local/wordpress/.htaccess
+uploads-backup.tar.gz
+*.tar.gz

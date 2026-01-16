@@ -122,9 +122,15 @@ function ehs_render_contact_form($args = array()) {
             />
         </div>
         
-        <!-- reCAPTCHA v3 token will be added here -->
-        <input type="hidden" name="recaptcha_token" id="<?php echo esc_attr($args['form_id']); ?>-recaptcha-token" />
-        
+        <!-- Cloudflare Turnstile widget -->
+        <?php $turnstile_site_key = get_option('ehs_turnstile_site_key', ''); ?>
+        <?php if (!empty($turnstile_site_key)): ?>
+        <div class="ehs-form-field ehs-turnstile-container">
+            <div class="cf-turnstile" data-sitekey="<?php echo esc_attr($turnstile_site_key); ?>" data-callback="ehsTurnstileCallback" data-theme="light"></div>
+            <input type="hidden" name="turnstile_token" id="<?php echo esc_attr($args['form_id']); ?>-turnstile-token" />
+        </div>
+        <?php endif; ?>
+
         <div class="ehs-form-field ehs-form-submit">
             <button type="submit" class="ehs-submit-btn">
                 <span class="btn-text"><?php echo esc_html($args['submit_text']); ?></span>

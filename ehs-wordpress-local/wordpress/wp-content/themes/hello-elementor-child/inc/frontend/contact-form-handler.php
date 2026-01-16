@@ -1,8 +1,8 @@
 <?php
 /**
  * Contact Form AJAX Handler
- * Processes form submissions and sends emails via Resend API
- * 
+ * Processes form submissions, stores entries, and sends emails via Resend API
+ *
  * @package HelloElementorChild
  */
 
@@ -31,18 +31,27 @@ function ehs_handle_contact_form_submission() {
         return;
     }
 
-    // Verify reCAPTCHA v3 if enabled
-    $recaptcha_secret = get_option('ehs_recaptcha_secret_key', '');
-    $recaptcha_token = isset($_POST['recaptcha_token']) ? sanitize_text_field($_POST['recaptcha_token']) : '';
+    // Verify Cloudflare Turnstile if enabled
+    $turnstile_secret = get_option('ehs_turnstile_secret_key', '');
+    $turnstile_token = isset($_POST['turnstile_token']) ? sanitize_text_field($_POST['turnstile_token']) : '';
+    $turnstile_verified = false;
 
-    if (!empty($recaptcha_secret) && !empty($recaptcha_token)) {
-        $recaptcha_valid = ehs_verify_recaptcha($recaptcha_token, $recaptcha_secret);
-        if (!$recaptcha_valid) {
+    if (!empty($turnstile_secret)) {
+        if (empty($turnstile_token)) {
+            wp_send_json_error(array(
+                'message' => 'Please complete the verification challenge.'
+            ));
+            return;
+        }
+
+        $turnstile_valid = ehs_verify_turnstile($turnstile_token, $turnstile_secret);
+        if (!$turnstile_valid) {
             wp_send_json_error(array(
                 'message' => 'Bot verification failed. Please try again.'
             ));
             return;
         }
+        $turnstile_verified = true;
     }
 
     // Sanitize and validate input
@@ -84,10 +93,23 @@ function ehs_handle_contact_form_submission() {
     // Increment rate limit counter
     set_transient($rate_limit_key, ($submission_count ? $submission_count + 1 : 1), 3600); // 1 hour
 
+    // Store form entry in database
+    $entry_id = ehs_store_contact_form_entry(array(
+        'name' => $name,
+        'email' => $email,
+        'phone' => $phone,
+        'company' => $company,
+        'subject' => $subject,
+        'message' => $message,
+        'ip_address' => $ip_address,
+        'turnstile_verified' => $turnstile_verified ? 1 : 0,
+    ));
+
     // Get Resend API key and settings
     $resend_api_key = get_option('ehs_resend_api_key', '');
     $resend_from_email = get_option('ehs_resend_from_email', get_option('admin_email'));
     $resend_to_email = get_option('ehs_resend_to_email', get_option('admin_email'));
+    $resend_bcc_email = get_option('ehs_resend_bcc_email', '');
     $resend_from_name = get_option('ehs_resend_from_name', get_bloginfo('name'));
 
     if (empty($resend_api_key)) {
@@ -114,6 +136,8 @@ function ehs_handle_contact_form_submission() {
     $email_body .= "---\n";
     $email_body .= "Submitted: " . current_time('mysql') . "\n";
     $email_body .= "IP Address: " . $ip_address . "\n";
+    $email_body .= "Entry ID: " . ($entry_id ? $entry_id : 'N/A') . "\n";
+    $email_body .= "Turnstile Verified: " . ($turnstile_verified ? 'Yes' : 'No') . "\n";
 
     // HTML email version
     $email_html = '<html><body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">';
@@ -130,25 +154,28 @@ function ehs_handle_contact_form_submission() {
     $email_html .= '<tr><td style="padding: 8px; border-bottom: 1px solid #eee;"><strong>Subject:</strong></td><td style="padding: 8px; border-bottom: 1px solid #eee;">' . esc_html($subject) . '</td></tr>';
     $email_html .= '<tr><td colspan="2" style="padding: 8px; border-bottom: 1px solid #eee;"><strong>Message:</strong><br>' . nl2br(esc_html($message)) . '</td></tr>';
     $email_html .= '</table>';
-    $email_html .= '<p style="margin-top: 20px; font-size: 12px; color: #666;">Submitted: ' . current_time('mysql') . '<br>IP Address: ' . esc_html($ip_address) . '</p>';
+    $email_html .= '<p style="margin-top: 20px; font-size: 12px; color: #666;">Submitted: ' . current_time('mysql') . '<br>IP Address: ' . esc_html($ip_address) . '<br>Entry ID: ' . ($entry_id ? $entry_id : 'N/A') . '<br>Turnstile Verified: ' . ($turnstile_verified ? 'Yes' : 'No') . '</p>';
     $email_html .= '</body></html>';
 
     // Send email via Resend API
-    $email_sent = ehs_send_resend_email(
-        $resend_api_key,
-        array(
-            'from' => $resend_from_name . ' <' . $resend_from_email . '>',
-            'to' => $resend_to_email,
-            'reply_to' => $name . ' <' . $email . '>',
-            'subject' => 'Contact Form: ' . $subject,
-            'text' => $email_body,
-            'html' => $email_html,
-        )
+    $email_data = array(
+        'from' => $resend_from_name . ' <' . $resend_from_email . '>',
+        'to' => $resend_to_email,
+        'reply_to' => $name . ' <' . $email . '>',
+        'subject' => 'Contact Form: ' . $subject,
+        'text' => $email_body,
+        'html' => $email_html,
     );
+
+    if (!empty($resend_bcc_email)) {
+        $email_data['bcc'] = $resend_bcc_email;
+    }
+
+    $email_sent = ehs_send_resend_email($resend_api_key, $email_data);
 
     if ($email_sent) {
         wp_send_json_success(array(
-            'message' => 'Thank you! Your message has been sent. We\'ll get back to you soon.'
+            'message' => 'Thank you for contacting EHS Analytical! We have received your message and will respond within 1 business day.'
         ));
     } else {
         error_log('[EHS Contact Form] Failed to send email via Resend API');
@@ -161,8 +188,78 @@ add_action('wp_ajax_ehs_submit_contact_form', 'ehs_handle_contact_form_submissio
 add_action('wp_ajax_nopriv_ehs_submit_contact_form', 'ehs_handle_contact_form_submission');
 
 /**
+ * Store contact form entry in database
+ *
+ * @param array $data Form data
+ * @return int|false Entry ID on success, false on failure
+ */
+function ehs_store_contact_form_entry($data) {
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'ehs_contact_form_entries';
+
+    // Ensure table exists
+    ehs_create_contact_form_entries_table();
+
+    $result = $wpdb->insert(
+        $table_name,
+        array(
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'phone' => $data['phone'],
+            'company' => $data['company'],
+            'subject' => $data['subject'],
+            'message' => $data['message'],
+            'ip_address' => $data['ip_address'],
+            'turnstile_verified' => $data['turnstile_verified'],
+            'created_at' => current_time('mysql'),
+        ),
+        array('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%d', '%s')
+    );
+
+    if ($result === false) {
+        error_log('[EHS Contact Form] Failed to store entry: ' . $wpdb->last_error);
+        return false;
+    }
+
+    return $wpdb->insert_id;
+}
+
+/**
+ * Create contact form entries table
+ */
+function ehs_create_contact_form_entries_table() {
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'ehs_contact_form_entries';
+    $charset_collate = $wpdb->get_charset_collate();
+
+    // Check if table already exists
+    if ($wpdb->get_var("SHOW TABLES LIKE '$table_name'") === $table_name) {
+        return;
+    }
+
+    $sql = "CREATE TABLE $table_name (
+        id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+        name VARCHAR(255) NOT NULL DEFAULT '',
+        email VARCHAR(255) NOT NULL DEFAULT '',
+        phone VARCHAR(50) NOT NULL DEFAULT '',
+        company VARCHAR(255) NOT NULL DEFAULT '',
+        subject VARCHAR(255) NOT NULL DEFAULT '',
+        message TEXT NOT NULL,
+        ip_address VARCHAR(45) NOT NULL DEFAULT '',
+        turnstile_verified TINYINT(1) NOT NULL DEFAULT 0,
+        created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        PRIMARY KEY (id),
+        KEY email (email),
+        KEY created_at (created_at)
+    ) $charset_collate;";
+
+    require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+    dbDelta($sql);
+}
+
+/**
  * Send email via Resend API
- * 
+ *
  * @param string $api_key Resend API key
  * @param array $email_data Email data
  * @return bool Success status
@@ -183,6 +280,10 @@ function ehs_send_resend_email($api_key, $email_data) {
 
     if (isset($email_data['reply_to'])) {
         $body['reply_to'] = $email_data['reply_to'];
+    }
+
+    if (isset($email_data['bcc']) && !empty($email_data['bcc'])) {
+        $body['bcc'] = is_array($email_data['bcc']) ? $email_data['bcc'] : array($email_data['bcc']);
     }
 
     $response = wp_remote_post($url, array(
@@ -211,15 +312,15 @@ function ehs_send_resend_email($api_key, $email_data) {
 }
 
 /**
- * Verify reCAPTCHA v3 token
- * 
- * @param string $token reCAPTCHA token
+ * Verify Cloudflare Turnstile token
+ *
+ * @param string $token Turnstile token
  * @param string $secret Secret key
  * @return bool Is valid
  */
-function ehs_verify_recaptcha($token, $secret) {
-    $url = 'https://www.google.com/recaptcha/api/siteverify';
-    
+function ehs_verify_turnstile($token, $secret) {
+    $url = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
+
     $response = wp_remote_post($url, array(
         'body' => array(
             'secret' => $secret,
@@ -230,16 +331,19 @@ function ehs_verify_recaptcha($token, $secret) {
     ));
 
     if (is_wp_error($response)) {
-        error_log('[EHS Contact Form] reCAPTCHA verification error: ' . $response->get_error_message());
+        error_log('[EHS Contact Form] Turnstile verification error: ' . $response->get_error_message());
         return false;
     }
 
     $body = json_decode(wp_remote_retrieve_body($response), true);
 
     if (isset($body['success']) && $body['success'] === true) {
-        // Check score (v3 returns 0.0 to 1.0, typically > 0.5 is human)
-        $score = isset($body['score']) ? floatval($body['score']) : 0;
-        return $score >= 0.5;
+        return true;
+    }
+
+    // Log error codes if verification failed
+    if (isset($body['error-codes']) && !empty($body['error-codes'])) {
+        error_log('[EHS Contact Form] Turnstile error codes: ' . implode(', ', $body['error-codes']));
     }
 
     return false;
@@ -247,7 +351,7 @@ function ehs_verify_recaptcha($token, $secret) {
 
 /**
  * Get client IP address
- * 
+ *
  * @return string IP address
  */
 function ehs_get_client_ip() {

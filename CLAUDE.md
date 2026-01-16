@@ -257,6 +257,38 @@ This command:
 
 **Alternative:** `ddev exec wp eval-file regen-elementor-css.php`
 
+### SEO Fields Audit and Auto-Fill
+
+Automatically audits and fills missing SEO fields for all custom post types (services, credentials, clients, team).
+
+**Audit (dry run - preview changes):**
+```bash
+cd ehs-wordpress-local
+./audit-seo.sh
+```
+
+**Apply changes:**
+```bash
+cd ehs-wordpress-local
+./audit-seo.sh --apply
+```
+
+**What it fills:**
+- Excerpts (150-160 characters)
+- Yoast SEO meta titles (max 60 characters)
+- Yoast SEO meta descriptions (120-160 characters)
+- Yoast SEO focus keywords
+- Open Graph titles and descriptions
+- Featured image alt text
+
+**How it works:**
+- Only updates **missing** fields (won't overwrite existing SEO data)
+- Generates SEO-optimized content based on post title, content, and custom meta fields
+- Uses post-type-specific logic (e.g., adds "california" to service keywords)
+- Follows Yoast SEO best practices
+
+**See:** `ehs-wordpress-local/SEO_AUDIT_README.md` for detailed documentation
+
 ### Design System & Elementor Integration
 
 **CRITICAL:** This project uses a strict separation between Elementor and theme CSS. All styling is controlled by theme CSS, not Elementor's Style settings.
@@ -267,9 +299,10 @@ This command:
 - **Integration Method:** Apply CSS classes via Elementor's "Advanced → CSS Classes" field
 
 **Design System Documentation:**
-- **Complete Style Guide:** `ehs-wordpress-local/style-guide.html` - Visual reference with all components
-- **Quick Reference:** `ehs-wordpress-local/DESIGN_SYSTEM.md` - Developer quick reference
+- **Complete Style Guide:** `ehs-wordpress-local/style-guide/style-guide.html` - Visual reference with all components
+- **Quick Reference:** `ehs-wordpress-local/style-guide/DESIGN_SYSTEM.md` - Developer quick reference
 - **Theme CSS:** `wordpress/wp-content/themes/hello-elementor-child/style.css` - All styling definitions
+- **Interactive Demos:** `ehs-wordpress-local/style-guide/style-guide-assets/demos/` - Standalone component demos
 
 **How to Style Elementor Widgets:**
 
@@ -590,6 +623,54 @@ ddev exec wp post list --post_type=elementor_library --fields=ID,post_title | wh
     echo "Checking: $title"
     ddev exec wp post get $id --field=meta | grep -i "error" || echo "OK"
 done
+```
+
+### WordPress Architect Skill (2026)
+
+**Skill Definition:**
+```
+name: wordpress-architect
+description: A specialized agent for 2026 WordPress development. Expert in WP-CLI, Elementor CLI, Block Theme architecture, and performance auditing.
+usage: Trigger this skill when working on WordPress themes, debugging database issues, or automating block scaffolding.
+```
+
+**1. CLI COMMAND AUTHORITY**
+
+You have permission to execute the following toolchains. Always check if the tool is installed using `--version` before full execution.
+
+**WP-CLI (`wp`):**
+- **Scaffolding**: Use `wp scaffold block` or `wp scaffold theme-tests`.
+- **Database**: Use `wp search-replace` for migrations. Use `wp db export` before any risky operation.
+- **Maintenance**: Use `wp transient delete --all` and `wp cache flush` for state issues.
+- **Media**: Use `wp media regenerate --yes` when `theme.json` image sizes change.
+
+**Elementor CLI (`wp elementor`):**
+- **Styles**: Use `wp elementor flush-css` after any global style or variable update.
+- **Library**: Use `wp elementor library import` for template deployment.
+- **Maintenance**: Use `wp elementor replace-urls` if standard WP-CLI fails to catch widget-specific links.
+
+**2. THEME ARCHITECTURE & STANDARDS**
+
+- **Block-First**: Prioritize `theme.json` for all styles. Avoid `!important` in CSS; use WordPress Design Tokens.
+- **Performance**: Scan for `posts_per_page => -1` or nested `get_posts` loops. Recommend `WP_Query` caching.
+- **Security**: Mandatory `esc_html()`, `esc_attr()`, and `wp_unslash()`. Verify nonces for all `admin-ajax` or REST endpoints.
+- **PHP 8.3+**: Use constructor property promotion and strict typing in all new theme controllers.
+
+**3. AUTOMATED WORKFLOWS**
+
+- **Audit Workflow**: 1. `wp plugin list` -> 2. `wp db size` -> 3. Check `WP_DEBUG`.
+- **Sync Workflow**: 1. Edit `theme.json` -> 2. `wp elementor flush-css` -> 3. `wp cache flush`.
+- **Safety Workflow**: Always run `wp db export .tmp-backup.sql` before bulk search/replace.
+
+**4. ERROR TRIAGE**
+
+- If "White Screen of Death": Run `wp core verify-checksums` and `wp plugin list --status=active`.
+- If "Styles Not Loading": Run `wp elementor flush-css` and check for 404s in `wp_enqueue_scripts`.
+
+**Note for DDEV Environment:**
+All WP-CLI commands in this project must include `--path=/var/www/html/wordpress` because docroot is set to `wordpress/`. Example:
+```bash
+ddev exec "wp elementor flush-css --path=/var/www/html/wordpress"
 ```
 
 ### Elementor Template Structure

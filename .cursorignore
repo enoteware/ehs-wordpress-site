@@ -52,3 +52,28 @@ ehs-wordpress-local/wordpress/debug.log
 *.tmp
 *.bak
 *.cache
+
+# Temporary JSON files
+temp_*.json
+tmp-*.json
+
+# Node modules (anywhere)
+node_modules/
+**/node_modules/
+
+# Generated screenshots and comparison files
+ehs-wordpress-local/screenshots-comparison/
+
+# DDEV certificates (sensitive)
+ehs-wordpress-local/.ddev/traefik/certs/
+
+# Large backup archives
+uploads-backup.tar.gz
+*.tar.gz
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Deployed sites (vendored code)
+project-organization/02-micro-site-vercel/deployed-site/

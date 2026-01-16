@@ -27,45 +27,22 @@ if ( did_action( 'elementor/loaded' ) && class_exists( '\ElementorPro\Modules\Th
 $site_name = get_bloginfo( 'name' );
 $tagline   = get_bloginfo( 'description', 'display' );
 
-// Contact information
-$phone_number = '(619) 288-3094';
-$email = 'adam@ehsanalytical.com';
-$hours = '8:00 am - 5:00pm PST';
+// Contact information (from Site Options)
+$phone_number = ehs_get_option('phone');
+$email = ehs_get_option('email_secondary');
+$hours = ehs_get_hours();
 
-// Address
-$company_name = 'EHS Analytical Solutions, Inc.';
-$address_line1 = '6755 Mira Mesa Blvd';
-$address_line2 = 'Suite 123-249';
-$address_city_state = 'San Diego, CA 92121';
+// Address (from Site Options)
+$company_name = ehs_get_option('company_name');
+$address_line1 = ehs_get_option('address_line1');
+$address_line2 = ehs_get_option('address_line2');
+$address_city_state = ehs_get_city_state_zip();
 
-// Social media links (update with actual URLs if needed)
-$social_links = [
-	'facebook' => '#',
-	'instagram' => '#',
-	'twitter' => '#',
-];
+// Social media links (from Site Options)
+$social_links = ehs_get_social_links(false);
 
-// Certifications
-$certifications = [
-	[
-		'title' => 'Certified Safety Professional® (CSP®)',
-		'description' => 'The premiere certification in the safety profession covers a wide range of safety, health, and environmental (SH&E) disciplines and is earned by individuals who demonstrate competency in the prevention of harm to individuals in the workplace.',
-		'image' => 'csp_certification_v3-05-11.jpg',
-		'link' => '',
-	],
-	[
-		'title' => 'Project Management Professional',
-		'description' => 'Wildfire smoke and cleanup presents hazards that employers and workers in affected regions must understand. Smoke from wildfires contains chemicals, gases and fine particles that can harm health. Hazards continue even after fires have been extinguished and cleanup work begins.',
-		'image' => 'Sceau_certification_v3-05-1.png',
-		'link' => esc_url( home_url( '/industrial-hygiene/' ) ),
-	],
-	[
-		'title' => 'Indoor Air Quality (IAQ)',
-		'description' => 'Smoke is made up of a complex mixture of gases and fine particles produced when wood and other organic materials burn. The biggest health threat from smoke is from fine particles.',
-		'image' => 'IAQ_final_certification_v3-05-1.jpg',
-		'link' => esc_url( home_url( '/fire-and-smoke-assessments/' ) ),
-	],
-];
+// Featured Credentials (from Site Options - relationship field to Credentials CPT)
+$certifications = ehs_get_credential_cards();
 
 // Footer navigation menu
 $footer_nav_menu = wp_nav_menu( [
@@ -80,25 +57,25 @@ $footer_nav_menu = wp_nav_menu( [
 <footer id="site-footer" class="ehs-footer">
 	<div class="ehs-footer-container">
 		
-		<!-- Certifications Section -->
+		<!-- Certifications Section (from Featured Credentials in Site Options) -->
 		<?php if ( ! empty( $certifications ) ) : ?>
 			<div class="ehs-footer-section" style="margin-bottom: 60px;">
 				<h2 class="ehs-footer-heading" style="text-align: center; margin-bottom: 40px;">Professional Affiliations & Certifications</h2>
-				<div class="ehs-footer-grid" style="grid-template-columns: repeat(3, 1fr);">
-					<?php foreach ( $certifications as $cert ) : 
-						$image_url = content_url( 'uploads/2019/11/' . $cert['image'] );
-					?>
+				<div class="ehs-footer-grid" style="grid-template-columns: repeat(<?php echo min( count( $certifications ), 3 ); ?>, 1fr);">
+					<?php foreach ( $certifications as $cert ) : ?>
 						<div class="ehs-footer-section" style="text-align: center;">
-							<?php if ( ! empty( $cert['link'] ) ) : ?>
-								<a href="<?php echo esc_url( $cert['link'] ); ?>" target="_blank" rel="nofollow noopener noreferrer">
-									<img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( $cert['title'] ); ?>" style="max-width: 80%; height: auto; margin-bottom: 20px;" />
-								</a>
-							<?php else : ?>
-								<img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( $cert['title'] ); ?>" style="max-width: 80%; height: auto; margin-bottom: 20px;" />
+							<?php if ( ! empty( $cert['image'] ) ) : ?>
+								<?php if ( ! empty( $cert['link'] ) ) : ?>
+									<a href="<?php echo esc_url( $cert['link'] ); ?>">
+										<img src="<?php echo esc_url( $cert['image'] ); ?>" alt="<?php echo esc_attr( $cert['title'] ); ?>" style="max-width: 80%; height: auto; margin-bottom: 20px;" />
+									</a>
+								<?php else : ?>
+									<img src="<?php echo esc_url( $cert['image'] ); ?>" alt="<?php echo esc_attr( $cert['title'] ); ?>" style="max-width: 80%; height: auto; margin-bottom: 20px;" />
+								<?php endif; ?>
 							<?php endif; ?>
 							<h3 class="ehs-footer-heading" style="font-size: 1.1rem; margin-bottom: 12px;">
 								<?php if ( ! empty( $cert['link'] ) ) : ?>
-									<a href="<?php echo esc_url( $cert['link'] ); ?>" target="_blank" rel="nofollow noopener noreferrer" class="ehs-footer-link">
+									<a href="<?php echo esc_url( $cert['link'] ); ?>" class="ehs-footer-link">
 										<?php echo esc_html( $cert['title'] ); ?>
 									</a>
 								<?php else : ?>

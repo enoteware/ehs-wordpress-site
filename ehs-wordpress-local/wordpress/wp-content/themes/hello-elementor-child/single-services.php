@@ -37,9 +37,20 @@ while (have_posts()) : the_post();
             <?php if ($service_short_description) : ?>
                 <div class="service-hero-subtitle"><?php echo esc_html($service_short_description); ?></div>
             <?php endif; ?>
-            <?php if (has_excerpt()) : ?>
-                <div class="service-hero-text"><?php the_excerpt(); ?></div>
-            <?php endif; ?>
+            <?php 
+            $excerpt = get_the_excerpt();
+            if (!empty($excerpt)) {
+                // Remove ellipses and trailing dots
+                $excerpt = rtrim($excerpt, '.…');
+                $excerpt = preg_replace('/\.{2,}/', '.', $excerpt);
+                $excerpt = html_entity_decode($excerpt, ENT_QUOTES, 'UTF-8');
+                // Ensure it ends with a period if it's a complete sentence
+                if (!empty($excerpt) && !preg_match('/[.!?]$/', $excerpt)) {
+                    $excerpt .= '.';
+                }
+            ?>
+                <div class="service-hero-text"><?php echo esc_html($excerpt); ?></div>
+            <?php } ?>
         </div>
     </section>
 

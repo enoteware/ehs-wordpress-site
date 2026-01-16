@@ -1,58 +1,22 @@
 /**
  * Contact Form Handler
- * Handles form submission via AJAX with Resend API integration
+ * Handles form submission via AJAX with Cloudflare Turnstile integration
  */
 
 (function($) {
     'use strict';
 
-    // Initialize reCAPTCHA v3 if available
-    let recaptchaSiteKey = '';
-    let recaptchaLoaded = false;
+    // Store Turnstile token
+    let turnstileToken = '';
 
     /**
-     * Load reCAPTCHA v3 script
+     * Turnstile callback - called when user completes verification
      */
-    function loadRecaptcha() {
-        if (recaptchaLoaded || !recaptchaSiteKey) {
-            return;
-        }
-
-        if (typeof grecaptcha === 'undefined') {
-            const script = document.createElement('script');
-            script.src = `https://www.google.com/recaptcha/api.js?render=${recaptchaSiteKey}`;
-            script.async = true;
-            script.defer = true;
-            script.onload = function() {
-                recaptchaLoaded = true;
-            };
-            document.head.appendChild(script);
-        } else {
-            recaptchaLoaded = true;
-        }
-    }
-
-    /**
-     * Get reCAPTCHA token
-     */
-    function getRecaptchaToken(action = 'contact_form') {
-        return new Promise((resolve) => {
-            if (!recaptchaSiteKey || typeof grecaptcha === 'undefined') {
-                resolve('');
-                return;
-            }
-
-            grecaptcha.ready(function() {
-                grecaptcha.execute(recaptchaSiteKey, { action: action })
-                    .then(function(token) {
-                        resolve(token);
-                    })
-                    .catch(function() {
-                        resolve('');
-                    });
-            });
-        });
-    }
+    window.ehsTurnstileCallback = function(token) {
+        turnstileToken = token;
+        // Also store in the hidden field if present
+        $('.ehs-contact-form [name="turnstile_token"]').val(token);
+    };
 
     /**
      * Show form message
@@ -86,7 +50,6 @@
         const $submitBtn = $form.find('.ehs-submit-btn');
         const $btnText = $submitBtn.find('.btn-text');
         const $btnLoader = $submitBtn.find('.btn-loader');
-        const formId = $form.attr('id');
         const nonce = $form.data('nonce');
 
         // Check honeypot field
@@ -113,55 +76,65 @@
             return false;
         }
 
+        // Check Turnstile if widget is present
+        const hasTurnstile = $form.find('.cf-turnstile').length > 0;
+        const currentToken = $form.find('[name="turnstile_token"]').val() || turnstileToken;
+
+        if (hasTurnstile && !currentToken) {
+            showMessage($form, 'Please complete the verification challenge.', 'error');
+            return false;
+        }
+
         // Disable submit button
         $submitBtn.prop('disabled', true);
         $btnText.hide();
         $btnLoader.show();
 
-        // Get reCAPTCHA token
-        getRecaptchaToken('contact_form').then(function(token) {
-            // Collect form data
-            const formData = {
-                action: 'ehs_submit_contact_form',
-                nonce: nonce,
-                recaptcha_token: token,
-                name: $form.find('[name="name"]').val() || '',
-                email: $form.find('[name="email"]').val() || '',
-                phone: $form.find('[name="phone"]').val() || '',
-                company: $form.find('[name="company"]').val() || '',
-                subject: $form.find('[name="subject"]').val() || '',
-                message: $form.find('[name="message"]').val() || '',
-                website: honeypot, // Include honeypot value
-            };
+        // Collect form data
+        const formData = {
+            action: 'ehs_submit_contact_form',
+            nonce: nonce,
+            turnstile_token: currentToken,
+            name: $form.find('[name="name"]').val() || '',
+            email: $form.find('[name="email"]').val() || '',
+            phone: $form.find('[name="phone"]').val() || '',
+            company: $form.find('[name="company"]').val() || '',
+            subject: $form.find('[name="subject"]').val() || '',
+            message: $form.find('[name="message"]').val() || '',
+            website: honeypot, // Include honeypot value
+        };
 
-            // Submit via AJAX
-            $.ajax({
-                url: ehsContactForm.ajaxUrl,
-                type: 'POST',
-                data: formData,
-                dataType: 'json',
-                success: function(response) {
-                    if (response.success) {
-                        showMessage($form, response.data.message || 'Thank you! Your message has been sent.', 'success');
-                        $form[0].reset();
-                        
-                        // Reset reCAPTCHA token
-                        $form.find('[name="recaptcha_token"]').val('');
-                    } else {
-                        showMessage($form, response.data.message || 'Sorry, there was an error sending your message. Please try again.', 'error');
+        // Submit via AJAX
+        $.ajax({
+            url: ehsContactForm.ajaxUrl,
+            type: 'POST',
+            data: formData,
+            dataType: 'json',
+            success: function(response) {
+                if (response.success) {
+                    showMessage($form, response.data.message || 'Thank you! Your message has been sent.', 'success');
+                    $form[0].reset();
+
+                    // Reset Turnstile widget
+                    if (hasTurnstile && typeof turnstile !== 'undefined') {
+                        turnstile.reset();
                     }
-                },
-                error: function(xhr, status, error) {
-                    console.error('[EHS Contact Form] AJAX Error:', error);
-                    showMessage($form, 'Sorry, there was an error sending your message. Please try again.', 'error');
-                },
-                complete: function() {
-                    // Re-enable submit button
-                    $submitBtn.prop('disabled', false);
-                    $btnText.show();
-                    $btnLoader.hide();
+                    turnstileToken = '';
+                    $form.find('[name="turnstile_token"]').val('');
+                } else {
+                    showMessage($form, response.data.message || 'Sorry, there was an error sending your message. Please try again.', 'error');
                 }
-            });
+            },
+            error: function(xhr, status, error) {
+                console.error('[EHS Contact Form] AJAX Error:', error);
+                showMessage($form, 'Sorry, there was an error sending your message. Please try again.', 'error');
+            },
+            complete: function() {
+                // Re-enable submit button
+                $submitBtn.prop('disabled', false);
+                $btnText.show();
+                $btnLoader.hide();
+            }
         });
     }
 
@@ -169,12 +142,6 @@
      * Initialize contact forms
      */
     function initContactForms() {
-        // Get reCAPTCHA site key from localized script
-        if (typeof ehsContactForm !== 'undefined' && ehsContactForm.recaptchaSiteKey) {
-            recaptchaSiteKey = ehsContactForm.recaptchaSiteKey;
-            loadRecaptcha();
-        }
-
         // Bind submit handler to all contact forms
         $(document).on('submit', '.ehs-contact-form', handleFormSubmit);
 
@@ -198,7 +165,7 @@
         if ($modal.length) {
             $modal.fadeIn(300);
             $('body').addClass('ehs-modal-open');
-            
+
             // Trigger form ready event
             setTimeout(function() {
                 $(document).trigger('ehs:contactFormReady');

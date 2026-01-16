@@ -1,0 +1,904 @@
+/* ========================================
+   EHS ADMIN STYLES
+   WordPress admin area styling to match site design system
+   ======================================== */
+
+/* Import Maven Pro font */
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;600;700&display=swap');
+
+/* Design System Variables */
+:root {
+    --ehs-navy: #003366;
+    --ehs-gold: #FFB81C;
+    --ehs-light-gray: #F5F5F5;
+    --ehs-dark-gray: #333333;
+    --ehs-white: #FFFFFF;
+    --ehs-green: #157537;
+}
+
+/* ========================================
+   GLOBAL ADMIN STYLES
+   ======================================== */
+
+/* Apply Maven Pro font to admin, but exclude icon elements */
+body.wp-admin {
+    font-family: 'Maven Pro', sans-serif !important;
+}
+
+/* Exclude dashicons and icon elements from Maven Pro font */
+body.wp-admin .dashicons,
+body.wp-admin .dashicons-before:before,
+body.wp-admin [class*="dashicons-"],
+body.wp-admin [class^="dashicons-"],
+body.wp-admin .ab-icon,
+body.wp-admin .ab-icon:before,
+body.wp-admin .wp-menu-image,
+body.wp-admin .wp-menu-image:before {
+    font-family: dashicons !important;
+}
+
+/* Admin body background */
+body.wp-admin {
+    background-color: var(--ehs-light-gray);
+}
+
+/* ========================================
+   ADMIN BAR (TOP BAR)
+   ======================================== */
+
+#wpadminbar {
+    background-color: var(--ehs-navy) !important;
+    border-bottom: 2px solid var(--ehs-gold);
+    height: 32px;
+    min-height: 32px;
+}
+
+#wpadminbar .ab-item,
+#wpadminbar .ab-empty-item,
+#wpadminbar a.ab-item,
+#wpadminbar > #wp-toolbar > #wp-admin-bar-root-default > .ab-item,
+#wpadminbar .ab-top-menu > li > .ab-item {
+    color: var(--ehs-white) !important;
+    font-family: 'Maven Pro', sans-serif !important;
+    font-weight: 400 !important;
+}
+
+#wpadminbar .ab-item:hover,
+#wpadminbar .ab-item:focus,
+#wpadminbar a.ab-item:hover,
+#wpadminbar a.ab-item:focus {
+    color: var(--ehs-gold) !important;
+    background-color: rgba(255, 184, 28, 0.1) !important;
+}
+
+#wpadminbar .ab-icon,
+#wpadminbar .ab-icon:before,
+#wpadminbar .ab-item:before,
+#wpadminbar .ab-item:after {
+    color: var(--ehs-gold) !important;
+    font-family: dashicons !important;
+}
+
+/* Ensure admin bar icons display properly */
+#wpadminbar .ab-icon {
+    font-family: dashicons !important;
+    font-style: normal !important;
+    font-weight: normal !important;
+    font-variant: normal !important;
+    text-transform: none !important;
+    speak: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: inline-block !important;
+    width: 26px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+}
+
+#wpadminbar .ab-icon:before {
+    font-family: dashicons !important;
+    font-style: normal !important;
+    font-weight: normal !important;
+    font-variant: normal !important;
+    text-transform: none !important;
+    speak: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: inline-block !important;
+    width: 100%;
+    height: 100%;
+    line-height: inherit;
+    text-align: center;
+}
+
+/* Site name icon */
+#wp-admin-bar-site-name > .ab-item:before {
+    font-family: dashicons !important;
+    content: "\f319" !important; /* admin-site icon */
+    font-size: 20px;
+    line-height: 1;
+    vertical-align: middle;
+    margin-right: 6px;
+}
+
+/* Customize icon */
+#wp-admin-bar-customize .ab-item:before {
+    font-family: dashicons !important;
+    content: "\f540" !important; /* admin-customize icon */
+    font-size: 20px;
+    line-height: 1;
+    vertical-align: middle;
+    margin-right: 6px;
+}
+
+/* New content menu icon */
+#wp-admin-bar-new-content .ab-item:before {
+    font-family: dashicons !important;
+    content: "\f132" !important; /* plus icon */
+    font-size: 20px;
+    line-height: 1;
+    vertical-align: middle;
+    margin-right: 6px;
+}
+
+/* Comments icon */
+#wp-admin-bar-comments .ab-item:before {
+    font-family: dashicons !important;
+    content: "\f101" !important; /* admin-comments icon */
+}
+
+/* Updates icon */
+#wp-admin-bar-updates .ab-item:before {
+    font-family: dashicons !important;
+    content: "\f226" !important; /* update icon */
+}
+
+/* My Account icon */
+#wp-admin-bar-my-account .ab-item:before {
+    font-family: dashicons !important;
+    content: "\f110" !important; /* admin-users icon */
+}
+
+/* Ensure all admin bar items with icons display them */
+#wpadminbar .menupop .ab-item:before {
+    font-family: dashicons !important;
+}
+
+/* Menu toggle icon (hamburger menu) */
+#wp-admin-bar-menu-toggle .ab-icon:before {
+    font-family: dashicons !important;
+    content: "\f228" !important; /* menu icon */
+    font-size: 20px;
+    line-height: 1;
+    display: inline-block !important;
+    width: 26px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+}
+
+/* WordPress logo icon */
+#wp-admin-bar-wp-logo .ab-icon:before {
+    font-family: dashicons !important;
+    content: "\f120" !important; /* wordpress icon */
+    display: inline-block !important;
+}
+
+/* Local dev badge icon */
+#wp-admin-bar-ehs-env-local .ab-item:before {
+    font-family: dashicons !important;
+    content: "\f227" !important; /* warning icon */
+    font-size: 20px;
+    line-height: 1;
+    vertical-align: middle;
+    margin-right: 6px;
+    color: var(--ehs-gold) !important;
+}
+
+/* Yoast SEO menu - ensure it displays properly (uses SVG) */
+#wp-admin-bar-wpseo-menu .ab-item {
+    /* Yoast uses SVG, so we don't override */
+}
+
+/* Fix for admin bar items that should have icons but don't */
+#wpadminbar li:not(.menupop):not(#wp-admin-bar-ehs-env-local) > .ab-item:before {
+    display: none; /* Only show icons on items that have them defined */
+}
+
+/* Admin bar menu items */
+#wpadminbar .quicklinks .ab-sub-wrapper,
+#wpadminbar .quicklinks .ab-sub-wrapper ul {
+    background-color: var(--ehs-navy) !important;
+    border: 1px solid rgba(255, 184, 28, 0.3);
+}
+
+#wpadminbar .ab-submenu {
+    background-color: var(--ehs-navy) !important;
+}
+
+#wpadminbar .ab-submenu .ab-item {
+    color: var(--ehs-white) !important;
+}
+
+#wpadminbar .ab-submenu .ab-item:hover,
+#wpadminbar .ab-submenu .ab-item:focus {
+    background-color: rgba(255, 184, 28, 0.2) !important;
+    color: var(--ehs-gold) !important;
+}
+
+/* Admin bar search */
+#wpadminbar #wp-admin-bar-search .ab-item {
+    background-color: rgba(255, 184, 28, 0.1);
+}
+
+#wpadminbar #wp-admin-bar-search .ab-item:hover {
+    background-color: rgba(255, 184, 28, 0.2);
+}
+
+/* ========================================
+   ADMIN MENU (SIDEBAR)
+   ======================================== */
+
+#adminmenuback,
+#adminmenuwrap,
+#adminmenu {
+    background-color: var(--ehs-navy) !important;
+    width: 160px;
+}
+
+#adminmenu,
+#adminmenu .wp-submenu,
+#adminmenu a,
+#adminmenu .wp-submenu a {
+    font-family: 'Maven Pro', sans-serif !important;
+}
+
+#adminmenu .wp-menu-name {
+    color: var(--ehs-white) !important;
+    font-weight: 400 !important;
+}
+
+#adminmenu .wp-menu-image:before {
+    color: var(--ehs-gold) !important;
+}
+
+/* Menu item hover */
+#adminmenu li:hover,
+#adminmenu li.opensub,
+#adminmenu li.menu-top:hover,
+#adminmenu li.menu-top.focus {
+    background-color: rgba(255, 184, 28, 0.15) !important;
+}
+
+#adminmenu li:hover .wp-menu-name,
+#adminmenu li.opensub .wp-menu-name,
+#adminmenu li.menu-top:hover .wp-menu-name {
+    color: var(--ehs-gold) !important;
+}
+
+#adminmenu li:hover .wp-menu-image:before,
+#adminmenu li.opensub .wp-menu-image:before {
+    color: var(--ehs-gold) !important;
+}
+
+/* Current/Active menu item */
+#adminmenu li.current,
+#adminmenu li.wp-menu-open,
+#adminmenu li.wp-has-current-submenu {
+    background-color: rgba(255, 184, 28, 0.2) !important;
+    border-left: 3px solid var(--ehs-gold);
+}
+
+#adminmenu li.current .wp-menu-name,
+#adminmenu li.wp-menu-open .wp-menu-name,
+#adminmenu li.wp-has-current-submenu .wp-menu-name {
+    color: var(--ehs-gold) !important;
+    font-weight: 600 !important;
+}
+
+#adminmenu li.current .wp-menu-image:before,
+#adminmenu li.wp-menu-open .wp-menu-image:before {
+    color: var(--ehs-gold) !important;
+}
+
+/* Submenu */
+#adminmenu .wp-submenu {
+    background-color: #1E405A !important;
+    border-left: 2px solid var(--ehs-gold);
+}
+
+#adminmenu .wp-submenu li a {
+    color: rgba(255, 255, 255, 0.85) !important;
+    padding: 8px 12px 8px 20px;
+}
+
+#adminmenu .wp-submenu li a:hover,
+#adminmenu .wp-submenu li a:focus {
+    color: var(--ehs-gold) !important;
+    background-color: rgba(255, 184, 28, 0.1) !important;
+}
+
+#adminmenu .wp-submenu li.current a,
+#adminmenu .wp-submenu li a[aria-current="page"] {
+    color: var(--ehs-gold) !important;
+    font-weight: 600 !important;
+    background-color: rgba(255, 184, 28, 0.15) !important;
+}
+
+/* Menu separator */
+#adminmenu .wp-menu-separator {
+    border-top: 1px solid rgba(255, 184, 28, 0.3);
+    margin: 8px 0;
+}
+
+/* ========================================
+   ADMIN CONTENT AREA
+   ======================================== */
+
+#wpcontent,
+#wpfooter {
+    background-color: var(--ehs-light-gray);
+    font-family: 'Maven Pro', sans-serif;
+}
+
+/* Page headers */
+.wrap h1,
+.wrap h2,
+.wrap .page-title {
+    font-family: 'Maven Pro', sans-serif !important;
+    font-weight: 700 !important;
+    color: var(--ehs-navy) !important;
+    font-size: 1.75rem !important;
+    margin-bottom: 20px;
+}
+
+.wrap h2 {
+    font-size: 1.5rem !important;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+/* ========================================
+   BUTTONS
+   ======================================== */
+
+/* Primary buttons (Navy) */
+.button-primary,
+.button.button-primary,
+.wp-core-ui .button-primary,
+.wp-core-ui .button-primary:hover,
+.wp-core-ui .button-primary:focus {
+    background-color: var(--ehs-navy) !important;
+    border-color: var(--ehs-navy) !important;
+    color: var(--ehs-white) !important;
+    font-family: 'Maven Pro', sans-serif !important;
+    font-weight: 600 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 8px 16px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 51, 102, 0.3);
+    transition: all 0.3s ease;
+}
+
+.button-primary:hover,
+.button.button-primary:hover,
+.wp-core-ui .button-primary:hover {
+    background-color: var(--ehs-green) !important;
+    border-color: var(--ehs-green) !important;
+    box-shadow: 0 4px 10px rgba(0, 51, 102, 0.4);
+    transform: translateY(-1px);
+}
+
+.button-primary:focus,
+.button.button-primary:focus {
+    box-shadow: 0 0 0 2px var(--ehs-gold) !important;
+}
+
+/* Secondary buttons (Gold) */
+.button-secondary,
+.button.button-secondary,
+.wp-core-ui .button-secondary {
+    background-color: var(--ehs-gold) !important;
+    border-color: var(--ehs-gold) !important;
+    color: var(--ehs-navy) !important;
+    font-family: 'Maven Pro', sans-serif !important;
+    font-weight: 600 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 8px 16px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(255, 184, 28, 0.3);
+    transition: all 0.3s ease;
+}
+
+.button-secondary:hover,
+.button.button-secondary:hover,
+.wp-core-ui .button-secondary:hover {
+    background-color: var(--ehs-green) !important;
+    border-color: var(--ehs-green) !important;
+    color: var(--ehs-white) !important;
+    box-shadow: 0 4px 10px rgba(255, 184, 28, 0.4);
+    transform: translateY(-1px);
+}
+
+/* Default buttons */
+.button,
+.wp-core-ui .button {
+    font-family: 'Maven Pro', sans-serif !important;
+    font-weight: 400 !important;
+    border-radius: 5px;
+    padding: 6px 12px;
+    transition: all 0.3s ease;
+}
+
+.button:hover,
+.wp-core-ui .button:hover {
+    border-color: var(--ehs-gold);
+    color: var(--ehs-navy);
+}
+
+/* ========================================
+   FORMS
+   ======================================== */
+
+/* Form inputs */
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+textarea,
+select {
+    font-family: 'Maven Pro', sans-serif !important;
+    border: 2px solid #e0e0e0 !important;
+    border-radius: 5px !important;
+    padding: 8px 12px !important;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--ehs-navy) !important;
+    box-shadow: 0 0 0 2px rgba(0, 51, 102, 0.1) !important;
+    outline: none !important;
+}
+
+/* Form labels */
+label {
+    font-family: 'Maven Pro', sans-serif !important;
+    font-weight: 600 !important;
+    color: var(--ehs-navy) !important;
+    margin-bottom: 8px;
+    display: block;
+}
+
+/* Checkboxes and radio buttons */
+input[type="checkbox"],
+input[type="radio"] {
+    accent-color: var(--ehs-navy);
+}
+
+/* ========================================
+   TABLES
+   ======================================== */
+
+.wp-list-table,
+.widefat {
+    background-color: var(--ehs-white) !important;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    font-family: 'Maven Pro', sans-serif !important;
+}
+
+.wp-list-table thead th,
+.widefat thead th {
+    background-color: var(--ehs-navy) !important;
+    color: var(--ehs-white) !important;
+    font-family: 'Maven Pro', sans-serif !important;
+    font-weight: 600 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.875rem;
+    padding: 12px 10px;
+    border-bottom: 2px solid var(--ehs-gold);
+}
+
+.wp-list-table tbody tr,
+.widefat tbody tr {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.wp-list-table tbody tr:hover,
+.widefat tbody tr:hover {
+    background-color: var(--ehs-light-gray) !important;
+}
+
+.wp-list-table tbody tr:nth-child(even) {
+    background-color: rgba(245, 245, 245, 0.5);
+}
+
+.wp-list-table tbody td,
+.widefat tbody td {
+    padding: 12px 10px;
+    color: var(--ehs-dark-gray);
+}
+
+.wp-list-table .row-actions {
+    color: #666;
+}
+
+.wp-list-table .row-actions a {
+    color: var(--ehs-navy);
+}
+
+.wp-list-table .row-actions a:hover {
+    color: var(--ehs-gold);
+}
+
+/* Ensure dashicons display properly - override Maven Pro for icons */
+.dashicons,
+.dashicons-before:before,
+[class*=" dashicons-"]:before,
+[class^="dashicons-"]:before,
+.wp-menu-image:before,
+.page-title-action .dashicons,
+.row-actions .dashicons {
+    font-family: dashicons !important;
+    font-style: normal !important;
+    font-weight: normal !important;
+    font-variant: normal !important;
+    text-transform: none !important;
+    speak: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Action buttons with icons */
+.page-title-action {
+    font-family: 'Maven Pro', sans-serif !important;
+    font-weight: 600 !important;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    position: relative;
+    padding-left: 24px;
+}
+
+.page-title-action:before {
+    font-family: dashicons !important;
+    content: "\f132" !important; /* plus icon */
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+    line-height: 1;
+    position: absolute;
+    left: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: inherit;
+}
+
+.page-title-action .dashicons {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+    line-height: 1;
+}
+
+/* Row action icons - add icons to action links */
+.row-actions {
+    font-size: 12px;
+}
+
+.row-actions a {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-right: 8px;
+    position: relative;
+    padding-left: 18px;
+}
+
+.row-actions .edit a:before,
+.row-actions .inline a:before {
+    font-family: dashicons !important;
+    content: "\f464" !important; /* edit icon */
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+    line-height: 1;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: inherit;
+}
+
+.row-actions .trash a:before,
+.row-actions .delete a:before {
+    font-family: dashicons !important;
+    content: "\f182" !important; /* trash icon */
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+    line-height: 1;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: inherit;
+}
+
+.row-actions .view a:before {
+    font-family: dashicons !important;
+    content: "\f177" !important; /* view icon */
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+    line-height: 1;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: inherit;
+}
+
+.row-actions .duplicate a:before {
+    font-family: dashicons !important;
+    content: "\f105" !important; /* duplicate icon */
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+    line-height: 1;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: inherit;
+}
+
+.row-actions .dashicons {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+    line-height: 1;
+    color: inherit;
+}
+
+/* Ensure menu icons display */
+#adminmenu .wp-menu-image:before {
+    font-family: dashicons !important;
+}
+
+/* Fix Snippets menu icon */
+#toplevel_page_snippets .wp-menu-image.dashicons-before:before {
+    font-family: dashicons !important;
+    content: "\f481" !important; /* editor-code icon */
+    display: inline-block !important;
+    font-size: 20px;
+    line-height: 1;
+    vertical-align: middle;
+}
+
+/* Ensure admin bar icons display */
+#wpadminbar .ab-icon:before,
+#wpadminbar .ab-item:before {
+    font-family: dashicons !important;
+}
+
+/* ========================================
+   POST EDIT SCREEN
+   ======================================== */
+
+/* Post title input */
+#title {
+    font-family: 'Maven Pro', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 1.5rem !important;
+    color: var(--ehs-navy) !important;
+    border: 2px solid #e0e0e0 !important;
+    border-radius: 5px !important;
+    padding: 12px 16px !important;
+}
+
+#title:focus {
+    border-color: var(--ehs-navy) !important;
+    box-shadow: 0 0 0 2px rgba(0, 51, 102, 0.1) !important;
+}
+
+/* Editor */
+.wp-editor-container {
+    border: 2px solid #e0e0e0;
+    border-radius: 5px;
+}
+
+.wp-editor-container:focus-within {
+    border-color: var(--ehs-navy);
+    box-shadow: 0 0 0 2px rgba(0, 51, 102, 0.1);
+}
+
+/* Meta boxes */
+.postbox {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    background-color: var(--ehs-white);
+}
+
+.postbox-header {
+    background-color: var(--ehs-navy);
+    border-bottom: 2px solid var(--ehs-gold);
+    border-radius: 8px 8px 0 0;
+    padding: 12px 16px;
+}
+
+.postbox-header h2,
+.postbox-header h3 {
+    color: var(--ehs-white) !important;
+    font-family: 'Maven Pro', sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 1rem !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0;
+}
+
+.postbox .inside {
+    padding: 16px;
+}
+
+/* ========================================
+   NOTICES
+   ======================================== */
+
+.notice,
+.notice-error,
+.notice-warning,
+.notice-info,
+.notice-success {
+    border-left-width: 4px;
+    border-radius: 5px;
+    font-family: 'Maven Pro', sans-serif !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.notice-success {
+    border-left-color: var(--ehs-green) !important;
+    background-color: rgba(21, 117, 55, 0.1);
+}
+
+.notice-error {
+    border-left-color: #dc3545 !important;
+}
+
+.notice-warning {
+    border-left-color: var(--ehs-gold) !important;
+    background-color: rgba(255, 184, 28, 0.1);
+}
+
+.notice-info {
+    border-left-color: var(--ehs-navy) !important;
+    background-color: rgba(0, 51, 102, 0.1);
+}
+
+/* ========================================
+   DASHBOARD WIDGETS
+   ======================================== */
+
+.postbox {
+    background-color: var(--ehs-white);
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.postbox-header {
+    background-color: var(--ehs-navy);
+    border-bottom: 2px solid var(--ehs-gold);
+}
+
+/* ========================================
+   MEDIA LIBRARY
+   ======================================== */
+
+.media-frame {
+    font-family: 'Maven Pro', sans-serif !important;
+}
+
+.media-frame-title {
+    background-color: var(--ehs-navy);
+    color: var(--ehs-white);
+    border-bottom: 2px solid var(--ehs-gold);
+}
+
+.media-frame-title h1 {
+    font-family: 'Maven Pro', sans-serif !important;
+    font-weight: 600 !important;
+    color: var(--ehs-white) !important;
+}
+
+.media-frame-router .media-router a {
+    color: var(--ehs-navy);
+    font-family: 'Maven Pro', sans-serif !important;
+}
+
+.media-frame-router .media-router a.active {
+    color: var(--ehs-gold);
+    border-bottom-color: var(--ehs-gold);
+}
+
+/* ========================================
+   ELEMENTOR EDITOR
+   ======================================== */
+
+/* Elementor panel */
+.elementor-panel {
+    font-family: 'Maven Pro', sans-serif !important;
+}
+
+.elementor-panel-header {
+    background-color: var(--ehs-navy) !important;
+    border-bottom: 2px solid var(--ehs-gold);
+}
+
+.elementor-panel-header-title {
+    color: var(--ehs-white) !important;
+    font-family: 'Maven Pro', sans-serif !important;
+    font-weight: 600 !important;
+}
+
+.elementor-button {
+    font-family: 'Maven Pro', sans-serif !important;
+}
+
+.elementor-button.elementor-button-success {
+    background-color: var(--ehs-green) !important;
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media screen and (max-width: 782px) {
+    #adminmenu,
+    #adminmenuback,
+    #adminmenuwrap {
+        width: 100%;
+    }
+    
+    #wpcontent {
+        margin-left: 0;
+    }
+}
+
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
+
+.ehs-admin-navy-text {
+    color: var(--ehs-navy) !important;
+}
+
+.ehs-admin-gold-text {
+    color: var(--ehs-gold) !important;
+}
+
+.ehs-admin-navy-bg {
+    background-color: var(--ehs-navy) !important;
+}
+
+.ehs-admin-gold-bg {
+    background-color: var(--ehs-gold) !important;
+}

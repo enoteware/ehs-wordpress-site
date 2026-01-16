@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <!-- Background -->
+  <rect width="800" height="500" fill="#F5F5F5"/>
+
+  <!-- Navy accent bars -->
+  <rect x="0" y="0" width="800" height="100" fill="#003366" opacity="0.1"/>
+  <rect x="0" y="400" width="800" height="100" fill="#003366" opacity="0.1"/>
+
+  <!-- Center icon - Document/Blog icon -->
+  <g transform="translate(300, 150)">
+    <!-- Document outline -->
+    <rect x="0" y="0" width="200" height="200" rx="10" fill="white" stroke="#003366" stroke-width="4"/>
+
+    <!-- Lines representing text -->
+    <line x1="30" y1="40" x2="170" y2="40" stroke="#003366" stroke-width="3" opacity="0.3"/>
+    <line x1="30" y1="70" x2="170" y2="70" stroke="#003366" stroke-width="3" opacity="0.3"/>
+    <line x1="30" y1="100" x2="140" y2="100" stroke="#003366" stroke-width="3" opacity="0.3"/>
+
+    <!-- Gold accent circle -->
+    <circle cx="100" cy="150" r="25" fill="#FFB81C"/>
+  </g>
+
+  <!-- Text -->
+  <text x="400" y="390" text-anchor="middle" font-family="Maven Pro, Arial, sans-serif" font-size="20" fill="#003366" opacity="0.5">EHS Analytical Blog Post</text>
+</svg>

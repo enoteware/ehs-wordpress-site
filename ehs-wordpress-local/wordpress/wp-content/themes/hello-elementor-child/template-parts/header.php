@@ -26,17 +26,18 @@ if ( did_action( 'elementor/loaded' ) && class_exists( '\ElementorPro\Modules\Th
 $site_name = get_bloginfo( 'name' );
 $tagline   = get_bloginfo( 'description', 'display' );
 
-// Get navigation menu
+// Get navigation menu with mega menu walker
 $header_nav_menu = wp_nav_menu( [
 	'theme_location' => 'menu-1',
 	'fallback_cb' => false,
 	'container' => false,
 	'echo' => false,
 	'menu_class' => 'ehs-header-nav-menu',
+	'walker' => new EHS_Mega_Menu_Walker(),
 ] );
 
-// Phone number and contact URL
-$phone_number = '(619) 288-3094';
+// Phone number and contact URL (from Site Options)
+$phone_number = ehs_get_option('phone');
 $contact_url = esc_url( home_url( '/contact/' ) );
 ?>
 
@@ -97,13 +98,14 @@ $contact_url = esc_url( home_url( '/contact/' ) );
 		<?php if ( $header_nav_menu ) : ?>
 			<nav class="ehs-header-mobile-menu" id="ehs-header-mobile-menu" aria-label="<?php echo esc_attr__( 'Mobile menu', 'hello-elementor' ); ?>">
 				<?php
-				// Mobile menu - same menu but with mobile classes
+				// Mobile menu - same menu but with mobile classes (no walker for mobile)
 				$mobile_nav_menu = wp_nav_menu( [
 					'theme_location' => 'menu-1',
 					'fallback_cb' => false,
 					'container' => false,
 					'echo' => false,
 					'menu_class' => 'ehs-header-mobile-nav-menu',
+					'walker' => new EHS_Mega_Menu_Walker(), // Use same walker for consistency
 				] );
 				// PHPCS - escaped by WordPress with "wp_nav_menu"
 				echo $mobile_nav_menu; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -121,17 +123,46 @@ $contact_url = esc_url( home_url( '/contact/' ) );
 
 <script>
 (function() {
+	// Header scroll behavior - adds 'scrolled' class for compact header
+	var header = document.getElementById('site-header');
+	var scrollThreshold = 50;
+	var lastScrollY = 0;
+	var ticking = false;
+
+	function updateHeader() {
+		if (window.scrollY > scrollThreshold) {
+			header.classList.add('scrolled');
+		} else {
+			header.classList.remove('scrolled');
+		}
+		ticking = false;
+	}
+
+	function onScroll() {
+		lastScrollY = window.scrollY;
+		if (!ticking) {
+			window.requestAnimationFrame(updateHeader);
+			ticking = true;
+		}
+	}
+
+	if (header) {
+		window.addEventListener('scroll', onScroll, { passive: true });
+		// Initial check
+		updateHeader();
+	}
+
 	// Mobile menu toggle functionality
 	var toggle = document.querySelector('.ehs-header-mobile-toggle');
 	var menu = document.querySelector('.ehs-header-mobile-menu');
-	
+
 	if (toggle && menu) {
 		toggle.addEventListener('click', function() {
 			var isExpanded = this.getAttribute('aria-expanded') === 'true';
 			this.setAttribute('aria-expanded', !isExpanded);
 			menu.classList.toggle('active');
 		});
-		
+
 		// Close menu when clicking outside
 		document.addEventListener('click', function(event) {
 			if (!toggle.contains(event.target) && !menu.contains(event.target)) {
@@ -139,7 +170,7 @@ $contact_url = esc_url( home_url( '/contact/' ) );
 				menu.classList.remove('active');
 			}
 		});
-		
+
 		// Close menu when clicking a link
 		var menuLinks = menu.querySelectorAll('a');
 		menuLinks.forEach(function(link) {
