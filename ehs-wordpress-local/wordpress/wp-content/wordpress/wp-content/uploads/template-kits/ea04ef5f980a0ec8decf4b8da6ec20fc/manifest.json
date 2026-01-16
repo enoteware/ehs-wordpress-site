@@ -1,0 +1,1115 @@
+{
+    "manifest_version": "1.0.13",
+    "title": "Balton",
+    "page_builder": "elementor",
+    "kit_version": "1.0.0",
+    "templates": [
+        {
+            "name": "Global Kit Styles",
+            "screenshot": "screenshots\/global-kit-styles.jpg",
+            "source": "templates\/global.json",
+            "preview_url": "https:\/\/demo.detheme.com",
+            "type": "section",
+            "category": "page",
+            "metadata": {
+                "template_type": "global-styles",
+                "include_in_zip": "1",
+                "elementor_pro_required": null,
+                "additional_template_information": [
+                    "These are the global theme styles configured through the Elementor Theme Styles area."
+                ]
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "Quote Metform",
+            "screenshot": "screenshots\/quote-metform.jpg",
+            "source": "templates\/quote-metform.json",
+            "preview_url": "https:\/\/demo.detheme.com\/balton\/template-kit\/quote-metform\/",
+            "type": "section",
+            "category": "section",
+            "metadata": {
+                "template_type": "section-contact",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "Job Application Metform",
+            "screenshot": "screenshots\/job-application-metform.jpg",
+            "source": "templates\/job-application-metform.json",
+            "preview_url": "https:\/\/demo.detheme.com\/balton\/template-kit\/job-application-metform\/",
+            "type": "section",
+            "category": "section",
+            "metadata": {
+                "template_type": "section-other",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "Footer",
+            "screenshot": "screenshots\/footer.jpg",
+            "source": "templates\/footer.json",
+            "preview_url": "https:\/\/demo.detheme.com\/balton\/template-kit\/footer\/",
+            "type": "section",
+            "category": "section",
+            "metadata": {
+                "template_type": "section-footer",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "Header",
+            "screenshot": "screenshots\/header.jpg",
+            "source": "templates\/header.json",
+            "preview_url": "https:\/\/demo.detheme.com\/balton\/template-kit\/header\/",
+            "type": "section",
+            "category": "section",
+            "metadata": {
+                "template_type": "section-header",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "Contact",
+            "screenshot": "screenshots\/contact.jpg",
+            "source": "templates\/contact.json",
+            "preview_url": "https:\/\/demo.detheme.com\/balton\/template-kit\/contact\/",
+            "type": "page",
+            "category": "page",
+            "metadata": {
+                "template_type": "single-page",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "404",
+            "screenshot": "screenshots\/404.png",
+            "source": "templates\/404.json",
+            "preview_url": "https:\/\/demo.detheme.com\/balton\/template-kit\/404\/",
+            "type": "section",
+            "category": "page",
+            "metadata": {
+                "template_type": "single-404",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "Career Detail",
+            "screenshot": "screenshots\/career-detail.jpg",
+            "source": "templates\/career-detail.json",
+            "preview_url": "https:\/\/demo.detheme.com\/balton\/template-kit\/career-detail\/",
+            "type": "page",
+            "category": "page",
+            "metadata": {
+                "template_type": "single-page",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "Career",
+            "screenshot": "screenshots\/career.jpg",
+            "source": "templates\/career.json",
+            "preview_url": "https:\/\/demo.detheme.com\/balton\/template-kit\/career\/",
+            "type": "page",
+            "category": "page",
+            "metadata": {
+                "template_type": "single-page",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "Blog",
+            "screenshot": "screenshots\/blog.jpg",
+            "source": "templates\/blog.json",
+            "preview_url": "https:\/\/demo.detheme.com\/balton\/template-kit\/blog\/",
+            "type": "section",
+            "category": "page",
+            "metadata": {
+                "template_type": "archive-blog",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "Single Post",
+            "screenshot": "screenshots\/single-post.jpg",
+            "source": "templates\/single-post.json",
+            "preview_url": "https:\/\/demo.detheme.com\/balton\/template-kit\/single-post\/",
+            "type": "section",
+            "category": "page",
+            "metadata": {
+                "template_type": "single-post",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "Portfolio Detail",
+            "screenshot": "screenshots\/portfolio-detail.jpg",
+            "source": "templates\/portfolio-detail.json",
+            "preview_url": "https:\/\/demo.detheme.com\/balton\/template-kit\/portfolio-detail\/",
+            "type": "page",
+            "category": "page",
+            "metadata": {
+                "template_type": "single-page",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "Portfolio",
+            "screenshot": "screenshots\/portfolio.jpg",
+            "source": "templates\/portfolio.json",
+            "preview_url": "https:\/\/demo.detheme.com\/balton\/template-kit\/portfolio\/",
+            "type": "page",
+            "category": "page",
+            "metadata": {
+                "template_type": "single-page",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "About",
+            "screenshot": "screenshots\/about.jpg",
+            "source": "templates\/about.json",
+            "preview_url": "https:\/\/demo.detheme.com\/balton\/template-kit\/about\/",
+            "type": "page",
+            "category": "page",
+            "metadata": {
+                "template_type": "single-page",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        },
+        {
+            "name": "Homepage",
+            "screenshot": "screenshots\/homepage.jpg",
+            "source": "templates\/homepage.json",
+            "preview_url": "https:\/\/demo.detheme.com\/balton\/template-kit\/homepage\/",
+            "type": "section",
+            "category": "page",
+            "metadata": {
+                "template_type": "single-home",
+                "include_in_zip": "1",
+                "elementor_pro_required": null
+            },
+            "elementor_pro_required": false
+        }
+    ],
+    "required_plugins": [
+        {
+            "name": "Elementor",
+            "version": "2.9.8",
+            "file": "elementor\/elementor.php",
+            "author": "Elementor.com"
+        },
+        {
+            "name": "ElementsKit Lite",
+            "version": "1.5.4",
+            "file": "elementskit-lite\/elementskit-lite.php",
+            "author": "Wpmet"
+        },
+        {
+            "name": "MetForm",
+            "version": "1.2.3",
+            "file": "metform\/metform.php",
+            "author": "Wpmet"
+        },
+        {
+            "name": "Premium Addons for Elementor",
+            "version": "3.12.2",
+            "file": "premium-addons-for-elementor\/premium-addons-for-elementor.php",
+            "author": "Leap13"
+        },
+        {
+            "name": "Press Elements - Widgets for Elementor",
+            "version": "1.7.2",
+            "file": "press-elements\/press-elements.php",
+            "author": "Press Elements"
+        },
+        {
+            "name": "Elementor Parallax",
+            "version": "1.0.2",
+            "file": "we-elementor-parallax\/elementor-parallax.php",
+            "author": "Web\u00e9vasion"
+        }
+    ],
+    "images": [
+        {
+            "filename": "BALTON-3.svg",
+            "thumbnail_url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/BALTON-3.svg",
+            "templates": [
+                {
+                    "source": "templates\/footer.json",
+                    "name": "Footer"
+                },
+                {
+                    "source": "templates\/header.json",
+                    "name": "Header"
+                }
+            ],
+            "filesize": 2513,
+            "dimensions": [
+                0,
+                0
+            ],
+            "image_source": "self_created",
+            "person_or_place": "no",
+            "image_urls": ""
+        },
+        {
+            "filename": "modern-house-exterior-GF59AUJ2.jpg",
+            "thumbnail_url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/modern-house-exterior-GF59AUJ2-600x337.jpg",
+            "templates": [
+                {
+                    "source": "templates\/contact.json",
+                    "name": "Contact"
+                },
+                {
+                    "source": "templates\/portfolio-detail.json",
+                    "name": "Portfolio Detail"
+                },
+                {
+                    "source": "templates\/portfolio.json",
+                    "name": "Portfolio"
+                }
+            ],
+            "filesize": 583025,
+            "dimensions": [
+                1500,
+                843
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/image-F59AUJ2"
+        },
+        {
+            "filename": "Constr_machines_01_5-1.png",
+            "thumbnail_url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/Constr_machines_01_5-1-600x253.png",
+            "templates": [
+                {
+                    "source": "templates\/404.json",
+                    "name": "404"
+                }
+            ],
+            "filesize": 73714,
+            "dimensions": [
+                992,
+                419
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/construction-machinery-6MMFKM"
+        },
+        {
+            "filename": "construction-manager-and-engineer-dressed-in-2GCEB6J.jpg",
+            "thumbnail_url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/construction-manager-and-engineer-dressed-in-2GCEB6J.jpg",
+            "templates": [
+                {
+                    "source": "templates\/career-detail.json",
+                    "name": "Career Detail"
+                }
+            ],
+            "filesize": 181632,
+            "dimensions": [
+                2000,
+                1333
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/construction-manager-and-engineer-dressed-in-2GCEB6J"
+        },
+        {
+            "filename": "modern-building-and-crane-machinery-structure-984FT7V.jpg",
+            "thumbnail_url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/modern-building-and-crane-machinery-structure-984FT7V.jpg",
+            "templates": [
+                {
+                    "source": "templates\/career.json",
+                    "name": "Career"
+                },
+                {
+                    "source": "templates\/portfolio.json",
+                    "name": "Portfolio"
+                }
+            ],
+            "filesize": 322763,
+            "dimensions": [
+                2000,
+                1333
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/modern-building-and-crane-machinery-structure-984FT7V"
+        },
+        {
+            "filename": "construction-8ETG2WX.jpg",
+            "thumbnail_url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/construction-8ETG2WX.jpg",
+            "templates": [
+                {
+                    "source": "templates\/career.json",
+                    "name": "Career"
+                },
+                {
+                    "source": "templates\/portfolio-detail.json",
+                    "name": "Portfolio Detail"
+                },
+                {
+                    "source": "templates\/about.json",
+                    "name": "About"
+                }
+            ],
+            "filesize": 608945,
+            "dimensions": [
+                1999,
+                1336
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/construction-8ETG2WX"
+        },
+        {
+            "filename": "team-of-construction-engineers-architects-working-4952TYC.jpg",
+            "thumbnail_url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/team-of-construction-engineers-architects-working-4952TYC.jpg",
+            "templates": [
+                {
+                    "source": "templates\/career.json",
+                    "name": "Career"
+                },
+                {
+                    "source": "templates\/portfolio-detail.json",
+                    "name": "Portfolio Detail"
+                },
+                {
+                    "source": "templates\/about.json",
+                    "name": "About"
+                }
+            ],
+            "filesize": 280130,
+            "dimensions": [
+                898,
+                863
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/team-of-construction-engineers-architects-working-4952TYC"
+        },
+        {
+            "filename": "Logo-Container.png",
+            "thumbnail_url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/Logo-Container.png",
+            "templates": [
+                {
+                    "source": "templates\/career.json",
+                    "name": "Career"
+                },
+                {
+                    "source": "templates\/portfolio.json",
+                    "name": "Portfolio"
+                }
+            ],
+            "filesize": 20222,
+            "dimensions": [
+                400,
+                400
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/human-dreams-logo-Y9TSUF"
+        },
+        {
+            "filename": "Logo-Container-9.png",
+            "thumbnail_url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/Logo-Container-9.png",
+            "templates": [
+                {
+                    "source": "templates\/career.json",
+                    "name": "Career"
+                },
+                {
+                    "source": "templates\/portfolio.json",
+                    "name": "Portfolio"
+                }
+            ],
+            "filesize": 14161,
+            "dimensions": [
+                400,
+                400
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/u-letter-logo-6LTUMZ"
+        },
+        {
+            "filename": "Logo-Container-8.png",
+            "thumbnail_url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/Logo-Container-8.png",
+            "templates": [
+                {
+                    "source": "templates\/career.json",
+                    "name": "Career"
+                },
+                {
+                    "source": "templates\/portfolio.json",
+                    "name": "Portfolio"
+                }
+            ],
+            "filesize": 35510,
+            "dimensions": [
+                400,
+                400
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/star-technology-logo-MFAP6C3"
+        },
+        {
+            "filename": "Logo-Container-7.png",
+            "thumbnail_url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/Logo-Container-7.png",
+            "templates": [
+                {
+                    "source": "templates\/career.json",
+                    "name": "Career"
+                },
+                {
+                    "source": "templates\/portfolio.json",
+                    "name": "Portfolio"
+                }
+            ],
+            "filesize": 23622,
+            "dimensions": [
+                400,
+                400
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/robot-chat-logo-EK8FLV"
+        },
+        {
+            "filename": "Logo-Container-5.png",
+            "thumbnail_url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/Logo-Container-5.png",
+            "templates": [
+                {
+                    "source": "templates\/career.json",
+                    "name": "Career"
+                },
+                {
+                    "source": "templates\/portfolio.json",
+                    "name": "Portfolio"
+                }
+            ],
+            "filesize": 34788,
+            "dimensions": [
+                400,
+                400
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/nature-and-sun-logo-MESFLV"
+        },
+        {
+            "filename": "Logo-Container-4.png",
+            "thumbnail_url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/Logo-Container-4.png",
+            "templates": [
+                {
+                    "source": "templates\/career.json",
+                    "name": "Career"
+                },
+                {
+                    "source": "templates\/portfolio.json",
+                    "name": "Portfolio"
+                }
+            ],
+            "filesize": 14921,
+            "dimensions": [
+                400,
+                400
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/infinity-luxurious-logo-ZLHX29"
+        },
+        {
+            "filename": "Logo-Container-3.png",
+            "thumbnail_url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/Logo-Container-3.png",
+            "templates": [
+                {
+                    "source": "templates\/career.json",
+                    "name": "Career"
+                },
+                {
+                    "source": "templates\/portfolio.json",
+                    "name": "Portfolio"
+                }
+            ],
+            "filesize": 32756,
+            "dimensions": [
+                400,
+                400
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/flower-logo-X77DPVM"
+        },
+        {
+            "filename": "Logo-Container-6.png",
+            "thumbnail_url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/Logo-Container-6.png",
+            "templates": [
+                {
+                    "source": "templates\/career.json",
+                    "name": "Career"
+                },
+                {
+                    "source": "templates\/portfolio.json",
+                    "name": "Portfolio"
+                }
+            ],
+            "filesize": 18420,
+            "dimensions": [
+                400,
+                400
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/mobile-chat-logo-2TH8AY"
+        },
+        {
+            "filename": "Logo-Container-2.png",
+            "thumbnail_url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/Logo-Container-2.png",
+            "templates": [
+                {
+                    "source": "templates\/career.json",
+                    "name": "Career"
+                },
+                {
+                    "source": "templates\/portfolio.json",
+                    "name": "Portfolio"
+                }
+            ],
+            "filesize": 26499,
+            "dimensions": [
+                400,
+                400
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/dental-love-logo-QKWGG9"
+        },
+        {
+            "filename": "Logo-Container-1.png",
+            "thumbnail_url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/Logo-Container-1.png",
+            "templates": [
+                {
+                    "source": "templates\/career.json",
+                    "name": "Career"
+                },
+                {
+                    "source": "templates\/portfolio.json",
+                    "name": "Portfolio"
+                }
+            ],
+            "filesize": 30429,
+            "dimensions": [
+                400,
+                400
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/love-bird-logo-S7EFX8"
+        },
+        {
+            "filename": "construction-drawings-and-tools-on-site-office-WWF2XAM.jpg",
+            "thumbnail_url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/construction-drawings-and-tools-on-site-office-WWF2XAM.jpg",
+            "templates": [
+                {
+                    "source": "templates\/career.json",
+                    "name": "Career"
+                },
+                {
+                    "source": "templates\/about.json",
+                    "name": "About"
+                }
+            ],
+            "filesize": 873426,
+            "dimensions": [
+                2000,
+                1000
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/construction-drawings-and-tools-on-site-office-WWF2XAM"
+        },
+        {
+            "filename": "modern-house-with-garden-swimming-pool-and-wooden-GJQVKDM.jpg",
+            "thumbnail_url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/modern-house-with-garden-swimming-pool-and-wooden-GJQVKDM.jpg",
+            "templates": [
+                {
+                    "source": "templates\/blog.json",
+                    "name": "Blog"
+                },
+                {
+                    "source": "templates\/portfolio.json",
+                    "name": "Portfolio"
+                }
+            ],
+            "filesize": 782247,
+            "dimensions": [
+                2000,
+                1333
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/modern-house-with-garden-swimming-pool-and-wooden-GJQVKDM"
+        },
+        {
+            "filename": "gallery1-1.jpg",
+            "thumbnail_url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/gallery1-1.jpg",
+            "templates": [
+                {
+                    "source": "templates\/single-post.json",
+                    "name": "Single Post"
+                }
+            ],
+            "filesize": 77137,
+            "dimensions": [
+                1000,
+                750
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/loving-family-enjoying-new-apartment-GRCW2AF"
+        },
+        {
+            "filename": "gallery2-1.jpg",
+            "thumbnail_url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/gallery2-1.jpg",
+            "templates": [
+                {
+                    "source": "templates\/single-post.json",
+                    "name": "Single Post"
+                }
+            ],
+            "filesize": 47983,
+            "dimensions": [
+                1000,
+                750
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/young-married-couple-at-the-construction-site-P4D6NWV"
+        },
+        {
+            "filename": "gallery3-1.jpg",
+            "thumbnail_url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/gallery3-1.jpg",
+            "templates": [
+                {
+                    "source": "templates\/single-post.json",
+                    "name": "Single Post"
+                }
+            ],
+            "filesize": 41412,
+            "dimensions": [
+                1000,
+                750
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/father-at-home-with-tablet-video-chatting-with-PF9UQ7B"
+        },
+        {
+            "filename": "gallery4-1.jpg",
+            "thumbnail_url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/gallery4-1.jpg",
+            "templates": [
+                {
+                    "source": "templates\/single-post.json",
+                    "name": "Single Post"
+                }
+            ],
+            "filesize": 68828,
+            "dimensions": [
+                1000,
+                750
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/mature-businessman-with-smartphone-on-a-train-P9YY67Q"
+        },
+        {
+            "filename": "gallery5-1.jpg",
+            "thumbnail_url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/gallery5-1.jpg",
+            "templates": [
+                {
+                    "source": "templates\/single-post.json",
+                    "name": "Single Post"
+                }
+            ],
+            "filesize": 51899,
+            "dimensions": [
+                1000,
+                750
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/a-smartphone-using-face-id-recognition-system-P5UYHKC"
+        },
+        {
+            "filename": "gallery6-1.jpg",
+            "thumbnail_url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/gallery6-1.jpg",
+            "templates": [
+                {
+                    "source": "templates\/single-post.json",
+                    "name": "Single Post"
+                }
+            ],
+            "filesize": 74206,
+            "dimensions": [
+                1000,
+                750
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/senior-man-in-town-sitting-on-bench-working-on-PFUQ2RJ"
+        },
+        {
+            "filename": "under-construction-PU92FX4.jpg",
+            "thumbnail_url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/under-construction-PU92FX4.jpg",
+            "templates": [
+                {
+                    "source": "templates\/portfolio.json",
+                    "name": "Portfolio"
+                }
+            ],
+            "filesize": 236488,
+            "dimensions": [
+                2000,
+                1000
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/under-construction-PU92FX4"
+        },
+        {
+            "filename": "modern-bank-building-germany-P4TLGU5.jpg",
+            "thumbnail_url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/modern-bank-building-germany-P4TLGU5.jpg",
+            "templates": [
+                {
+                    "source": "templates\/portfolio.json",
+                    "name": "Portfolio"
+                }
+            ],
+            "filesize": 616566,
+            "dimensions": [
+                2001,
+                1406
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/modern-bank-building-germany-P4TLGU5"
+        },
+        {
+            "filename": "modern-multi-storey-industrial-building-PW3GDUS.jpg",
+            "thumbnail_url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/modern-multi-storey-industrial-building-PW3GDUS.jpg",
+            "templates": [
+                {
+                    "source": "templates\/portfolio.json",
+                    "name": "Portfolio"
+                }
+            ],
+            "filesize": 792332,
+            "dimensions": [
+                2000,
+                1333
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/modern-multi-storey-industrial-building-PW3GDUS"
+        },
+        {
+            "filename": "modern-futuristic-railway-station-with-PY4BDCK.jpg",
+            "thumbnail_url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/modern-futuristic-railway-station-with-PY4BDCK.jpg",
+            "templates": [
+                {
+                    "source": "templates\/portfolio.json",
+                    "name": "Portfolio"
+                }
+            ],
+            "filesize": 862794,
+            "dimensions": [
+                1999,
+                1381
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/modern-futuristic-railway-station-with-PY4BDCK"
+        },
+        {
+            "filename": "modern-house-with-large-windows-6CEM7K4.jpg",
+            "thumbnail_url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/modern-house-with-large-windows-6CEM7K4.jpg",
+            "templates": [
+                {
+                    "source": "templates\/portfolio.json",
+                    "name": "Portfolio"
+                }
+            ],
+            "filesize": 755106,
+            "dimensions": [
+                1999,
+                1336
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/modern-house-with-large-windows-6CEM7K4"
+        },
+        {
+            "filename": "steel-construction-house-PZKE3CG.jpg",
+            "thumbnail_url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/steel-construction-house-PZKE3CG.jpg",
+            "templates": [
+                {
+                    "source": "templates\/portfolio.json",
+                    "name": "Portfolio"
+                }
+            ],
+            "filesize": 899291,
+            "dimensions": [
+                2000,
+                1335
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/steel-construction-house-PZKE3CG"
+        },
+        {
+            "filename": "building-a-new-brick-house-with-black-roof-small-MAS2ABC2.jpg",
+            "thumbnail_url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/building-a-new-brick-house-with-black-roof-small-MAS2ABC2-600x401.jpg",
+            "templates": [
+                {
+                    "source": "templates\/portfolio.json",
+                    "name": "Portfolio"
+                }
+            ],
+            "filesize": 663838,
+            "dimensions": [
+                1500,
+                1003
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/building-a-new-brick-house-with-black-roof-small-MAS2ABC"
+        },
+        {
+            "filename": "construction-manager-controlling-building-site-PVT98WZ.jpg",
+            "thumbnail_url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/construction-manager-controlling-building-site-PVT98WZ.jpg",
+            "templates": [
+                {
+                    "source": "templates\/about.json",
+                    "name": "About"
+                }
+            ],
+            "filesize": 832551,
+            "dimensions": [
+                2000,
+                1335
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/construction-manager-controlling-building-site-PVT98WZ"
+        },
+        {
+            "filename": "portrait-of-senior-businessman-in-the-conference-G5EDKR2.jpg",
+            "thumbnail_url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/portrait-of-senior-businessman-in-the-conference-G5EDKR2.jpg",
+            "templates": [
+                {
+                    "source": "templates\/about.json",
+                    "name": "About"
+                }
+            ],
+            "filesize": 80269,
+            "dimensions": [
+                502,
+                502
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/portrait-of-senior-businessman-in-the-conference-G5EDKR2"
+        },
+        {
+            "filename": "happy-engineer-at-construction-site-NE3V9DT.jpg",
+            "thumbnail_url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/happy-engineer-at-construction-site-NE3V9DT.jpg",
+            "templates": [
+                {
+                    "source": "templates\/about.json",
+                    "name": "About"
+                }
+            ],
+            "filesize": 116789,
+            "dimensions": [
+                503,
+                503
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/happy-engineer-at-construction-site-NE3V9DT"
+        },
+        {
+            "filename": "successful-engineer-at-building-site-CPKQSJQ.jpg",
+            "thumbnail_url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/successful-engineer-at-building-site-CPKQSJQ.jpg",
+            "templates": [
+                {
+                    "source": "templates\/about.json",
+                    "name": "About"
+                }
+            ],
+            "filesize": 86439,
+            "dimensions": [
+                501,
+                501
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/successful-engineer-at-building-site-CPKQSJQ"
+        },
+        {
+            "filename": "smiling-engineers-holding-blueprints-ZHPYTRN.jpg",
+            "thumbnail_url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/smiling-engineers-holding-blueprints-ZHPYTRN.jpg",
+            "templates": [
+                {
+                    "source": "templates\/about.json",
+                    "name": "About"
+                }
+            ],
+            "filesize": 93050,
+            "dimensions": [
+                504,
+                504
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/smiling-engineers-holding-blueprints-ZHPYTRN"
+        },
+        {
+            "filename": "wood-desks-for-new-bookshelf-in-good-hands-QETUR9Z-2-1.jpg",
+            "thumbnail_url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/wood-desks-for-new-bookshelf-in-good-hands-QETUR9Z-2-1.jpg",
+            "templates": [
+                {
+                    "source": "templates\/homepage.json",
+                    "name": "Homepage"
+                }
+            ],
+            "filesize": 158794,
+            "dimensions": [
+                1500,
+                1000
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "no",
+            "image_urls": "https:\/\/elements.envato.com\/wood-desks-for-new-bookshelf-in-good-hands-QETUR9Z"
+        },
+        {
+            "filename": "group-of-construction-engineer-working-in-9C3JHEQ-e1584605869721.jpg",
+            "thumbnail_url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/group-of-construction-engineer-working-in-9C3JHEQ-e1584605869721.jpg",
+            "templates": [
+                {
+                    "source": "templates\/homepage.json",
+                    "name": "Homepage"
+                }
+            ],
+            "filesize": 183658,
+            "dimensions": [
+                1261,
+                927
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/image-5869721"
+        },
+        {
+            "filename": "focus-construction-worker-on-construction-site-9JYZ8NP.jpg",
+            "thumbnail_url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/focus-construction-worker-on-construction-site-9JYZ8NP.jpg",
+            "templates": [
+                {
+                    "source": "templates\/homepage.json",
+                    "name": "Homepage"
+                }
+            ],
+            "filesize": 35055,
+            "dimensions": [
+                600,
+                628
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/image-9JYZ8NP"
+        },
+        {
+            "filename": "portrait3.jpg",
+            "thumbnail_url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/portrait3.jpg",
+            "templates": [
+                {
+                    "source": "templates\/homepage.json",
+                    "name": "Homepage"
+                }
+            ],
+            "filesize": 21413,
+            "dimensions": [
+                300,
+                300
+            ],
+            "image_source": "envato_elements",
+            "person_or_place": "yes",
+            "image_urls": "https:\/\/elements.envato.com\/business-man-thinking-D3K75CV"
+        },
+        {
+            "filename": "BALTON-1-1.svg",
+            "thumbnail_url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/BALTON-1-1.svg",
+            "templates": [
+                {
+                    "source": "templates\/homepage.json",
+                    "name": "Homepage"
+                }
+            ],
+            "filesize": 2511,
+            "dimensions": [
+                0,
+                0
+            ],
+            "image_source": "self_created",
+            "person_or_place": "no",
+            "image_urls": ""
+        },
+        {
+            "filename": "BALTON-1.svg",
+            "thumbnail_url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/BALTON-1.svg",
+            "templates": [
+                {
+                    "source": "templates\/homepage.json",
+                    "name": "Homepage"
+                }
+            ],
+            "filesize": 2759,
+            "dimensions": [
+                0,
+                0
+            ],
+            "image_source": "self_created",
+            "person_or_place": "no",
+            "image_urls": ""
+        }
+    ]
+}

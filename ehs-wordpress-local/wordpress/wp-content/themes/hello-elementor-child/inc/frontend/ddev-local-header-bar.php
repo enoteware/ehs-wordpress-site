@@ -1,7 +1,7 @@
 <?php
 /**
- * DDEV Local Environment Header Bar
- * Displays a persistent orange warning bar at the top of all pages when running in DDEV environment
+ * DDEV Local Environment Indicator
+ * Shows a "LOCAL" badge in the WordPress admin bar when running in DDEV.
  *
  * @package HelloElementorChild
  * @since 1.0.0
@@ -12,128 +12,102 @@ if (!defined('ABSPATH')) {
 }
 
 /**
- * DDEV Local Environment Header Bar
- * Displays a persistent orange warning bar at the top of all pages when running in DDEV environment
+ * Check if we're running in DDEV.
  */
-function ehs_ddev_local_header_bar() {
-    // Only show in DDEV environment
+function ehs_is_ddev_environment() {
     if (getenv('IS_DDEV_PROJECT') !== 'true') {
-        return;
+        return false;
     }
 
-    // Output the header bar HTML
-    ?>
-    <div id="ehs-ddev-local-header-bar" style="display: none;">
-        <div class="ehs-ddev-header-content">
-            <strong>LOCAL DEVELOPMENT</strong>
-        </div>
-    </div>
-    <?php
+    return true;
 }
 
 /**
- * Output DDEV header bar CSS styles
+ * Add a LOCAL badge to the WP admin bar (front + wp-admin).
  */
-function ehs_ddev_local_header_bar_styles() {
-    // Only load in DDEV environment
-    if (getenv('IS_DDEV_PROJECT') !== 'true') {
+function ehs_ddev_admin_bar_local_badge($wp_admin_bar) {
+    if (!ehs_is_ddev_environment()) {
         return;
     }
 
-    // Output CSS directly
+    if (!is_user_logged_in() || !is_admin_bar_showing()) {
+        return;
+    }
+
+    // Get server hostname
+    $hostname = gethostname();
+    $display_text = 'LOCAL';
+
+    // Add hostname if available
+    if ($hostname && $hostname !== 'localhost') {
+        $display_text .= ' • ' . $hostname;
+    }
+
+    $wp_admin_bar->add_node(array(
+        'id'    => 'ehs-env-local',
+        'parent' => 'top-secondary',
+        'title' => $display_text,
+        'href'  => admin_url(),
+        'meta'  => array(
+            'class' => 'ehs-env-local-badge',
+            'title' => 'Local development environment (DDEV) running on ' . $hostname,
+        ),
+    ));
+}
+
+/**
+ * Output styles for the admin bar badge.
+ */
+function ehs_ddev_admin_bar_local_badge_styles() {
+    if (!ehs_is_ddev_environment()) {
+        return;
+    }
+
+    if (!is_user_logged_in() || !is_admin_bar_showing()) {
+        return;
+    }
+
     ?>
-    <style id="ehs-ddev-local-header-bar-styles">
-        #ehs-ddev-local-header-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: #ff9800;
+    <style id="ehs-ddev-admin-bar-local-badge-styles">
+        #wpadminbar .ehs-env-local-badge > .ab-item {
+            background: #ff9800;
             color: #ffffff;
-            text-align: center;
-            padding: 12px 20px;
-            z-index: 9999;
-            font-size: 14px;
-            font-weight: 600;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
         }
-        /* Ensure Elementor header/footer can appear above DDEV bar if needed */
-        .elementor-location-header,
-        .elementor-location-footer,
-        [data-elementor-type="header"],
-        [data-elementor-type="footer"] {
-            position: relative;
-            z-index: 10000;
-        }
-        .ehs-ddev-header-content {
-            max-width: 100%;
-            margin: 0 auto;
-        }
-        body.admin-bar #ehs-ddev-local-header-bar {
-            top: 32px;
-        }
-        @media screen and (max-width: 782px) {
-            body.admin-bar #ehs-ddev-local-header-bar {
-                top: 46px;
-            }
+        #wpadminbar .ehs-env-local-badge > .ab-item:hover,
+        #wpadminbar .ehs-env-local-badge.hover > .ab-item {
+            background: #e68900;
+            color: #ffffff;
         }
     </style>
     <?php
 }
 
 /**
- * Output DDEV header bar JavaScript
+ * Display a prominent local development banner at the top of the page.
  */
-function ehs_ddev_local_header_bar_scripts() {
-    // Only load in DDEV environment
-    if (getenv('IS_DDEV_PROJECT') !== 'true') {
+function ehs_ddev_local_banner() {
+    if (!ehs_is_ddev_environment()) {
         return;
     }
 
-    // Output JavaScript directly
+    $hostname = gethostname();
+    $server_info = $hostname ?: 'Unknown Server';
     ?>
-    <script id="ehs-ddev-local-header-bar-scripts">
-        (function() {
-            function initDdevHeaderBar() {
-                var headerBar = document.getElementById("ehs-ddev-local-header-bar");
-                if (headerBar) {
-                    headerBar.style.display = "block";
-                    var barHeight = headerBar.offsetHeight;
-                    var body = document.body;
-
-                    // Account for WordPress admin bar if present
-                    var adminBarHeight = 0;
-                    var adminBar = document.getElementById("wpadminbar");
-                    if (adminBar) {
-                        adminBarHeight = adminBar.offsetHeight;
-                    }
-
-                    // Adjust body padding to account for fixed header bar
-                    var totalOffset = barHeight + adminBarHeight;
-                    body.style.paddingTop = totalOffset + "px";
-                }
-            }
-
-            // Run on DOM ready
-            if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', initDdevHeaderBar);
-            } else {
-                initDdevHeaderBar();
-            }
-        })();
-    </script>
+    <div id="ehs-local-dev-banner" style="position: fixed; top: 0; left: 0; right: 0; z-index: 999999; background: linear-gradient(135deg, #ff6b35 0%, #ff9800 100%); color: #fff; padding: 8px 20px; text-align: center; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.5px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); border-bottom: 2px solid rgba(0,0,0,0.1);">
+        ⚠️ <strong>LOCAL DEVELOPMENT</strong> • Running on: <code style="background: rgba(0,0,0,0.2); padding: 2px 8px; border-radius: 3px; font-family: 'Monaco', 'Courier New', monospace;"><?php echo esc_html($server_info); ?></code> • URL: <code style="background: rgba(0,0,0,0.2); padding: 2px 8px; border-radius: 3px; font-family: 'Monaco', 'Courier New', monospace;"><?php echo esc_html(home_url()); ?></code>
+    </div>
+    <style>
+        body { padding-top: 38px !important; }
+        #wpadminbar { top: 38px !important; }
+    </style>
     <?php
 }
 
-// Output styles in head on both frontend and admin
-add_action('wp_head', 'ehs_ddev_local_header_bar_styles');
-add_action('admin_head', 'ehs_ddev_local_header_bar_styles');
-
-// Output scripts in footer on both frontend and admin
-add_action('wp_footer', 'ehs_ddev_local_header_bar_scripts');
-add_action('admin_footer', 'ehs_ddev_local_header_bar_scripts');
-
-// Output header bar HTML on both frontend and admin
-add_action('wp_footer', 'ehs_ddev_local_header_bar');
-add_action('admin_footer', 'ehs_ddev_local_header_bar');
+add_action('admin_bar_menu', 'ehs_ddev_admin_bar_local_badge', 1000);
+add_action('wp_head', 'ehs_ddev_admin_bar_local_badge_styles');
+add_action('admin_head', 'ehs_ddev_admin_bar_local_badge_styles');
+add_action('wp_body_open', 'ehs_ddev_local_banner', 1);
+add_action('wp_footer', 'ehs_ddev_local_banner', 1);

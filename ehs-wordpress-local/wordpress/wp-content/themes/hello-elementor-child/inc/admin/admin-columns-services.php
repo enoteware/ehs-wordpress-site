@@ -23,6 +23,7 @@ function ehs_services_custom_columns($columns) {
 
         // Insert custom columns after title
         if ($key === 'title') {
+            $new_columns['featured_image'] = __('Thumbnail', 'hello-elementor-child');
             $new_columns['service_icon'] = __('Icon', 'hello-elementor-child');
             $new_columns['service_category'] = __('Category', 'hello-elementor-child');
             $new_columns['service_area'] = __('Area', 'hello-elementor-child');
@@ -43,6 +44,17 @@ function ehs_services_custom_columns($columns) {
 add_action('manage_services_posts_custom_column', 'ehs_services_column_content', 10, 2);
 function ehs_services_column_content($column_name, $post_id) {
     switch ($column_name) {
+        case 'featured_image':
+            $thumb_id = get_post_thumbnail_id($post_id);
+            if ($thumb_id) {
+                echo wp_get_attachment_image($thumb_id, array(40, 40), false, array(
+                    'style' => 'border-radius: 3px; border: 1px solid #ddd; object-fit: cover;'
+                ));
+            } else {
+                echo '<span style="color: #999;">—</span>';
+            }
+            break;
+
         case 'service_icon':
             $icon_id = get_post_meta($post_id, 'service_icon', true);
             if ($icon_id) {
@@ -55,12 +67,17 @@ function ehs_services_column_content($column_name, $post_id) {
             break;
 
         case 'service_category':
-            $category = get_post_meta($post_id, 'service_category', true);
-            echo $category ? esc_html($category) : '<span style="color: #999;">—</span>';
+            $terms = get_the_terms($post_id, 'service_category');
+            if (!is_wp_error($terms) && !empty($terms)) {
+                echo esc_html(implode(', ', wp_list_pluck($terms, 'name')));
+            } else {
+                echo '<span style="color: #999;">—</span>';
+            }
             break;
 
         case 'service_area':
-            $area = get_post_meta($post_id, 'service_area', true);
+            $terms = get_the_terms($post_id, 'service_area');
+            $area = (!is_wp_error($terms) && !empty($terms)) ? implode(', ', wp_list_pluck($terms, 'name')) : '';
             if ($area) {
                 $badge_colors = array(
                     'California' => '#2271b1',
@@ -95,8 +112,6 @@ function ehs_services_column_content($column_name, $post_id) {
  */
 add_filter('manage_edit-services_sortable_columns', 'ehs_services_sortable_columns');
 function ehs_services_sortable_columns($columns) {
-    $columns['service_category'] = 'service_category';
-    $columns['service_area'] = 'service_area';
     $columns['service_featured'] = 'service_featured';
     $columns['service_order'] = 'service_order';
     return $columns;
@@ -117,7 +132,7 @@ function ehs_services_column_orderby($query) {
     }
 
     $orderby = $query->get('orderby');
-    $meta_fields = array('service_category', 'service_area', 'service_featured', 'service_order');
+    $meta_fields = array('service_featured', 'service_order');
 
     if (in_array($orderby, $meta_fields)) {
         $query->set('meta_key', $orderby);
@@ -143,6 +158,7 @@ function ehs_services_admin_column_styles() {
     }
     ?>
     <style>
+        .column-featured_image { width: 70px; text-align: center; }
         .column-service_icon { width: 60px; text-align: center; }
         .column-service_category { width: 150px; }
         .column-service_area { width: 100px; text-align: center; }

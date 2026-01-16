@@ -1,0 +1,20 @@
+# Cursor Rules for EHS Project
+
+## Slash Commands
+
+### /regen-css
+Regenerates Elementor CSS and clears all caches. Use this after updating Elementor templates or button styles.
+
+**Implementation:**
+```bash
+cd ehs-wordpress-local && ./regen-css.sh
+```
+
+**What it does:**
+- Clears Elementor files cache
+- Regenerates Elementor CSS files
+- Clears Elementor transients
+- Clears WordPress object cache
+- Runs Elementor flush-css command
+
+**Usage:** Run `/regen-css` after making Elementor template changes to see updates immediately.

@@ -1,0 +1,1458 @@
+{
+    "version": "0.4",
+    "title": "Portfolio",
+    "type": "page",
+    "metadata": {
+        "template_type": "single-page",
+        "include_in_zip": "1",
+        "elementor_pro_required": null,
+        "wp_page_template": "elementor_canvas"
+    },
+    "content": [
+        {
+            "id": "49d0b0de",
+            "settings": {
+                "padding": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": false
+                },
+                "background_background": "classic",
+                "background_position": "initial",
+                "background_xpos": {
+                    "unit": "vw",
+                    "size": 33,
+                    "sizes": []
+                },
+                "background_ypos": {
+                    "unit": "%",
+                    "size": 50,
+                    "sizes": []
+                },
+                "background_repeat": "no-repeat",
+                "background_size": "initial",
+                "background_bg_width": {
+                    "unit": "px",
+                    "size": 1300,
+                    "sizes": []
+                },
+                "margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": 0,
+                    "bottom": "0",
+                    "left": 0,
+                    "isLinked": false
+                },
+                "z_index": 0,
+                "gap": "wider",
+                "custom_height": {
+                    "unit": "px",
+                    "size": 200,
+                    "sizes": []
+                },
+                "background_overlay_background": "classic",
+                "background_overlay_color": "#131824",
+                "overlay_blend_mode": "multiply",
+                "layout": "full_width",
+                "overflow": "hidden"
+            },
+            "elements": [
+                {
+                    "id": "792de498",
+                    "settings": {
+                        "_column_size": 100,
+                        "_inline_size": null,
+                        "z_index": 2,
+                        "padding": {
+                            "unit": "px",
+                            "top": "0",
+                            "right": "0",
+                            "bottom": "0",
+                            "left": "0",
+                            "isLinked": false
+                        },
+                        "background_background": "classic",
+                        "background_color": "#FFFFFF"
+                    },
+                    "elements": [
+                        {
+                            "id": "78304ce4",
+                            "settings": {
+                                "image": {
+                                    "url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/under-construction-PU92FX4.jpg",
+                                    "id": 282
+                                },
+                                "image_size": "full",
+                                "_z_index": 1,
+                                "_position": "absolute",
+                                "_offset_orientation_v": "end",
+                                "_element_width": "initial",
+                                "_element_custom_width": {
+                                    "unit": "px",
+                                    "size": 1360,
+                                    "sizes": []
+                                },
+                                "_offset_x": {
+                                    "unit": "vw",
+                                    "size": 33,
+                                    "sizes": []
+                                },
+                                "_offset_y_end": {
+                                    "unit": "px",
+                                    "size": 0,
+                                    "sizes": []
+                                },
+                                "css_filters_css_filter": "custom",
+                                "css_filters_brightness": {
+                                    "unit": "px",
+                                    "size": 27,
+                                    "sizes": []
+                                },
+                                "css_filters_saturate": {
+                                    "unit": "px",
+                                    "size": 0,
+                                    "sizes": []
+                                },
+                                "css_filters_hover_css_filter": "custom",
+                                "css_filters_hover_brightness": {
+                                    "unit": "px",
+                                    "size": 60,
+                                    "sizes": []
+                                },
+                                "background_hover_transition": {
+                                    "unit": "px",
+                                    "size": 0.8,
+                                    "sizes": []
+                                }
+                            },
+                            "elements": [],
+                            "isInner": false,
+                            "widgetType": "image",
+                            "elType": "widget"
+                        },
+                        {
+                            "id": "3e875341",
+                            "settings": {
+                                "layout": "full_width",
+                                "background_background": "classic",
+                                "background_color": "#131824",
+                                "margin": {
+                                    "unit": "px",
+                                    "top": "0",
+                                    "right": 0,
+                                    "bottom": "48",
+                                    "left": 0,
+                                    "isLinked": false
+                                }
+                            },
+                            "elements": [
+                                {
+                                    "id": "6792af6",
+                                    "settings": {
+                                        "_column_size": 100,
+                                        "_inline_size": null,
+                                        "padding": {
+                                            "unit": "px",
+                                            "top": "200",
+                                            "right": "0",
+                                            "bottom": "200",
+                                            "left": "0",
+                                            "isLinked": false
+                                        },
+                                        "align": "center",
+                                        "background_background": "classic",
+                                        "background_color": "#333333",
+                                        "padding_mobile": {
+                                            "unit": "px",
+                                            "top": "128",
+                                            "right": "30",
+                                            "bottom": "128",
+                                            "left": "30",
+                                            "isLinked": false
+                                        }
+                                    },
+                                    "elements": [
+                                        {
+                                            "id": "1858da1",
+                                            "settings": {
+                                                "title": "Construction Projects",
+                                                "_margin": {
+                                                    "unit": "px",
+                                                    "top": "0",
+                                                    "right": "0",
+                                                    "bottom": "0",
+                                                    "left": "0",
+                                                    "isLinked": false
+                                                },
+                                                "header_size": "h1",
+                                                "typography_letter_spacing": {
+                                                    "unit": "px",
+                                                    "size": -0.9,
+                                                    "sizes": []
+                                                },
+                                                "title_color": "#FFFFFF",
+                                                "align": "center",
+                                                "_z_index": 3,
+                                                "_element_width": "auto",
+                                                "typography_typography": "custom",
+                                                "typography_font_size_mobile": {
+                                                    "unit": "px",
+                                                    "size": 50,
+                                                    "sizes": []
+                                                }
+                                            },
+                                            "elements": [],
+                                            "isInner": false,
+                                            "widgetType": "heading",
+                                            "elType": "widget"
+                                        }
+                                    ],
+                                    "isInner": true,
+                                    "elType": "column"
+                                }
+                            ],
+                            "isInner": true,
+                            "elType": "section"
+                        }
+                    ],
+                    "isInner": false,
+                    "elType": "column"
+                }
+            ],
+            "isInner": false,
+            "elType": "section"
+        },
+        {
+            "id": "ba6eaa2",
+            "settings": {
+                "padding": {
+                    "unit": "px",
+                    "top": "96",
+                    "right": "0",
+                    "bottom": "96",
+                    "left": "0",
+                    "isLinked": false
+                }
+            },
+            "elements": [
+                {
+                    "id": "703c3227",
+                    "settings": {
+                        "_column_size": 100,
+                        "_inline_size": null
+                    },
+                    "elements": [
+                        {
+                            "id": "f1ab381",
+                            "settings": {
+                                "structure": "20",
+                                "margin": {
+                                    "unit": "px",
+                                    "top": "0",
+                                    "right": 0,
+                                    "bottom": "48",
+                                    "left": 0,
+                                    "isLinked": false
+                                }
+                            },
+                            "elements": [
+                                {
+                                    "id": "178e363a",
+                                    "settings": {
+                                        "_column_size": 50,
+                                        "_inline_size": 67.966
+                                    },
+                                    "elements": [
+                                        {
+                                            "id": "6213677a",
+                                            "settings": {
+                                                "title": "Nullam quis risus eget urna mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.",
+                                                "header_size": "div",
+                                                "title_color": "#A7A7A7",
+                                                "typography_typography": "custom",
+                                                "typography_font_size": {
+                                                    "unit": "px",
+                                                    "size": 21,
+                                                    "sizes": []
+                                                },
+                                                "typography_line_height": {
+                                                    "unit": "em",
+                                                    "size": 1.4,
+                                                    "sizes": []
+                                                }
+                                            },
+                                            "elements": [],
+                                            "isInner": false,
+                                            "widgetType": "heading",
+                                            "elType": "widget"
+                                        }
+                                    ],
+                                    "isInner": true,
+                                    "elType": "column"
+                                },
+                                {
+                                    "id": "48dd8bb9",
+                                    "settings": {
+                                        "_column_size": 50,
+                                        "_inline_size": 32.034
+                                    },
+                                    "elements": [],
+                                    "isInner": true,
+                                    "elType": "column"
+                                }
+                            ],
+                            "isInner": true,
+                            "elType": "section"
+                        },
+                        {
+                            "id": "421b05bc",
+                            "settings": {
+                                "structure": "20",
+                                "margin": {
+                                    "unit": "px",
+                                    "top": "0",
+                                    "right": 0,
+                                    "bottom": "48",
+                                    "left": 0,
+                                    "isLinked": false
+                                }
+                            },
+                            "elements": [
+                                {
+                                    "id": "2c94c305",
+                                    "settings": {
+                                        "_column_size": 50,
+                                        "_inline_size": 32
+                                    },
+                                    "elements": [
+                                        {
+                                            "id": "29c5c6f",
+                                            "settings": {
+                                                "title": "Our Portfolio",
+                                                "typography_font_family": "Roboto",
+                                                "typography_typography": "custom",
+                                                "typography_font_size_mobile": {
+                                                    "unit": "px",
+                                                    "size": 38,
+                                                    "sizes": []
+                                                }
+                                            },
+                                            "elements": [],
+                                            "isInner": false,
+                                            "widgetType": "heading",
+                                            "elType": "widget"
+                                        }
+                                    ],
+                                    "isInner": true,
+                                    "elType": "column"
+                                },
+                                {
+                                    "id": "237adc18",
+                                    "settings": {
+                                        "_column_size": 50,
+                                        "_inline_size": 68
+                                    },
+                                    "elements": [
+                                        {
+                                            "id": "464b4345",
+                                            "settings": {
+                                                "title": "Completed and ongoing projects",
+                                                "header_size": "h6",
+                                                "typography_typography": "custom",
+                                                "typography_font_size": {
+                                                    "unit": "px",
+                                                    "size": 16,
+                                                    "sizes": []
+                                                },
+                                                "typography_font_weight": "600",
+                                                "typography_text_transform": "uppercase",
+                                                "typography_letter_spacing": {
+                                                    "unit": "px",
+                                                    "size": 2,
+                                                    "sizes": []
+                                                },
+                                                "title_color": "#A7A7A7",
+                                                "_margin": {
+                                                    "unit": "px",
+                                                    "top": "8",
+                                                    "right": "0",
+                                                    "bottom": "0",
+                                                    "left": "0",
+                                                    "isLinked": false
+                                                },
+                                                "align": "right",
+                                                "align_mobile": "left",
+                                                "typography_line_height_mobile": {
+                                                    "unit": "em",
+                                                    "size": 1.5,
+                                                    "sizes": []
+                                                }
+                                            },
+                                            "elements": [],
+                                            "isInner": false,
+                                            "widgetType": "heading",
+                                            "elType": "widget"
+                                        },
+                                        {
+                                            "id": "add0c87",
+                                            "settings": {
+                                                "text": "Divider",
+                                                "color": "#DEDEDE",
+                                                "gap": {
+                                                    "unit": "px",
+                                                    "size": 32,
+                                                    "sizes": []
+                                                }
+                                            },
+                                            "elements": [],
+                                            "isInner": false,
+                                            "widgetType": "divider",
+                                            "elType": "widget"
+                                        }
+                                    ],
+                                    "isInner": true,
+                                    "elType": "column"
+                                }
+                            ],
+                            "isInner": true,
+                            "elType": "section"
+                        },
+                        {
+                            "id": "d3236c1",
+                            "settings": {
+                                "premium_gallery_img_size_select": "masonry",
+                                "premium_gallery_images_fit": "cover",
+                                "premium_gallery_column_number": "33.330%",
+                                "premium_gallery_load_more_text": "Load More",
+                                "premium_gallery_first_cat_label": "All",
+                                "premium_gallery_cats_content": [
+                                    {
+                                        "premium_gallery_img_cat": "Office",
+                                        "_id": "18168b7",
+                                        "premium_gallery_img_cat_rotation": ""
+                                    },
+                                    {
+                                        "premium_gallery_img_cat": "High Rise",
+                                        "_id": "afa16fd",
+                                        "premium_gallery_img_cat_rotation": ""
+                                    },
+                                    {
+                                        "premium_gallery_img_cat": "Low Rise",
+                                        "premium_gallery_img_cat_rotation": "",
+                                        "_id": "479b92b"
+                                    },
+                                    {
+                                        "premium_gallery_img_cat": "Residential",
+                                        "premium_gallery_img_cat_rotation": "",
+                                        "_id": "8ab9ce3"
+                                    }
+                                ],
+                                "premium_gallery_shuffle": "yes",
+                                "premium_gallery_img_content": [
+                                    {
+                                        "premium_gallery_img_name": "High Office Building",
+                                        "premium_gallery_img_category": "Office",
+                                        "_id": "d35e4f6",
+                                        "premium_gallery_img": {
+                                            "url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/modern-bank-building-germany-P4TLGU5.jpg",
+                                            "id": 514
+                                        },
+                                        "premium_gallery_image_cell": {
+                                            "unit": "px",
+                                            "size": 4,
+                                            "sizes": []
+                                        },
+                                        "premium_gallery_image_cell_tablet": {
+                                            "unit": "px",
+                                            "size": "",
+                                            "sizes": []
+                                        },
+                                        "premium_gallery_image_cell_mobile": {
+                                            "unit": "px",
+                                            "size": "",
+                                            "sizes": []
+                                        },
+                                        "premium_gallery_image_vcell": {
+                                            "unit": "px",
+                                            "size": 4,
+                                            "sizes": []
+                                        },
+                                        "premium_gallery_image_vcell_tablet": {
+                                            "unit": "px",
+                                            "size": "",
+                                            "sizes": []
+                                        },
+                                        "premium_gallery_image_vcell_mobile": {
+                                            "unit": "px",
+                                            "size": "",
+                                            "sizes": []
+                                        },
+                                        "premium_gallery_video": "",
+                                        "premium_gallery_video_type": "youtube",
+                                        "premium_gallery_video_url": "",
+                                        "premium_gallery_video_self": {
+                                            "url": "",
+                                            "id": ""
+                                        },
+                                        "premium_gallery_video_self_url": "",
+                                        "premium_gallery_video_controls": "true",
+                                        "premium_gallery_video_mute": "",
+                                        "premium_gallery_img_desc": "Down town office",
+                                        "premium_gallery_img_link_type": "url",
+                                        "premium_gallery_img_link": {
+                                            "url": "#",
+                                            "is_external": "",
+                                            "nofollow": "",
+                                            "custom_attributes": ""
+                                        },
+                                        "premium_gallery_img_existing": "",
+                                        "premium_gallery_link_whole": "yes",
+                                        "premium_gallery_lightbox_whole": ""
+                                    },
+                                    {
+                                        "premium_gallery_img_name": "Office Interior",
+                                        "premium_gallery_img_category": "High Rise",
+                                        "_id": "c82072f",
+                                        "premium_gallery_img": {
+                                            "url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/modern-multi-storey-industrial-building-PW3GDUS.jpg",
+                                            "id": 516
+                                        },
+                                        "premium_gallery_image_cell": {
+                                            "unit": "px",
+                                            "size": 4,
+                                            "sizes": []
+                                        },
+                                        "premium_gallery_image_cell_tablet": {
+                                            "unit": "px",
+                                            "size": "",
+                                            "sizes": []
+                                        },
+                                        "premium_gallery_image_cell_mobile": {
+                                            "unit": "px",
+                                            "size": "",
+                                            "sizes": []
+                                        },
+                                        "premium_gallery_image_vcell": {
+                                            "unit": "px",
+                                            "size": 4,
+                                            "sizes": []
+                                        },
+                                        "premium_gallery_image_vcell_tablet": {
+                                            "unit": "px",
+                                            "size": "",
+                                            "sizes": []
+                                        },
+                                        "premium_gallery_image_vcell_mobile": {
+                                            "unit": "px",
+                                            "size": "",
+                                            "sizes": []
+                                        },
+                                        "premium_gallery_video": "",
+                                        "premium_gallery_video_type": "youtube",
+                                        "premium_gallery_video_url": "",
+                                        "premium_gallery_video_self": {
+                                            "url": "",
+                                            "id": ""
+                                        },
+                                        "premium_gallery_video_self_url": "",
+                                        "premium_gallery_video_controls": "true",
+                                        "premium_gallery_video_mute": "",
+                                        "premium_gallery_img_desc": "Downtown office",
+                                        "premium_gallery_img_link_type": "url",
+                                        "premium_gallery_img_link": {
+                                            "url": "#",
+                                            "is_external": "",
+                                            "nofollow": "",
+                                            "custom_attributes": ""
+                                        },
+                                        "premium_gallery_img_existing": "",
+                                        "premium_gallery_link_whole": "yes",
+                                        "premium_gallery_lightbox_whole": ""
+                                    },
+                                    {
+                                        "premium_gallery_img_name": "Rail Station",
+                                        "premium_gallery_img_category": "Low Rise",
+                                        "premium_gallery_img": {
+                                            "url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/modern-futuristic-railway-station-with-PY4BDCK.jpg",
+                                            "id": 517
+                                        },
+                                        "premium_gallery_image_cell": {
+                                            "unit": "px",
+                                            "size": 4,
+                                            "sizes": []
+                                        },
+                                        "premium_gallery_image_cell_tablet": {
+                                            "unit": "px",
+                                            "size": "",
+                                            "sizes": []
+                                        },
+                                        "premium_gallery_image_cell_mobile": {
+                                            "unit": "px",
+                                            "size": "",
+                                            "sizes": []
+                                        },
+                                        "premium_gallery_image_vcell": {
+                                            "unit": "px",
+                                            "size": 4,
+                                            "sizes": []
+                                        },
+                                        "premium_gallery_image_vcell_tablet": {
+                                            "unit": "px",
+                                            "size": "",
+                                            "sizes": []
+                                        },
+                                        "premium_gallery_image_vcell_mobile": {
+                                            "unit": "px",
+                                            "size": "",
+                                            "sizes": []
+                                        },
+                                        "premium_gallery_video": "",
+                                        "premium_gallery_video_type": "youtube",
+                                        "premium_gallery_video_url": "",
+                                        "premium_gallery_video_self": {
+                                            "url": "",
+                                            "id": ""
+                                        },
+                                        "premium_gallery_video_self_url": "",
+                                        "premium_gallery_video_controls": "true",
+                                        "premium_gallery_video_mute": "",
+                                        "premium_gallery_img_desc": "Modern station",
+                                        "premium_gallery_img_link_type": "url",
+                                        "premium_gallery_img_link": {
+                                            "url": "#",
+                                            "is_external": "",
+                                            "nofollow": "",
+                                            "custom_attributes": ""
+                                        },
+                                        "premium_gallery_img_existing": "",
+                                        "premium_gallery_link_whole": "yes",
+                                        "premium_gallery_lightbox_whole": "",
+                                        "_id": "b5197f5"
+                                    },
+                                    {
+                                        "premium_gallery_img_name": "High Rise Building",
+                                        "premium_gallery_img_category": "High Rise",
+                                        "premium_gallery_img": {
+                                            "url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/modern-building-and-crane-machinery-structure-984FT7V.jpg",
+                                            "id": 522
+                                        },
+                                        "premium_gallery_image_cell": {
+                                            "unit": "px",
+                                            "size": 4,
+                                            "sizes": []
+                                        },
+                                        "premium_gallery_image_cell_tablet": {
+                                            "unit": "px",
+                                            "size": "",
+                                            "sizes": []
+                                        },
+                                        "premium_gallery_image_cell_mobile": {
+                                            "unit": "px",
+                                            "size": "",
+                                            "sizes": []
+                                        },
+                                        "premium_gallery_image_vcell": {
+                                            "unit": "px",
+                                            "size": 4,
+                                            "sizes": []
+                                        },
+                                        "premium_gallery_image_vcell_tablet": {
+                                            "unit": "px",
+                                            "size": "",
+                                            "sizes": []
+                                        },
+                                        "premium_gallery_image_vcell_mobile": {
+                                            "unit": "px",
+                                            "size": "",
+                                            "sizes": []
+                                        },
+                                        "premium_gallery_video": "",
+                                        "premium_gallery_video_type": "youtube",
+                                        "premium_gallery_video_url": "",
+                                        "premium_gallery_video_self": {
+                                            "url": "",
+                                            "id": ""
+                                        },
+                                        "premium_gallery_video_self_url": "",
+                                        "premium_gallery_video_controls": "true",
+                                        "premium_gallery_video_mute": "",
+                                        "premium_gallery_img_desc": "Commercial Area",
+                                        "premium_gallery_img_link_type": "url",
+                                        "premium_gallery_img_link": {
+                                            "url": "#",
+                                            "is_external": "",
+                                            "nofollow": "",
+                                            "custom_attributes": ""
+                                        },
+                                        "premium_gallery_img_existing": "",
+                                        "premium_gallery_link_whole": "yes",
+                                        "premium_gallery_lightbox_whole": "",
+                                        "_id": "678ee6f"
+                                    },
+                                    {
+                                        "premium_gallery_img_name": "Pool House",
+                                        "premium_gallery_img_category": "Residential",
+                                        "premium_gallery_img": {
+                                            "url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/modern-house-with-garden-swimming-pool-and-wooden-GJQVKDM.jpg",
+                                            "id": 524
+                                        },
+                                        "premium_gallery_image_cell": {
+                                            "unit": "px",
+                                            "size": 4,
+                                            "sizes": []
+                                        },
+                                        "premium_gallery_image_cell_tablet": {
+                                            "unit": "px",
+                                            "size": "",
+                                            "sizes": []
+                                        },
+                                        "premium_gallery_image_cell_mobile": {
+                                            "unit": "px",
+                                            "size": "",
+                                            "sizes": []
+                                        },
+                                        "premium_gallery_image_vcell": {
+                                            "unit": "px",
+                                            "size": 4,
+                                            "sizes": []
+                                        },
+                                        "premium_gallery_image_vcell_tablet": {
+                                            "unit": "px",
+                                            "size": "",
+                                            "sizes": []
+                                        },
+                                        "premium_gallery_image_vcell_mobile": {
+                                            "unit": "px",
+                                            "size": "",
+                                            "sizes": []
+                                        },
+                                        "premium_gallery_video": "",
+                                        "premium_gallery_video_type": "youtube",
+                                        "premium_gallery_video_url": "",
+                                        "premium_gallery_video_self": {
+                                            "url": "",
+                                            "id": ""
+                                        },
+                                        "premium_gallery_video_self_url": "",
+                                        "premium_gallery_video_controls": "true",
+                                        "premium_gallery_video_mute": "",
+                                        "premium_gallery_img_desc": "Residential",
+                                        "premium_gallery_img_link_type": "url",
+                                        "premium_gallery_img_link": {
+                                            "url": "#",
+                                            "is_external": "",
+                                            "nofollow": "",
+                                            "custom_attributes": ""
+                                        },
+                                        "premium_gallery_img_existing": "",
+                                        "premium_gallery_link_whole": "yes",
+                                        "premium_gallery_lightbox_whole": "",
+                                        "_id": "fa4039e"
+                                    },
+                                    {
+                                        "premium_gallery_img_name": "Residential",
+                                        "premium_gallery_img_category": "Residential",
+                                        "premium_gallery_img": {
+                                            "url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/modern-house-exterior-GF59AUJ2.jpg",
+                                            "id": 996
+                                        },
+                                        "premium_gallery_image_cell": {
+                                            "unit": "px",
+                                            "size": 4,
+                                            "sizes": []
+                                        },
+                                        "premium_gallery_image_cell_tablet": {
+                                            "unit": "px",
+                                            "size": "",
+                                            "sizes": []
+                                        },
+                                        "premium_gallery_image_cell_mobile": {
+                                            "unit": "px",
+                                            "size": "",
+                                            "sizes": []
+                                        },
+                                        "premium_gallery_image_vcell": {
+                                            "unit": "px",
+                                            "size": 4,
+                                            "sizes": []
+                                        },
+                                        "premium_gallery_image_vcell_tablet": {
+                                            "unit": "px",
+                                            "size": "",
+                                            "sizes": []
+                                        },
+                                        "premium_gallery_image_vcell_mobile": {
+                                            "unit": "px",
+                                            "size": "",
+                                            "sizes": []
+                                        },
+                                        "premium_gallery_video": "",
+                                        "premium_gallery_video_type": "youtube",
+                                        "premium_gallery_video_url": "",
+                                        "premium_gallery_video_self": {
+                                            "url": "",
+                                            "id": ""
+                                        },
+                                        "premium_gallery_video_self_url": "",
+                                        "premium_gallery_video_controls": "true",
+                                        "premium_gallery_video_mute": "",
+                                        "premium_gallery_img_desc": "Pool House",
+                                        "premium_gallery_img_link_type": "url",
+                                        "premium_gallery_img_link": {
+                                            "url": "#",
+                                            "is_external": "",
+                                            "nofollow": "",
+                                            "custom_attributes": ""
+                                        },
+                                        "premium_gallery_img_existing": "",
+                                        "premium_gallery_link_whole": "yes",
+                                        "premium_gallery_lightbox_whole": "",
+                                        "_id": "2f0b38e"
+                                    },
+                                    {
+                                        "premium_gallery_img_name": "Modern Living",
+                                        "premium_gallery_img_category": "Residential",
+                                        "premium_gallery_img": {
+                                            "url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/modern-house-with-large-windows-6CEM7K4.jpg",
+                                            "id": 527
+                                        },
+                                        "premium_gallery_image_cell": {
+                                            "unit": "px",
+                                            "size": 4,
+                                            "sizes": []
+                                        },
+                                        "premium_gallery_image_cell_tablet": {
+                                            "unit": "px",
+                                            "size": "",
+                                            "sizes": []
+                                        },
+                                        "premium_gallery_image_cell_mobile": {
+                                            "unit": "px",
+                                            "size": "",
+                                            "sizes": []
+                                        },
+                                        "premium_gallery_image_vcell": {
+                                            "unit": "px",
+                                            "size": 4,
+                                            "sizes": []
+                                        },
+                                        "premium_gallery_image_vcell_tablet": {
+                                            "unit": "px",
+                                            "size": "",
+                                            "sizes": []
+                                        },
+                                        "premium_gallery_image_vcell_mobile": {
+                                            "unit": "px",
+                                            "size": "",
+                                            "sizes": []
+                                        },
+                                        "premium_gallery_video": "",
+                                        "premium_gallery_video_type": "youtube",
+                                        "premium_gallery_video_url": "",
+                                        "premium_gallery_video_self": {
+                                            "url": "",
+                                            "id": ""
+                                        },
+                                        "premium_gallery_video_self_url": "",
+                                        "premium_gallery_video_controls": "true",
+                                        "premium_gallery_video_mute": "",
+                                        "premium_gallery_img_desc": "Residential",
+                                        "premium_gallery_img_link_type": "url",
+                                        "premium_gallery_img_link": {
+                                            "url": "#",
+                                            "is_external": "",
+                                            "nofollow": "",
+                                            "custom_attributes": ""
+                                        },
+                                        "premium_gallery_img_existing": "",
+                                        "premium_gallery_link_whole": "yes",
+                                        "premium_gallery_lightbox_whole": "",
+                                        "_id": "b43df97"
+                                    },
+                                    {
+                                        "premium_gallery_img_name": "Glass Roof",
+                                        "premium_gallery_img_category": "Office",
+                                        "premium_gallery_img": {
+                                            "url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/steel-construction-house-PZKE3CG.jpg",
+                                            "id": 528
+                                        },
+                                        "premium_gallery_image_cell": {
+                                            "unit": "px",
+                                            "size": 4,
+                                            "sizes": []
+                                        },
+                                        "premium_gallery_image_cell_tablet": {
+                                            "unit": "px",
+                                            "size": "",
+                                            "sizes": []
+                                        },
+                                        "premium_gallery_image_cell_mobile": {
+                                            "unit": "px",
+                                            "size": "",
+                                            "sizes": []
+                                        },
+                                        "premium_gallery_image_vcell": {
+                                            "unit": "px",
+                                            "size": 4,
+                                            "sizes": []
+                                        },
+                                        "premium_gallery_image_vcell_tablet": {
+                                            "unit": "px",
+                                            "size": "",
+                                            "sizes": []
+                                        },
+                                        "premium_gallery_image_vcell_mobile": {
+                                            "unit": "px",
+                                            "size": "",
+                                            "sizes": []
+                                        },
+                                        "premium_gallery_video": "",
+                                        "premium_gallery_video_type": "youtube",
+                                        "premium_gallery_video_url": "",
+                                        "premium_gallery_video_self": {
+                                            "url": "",
+                                            "id": ""
+                                        },
+                                        "premium_gallery_video_self_url": "",
+                                        "premium_gallery_video_controls": "true",
+                                        "premium_gallery_video_mute": "",
+                                        "premium_gallery_img_desc": "Office Building",
+                                        "premium_gallery_img_link_type": "url",
+                                        "premium_gallery_img_link": {
+                                            "url": "#",
+                                            "is_external": "",
+                                            "nofollow": "",
+                                            "custom_attributes": ""
+                                        },
+                                        "premium_gallery_img_existing": "",
+                                        "premium_gallery_link_whole": "yes",
+                                        "premium_gallery_lightbox_whole": "",
+                                        "_id": "dbcac3e"
+                                    },
+                                    {
+                                        "premium_gallery_img_name": "Town Residence",
+                                        "premium_gallery_img_category": "Residential",
+                                        "premium_gallery_img": {
+                                            "url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/building-a-new-brick-house-with-black-roof-small-MAS2ABC2.jpg",
+                                            "id": 1001
+                                        },
+                                        "premium_gallery_image_cell": {
+                                            "unit": "px",
+                                            "size": 4,
+                                            "sizes": []
+                                        },
+                                        "premium_gallery_image_cell_tablet": {
+                                            "unit": "px",
+                                            "size": "",
+                                            "sizes": []
+                                        },
+                                        "premium_gallery_image_cell_mobile": {
+                                            "unit": "px",
+                                            "size": "",
+                                            "sizes": []
+                                        },
+                                        "premium_gallery_image_vcell": {
+                                            "unit": "px",
+                                            "size": 4,
+                                            "sizes": []
+                                        },
+                                        "premium_gallery_image_vcell_tablet": {
+                                            "unit": "px",
+                                            "size": "",
+                                            "sizes": []
+                                        },
+                                        "premium_gallery_image_vcell_mobile": {
+                                            "unit": "px",
+                                            "size": "",
+                                            "sizes": []
+                                        },
+                                        "premium_gallery_video": "",
+                                        "premium_gallery_video_type": "youtube",
+                                        "premium_gallery_video_url": "",
+                                        "premium_gallery_video_self": {
+                                            "url": "",
+                                            "id": ""
+                                        },
+                                        "premium_gallery_video_self_url": "",
+                                        "premium_gallery_video_controls": "true",
+                                        "premium_gallery_video_mute": "",
+                                        "premium_gallery_img_desc": "People House",
+                                        "premium_gallery_img_link_type": "url",
+                                        "premium_gallery_img_link": {
+                                            "url": "#",
+                                            "is_external": "",
+                                            "nofollow": "",
+                                            "custom_attributes": ""
+                                        },
+                                        "premium_gallery_img_existing": "",
+                                        "premium_gallery_link_whole": "yes",
+                                        "premium_gallery_lightbox_whole": "",
+                                        "_id": "7bf919d"
+                                    }
+                                ],
+                                "premium_gallery_img_style": "style1",
+                                "premium_gallery_img_effect": "blur",
+                                "premium_gallery_links_icon": {
+                                    "value": "",
+                                    "library": ""
+                                },
+                                "premium_gallery_content_align": "left",
+                                "premium_gallery_light_box": "",
+                                "premium_gallery_icons_style_overlay": "rgba(19, 24, 36, 0.79)",
+                                "premium_gallery_title_color": "#FFFFFF",
+                                "premium_gallery_title_typo_typography": "custom",
+                                "premium_gallery_title_typo_font_family": "Maven Pro",
+                                "premium_gallery_title_typo_font_size": {
+                                    "unit": "px",
+                                    "size": 28,
+                                    "sizes": []
+                                },
+                                "premium_gallery_title_typo_font_weight": "900",
+                                "premium_gallery_title_typo_line_height": {
+                                    "unit": "em",
+                                    "size": 1.3,
+                                    "sizes": []
+                                },
+                                "premium_gallery_description_color": "#FFFFFF",
+                                "premium_gallery_description_typo_typography": "custom",
+                                "premium_gallery_description_typo_font_family": "Space Mono",
+                                "premium_gallery_description_typo_font_size": {
+                                    "unit": "px",
+                                    "size": 11,
+                                    "sizes": []
+                                },
+                                "premium_gallery_description_typo_text_transform": "uppercase",
+                                "premium_gallery_description_typo_line_height": {
+                                    "unit": "em",
+                                    "size": 3,
+                                    "sizes": []
+                                },
+                                "premium_gallery_description_typo_letter_spacing": {
+                                    "unit": "px",
+                                    "size": 2,
+                                    "sizes": []
+                                },
+                                "premium_gallery_content_margin": {
+                                    "unit": "px",
+                                    "top": "24",
+                                    "right": "24",
+                                    "bottom": "0",
+                                    "left": "24",
+                                    "isLinked": false
+                                },
+                                "premium_gallery_style1_icons_position": {
+                                    "unit": "%",
+                                    "size": 50,
+                                    "sizes": []
+                                },
+                                "premium_gallery_icons_style_background": "#222838",
+                                "premium_gallery_icons_style_margin": {
+                                    "unit": "%",
+                                    "top": "0",
+                                    "right": "0",
+                                    "bottom": "0",
+                                    "left": "0",
+                                    "isLinked": false
+                                },
+                                "premium_gallery_filter_typo_typography": "custom",
+                                "premium_gallery_filter_typo_font_family": "Space Mono",
+                                "premium_gallery_filter_typo_font_size": {
+                                    "unit": "px",
+                                    "size": 13,
+                                    "sizes": []
+                                },
+                                "premium_gallery_filter_typo_text_transform": "uppercase",
+                                "premium_gallery_filter_typo_text_decoration": "underline",
+                                "premium_gallery_filter_typo_letter_spacing": {
+                                    "unit": "px",
+                                    "size": 2,
+                                    "sizes": []
+                                },
+                                "premium_gallery_filter_color": "#A7A7A7",
+                                "premium_gallery_filter_hover_color": "#333333",
+                                "premium_gallery_filter_active_color": "#FF7800",
+                                "premium_gallery_active_cat": 0
+                            },
+                            "elements": [],
+                            "isInner": false,
+                            "widgetType": "premium-img-gallery",
+                            "elType": "widget"
+                        }
+                    ],
+                    "isInner": false,
+                    "elType": "column"
+                }
+            ],
+            "isInner": false,
+            "elType": "section"
+        },
+        {
+            "id": "5e93e1ed",
+            "settings": {
+                "background_background": "classic",
+                "background_color": "#F6F6F6",
+                "background_size": "cover",
+                "background_overlay_color": "#F7F7F7",
+                "background_overlay_opacity": {
+                    "unit": "px",
+                    "size": 0.95,
+                    "sizes": []
+                },
+                "overlay_blend_mode": "screen",
+                "margin": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": 0,
+                    "bottom": "-220",
+                    "left": 0,
+                    "isLinked": false
+                },
+                "padding": {
+                    "unit": "px",
+                    "top": "96",
+                    "right": "0",
+                    "bottom": "0300",
+                    "left": "0",
+                    "isLinked": false
+                }
+            },
+            "elements": [
+                {
+                    "id": "c96f4db",
+                    "settings": {
+                        "_column_size": 100,
+                        "_inline_size": null
+                    },
+                    "elements": [
+                        {
+                            "id": "10a7ad7e",
+                            "settings": {
+                                "title": "acknowledgement",
+                                "header_size": "h6",
+                                "typography_typography": "custom",
+                                "typography_font_size": {
+                                    "unit": "px",
+                                    "size": 16,
+                                    "sizes": []
+                                },
+                                "typography_font_weight": "600",
+                                "typography_text_transform": "uppercase",
+                                "typography_letter_spacing": {
+                                    "unit": "px",
+                                    "size": 2,
+                                    "sizes": []
+                                },
+                                "title_color": "#A7A7A7",
+                                "_margin": {
+                                    "unit": "px",
+                                    "top": "0",
+                                    "right": "0",
+                                    "bottom": "16",
+                                    "left": "0",
+                                    "isLinked": false
+                                },
+                                "align": "center"
+                            },
+                            "elements": [],
+                            "isInner": false,
+                            "widgetType": "heading",
+                            "elType": "widget"
+                        },
+                        {
+                            "id": "76122a37",
+                            "settings": {
+                                "title": "Premium Partners",
+                                "typography_font_family": "Roboto",
+                                "align": "center",
+                                "_margin": {
+                                    "unit": "px",
+                                    "top": "0",
+                                    "right": "0",
+                                    "bottom": "48",
+                                    "left": "0",
+                                    "isLinked": false
+                                },
+                                "typography_typography": "custom",
+                                "typography_font_size_mobile": {
+                                    "unit": "px",
+                                    "size": 38,
+                                    "sizes": []
+                                }
+                            },
+                            "elements": [],
+                            "isInner": false,
+                            "widgetType": "heading",
+                            "elType": "widget"
+                        },
+                        {
+                            "id": "2eb5a6b4",
+                            "settings": {
+                                "ekit_client_logo_repiter": [
+                                    {
+                                        "ekit_client_logo_list_title": "big dreams",
+                                        "_id": "f2b2105",
+                                        "ekit_client_logo_image_normal": {
+                                            "url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/Logo-Container.png",
+                                            "id": 425
+                                        },
+                                        "ekit_client_logo_enable_hover_logo": "",
+                                        "ekit_client_logo_image_hover": {
+                                            "url": "",
+                                            "id": ""
+                                        },
+                                        "ekit_client_logo_enable_link": "",
+                                        "ekit_client_logo_website_link": {
+                                            "url": "",
+                                            "is_external": "",
+                                            "nofollow": "",
+                                            "custom_attributes": ""
+                                        }
+                                    },
+                                    {
+                                        "ekit_client_logo_list_title": "uniquers",
+                                        "ekit_client_logo_image_normal": {
+                                            "url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/Logo-Container-9.png",
+                                            "id": 424
+                                        },
+                                        "ekit_client_logo_enable_hover_logo": "",
+                                        "ekit_client_logo_image_hover": {
+                                            "url": "",
+                                            "id": ""
+                                        },
+                                        "ekit_client_logo_enable_link": "",
+                                        "ekit_client_logo_website_link": {
+                                            "url": "",
+                                            "is_external": "",
+                                            "nofollow": "",
+                                            "custom_attributes": ""
+                                        },
+                                        "_id": "107c313"
+                                    },
+                                    {
+                                        "ekit_client_logo_list_title": "startech",
+                                        "ekit_client_logo_image_normal": {
+                                            "url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/Logo-Container-8.png",
+                                            "id": 423
+                                        },
+                                        "ekit_client_logo_enable_hover_logo": "",
+                                        "ekit_client_logo_image_hover": {
+                                            "url": "",
+                                            "id": ""
+                                        },
+                                        "ekit_client_logo_enable_link": "",
+                                        "ekit_client_logo_website_link": {
+                                            "url": "",
+                                            "is_external": "",
+                                            "nofollow": "",
+                                            "custom_attributes": ""
+                                        },
+                                        "_id": "31681a7"
+                                    },
+                                    {
+                                        "ekit_client_logo_list_title": "robotchat",
+                                        "ekit_client_logo_image_normal": {
+                                            "url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/Logo-Container-7.png",
+                                            "id": 422
+                                        },
+                                        "ekit_client_logo_enable_hover_logo": "",
+                                        "ekit_client_logo_image_hover": {
+                                            "url": "",
+                                            "id": ""
+                                        },
+                                        "ekit_client_logo_enable_link": "",
+                                        "ekit_client_logo_website_link": {
+                                            "url": "",
+                                            "is_external": "",
+                                            "nofollow": "",
+                                            "custom_attributes": ""
+                                        },
+                                        "_id": "7b256a9"
+                                    },
+                                    {
+                                        "ekit_client_logo_list_title": "landscape",
+                                        "ekit_client_logo_image_normal": {
+                                            "url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/Logo-Container-5.png",
+                                            "id": 420
+                                        },
+                                        "ekit_client_logo_enable_hover_logo": "",
+                                        "ekit_client_logo_image_hover": {
+                                            "url": "",
+                                            "id": ""
+                                        },
+                                        "ekit_client_logo_enable_link": "",
+                                        "ekit_client_logo_website_link": {
+                                            "url": "",
+                                            "is_external": "",
+                                            "nofollow": "",
+                                            "custom_attributes": ""
+                                        },
+                                        "_id": "cb08fb8"
+                                    },
+                                    {
+                                        "ekit_client_logo_list_title": "infinity",
+                                        "ekit_client_logo_image_normal": {
+                                            "url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/Logo-Container-4.png",
+                                            "id": 419
+                                        },
+                                        "ekit_client_logo_enable_hover_logo": "",
+                                        "ekit_client_logo_image_hover": {
+                                            "url": "",
+                                            "id": ""
+                                        },
+                                        "ekit_client_logo_enable_link": "",
+                                        "ekit_client_logo_website_link": {
+                                            "url": "",
+                                            "is_external": "",
+                                            "nofollow": "",
+                                            "custom_attributes": ""
+                                        },
+                                        "_id": "5956898"
+                                    },
+                                    {
+                                        "ekit_client_logo_list_title": "flower",
+                                        "ekit_client_logo_image_normal": {
+                                            "url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/Logo-Container-3.png",
+                                            "id": 418
+                                        },
+                                        "ekit_client_logo_enable_hover_logo": "",
+                                        "ekit_client_logo_image_hover": {
+                                            "url": "",
+                                            "id": ""
+                                        },
+                                        "ekit_client_logo_enable_link": "",
+                                        "ekit_client_logo_website_link": {
+                                            "url": "",
+                                            "is_external": "",
+                                            "nofollow": "",
+                                            "custom_attributes": ""
+                                        },
+                                        "_id": "ea8e19d"
+                                    },
+                                    {
+                                        "ekit_client_logo_list_title": "mobilechat",
+                                        "ekit_client_logo_image_normal": {
+                                            "url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/Logo-Container-6.png",
+                                            "id": 421
+                                        },
+                                        "ekit_client_logo_enable_hover_logo": "",
+                                        "ekit_client_logo_image_hover": {
+                                            "url": "",
+                                            "id": ""
+                                        },
+                                        "ekit_client_logo_enable_link": "",
+                                        "ekit_client_logo_website_link": {
+                                            "url": "",
+                                            "is_external": "",
+                                            "nofollow": "",
+                                            "custom_attributes": ""
+                                        },
+                                        "_id": "e34c71d"
+                                    },
+                                    {
+                                        "ekit_client_logo_list_title": "dentallove",
+                                        "ekit_client_logo_image_normal": {
+                                            "url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/Logo-Container-2.png",
+                                            "id": 417
+                                        },
+                                        "ekit_client_logo_enable_hover_logo": "",
+                                        "ekit_client_logo_image_hover": {
+                                            "url": "",
+                                            "id": ""
+                                        },
+                                        "ekit_client_logo_enable_link": "",
+                                        "ekit_client_logo_website_link": {
+                                            "url": "",
+                                            "is_external": "",
+                                            "nofollow": "",
+                                            "custom_attributes": ""
+                                        },
+                                        "_id": "a82879d"
+                                    },
+                                    {
+                                        "ekit_client_logo_list_title": "bird lover",
+                                        "ekit_client_logo_image_normal": {
+                                            "url": "https:\/\/demo.detheme.com\/balton\/wp-content\/uploads\/sites\/122\/2020\/03\/Logo-Container-1.png",
+                                            "id": 416
+                                        },
+                                        "ekit_client_logo_enable_hover_logo": "",
+                                        "ekit_client_logo_image_hover": {
+                                            "url": "",
+                                            "id": ""
+                                        },
+                                        "ekit_client_logo_enable_link": "",
+                                        "ekit_client_logo_website_link": {
+                                            "url": "",
+                                            "is_external": "",
+                                            "nofollow": "",
+                                            "custom_attributes": ""
+                                        },
+                                        "_id": "5e6fa23"
+                                    }
+                                ],
+                                "ekit_client_logo_left_right_spacing": {
+                                    "unit": "px",
+                                    "size": 100,
+                                    "sizes": []
+                                },
+                                "ekit_client_logo_top_bottom_spacing": {
+                                    "unit": "px",
+                                    "size": 48,
+                                    "sizes": []
+                                },
+                                "ekit_client_logo_speed": 2000,
+                                "ekit_client_logo_rows": "2",
+                                "ekit_client_logo_client_logo_background_group_background": "classic",
+                                "ekit_client_logo_client_logo_background_group_color": "rgba(2, 1, 1, 0)",
+                                "ekit_client_logo_image_box_shadow_group_box_shadow_type": "yes",
+                                "ekit_client_logo_image_box_shadow_group_box_shadow": {
+                                    "horizontal": -7,
+                                    "vertical": 0,
+                                    "blur": 10,
+                                    "spread": 0,
+                                    "color": "rgba(0, 0, 0, 0)"
+                                },
+                                "ekit_client_logo_opacity": {
+                                    "unit": "",
+                                    "size": 0.6,
+                                    "sizes": []
+                                },
+                                "ekit_client_logo_left_right_spacing_tablet": {
+                                    "unit": "px",
+                                    "size": 40,
+                                    "sizes": []
+                                },
+                                "ekit_client_logo_left_right_spacing_mobile": {
+                                    "unit": "px",
+                                    "size": 30,
+                                    "sizes": []
+                                },
+                                "ekit_client_logo_slidetosho_tablet": {
+                                    "unit": "px",
+                                    "size": 4,
+                                    "sizes": []
+                                },
+                                "ekit_client_logo_slidetosho_mobile": {
+                                    "unit": "px",
+                                    "size": 2,
+                                    "sizes": []
+                                }
+                            },
+                            "elements": [],
+                            "isInner": false,
+                            "widgetType": "elementskit-client-logo",
+                            "elType": "widget"
+                        }
+                    ],
+                    "isInner": false,
+                    "elType": "column"
+                }
+            ],
+            "isInner": false,
+            "elType": "section"
+        }
+    ]
+}

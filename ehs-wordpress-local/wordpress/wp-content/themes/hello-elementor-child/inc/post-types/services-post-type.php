@@ -64,7 +64,7 @@ function ehs_register_services_post_type() {
         'capability_type'       => 'post',
         'show_in_rest'          => true,
         'rewrite'               => array(
-            'slug'                  => 'services',
+            'slug'                  => '', // Empty slug allows root-level URLs
             'with_front'            => false,
             'pages'                 => true,
             'feeds'                 => true,
@@ -74,3 +74,57 @@ function ehs_register_services_post_type() {
     register_post_type('services', $args);
 }
 add_action('init', 'ehs_register_services_post_type', 0);
+
+/**
+ * Add custom rewrite rules for Services post type to preserve existing URLs
+ * This allows services to be accessed at root level (e.g., /ssho-services-california/)
+ * instead of /services/ssho-services-california/
+ */
+function ehs_services_rewrite_rules() {
+    // Add rewrite rule for services archive at /services/
+    add_rewrite_rule(
+        '^services/?$',
+        'index.php?post_type=services',
+        'top'
+    );
+
+    // Add rewrite rule for services archive pagination
+    add_rewrite_rule(
+        '^services/page/([0-9]+)/?$',
+        'index.php?post_type=services&paged=$matches[1]',
+        'top'
+    );
+}
+add_action('init', 'ehs_services_rewrite_rules', 20);
+
+/**
+ * Filter permalink structure for services to use root-level URLs
+ * This ensures services are accessible at /service-slug/ instead of /services/service-slug/
+ */
+function ehs_services_permalink($permalink, $post, $leavename) {
+    if ($post->post_type === 'services' && $post->post_status === 'publish') {
+        $permalink = home_url('/' . $post->post_name . '/');
+    }
+    return $permalink;
+}
+add_filter('post_type_link', 'ehs_services_permalink', 10, 3);
+
+/**
+ * Parse request to handle service URLs at root level
+ * This checks if a requested URL matches a service post and sets up the query accordingly
+ */
+function ehs_services_parse_request($wp) {
+    // Only process if this looks like it might be a service
+    if (!empty($wp->query_vars['pagename']) || !empty($wp->query_vars['name'])) {
+        $slug = !empty($wp->query_vars['name']) ? $wp->query_vars['name'] : $wp->query_vars['pagename'];
+        
+        // Check if this slug exists as a service
+        $service = get_page_by_path($slug, OBJECT, 'services');
+        if ($service) {
+            $wp->query_vars['post_type'] = 'services';
+            $wp->query_vars['name'] = $slug;
+            unset($wp->query_vars['pagename']);
+        }
+    }
+}
+add_action('parse_request', 'ehs_services_parse_request', 5);

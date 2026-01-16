@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mega Menu Demo - EHS Design System</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Maven Pro', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Demo Header */
+        .demo-header {
+            background: #f5f5f5;
+            color: #333;
+            padding: 30px 20px;
+            text-align: center;
+            margin-bottom: 0;
+        }
+        
+        .demo-header h1 {
+            font-size: 2rem;
+            color: #003366;
+            margin-bottom: 10px;
+        }
+        
+        /* Header Styles (from theme) */
+        .ehs-header {
+            background: #FFFFFF;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .ehs-header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .ehs-header-grid {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 0;
+        }
+        
+        .ehs-header-logo {
+            flex: 0 0 auto;
+        }
+        
+        .ehs-header-logo a {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #003366;
+            text-decoration: none;
+        }
+        
+        .ehs-header-nav {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .ehs-header-nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .ehs-header-nav .menu-item {
+            position: relative;
+        }
+        
+        .ehs-header-nav .menu-item a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            padding: 10px 0;
+            transition: color 0.2s ease;
+            white-space: nowrap;
+        }
+        
+        .ehs-header-nav .menu-item a:hover {
+            color: #003366;
+        }
+        
+        /* Mega Menu Styles */
+        .ehs-header-nav .menu-item-has-children .mega-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100vw;
+            max-width: 1200px;
+            background-color: #003366;
+            padding: 40px 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            border-radius: 0 0 8px 8px;
+            display: none;
+            z-index: 9999;
+            margin-top: 0;
+        }
+        
+        .ehs-header-nav .menu-item-has-children:hover .mega-menu,
+        .ehs-header-nav .menu-item-has-children:focus-within .mega-menu {
+            display: block;
+        }
+        
+        .mega-menu-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .mega-menu-column {
+            padding: 0 20px;
+        }
+        
+        .mega-menu-column-title {
+            color: #FFB81C;
+            font-family: 'Maven Pro', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid rgba(255, 184, 28, 0.3);
+            padding-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+        }
+        
+        .mega-menu-column-title svg {
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+        }
+        
+        .mega-menu-column .sub-menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .mega-menu-column .sub-menu li {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .mega-menu-column .sub-menu a {
+            color: #FFFFFF;
+            font-family: 'Maven Pro', sans-serif;
+            font-size: 15px;
+            padding: 8px 0;
+            display: block;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        
+        .mega-menu-column .sub-menu a:hover,
+        .mega-menu-column .sub-menu a:focus {
+            color: #FFB81C;
+            padding-left: 8px;
+        }
+        
+        .ehs-header-contact {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .ehs-header-phone {
+            color: #333;
+            text-decoration: none;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        
+        .ehs-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #003366;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        
+        .ehs-btn:hover {
+            background: #157537;
+        }
+        
+        /* Responsive */
+        @media (max-width: 991px) {
+            .mega-menu-content {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .ehs-header-nav .menu-item-has-children .mega-menu {
+                position: static;
+                width: 100%;
+                padding: 20px;
+                border-radius: 0;
+                transform: none;
+            }
+            
+            .mega-menu-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .mega-menu-column-title {
+                cursor: pointer;
+                user-select: none;
+            }
+            
+            .mega-menu-column .sub-menu {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+            }
+            
+            .mega-menu-column.active .sub-menu {
+                max-height: 1000px;
+            }
+        }
+        
+        /* Demo Content */
+        .demo-content {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        .demo-content h2 {
+            color: #003366;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .demo-content p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Design System Navigation -->
+    <nav class="design-system-nav" id="design-system-nav">
+        <div class="design-system-nav-container">
+            <div class="design-system-nav-brand">
+                <a href="../../style-guide.html" class="design-system-nav-logo">
+                    <img src="../../wordpress/wp-content/wordpress/wp-content/uploads/2019/11/final-logo.svg" alt="EHS Analytical Solutions" class="design-system-nav-logo-img">
+                    <span class="design-system-nav-logo-text">Design System</span>
+                </a>
+            </div>
+            <ul class="design-system-nav-menu">
+                <li class="design-system-nav-item">
+                    <a href="../../style-guide.html" class="design-system-nav-link">Style Guide</a>
+                </li>
+                <li class="design-system-nav-item design-system-nav-item-has-dropdown">
+                    <a href="#" class="design-system-nav-link">Demos <span class="design-system-nav-arrow">▼</span></a>
+                    <ul class="design-system-nav-dropdown">
+                        <li><a href="mega-menu-demo.html">Mega Menu</a></li>
+                        <li><a href="service-template-demo.html">Service Template</a></li>
+                    </ul>
+                </li>
+                <li class="design-system-nav-item">
+                    <a href="../../DESIGN_SYSTEM.md" class="design-system-nav-link">Quick Reference</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <style>
+    /* Design System Navigation Styles */
+    .design-system-nav {
+        background: #003366;
+        color: white;
+        padding: 0;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 10000;
+    }
+    
+    .design-system-nav-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .design-system-nav-brand {
+        flex: 0 0 auto;
+    }
+    
+    .design-system-nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 10px 0;
+        color: white;
+        text-decoration: none;
+        transition: opacity 0.2s ease;
+    }
+    
+    .design-system-nav-logo:hover {
+        opacity: 0.9;
+    }
+    
+    .design-system-nav-logo-img {
+        height: 40px;
+        width: auto;
+        display: block;
+    }
+    
+    .design-system-nav-logo-text {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: white;
+        white-space: nowrap;
+    }
+    
+    .design-system-nav-menu {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        gap: 0;
+        align-items: center;
+    }
+    
+    .design-system-nav-item {
+        position: relative;
+    }
+    
+        .design-system-nav-link {
+            display: block;
+            padding: 15px 20px;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.2s ease;
+            border-bottom: 3px solid transparent;
+            white-space: nowrap;
+        }
+    
+    .design-system-nav-link:hover {
+        color: #FFB81C;
+        background: rgba(255, 184, 28, 0.1);
+    }
+    
+    .design-system-nav-link:focus {
+        outline: 2px solid #FFB81C;
+        outline-offset: -2px;
+    }
+    
+    /* Active state */
+    .design-system-nav-item:has(a[href*="mega-menu-demo.html"]) a[href*="mega-menu-demo.html"] {
+        color: #FFB81C;
+        border-bottom-color: #FFB81C;
+    }
+    
+    /* Dropdown */
+    .design-system-nav-item-has-dropdown {
+        position: relative;
+    }
+    
+    .design-system-nav-arrow {
+        font-size: 0.7rem;
+        margin-left: 5px;
+        transition: transform 0.2s ease;
+    }
+    
+    .design-system-nav-item-has-dropdown:hover .design-system-nav-arrow {
+        transform: rotate(180deg);
+    }
+    
+    .design-system-nav-dropdown {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: white;
+        min-width: 200px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        border-radius: 0 0 8px 8px;
+        list-style: none;
+        margin: 0;
+        padding: 8px 0;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+        z-index: 10001;
+    }
+    
+    .design-system-nav-item-has-dropdown:hover .design-system-nav-dropdown {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+    
+    .design-system-nav-dropdown li {
+        margin: 0;
+    }
+    
+    .design-system-nav-dropdown a {
+        display: block;
+        padding: 12px 20px;
+        color: #333;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 14px;
+        transition: all 0.2s ease;
+    }
+    
+    .design-system-nav-dropdown a:hover {
+        background: #F5F5F5;
+        color: #003366;
+        padding-left: 25px;
+    }
+    
+    /* Mobile */
+    @media (max-width: 767px) {
+        .design-system-nav-container {
+            flex-direction: column;
+            padding: 0;
+        }
+        
+        .design-system-nav-brand {
+            width: 100%;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .design-system-nav-logo {
+            justify-content: center;
+        }
+        
+        .design-system-nav-logo-text {
+            display: none;
+        }
+        
+        .design-system-nav-menu {
+            width: 100%;
+            flex-direction: column;
+            gap: 0;
+        }
+        
+        .design-system-nav-item {
+            width: 100%;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .design-system-nav-link {
+            width: 100%;
+            text-align: center;
+        }
+        
+        .design-system-nav-dropdown {
+            position: static;
+            width: 100%;
+            opacity: 1;
+            visibility: visible;
+            transform: none;
+            box-shadow: none;
+            border-radius: 0;
+            background: rgba(0, 0, 0, 0.2);
+            display: none;
+        }
+        
+        .design-system-nav-item-has-dropdown:hover .design-system-nav-dropdown,
+        .design-system-nav-item-has-dropdown.active .design-system-nav-dropdown {
+            display: block;
+        }
+    }
+    </style>
+    
+    <script>
+    (function() {
+        // Mobile dropdown toggle
+        const dropdownItems = document.querySelectorAll('.design-system-nav-item-has-dropdown');
+        dropdownItems.forEach(function(item) {
+            const link = item.querySelector('.design-system-nav-link');
+            if (link) {
+                link.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 767) {
+                        e.preventDefault();
+                        item.classList.toggle('active');
+                    }
+                });
+            }
+        });
+    })();
+    </script>
+    
+    <div class="demo-header">
+        <h1>Mega Menu Demo</h1>
+    </div>
+    
+    <!-- Header with Mega Menu -->
+    <header id="site-header" class="ehs-header">
+        <div class="ehs-header-container">
+            <div class="ehs-header-grid">
+                
+                <!-- Logo -->
+                <div class="ehs-header-logo">
+                    <a href="#">EHS Analytical</a>
+                </div>
+                
+                <!-- Navigation -->
+                <nav class="ehs-header-nav" aria-label="Main menu">
+                    <ul class="ehs-header-nav-menu">
+                        <li class="menu-item"><a href="#">Home</a></li>
+                        <li class="menu-item menu-item-has-children">
+                            <a href="#">Services</a>
+                            <div class="mega-menu">
+                                <div class="mega-menu-content">
+                                    
+                                    <!-- Column 1: Consulting Services -->
+                                    <div class="mega-menu-column">
+                                        <h4 class="mega-menu-column-title">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M3 9a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2l0 -9" />
+                                                <path d="M8 7v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2" />
+                                                <path d="M12 12l0 .01" />
+                                                <path d="M3 13a20 20 0 0 0 18 0" />
+                                            </svg>
+                                            Consulting Services
+                                        </h4>
+                                        <ul class="sub-menu">
+                                            <li><a href="#">EHS Consulting</a></li>
+                                            <li><a href="#">EHS Staff Outsourcing</a></li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <!-- Column 2: Testing & Assessment -->
+                                    <div class="mega-menu-column">
+                                        <h4 class="mega-menu-column-title">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M9 3l6 0" />
+                                                <path d="M10 9l4 0" />
+                                                <path d="M10 3v6l-4 11a.7 .7 0 0 0 .5 1h11a.7 .7 0 0 0 .5 -1l-4 -11v-6" />
+                                            </svg>
+                                            Testing & Assessment
+                                        </h4>
+                                        <ul class="sub-menu">
+                                            <li><a href="#">Indoor Air Quality</a></li>
+                                            <li><a href="#">Mold Testing</a></li>
+                                            <li><a href="#">Asbestos Testing</a></li>
+                                            <li><a href="#">Water Damage</a></li>
+                                            <li><a href="#">Fire & Smoke</a></li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <!-- Column 3: Construction Safety -->
+                                    <div class="mega-menu-column">
+                                        <h4 class="mega-menu-column-title">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M12 4a9 9 0 0 1 5.656 16h-11.312a9 9 0 0 1 5.656 -16" />
+                                                <path d="M20 9h-8.8a1 1 0 0 0 -.968 1.246c.507 2 1.596 3.418 3.268 4.254c2 1 4.333 1.5 7 1.5" />
+                                            </svg>
+                                            Construction Safety
+                                        </h4>
+                                        <ul class="sub-menu">
+                                            <li><a href="#">SSHO Services</a></li>
+                                            <li><a href="#">Lead Compliance</a></li>
+                                            <li><a href="#">Caltrans Safety</a></li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <!-- Column 4: Federal Services -->
+                                    <div class="mega-menu-column">
+                                        <h4 class="mega-menu-column-title">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M11.46 20.846a12 12 0 0 1 -7.96 -14.846a12 12 0 0 0 8.5 -3a12 12 0 0 0 8.5 3a12 12 0 0 1 -.09 7.06" />
+                                                <path d="M15 19l2 2l4 -4" />
+                                            </svg>
+                                            Federal Services
+                                        </h4>
+                                        <ul class="sub-menu">
+                                            <li><a href="#">Federal Contracting</a></li>
+                                        </ul>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </li>
+                        <li class="menu-item"><a href="#">About Us</a></li>
+                        <li class="menu-item"><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
+                
+                <!-- Contact -->
+                <div class="ehs-header-contact">
+                    <a href="tel:6192883094" class="ehs-header-phone">(619) 288-3094</a>
+                    <a href="#" class="ehs-btn">Get Started</a>
+                </div>
+                
+            </div>
+        </div>
+    </header>
+    
+    <!-- Demo Content -->
+    <div class="demo-content">
+        <h2>Mega Menu Interactive Demo</h2>
+        <p>Hover over "Services" in the navigation above to see the mega menu in action.</p>
+        <p><strong>Features:</strong></p>
+        <ul style="margin-left: 20px; margin-top: 10px;">
+            <li>4-column grid layout with category headers</li>
+            <li>SVG icons for each category</li>
+            <li>Navy background (#003366) with gold accents (#FFB81C)</li>
+            <li>Responsive: 2 columns on tablet, 1 column on mobile</li>
+            <li>Mobile accordion functionality</li>
+            <li>Keyboard navigation support</li>
+        </ul>
+        <p style="margin-top: 30px;"><strong>Try it:</strong></p>
+        <ul style="margin-left: 20px; margin-top: 10px;">
+            <li>Desktop: Hover over "Services" to open</li>
+            <li>Mobile: Click "Services" to toggle accordion</li>
+            <li>Keyboard: Tab to "Services" and press Enter</li>
+        </ul>
+    </div>
+    
+    <script src="../js/mega-menu.js"></script>
+</body>
+</html>

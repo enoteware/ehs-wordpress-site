@@ -1,0 +1,319 @@
+<!--
+  EHS Analytical Solutions - SEO-Optimized Footer Template
+  =========================================================
+  
+  This footer template is designed to be dropped directly into Elementor's HTML widget.
+  It uses ONLY CSS classes from the theme (no inline styles) to ensure zero conflicts.
+  
+  Features:
+  - Semantic HTML5 structure
+  - JSON-LD structured data for SEO
+  - Comprehensive certifications and locations
+  - Accessibility compliant (ARIA labels, proper headings)
+  - Mobile-responsive (handled by theme CSS)
+  
+  Usage:
+  1. Copy this entire HTML block
+  2. Paste into Elementor HTML widget in footer template
+  3. All styling handled by theme CSS classes
+-->
+
+<footer class="ehs-footer" role="contentinfo" aria-label="Site footer">
+  
+  <!-- JSON-LD Structured Data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "EHS Analytical Solutions, Inc.",
+    "image": "https://ehsanalytical.com/wp-content/uploads/2019/11/final-logo.svg",
+    "@id": "https://ehsanalytical.com",
+    "url": "https://ehsanalytical.com",
+    "telephone": "+1-619-288-3094",
+    "email": "adam@ehsanalytical.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "6755 Mira Mesa Blvd, Suite 123-249",
+      "addressLocality": "San Diego",
+      "addressRegion": "CA",
+      "postalCode": "92121",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "32.8969",
+      "longitude": "-117.1430"
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "08:00",
+      "closes": "17:00",
+      "timeZone": "America/Los_Angeles"
+    },
+    "priceRange": "$$",
+    "areaServed": [
+      {
+        "@type": "State",
+        "name": "California"
+      },
+      {
+        "@type": "Country",
+        "name": "United States"
+      }
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "Professional Certification",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "American Board of Industrial Hygiene"
+        },
+        "name": "Certified Industrial Hygienist (CIH)"
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "Professional Certification",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Board of Certified Safety Professionals"
+        },
+        "name": "Certified Safety Professional (CSP)"
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "Professional Certification",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "State of California"
+        },
+        "name": "Certified Asbestos Consultant (CAC)"
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "Professional Certification",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Project Management Institute"
+        },
+        "name": "Project Management Professional (PMP)"
+      }
+    ],
+    "sameAs": [
+      "https://ehsanalytical.com"
+    ]
+  }
+  </script>
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "EHS Analytical Solutions, Inc.",
+    "url": "https://ehsanalytical.com",
+    "logo": "https://ehsanalytical.com/wp-content/uploads/2019/11/final-logo.svg",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+1-619-288-3094",
+      "contactType": "Customer Service",
+      "email": "adam@ehsanalytical.com",
+      "areaServed": ["US", "CA"],
+      "availableLanguage": "English"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "6755 Mira Mesa Blvd, Suite 123-249",
+      "addressLocality": "San Diego",
+      "addressRegion": "CA",
+      "postalCode": "92121",
+      "addressCountry": "US"
+    },
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "name": "DVBE #2017031",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "California Department of General Services"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "name": "SDVOSB",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "U.S. Small Business Administration"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <div class="ehs-footer-container">
+    
+    <!-- Footer Grid: Company Info, Contact, Certifications, Locations -->
+    <div class="ehs-footer-grid">
+      
+      <!-- Section 1: Company Information & Logo -->
+      <section class="ehs-footer-section" aria-labelledby="footer-company-heading">
+        <h3 id="footer-company-heading" class="ehs-footer-heading">About EHS Analytical</h3>
+        <div class="ehs-footer-logo">
+          <a href="https://ehsanalytical.com" aria-label="EHS Analytical Solutions homepage">
+            <img src="https://ehsanalytical.com/wp-content/uploads/2019/11/final-logo.svg" alt="EHS Analytical Solutions, Inc. Logo" width="200" height="79">
+          </a>
+        </div>
+        <p class="ehs-footer-text">
+          Professional Environmental Health and Safety consulting and Safety Staffing company serving businesses in San Diego County and throughout the United States.
+        </p>
+      </section>
+
+      <!-- Section 2: Quick Contact -->
+      <section class="ehs-footer-section" aria-labelledby="footer-contact-heading">
+        <h3 id="footer-contact-heading" class="ehs-footer-heading">Get in Touch</h3>
+        <address class="ehs-footer-contact">
+          <li>
+            <span class="ehs-footer-contact-icon" aria-hidden="true">📞</span>
+            <span class="ehs-footer-contact-text">
+              <a href="tel:+16192883094" aria-label="Call EHS Analytical Solutions">(619) 288-3094</a>
+            </span>
+          </li>
+          <li>
+            <span class="ehs-footer-contact-icon" aria-hidden="true">✉️</span>
+            <span class="ehs-footer-contact-text">
+              <a href="mailto:adam@ehsanalytical.com" aria-label="Email EHS Analytical Solutions">adam@ehsanalytical.com</a>
+            </span>
+          </li>
+          <li>
+            <span class="ehs-footer-contact-icon" aria-hidden="true">🕐</span>
+            <span class="ehs-footer-contact-text">8:00 am - 5:00 pm PST</span>
+          </li>
+        </address>
+        <div class="ehs-footer-address">
+          <strong>EHS Analytical Solutions, Inc.</strong>
+          6755 Mira Mesa Blvd<br>
+          Suite 123-249<br>
+          San Diego, CA 92121
+        </div>
+      </section>
+
+      <!-- Section 3: Professional Certifications -->
+      <section class="ehs-footer-section" aria-labelledby="footer-certifications-heading">
+        <h3 id="footer-certifications-heading" class="ehs-footer-heading">Professional Certifications</h3>
+        <ul class="ehs-footer-certifications">
+          <li class="ehs-footer-cert-item">
+            <strong>CIH</strong> - Certified Industrial Hygienist (American Board of Industrial Hygiene)
+          </li>
+          <li class="ehs-footer-cert-item">
+            <strong>CSP</strong> - Certified Safety Professional (Board of Certified Safety Professionals)
+          </li>
+          <li class="ehs-footer-cert-item">
+            <strong>CAC</strong> - Certified Asbestos Consultant (State of California)
+          </li>
+          <li class="ehs-footer-cert-item">
+            <strong>PMP</strong> - Project Management Professional (Project Management Institute)
+          </li>
+          <li class="ehs-footer-cert-item">
+            <strong>CHST</strong> - Construction Health and Safety Technician
+          </li>
+          <li class="ehs-footer-cert-item">
+            <strong>30-Hour OSHA</strong> Construction Safety
+          </li>
+        </ul>
+      </section>
+
+      <!-- Section 4: Business Certifications -->
+      <section class="ehs-footer-section" aria-labelledby="footer-business-heading">
+        <h3 id="footer-business-heading" class="ehs-footer-heading">Business Certifications</h3>
+        <ul class="ehs-footer-certifications">
+          <li class="ehs-footer-cert-item">
+            <strong>DVBE #2017031</strong> - Disabled Veteran Business Enterprise (California Department of General Services)
+          </li>
+          <li class="ehs-footer-cert-item">
+            <strong>SDVOSB</strong> - Service-Disabled Veteran-Owned Small Business (U.S. Small Business Administration)
+          </li>
+          <li class="ehs-footer-cert-item">
+            <strong>Cal/OSHA</strong> Safety Consultation Program Partner
+          </li>
+          <li class="ehs-footer-cert-item">
+            <strong>California Public Works</strong> License
+          </li>
+        </ul>
+      </section>
+
+      <!-- Section 5: Service Locations -->
+      <section class="ehs-footer-section" aria-labelledby="footer-locations-heading">
+        <h3 id="footer-locations-heading" class="ehs-footer-heading">Service Locations</h3>
+        <ul class="ehs-footer-locations">
+          <li>
+            <strong>California:</strong> All 12 Caltrans Districts
+          </li>
+          <li>
+            <strong>Federal Projects:</strong> Nationwide
+          </li>
+          <li>
+            <strong>Primary Service Area:</strong> San Diego County, Southern California
+          </li>
+          <li>
+            <strong>Service Coverage:</strong> California + Nationwide (federal projects)
+          </li>
+        </ul>
+        <p class="ehs-footer-text" style="margin-top: 16px;">
+          Serving businesses throughout California and nationwide for federal construction projects. Specialized expertise in all 12 Caltrans districts.
+        </p>
+      </section>
+
+      <!-- Section 6: Quick Navigation Links -->
+      <section class="ehs-footer-section" aria-labelledby="footer-nav-heading">
+        <h3 id="footer-nav-heading" class="ehs-footer-heading">Quick Links</h3>
+        <nav aria-label="Footer navigation">
+          <ul class="ehs-footer-nav">
+            <li><a href="https://ehsanalytical.com/services/">Services</a></li>
+            <li><a href="https://ehsanalytical.com/about-us/">About Us</a></li>
+            <li><a href="https://ehsanalytical.com/contact/">Contact</a></li>
+            <li><a href="https://ehsanalytical.com/industrial-hygiene/">Industrial Hygiene</a></li>
+            <li><a href="https://ehsanalytical.com/construction-safety/">Construction Safety</a></li>
+          </ul>
+        </nav>
+      </section>
+
+    </div>
+    <!-- End Footer Grid -->
+
+    <!-- Footer Divider -->
+    <div class="ehs-footer-divider"></div>
+
+    <!-- Copyright & Legal -->
+    <div class="ehs-footer-copyright">
+      <p>
+        &copy; <span id="current-year">2025</span> EHS Analytical Solutions, Inc. All Rights Reserved. | 
+        <a href="https://ehsanalytical.com/privacy-policy/">Privacy Policy</a>
+      </p>
+      <p style="margin-top: 8px; font-size: 0.85rem;">
+        Environmental Health and Safety Consulting | San Diego, California | Serving California and Nationwide
+      </p>
+    </div>
+
+  </div>
+  <!-- End Footer Container -->
+
+</footer>
+
+<!--
+  JavaScript to update current year automatically
+  (Optional - can be removed if not needed)
+-->
+<script>
+  (function() {
+    var yearElement = document.getElementById('current-year');
+    if (yearElement) {
+      yearElement.textContent = new Date().getFullYear();
+    }
+  })();
+</script>

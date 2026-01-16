@@ -1,0 +1,106 @@
+{
+  "id": "e607b40",
+  "elType": "widget",
+  "widgetType": "button",
+  "settings": {
+    "text": "get started ",
+    "link": {
+      "url": "https://ehsanalytical.com/contact/",
+      "is_external": "",
+      "nofollow": ""
+    },
+    "align": "center",
+    "align_tablet": "justify",
+    "size": "md",
+    "typography_typography": "custom",
+    "typography_font_size": {
+      "unit": "px",
+      "size": 16,
+      "sizes": []
+    },
+    "typography_font_size_tablet": {
+      "unit": "px",
+      "size": 16,
+      "sizes": []
+    },
+    "typography_font_size_mobile": {
+      "unit": "px",
+      "size": 14,
+      "sizes": []
+    },
+    "typography_font_weight": "600",
+    "typography_text_transform": "uppercase",
+    "typography_letter_spacing": {
+      "unit": "px",
+      "size": 0.5,
+      "sizes": []
+    },
+    "text_color": "#ffffff",
+    "background_color": "#003366",
+    "button_text_hover_color": "#ffffff",
+    "button_background_hover_color": "#157537",
+    "border_width": {
+      "unit": "px",
+      "top": "0",
+      "right": "0",
+      "bottom": "0",
+      "left": "0",
+      "isLinked": true
+    },
+    "border_color": "#003366",
+    "button_border_hover_color": "#157537",
+    "border_radius": {
+      "unit": "px",
+      "top": "5",
+      "right": "5",
+      "bottom": "5",
+      "left": "5",
+      "isLinked": true
+    },
+    "button_box_shadow_box_shadow_type": "yes",
+    "button_box_shadow_box_shadow": {
+      "horizontal": 0,
+      "vertical": 5,
+      "blur": 10,
+      "spread": 0,
+      "color": "rgba(0, 51, 102, 0.3)"
+    },
+    "text_padding": {
+      "unit": "px",
+      "top": "15",
+      "right": "30",
+      "bottom": "15",
+      "left": "30",
+      "isLinked": false
+    },
+    "text_padding_tablet": {
+      "unit": "px",
+      "top": "15",
+      "right": "30",
+      "bottom": "15",
+      "left": "30",
+      "isLinked": false
+    },
+    "text_padding_mobile": {
+      "unit": "px",
+      "top": "12",
+      "right": "24",
+      "bottom": "12",
+      "left": "24",
+      "isLinked": false
+    },
+    "_title": "contact button",
+    "_padding_tablet": {
+      "unit": "px",
+      "top": "5",
+      "right": "5",
+      "bottom": "5",
+      "left": "5",
+      "isLinked": true
+    },
+    "_element_width": "auto",
+    "_element_width_tablet": "auto",
+    "hide_mobile": "hidden-phone"
+  },
+  "elements": []
+}

@@ -1,0 +1,3711 @@
+{
+    "total_buttons": 32,
+    "unique_variations": 17,
+    "variations": {
+        "70cc89639b0baf093f220346704d883a": {
+            "sample": {
+                "template_id": 2523,
+                "template_title": "backup of more than 20 yrs",
+                "button_id": "54fc36fd",
+                "path": "backup of more than 20 yrs/34947aa7/551e6a8a/47f8f226/3f0c7bf4",
+                "text": "Get a Free Quote",
+                "size": "lg",
+                "align": "",
+                "typography": {
+                    "font_size": null,
+                    "font_weight": null,
+                    "text_transform": null,
+                    "font_style": null,
+                    "letter_spacing": null
+                },
+                "colors": {
+                    "text": null,
+                    "background": "#157537",
+                    "hover_text": null,
+                    "hover_background": null
+                },
+                "border": {
+                    "width": null,
+                    "color": null,
+                    "radius": null
+                },
+                "padding": null,
+                "box_shadow": null
+            },
+            "buttons": [
+                {
+                    "template_id": 2523,
+                    "template_title": "backup of more than 20 yrs",
+                    "button_id": "54fc36fd",
+                    "path": "backup of more than 20 yrs/34947aa7/551e6a8a/47f8f226/3f0c7bf4",
+                    "text": "Get a Free Quote",
+                    "size": "lg",
+                    "align": "",
+                    "typography": {
+                        "font_size": null,
+                        "font_weight": null,
+                        "text_transform": null,
+                        "font_style": null,
+                        "letter_spacing": null
+                    },
+                    "colors": {
+                        "text": null,
+                        "background": "#157537",
+                        "hover_text": null,
+                        "hover_background": null
+                    },
+                    "border": {
+                        "width": null,
+                        "color": null,
+                        "radius": null
+                    },
+                    "padding": null,
+                    "box_shadow": null
+                }
+            ]
+        },
+        "9ef309360ddd0de7ac51396df9c0f6ed": {
+            "sample": {
+                "template_id": 2367,
+                "template_title": "Homepage",
+                "button_id": "1eaf0eb0",
+                "path": "Homepage/32e25c62/7eb53012",
+                "text": "Get a Free Quote",
+                "size": "lg",
+                "align": "",
+                "typography": {
+                    "font_size": null,
+                    "font_weight": null,
+                    "text_transform": null,
+                    "font_style": null,
+                    "letter_spacing": null
+                },
+                "colors": {
+                    "text": null,
+                    "background": null,
+                    "hover_text": null,
+                    "hover_background": null
+                },
+                "border": {
+                    "width": null,
+                    "color": null,
+                    "radius": null
+                },
+                "padding": null,
+                "box_shadow": null
+            },
+            "buttons": [
+                {
+                    "template_id": 2367,
+                    "template_title": "Homepage",
+                    "button_id": "1eaf0eb0",
+                    "path": "Homepage/32e25c62/7eb53012",
+                    "text": "Get a Free Quote",
+                    "size": "lg",
+                    "align": "",
+                    "typography": {
+                        "font_size": null,
+                        "font_weight": null,
+                        "text_transform": null,
+                        "font_style": null,
+                        "letter_spacing": null
+                    },
+                    "colors": {
+                        "text": null,
+                        "background": null,
+                        "hover_text": null,
+                        "hover_background": null
+                    },
+                    "border": {
+                        "width": null,
+                        "color": null,
+                        "radius": null
+                    },
+                    "padding": null,
+                    "box_shadow": null
+                },
+                {
+                    "template_id": 2367,
+                    "template_title": "Homepage",
+                    "button_id": "f35e594",
+                    "path": "Homepage/2f20c8d3/4109bc32/675364ca/7f396056",
+                    "text": "Learn More",
+                    "size": "lg",
+                    "align": "",
+                    "typography": {
+                        "font_size": null,
+                        "font_weight": null,
+                        "text_transform": null,
+                        "font_style": null,
+                        "letter_spacing": null
+                    },
+                    "colors": {
+                        "text": null,
+                        "background": null,
+                        "hover_text": null,
+                        "hover_background": null
+                    },
+                    "border": {
+                        "width": null,
+                        "color": null,
+                        "radius": null
+                    },
+                    "padding": null,
+                    "box_shadow": null
+                },
+                {
+                    "template_id": 2367,
+                    "template_title": "Homepage",
+                    "button_id": "5fecb46c",
+                    "path": "Homepage/72d2720e/7b41aa69",
+                    "text": "View All Services",
+                    "size": "lg",
+                    "align": "center",
+                    "typography": {
+                        "font_size": null,
+                        "font_weight": null,
+                        "text_transform": null,
+                        "font_style": null,
+                        "letter_spacing": null
+                    },
+                    "colors": {
+                        "text": null,
+                        "background": null,
+                        "hover_text": null,
+                        "hover_background": null
+                    },
+                    "border": {
+                        "width": null,
+                        "color": null,
+                        "radius": null
+                    },
+                    "padding": null,
+                    "box_shadow": null
+                }
+            ]
+        },
+        "272bf1501ec29efe742ad15dd3961c75": {
+            "sample": {
+                "template_id": 2367,
+                "template_title": "Homepage",
+                "button_id": "509c88af",
+                "path": "Homepage/32e25c62/7eb53012",
+                "text": "Learn More",
+                "size": "lg",
+                "align": "",
+                "typography": {
+                    "font_size": null,
+                    "font_weight": null,
+                    "text_transform": null,
+                    "font_style": null,
+                    "letter_spacing": null
+                },
+                "colors": {
+                    "text": null,
+                    "background": "rgba(2, 1, 1, 0)",
+                    "hover_text": null,
+                    "hover_background": null
+                },
+                "border": {
+                    "width": {
+                        "unit": "px",
+                        "top": "2",
+                        "right": "2",
+                        "bottom": "2",
+                        "left": "2",
+                        "isLinked": true
+                    },
+                    "color": null,
+                    "radius": null
+                },
+                "padding": {
+                    "unit": "px",
+                    "top": "18",
+                    "right": "36",
+                    "bottom": "18",
+                    "left": "36",
+                    "isLinked": false
+                },
+                "box_shadow": null
+            },
+            "buttons": [
+                {
+                    "template_id": 2367,
+                    "template_title": "Homepage",
+                    "button_id": "509c88af",
+                    "path": "Homepage/32e25c62/7eb53012",
+                    "text": "Learn More",
+                    "size": "lg",
+                    "align": "",
+                    "typography": {
+                        "font_size": null,
+                        "font_weight": null,
+                        "text_transform": null,
+                        "font_style": null,
+                        "letter_spacing": null
+                    },
+                    "colors": {
+                        "text": null,
+                        "background": "rgba(2, 1, 1, 0)",
+                        "hover_text": null,
+                        "hover_background": null
+                    },
+                    "border": {
+                        "width": {
+                            "unit": "px",
+                            "top": "2",
+                            "right": "2",
+                            "bottom": "2",
+                            "left": "2",
+                            "isLinked": true
+                        },
+                        "color": null,
+                        "radius": null
+                    },
+                    "padding": {
+                        "unit": "px",
+                        "top": "18",
+                        "right": "36",
+                        "bottom": "18",
+                        "left": "36",
+                        "isLinked": false
+                    },
+                    "box_shadow": null
+                }
+            ]
+        },
+        "f9c918b9e0406eb4c30d3de582711c6e": {
+            "sample": {
+                "template_id": 2323,
+                "template_title": "contact button",
+                "button_id": "2323",
+                "path": "contact button",
+                "text": "get started ",
+                "size": "md",
+                "align": "center",
+                "typography": {
+                    "font_size": null,
+                    "font_weight": null,
+                    "text_transform": null,
+                    "font_style": null,
+                    "letter_spacing": null
+                },
+                "colors": {
+                    "text": null,
+                    "background": "#1e405a",
+                    "hover_text": null,
+                    "hover_background": "#157537"
+                },
+                "border": {
+                    "width": null,
+                    "color": null,
+                    "radius": null
+                },
+                "padding": {
+                    "unit": "px",
+                    "top": "15",
+                    "right": "15",
+                    "bottom": "15",
+                    "left": "15",
+                    "isLinked": true
+                },
+                "box_shadow": {
+                    "horizontal": 0,
+                    "vertical": 5,
+                    "blur": 10,
+                    "spread": 0,
+                    "color": "rgba(30,64,90,0.5)"
+                }
+            },
+            "buttons": [
+                {
+                    "template_id": 2323,
+                    "template_title": "contact button",
+                    "button_id": "2323",
+                    "path": "contact button",
+                    "text": "get started ",
+                    "size": "md",
+                    "align": "center",
+                    "typography": {
+                        "font_size": null,
+                        "font_weight": null,
+                        "text_transform": null,
+                        "font_style": null,
+                        "letter_spacing": null
+                    },
+                    "colors": {
+                        "text": null,
+                        "background": "#1e405a",
+                        "hover_text": null,
+                        "hover_background": "#157537"
+                    },
+                    "border": {
+                        "width": null,
+                        "color": null,
+                        "radius": null
+                    },
+                    "padding": {
+                        "unit": "px",
+                        "top": "15",
+                        "right": "15",
+                        "bottom": "15",
+                        "left": "15",
+                        "isLinked": true
+                    },
+                    "box_shadow": {
+                        "horizontal": 0,
+                        "vertical": 5,
+                        "blur": 10,
+                        "spread": 0,
+                        "color": "rgba(30,64,90,0.5)"
+                    }
+                }
+            ]
+        },
+        "eb5f9459ea043a96df3f2614f89d3808": {
+            "sample": {
+                "template_id": 2004,
+                "template_title": "footer beed a",
+                "button_id": "1a1ffe4e",
+                "path": "footer beed a/2e0903f1/cbf01d",
+                "text": "CONTACT US",
+                "size": "md",
+                "align": "center",
+                "typography": {
+                    "font_size": null,
+                    "font_weight": null,
+                    "text_transform": null,
+                    "font_style": null,
+                    "letter_spacing": null
+                },
+                "colors": {
+                    "text": null,
+                    "background": "#f6a90f",
+                    "hover_text": null,
+                    "hover_background": "#f6a90f"
+                },
+                "border": {
+                    "width": null,
+                    "color": null,
+                    "radius": null
+                },
+                "padding": {
+                    "unit": "px",
+                    "top": "20",
+                    "right": "40",
+                    "bottom": "20",
+                    "left": "40",
+                    "isLinked": false
+                },
+                "box_shadow": {
+                    "horizontal": 0,
+                    "vertical": 5,
+                    "blur": 10,
+                    "spread": 0,
+                    "color": "rgba(30,64,90,0.5)"
+                }
+            },
+            "buttons": [
+                {
+                    "template_id": 2004,
+                    "template_title": "footer beed a",
+                    "button_id": "1a1ffe4e",
+                    "path": "footer beed a/2e0903f1/cbf01d",
+                    "text": "CONTACT US",
+                    "size": "md",
+                    "align": "center",
+                    "typography": {
+                        "font_size": null,
+                        "font_weight": null,
+                        "text_transform": null,
+                        "font_style": null,
+                        "letter_spacing": null
+                    },
+                    "colors": {
+                        "text": null,
+                        "background": "#f6a90f",
+                        "hover_text": null,
+                        "hover_background": "#f6a90f"
+                    },
+                    "border": {
+                        "width": null,
+                        "color": null,
+                        "radius": null
+                    },
+                    "padding": {
+                        "unit": "px",
+                        "top": "20",
+                        "right": "40",
+                        "bottom": "20",
+                        "left": "40",
+                        "isLinked": false
+                    },
+                    "box_shadow": {
+                        "horizontal": 0,
+                        "vertical": 5,
+                        "blur": 10,
+                        "spread": 0,
+                        "color": "rgba(30,64,90,0.5)"
+                    }
+                },
+                {
+                    "template_id": 1989,
+                    "template_title": "Looking for X",
+                    "button_id": "974f7a9",
+                    "path": "Looking for X/1240137/a2478cf",
+                    "text": "CONTACT US",
+                    "size": "md",
+                    "align": "center",
+                    "typography": {
+                        "font_size": null,
+                        "font_weight": null,
+                        "text_transform": null,
+                        "font_style": null,
+                        "letter_spacing": null
+                    },
+                    "colors": {
+                        "text": null,
+                        "background": "#f6a90f",
+                        "hover_text": null,
+                        "hover_background": "#f6a90f"
+                    },
+                    "border": {
+                        "width": null,
+                        "color": null,
+                        "radius": null
+                    },
+                    "padding": {
+                        "unit": "px",
+                        "top": "20",
+                        "right": "40",
+                        "bottom": "20",
+                        "left": "40",
+                        "isLinked": false
+                    },
+                    "box_shadow": {
+                        "horizontal": 0,
+                        "vertical": 5,
+                        "blur": 10,
+                        "spread": 0,
+                        "color": "rgba(30,64,90,0.5)"
+                    }
+                }
+            ]
+        },
+        "f04c43e5870138ded269ded4ed18ab3e": {
+            "sample": {
+                "template_id": 1786,
+                "template_title": "our services",
+                "button_id": "2c4bc6b",
+                "path": "our services/0528cad/20f2f83/92484de/5d24a5f",
+                "text": "get started",
+                "size": "md",
+                "align": "center",
+                "typography": {
+                    "font_size": null,
+                    "font_weight": null,
+                    "text_transform": null,
+                    "font_style": null,
+                    "letter_spacing": null
+                },
+                "colors": {
+                    "text": null,
+                    "background": "#1e405a",
+                    "hover_text": null,
+                    "hover_background": "#f6a90f"
+                },
+                "border": {
+                    "width": null,
+                    "color": null,
+                    "radius": null
+                },
+                "padding": {
+                    "unit": "px",
+                    "top": "20",
+                    "right": "40",
+                    "bottom": "20",
+                    "left": "40",
+                    "isLinked": false
+                },
+                "box_shadow": {
+                    "horizontal": 0,
+                    "vertical": 5,
+                    "blur": 10,
+                    "spread": 0,
+                    "color": "rgba(30,64,90,0.5)"
+                }
+            },
+            "buttons": [
+                {
+                    "template_id": 1786,
+                    "template_title": "our services",
+                    "button_id": "2c4bc6b",
+                    "path": "our services/0528cad/20f2f83/92484de/5d24a5f",
+                    "text": "get started",
+                    "size": "md",
+                    "align": "center",
+                    "typography": {
+                        "font_size": null,
+                        "font_weight": null,
+                        "text_transform": null,
+                        "font_style": null,
+                        "letter_spacing": null
+                    },
+                    "colors": {
+                        "text": null,
+                        "background": "#1e405a",
+                        "hover_text": null,
+                        "hover_background": "#f6a90f"
+                    },
+                    "border": {
+                        "width": null,
+                        "color": null,
+                        "radius": null
+                    },
+                    "padding": {
+                        "unit": "px",
+                        "top": "20",
+                        "right": "40",
+                        "bottom": "20",
+                        "left": "40",
+                        "isLinked": false
+                    },
+                    "box_shadow": {
+                        "horizontal": 0,
+                        "vertical": 5,
+                        "blur": 10,
+                        "spread": 0,
+                        "color": "rgba(30,64,90,0.5)"
+                    }
+                }
+            ]
+        },
+        "4b0b80e97f03d3b5f84a2750d55059d9": {
+            "sample": {
+                "template_id": 859,
+                "template_title": "EHS Footer",
+                "button_id": "8d4b87f",
+                "path": "EHS Footer/8123f60/80bb2c1",
+                "text": "CONTACT US",
+                "size": "md",
+                "align": "center",
+                "typography": {
+                    "font_size": null,
+                    "font_weight": null,
+                    "text_transform": null,
+                    "font_style": null,
+                    "letter_spacing": null
+                },
+                "colors": {
+                    "text": null,
+                    "background": "#f6a90f",
+                    "hover_text": null,
+                    "hover_background": "#157537"
+                },
+                "border": {
+                    "width": null,
+                    "color": null,
+                    "radius": null
+                },
+                "padding": {
+                    "unit": "px",
+                    "top": "20",
+                    "right": "40",
+                    "bottom": "20",
+                    "left": "40",
+                    "isLinked": false
+                },
+                "box_shadow": {
+                    "horizontal": 0,
+                    "vertical": 5,
+                    "blur": 10,
+                    "spread": 0,
+                    "color": "rgba(30,64,90,0.5)"
+                }
+            },
+            "buttons": [
+                {
+                    "template_id": 859,
+                    "template_title": "EHS Footer",
+                    "button_id": "8d4b87f",
+                    "path": "EHS Footer/8123f60/80bb2c1",
+                    "text": "CONTACT US",
+                    "size": "md",
+                    "align": "center",
+                    "typography": {
+                        "font_size": null,
+                        "font_weight": null,
+                        "text_transform": null,
+                        "font_style": null,
+                        "letter_spacing": null
+                    },
+                    "colors": {
+                        "text": null,
+                        "background": "#f6a90f",
+                        "hover_text": null,
+                        "hover_background": "#157537"
+                    },
+                    "border": {
+                        "width": null,
+                        "color": null,
+                        "radius": null
+                    },
+                    "padding": {
+                        "unit": "px",
+                        "top": "20",
+                        "right": "40",
+                        "bottom": "20",
+                        "left": "40",
+                        "isLinked": false
+                    },
+                    "box_shadow": {
+                        "horizontal": 0,
+                        "vertical": 5,
+                        "blur": 10,
+                        "spread": 0,
+                        "color": "rgba(30,64,90,0.5)"
+                    }
+                }
+            ]
+        },
+        "f1ae1e5d949abde54ba9778f5f3420a8": {
+            "sample": {
+                "template_id": 124,
+                "template_title": "Law Firm > Services 3",
+                "button_id": "328df56",
+                "path": "Law Firm > Services 3/3f8f710/6d08184",
+                "text": "CONTACT US",
+                "size": "md",
+                "align": "center",
+                "typography": {
+                    "font_size": {
+                        "unit": "px",
+                        "size": "14"
+                    },
+                    "font_weight": "700",
+                    "text_transform": "uppercase",
+                    "font_style": null,
+                    "letter_spacing": {
+                        "unit": "px",
+                        "size": "4.2"
+                    }
+                },
+                "colors": {
+                    "text": null,
+                    "background": "#d28c0e",
+                    "hover_text": null,
+                    "hover_background": "#ad6c0c"
+                },
+                "border": {
+                    "width": null,
+                    "color": null,
+                    "radius": {
+                        "unit": "px",
+                        "top": "0",
+                        "right": "0",
+                        "bottom": "0",
+                        "left": "0",
+                        "isLinked": "1"
+                    }
+                },
+                "padding": {
+                    "unit": "px",
+                    "top": "30",
+                    "right": "48",
+                    "bottom": "26",
+                    "left": "48",
+                    "isLinked": ""
+                },
+                "box_shadow": null
+            },
+            "buttons": [
+                {
+                    "template_id": 124,
+                    "template_title": "Law Firm > Services 3",
+                    "button_id": "328df56",
+                    "path": "Law Firm > Services 3/3f8f710/6d08184",
+                    "text": "CONTACT US",
+                    "size": "md",
+                    "align": "center",
+                    "typography": {
+                        "font_size": {
+                            "unit": "px",
+                            "size": "14"
+                        },
+                        "font_weight": "700",
+                        "text_transform": "uppercase",
+                        "font_style": null,
+                        "letter_spacing": {
+                            "unit": "px",
+                            "size": "4.2"
+                        }
+                    },
+                    "colors": {
+                        "text": null,
+                        "background": "#d28c0e",
+                        "hover_text": null,
+                        "hover_background": "#ad6c0c"
+                    },
+                    "border": {
+                        "width": null,
+                        "color": null,
+                        "radius": {
+                            "unit": "px",
+                            "top": "0",
+                            "right": "0",
+                            "bottom": "0",
+                            "left": "0",
+                            "isLinked": "1"
+                        }
+                    },
+                    "padding": {
+                        "unit": "px",
+                        "top": "30",
+                        "right": "48",
+                        "bottom": "26",
+                        "left": "48",
+                        "isLinked": ""
+                    },
+                    "box_shadow": null
+                }
+            ]
+        },
+        "55091544299f2cb520530e5c17c8a493": {
+            "sample": {
+                "template_id": 124,
+                "template_title": "Law Firm > Services 3",
+                "button_id": "115c974",
+                "path": "Law Firm > Services 3/68a9525/0569776",
+                "text": "Contact Us",
+                "size": "md",
+                "align": "left",
+                "typography": {
+                    "font_size": {
+                        "unit": "px",
+                        "size": "16"
+                    },
+                    "font_weight": "700",
+                    "text_transform": "uppercase",
+                    "font_style": null,
+                    "letter_spacing": {
+                        "unit": "px",
+                        "size": "4.2"
+                    }
+                },
+                "colors": {
+                    "text": null,
+                    "background": "#d28c0e",
+                    "hover_text": null,
+                    "hover_background": "rgba(255,255,255,0)"
+                },
+                "border": {
+                    "width": {
+                        "unit": "px",
+                        "top": "3",
+                        "right": "3",
+                        "bottom": "3",
+                        "left": "3",
+                        "isLinked": "1"
+                    },
+                    "color": "#d28c0e",
+                    "radius": {
+                        "unit": "px",
+                        "top": "0",
+                        "right": "0",
+                        "bottom": "0",
+                        "left": "0",
+                        "isLinked": "1"
+                    }
+                },
+                "padding": {
+                    "unit": "px",
+                    "top": "30",
+                    "right": "48",
+                    "bottom": "26",
+                    "left": "48",
+                    "isLinked": ""
+                },
+                "box_shadow": null
+            },
+            "buttons": [
+                {
+                    "template_id": 124,
+                    "template_title": "Law Firm > Services 3",
+                    "button_id": "115c974",
+                    "path": "Law Firm > Services 3/68a9525/0569776",
+                    "text": "Contact Us",
+                    "size": "md",
+                    "align": "left",
+                    "typography": {
+                        "font_size": {
+                            "unit": "px",
+                            "size": "16"
+                        },
+                        "font_weight": "700",
+                        "text_transform": "uppercase",
+                        "font_style": null,
+                        "letter_spacing": {
+                            "unit": "px",
+                            "size": "4.2"
+                        }
+                    },
+                    "colors": {
+                        "text": null,
+                        "background": "#d28c0e",
+                        "hover_text": null,
+                        "hover_background": "rgba(255,255,255,0)"
+                    },
+                    "border": {
+                        "width": {
+                            "unit": "px",
+                            "top": "3",
+                            "right": "3",
+                            "bottom": "3",
+                            "left": "3",
+                            "isLinked": "1"
+                        },
+                        "color": "#d28c0e",
+                        "radius": {
+                            "unit": "px",
+                            "top": "0",
+                            "right": "0",
+                            "bottom": "0",
+                            "left": "0",
+                            "isLinked": "1"
+                        }
+                    },
+                    "padding": {
+                        "unit": "px",
+                        "top": "30",
+                        "right": "48",
+                        "bottom": "26",
+                        "left": "48",
+                        "isLinked": ""
+                    },
+                    "box_shadow": null
+                },
+                {
+                    "template_id": 114,
+                    "template_title": "Law Firm > About 1",
+                    "button_id": "1f24ac3",
+                    "path": "Law Firm > About 1/55e6552/4ad0f62/bbbb655/bc0d07a",
+                    "text": "Free Consultation",
+                    "size": "md",
+                    "align": "right",
+                    "typography": {
+                        "font_size": {
+                            "unit": "px",
+                            "size": "16"
+                        },
+                        "font_weight": "700",
+                        "text_transform": "uppercase",
+                        "font_style": null,
+                        "letter_spacing": {
+                            "unit": "px",
+                            "size": "4.2"
+                        }
+                    },
+                    "colors": {
+                        "text": null,
+                        "background": "#d28c0e",
+                        "hover_text": null,
+                        "hover_background": "rgba(255,255,255,0)"
+                    },
+                    "border": {
+                        "width": {
+                            "unit": "px",
+                            "top": "3",
+                            "right": "3",
+                            "bottom": "3",
+                            "left": "3",
+                            "isLinked": "1"
+                        },
+                        "color": "#d28c0e",
+                        "radius": {
+                            "unit": "px",
+                            "top": "0",
+                            "right": "0",
+                            "bottom": "0",
+                            "left": "0",
+                            "isLinked": "1"
+                        }
+                    },
+                    "padding": {
+                        "unit": "px",
+                        "top": "26",
+                        "right": "48",
+                        "bottom": "26",
+                        "left": "48",
+                        "isLinked": ""
+                    },
+                    "box_shadow": null
+                },
+                {
+                    "template_id": 91,
+                    "template_title": "Law Firm > Home 1",
+                    "button_id": "a477ddb",
+                    "path": "Law Firm > Home 1/07324be/c8c439a/220b2b5/1aa19d9",
+                    "text": "Talk To Us",
+                    "size": "md",
+                    "align": "left",
+                    "typography": {
+                        "font_size": {
+                            "unit": "px",
+                            "size": "16"
+                        },
+                        "font_weight": "700",
+                        "text_transform": "uppercase",
+                        "font_style": null,
+                        "letter_spacing": {
+                            "unit": "px",
+                            "size": "4.2"
+                        }
+                    },
+                    "colors": {
+                        "text": null,
+                        "background": "#d28c0e",
+                        "hover_text": null,
+                        "hover_background": "rgba(255,255,255,0)"
+                    },
+                    "border": {
+                        "width": {
+                            "unit": "px",
+                            "top": "3",
+                            "right": "3",
+                            "bottom": "3",
+                            "left": "3",
+                            "isLinked": "1"
+                        },
+                        "color": "#d28c0e",
+                        "radius": {
+                            "unit": "px",
+                            "top": "0",
+                            "right": "0",
+                            "bottom": "0",
+                            "left": "0",
+                            "isLinked": "1"
+                        }
+                    },
+                    "padding": {
+                        "unit": "px",
+                        "top": "26",
+                        "right": "48",
+                        "bottom": "26",
+                        "left": "48",
+                        "isLinked": ""
+                    },
+                    "box_shadow": null
+                },
+                {
+                    "template_id": 91,
+                    "template_title": "Law Firm > Home 1",
+                    "button_id": "974f7a9",
+                    "path": "Law Firm > Home 1/1240137/a2478cf",
+                    "text": "CONTACT US",
+                    "size": "md",
+                    "align": "center",
+                    "typography": {
+                        "font_size": {
+                            "unit": "px",
+                            "size": "16"
+                        },
+                        "font_weight": "700",
+                        "text_transform": "uppercase",
+                        "font_style": null,
+                        "letter_spacing": {
+                            "unit": "px",
+                            "size": "4.2"
+                        }
+                    },
+                    "colors": {
+                        "text": null,
+                        "background": "#d28c0e",
+                        "hover_text": null,
+                        "hover_background": "rgba(255,255,255,0)"
+                    },
+                    "border": {
+                        "width": {
+                            "unit": "px",
+                            "top": "3",
+                            "right": "3",
+                            "bottom": "3",
+                            "left": "3",
+                            "isLinked": "1"
+                        },
+                        "color": "#d28c0e",
+                        "radius": {
+                            "unit": "px",
+                            "top": "0",
+                            "right": "0",
+                            "bottom": "0",
+                            "left": "0",
+                            "isLinked": "1"
+                        }
+                    },
+                    "padding": {
+                        "unit": "px",
+                        "top": "30",
+                        "right": "48",
+                        "bottom": "26",
+                        "left": "48",
+                        "isLinked": ""
+                    },
+                    "box_shadow": null
+                },
+                {
+                    "template_id": 90,
+                    "template_title": "Law Firm > Home 1",
+                    "button_id": "a477ddb",
+                    "path": "Law Firm > Home 1/07324be/c8c439a/220b2b5/1aa19d9",
+                    "text": "Talk To Us",
+                    "size": "md",
+                    "align": "left",
+                    "typography": {
+                        "font_size": {
+                            "unit": "px",
+                            "size": "16"
+                        },
+                        "font_weight": "700",
+                        "text_transform": "uppercase",
+                        "font_style": null,
+                        "letter_spacing": {
+                            "unit": "px",
+                            "size": "4.2"
+                        }
+                    },
+                    "colors": {
+                        "text": null,
+                        "background": "#d28c0e",
+                        "hover_text": null,
+                        "hover_background": "rgba(255,255,255,0)"
+                    },
+                    "border": {
+                        "width": {
+                            "unit": "px",
+                            "top": "3",
+                            "right": "3",
+                            "bottom": "3",
+                            "left": "3",
+                            "isLinked": "1"
+                        },
+                        "color": "#d28c0e",
+                        "radius": {
+                            "unit": "px",
+                            "top": "0",
+                            "right": "0",
+                            "bottom": "0",
+                            "left": "0",
+                            "isLinked": "1"
+                        }
+                    },
+                    "padding": {
+                        "unit": "px",
+                        "top": "26",
+                        "right": "48",
+                        "bottom": "26",
+                        "left": "48",
+                        "isLinked": ""
+                    },
+                    "box_shadow": null
+                },
+                {
+                    "template_id": 90,
+                    "template_title": "Law Firm > Home 1",
+                    "button_id": "974f7a9",
+                    "path": "Law Firm > Home 1/1240137/a2478cf",
+                    "text": "CONTACT US",
+                    "size": "md",
+                    "align": "center",
+                    "typography": {
+                        "font_size": {
+                            "unit": "px",
+                            "size": "16"
+                        },
+                        "font_weight": "700",
+                        "text_transform": "uppercase",
+                        "font_style": null,
+                        "letter_spacing": {
+                            "unit": "px",
+                            "size": "4.2"
+                        }
+                    },
+                    "colors": {
+                        "text": null,
+                        "background": "#d28c0e",
+                        "hover_text": null,
+                        "hover_background": "rgba(255,255,255,0)"
+                    },
+                    "border": {
+                        "width": {
+                            "unit": "px",
+                            "top": "3",
+                            "right": "3",
+                            "bottom": "3",
+                            "left": "3",
+                            "isLinked": "1"
+                        },
+                        "color": "#d28c0e",
+                        "radius": {
+                            "unit": "px",
+                            "top": "0",
+                            "right": "0",
+                            "bottom": "0",
+                            "left": "0",
+                            "isLinked": "1"
+                        }
+                    },
+                    "padding": {
+                        "unit": "px",
+                        "top": "30",
+                        "right": "48",
+                        "bottom": "26",
+                        "left": "48",
+                        "isLinked": ""
+                    },
+                    "box_shadow": null
+                }
+            ]
+        },
+        "7275977f72548e8c948454150f608108": {
+            "sample": {
+                "template_id": 114,
+                "template_title": "Law Firm > About 1",
+                "button_id": "d3253e8",
+                "path": "Law Firm > About 1/7da194f/bd93e18/9c02419/a5229a7",
+                "text": "Read More",
+                "size": "md",
+                "align": "left",
+                "typography": {
+                    "font_size": {
+                        "unit": "px",
+                        "size": "18"
+                    },
+                    "font_weight": "700",
+                    "text_transform": null,
+                    "font_style": null,
+                    "letter_spacing": {
+                        "unit": "px",
+                        "size": "0.9"
+                    }
+                },
+                "colors": {
+                    "text": null,
+                    "background": "rgba(0,0,0,0)",
+                    "hover_text": null,
+                    "hover_background": null
+                },
+                "border": {
+                    "width": null,
+                    "color": null,
+                    "radius": null
+                },
+                "padding": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": ""
+                },
+                "box_shadow": null
+            },
+            "buttons": [
+                {
+                    "template_id": 114,
+                    "template_title": "Law Firm > About 1",
+                    "button_id": "d3253e8",
+                    "path": "Law Firm > About 1/7da194f/bd93e18/9c02419/a5229a7",
+                    "text": "Read More",
+                    "size": "md",
+                    "align": "left",
+                    "typography": {
+                        "font_size": {
+                            "unit": "px",
+                            "size": "18"
+                        },
+                        "font_weight": "700",
+                        "text_transform": null,
+                        "font_style": null,
+                        "letter_spacing": {
+                            "unit": "px",
+                            "size": "0.9"
+                        }
+                    },
+                    "colors": {
+                        "text": null,
+                        "background": "rgba(0,0,0,0)",
+                        "hover_text": null,
+                        "hover_background": null
+                    },
+                    "border": {
+                        "width": null,
+                        "color": null,
+                        "radius": null
+                    },
+                    "padding": {
+                        "unit": "px",
+                        "top": "0",
+                        "right": "0",
+                        "bottom": "0",
+                        "left": "0",
+                        "isLinked": ""
+                    },
+                    "box_shadow": null
+                },
+                {
+                    "template_id": 114,
+                    "template_title": "Law Firm > About 1",
+                    "button_id": "e4bd218",
+                    "path": "Law Firm > About 1/7da194f/bd93e18/9c02419/5b1926a",
+                    "text": "Read More",
+                    "size": "md",
+                    "align": "left",
+                    "typography": {
+                        "font_size": {
+                            "unit": "px",
+                            "size": "18"
+                        },
+                        "font_weight": "700",
+                        "text_transform": null,
+                        "font_style": null,
+                        "letter_spacing": {
+                            "unit": "px",
+                            "size": "0.9"
+                        }
+                    },
+                    "colors": {
+                        "text": null,
+                        "background": "rgba(0,0,0,0)",
+                        "hover_text": null,
+                        "hover_background": null
+                    },
+                    "border": {
+                        "width": null,
+                        "color": null,
+                        "radius": null
+                    },
+                    "padding": {
+                        "unit": "px",
+                        "top": "0",
+                        "right": "0",
+                        "bottom": "0",
+                        "left": "0",
+                        "isLinked": ""
+                    },
+                    "box_shadow": null
+                },
+                {
+                    "template_id": 33,
+                    "template_title": "Medical Practice > Home 2",
+                    "button_id": "65cc30a",
+                    "path": "Medical Practice > Home 2/4ec0dc8c/4aa802c1",
+                    "text": "Dr. Hansen Specialist Medical Center",
+                    "size": "md",
+                    "align": "",
+                    "typography": {
+                        "font_size": {
+                            "unit": "px",
+                            "size": 18
+                        },
+                        "font_weight": null,
+                        "text_transform": null,
+                        "font_style": null,
+                        "letter_spacing": null
+                    },
+                    "colors": {
+                        "text": null,
+                        "background": "rgba(0,0,0,0)",
+                        "hover_text": null,
+                        "hover_background": null
+                    },
+                    "border": {
+                        "width": null,
+                        "color": null,
+                        "radius": null
+                    },
+                    "padding": {
+                        "unit": "px",
+                        "top": "0",
+                        "right": "0",
+                        "bottom": "0",
+                        "left": "0",
+                        "isLinked": true
+                    },
+                    "box_shadow": null
+                }
+            ]
+        },
+        "913d40ebc821f87dd6538aa2b3c8defa": {
+            "sample": {
+                "template_id": 114,
+                "template_title": "Law Firm > About 1",
+                "button_id": "f6ed1f4",
+                "path": "Law Firm > About 1/7da194f/bd93e18",
+                "text": "VIEW ALL SERVICES",
+                "size": "md",
+                "align": "center",
+                "typography": {
+                    "font_size": {
+                        "unit": "px",
+                        "size": "14"
+                    },
+                    "font_weight": "700",
+                    "text_transform": "uppercase",
+                    "font_style": null,
+                    "letter_spacing": {
+                        "unit": "px",
+                        "size": "4.2"
+                    }
+                },
+                "colors": {
+                    "text": null,
+                    "background": "rgba(255,255,255,0)",
+                    "hover_text": null,
+                    "hover_background": "#d28c0e"
+                },
+                "border": {
+                    "width": {
+                        "unit": "px",
+                        "top": "4",
+                        "right": "4",
+                        "bottom": "4",
+                        "left": "4",
+                        "isLinked": "1"
+                    },
+                    "color": "#d28c0e",
+                    "radius": {
+                        "unit": "px",
+                        "top": "0",
+                        "right": "0",
+                        "bottom": "0",
+                        "left": "0",
+                        "isLinked": "1"
+                    }
+                },
+                "padding": {
+                    "unit": "px",
+                    "top": "26",
+                    "right": "46",
+                    "bottom": "22",
+                    "left": "46",
+                    "isLinked": ""
+                },
+                "box_shadow": null
+            },
+            "buttons": [
+                {
+                    "template_id": 114,
+                    "template_title": "Law Firm > About 1",
+                    "button_id": "f6ed1f4",
+                    "path": "Law Firm > About 1/7da194f/bd93e18",
+                    "text": "VIEW ALL SERVICES",
+                    "size": "md",
+                    "align": "center",
+                    "typography": {
+                        "font_size": {
+                            "unit": "px",
+                            "size": "14"
+                        },
+                        "font_weight": "700",
+                        "text_transform": "uppercase",
+                        "font_style": null,
+                        "letter_spacing": {
+                            "unit": "px",
+                            "size": "4.2"
+                        }
+                    },
+                    "colors": {
+                        "text": null,
+                        "background": "rgba(255,255,255,0)",
+                        "hover_text": null,
+                        "hover_background": "#d28c0e"
+                    },
+                    "border": {
+                        "width": {
+                            "unit": "px",
+                            "top": "4",
+                            "right": "4",
+                            "bottom": "4",
+                            "left": "4",
+                            "isLinked": "1"
+                        },
+                        "color": "#d28c0e",
+                        "radius": {
+                            "unit": "px",
+                            "top": "0",
+                            "right": "0",
+                            "bottom": "0",
+                            "left": "0",
+                            "isLinked": "1"
+                        }
+                    },
+                    "padding": {
+                        "unit": "px",
+                        "top": "26",
+                        "right": "46",
+                        "bottom": "22",
+                        "left": "46",
+                        "isLinked": ""
+                    },
+                    "box_shadow": null
+                }
+            ]
+        },
+        "f54581bb116b656dc0675c6cef6d1113": {
+            "sample": {
+                "template_id": 114,
+                "template_title": "Law Firm > About 1",
+                "button_id": "c31b531",
+                "path": "Law Firm > About 1/55e6552/4ad0f62/bbbb655/d18d0a5",
+                "text": "CONTACT US",
+                "size": "md",
+                "align": "",
+                "typography": {
+                    "font_size": {
+                        "unit": "px",
+                        "size": "16"
+                    },
+                    "font_weight": "700",
+                    "text_transform": "uppercase",
+                    "font_style": null,
+                    "letter_spacing": {
+                        "unit": "px",
+                        "size": "4.2"
+                    }
+                },
+                "colors": {
+                    "text": null,
+                    "background": "rgba(255,255,255,0)",
+                    "hover_text": null,
+                    "hover_background": "#ffffff"
+                },
+                "border": {
+                    "width": {
+                        "unit": "px",
+                        "top": "4",
+                        "right": "4",
+                        "bottom": "4",
+                        "left": "4",
+                        "isLinked": "1"
+                    },
+                    "color": "#ffffff",
+                    "radius": {
+                        "unit": "px",
+                        "top": "0",
+                        "right": "0",
+                        "bottom": "0",
+                        "left": "0",
+                        "isLinked": "1"
+                    }
+                },
+                "padding": {
+                    "unit": "px",
+                    "top": "26",
+                    "right": "46",
+                    "bottom": "22",
+                    "left": "46",
+                    "isLinked": ""
+                },
+                "box_shadow": null
+            },
+            "buttons": [
+                {
+                    "template_id": 114,
+                    "template_title": "Law Firm > About 1",
+                    "button_id": "c31b531",
+                    "path": "Law Firm > About 1/55e6552/4ad0f62/bbbb655/d18d0a5",
+                    "text": "CONTACT US",
+                    "size": "md",
+                    "align": "",
+                    "typography": {
+                        "font_size": {
+                            "unit": "px",
+                            "size": "16"
+                        },
+                        "font_weight": "700",
+                        "text_transform": "uppercase",
+                        "font_style": null,
+                        "letter_spacing": {
+                            "unit": "px",
+                            "size": "4.2"
+                        }
+                    },
+                    "colors": {
+                        "text": null,
+                        "background": "rgba(255,255,255,0)",
+                        "hover_text": null,
+                        "hover_background": "#ffffff"
+                    },
+                    "border": {
+                        "width": {
+                            "unit": "px",
+                            "top": "4",
+                            "right": "4",
+                            "bottom": "4",
+                            "left": "4",
+                            "isLinked": "1"
+                        },
+                        "color": "#ffffff",
+                        "radius": {
+                            "unit": "px",
+                            "top": "0",
+                            "right": "0",
+                            "bottom": "0",
+                            "left": "0",
+                            "isLinked": "1"
+                        }
+                    },
+                    "padding": {
+                        "unit": "px",
+                        "top": "26",
+                        "right": "46",
+                        "bottom": "22",
+                        "left": "46",
+                        "isLinked": ""
+                    },
+                    "box_shadow": null
+                },
+                {
+                    "template_id": 91,
+                    "template_title": "Law Firm > Home 1",
+                    "button_id": "6a2339f",
+                    "path": "Law Firm > Home 1/07324be/c8c439a/220b2b5/7046303",
+                    "text": "Learn more",
+                    "size": "md",
+                    "align": "",
+                    "typography": {
+                        "font_size": {
+                            "unit": "px",
+                            "size": "16"
+                        },
+                        "font_weight": "700",
+                        "text_transform": "uppercase",
+                        "font_style": null,
+                        "letter_spacing": {
+                            "unit": "px",
+                            "size": "4.2"
+                        }
+                    },
+                    "colors": {
+                        "text": null,
+                        "background": "rgba(255,255,255,0)",
+                        "hover_text": null,
+                        "hover_background": "#ffffff"
+                    },
+                    "border": {
+                        "width": {
+                            "unit": "px",
+                            "top": "4",
+                            "right": "4",
+                            "bottom": "4",
+                            "left": "4",
+                            "isLinked": "1"
+                        },
+                        "color": "#ffffff",
+                        "radius": {
+                            "unit": "px",
+                            "top": "0",
+                            "right": "0",
+                            "bottom": "0",
+                            "left": "0",
+                            "isLinked": "1"
+                        }
+                    },
+                    "padding": {
+                        "unit": "px",
+                        "top": "26",
+                        "right": "46",
+                        "bottom": "24",
+                        "left": "46",
+                        "isLinked": ""
+                    },
+                    "box_shadow": null
+                },
+                {
+                    "template_id": 90,
+                    "template_title": "Law Firm > Home 1",
+                    "button_id": "6a2339f",
+                    "path": "Law Firm > Home 1/07324be/c8c439a/220b2b5/7046303",
+                    "text": "Learn more",
+                    "size": "md",
+                    "align": "",
+                    "typography": {
+                        "font_size": {
+                            "unit": "px",
+                            "size": "16"
+                        },
+                        "font_weight": "700",
+                        "text_transform": "uppercase",
+                        "font_style": null,
+                        "letter_spacing": {
+                            "unit": "px",
+                            "size": "4.2"
+                        }
+                    },
+                    "colors": {
+                        "text": null,
+                        "background": "rgba(255,255,255,0)",
+                        "hover_text": null,
+                        "hover_background": "#ffffff"
+                    },
+                    "border": {
+                        "width": {
+                            "unit": "px",
+                            "top": "4",
+                            "right": "4",
+                            "bottom": "4",
+                            "left": "4",
+                            "isLinked": "1"
+                        },
+                        "color": "#ffffff",
+                        "radius": {
+                            "unit": "px",
+                            "top": "0",
+                            "right": "0",
+                            "bottom": "0",
+                            "left": "0",
+                            "isLinked": "1"
+                        }
+                    },
+                    "padding": {
+                        "unit": "px",
+                        "top": "26",
+                        "right": "46",
+                        "bottom": "24",
+                        "left": "46",
+                        "isLinked": ""
+                    },
+                    "box_shadow": null
+                }
+            ]
+        },
+        "eed4accd1f2852343630b50d5fed189c": {
+            "sample": {
+                "template_id": 37,
+                "template_title": "Global Header",
+                "button_id": "e607b40",
+                "path": "Global Header/7afd383d/528f78a2",
+                "text": "get started ",
+                "size": "md",
+                "align": "center",
+                "typography": {
+                    "font_size": {
+                        "unit": "px",
+                        "size": 15,
+                        "sizes": []
+                    },
+                    "font_weight": null,
+                    "text_transform": "uppercase",
+                    "font_style": "italic",
+                    "letter_spacing": {
+                        "unit": "px",
+                        "size": 1,
+                        "sizes": []
+                    }
+                },
+                "colors": {
+                    "text": null,
+                    "background": "#1e405a",
+                    "hover_text": null,
+                    "hover_background": "#157537"
+                },
+                "border": {
+                    "width": null,
+                    "color": null,
+                    "radius": null
+                },
+                "padding": {
+                    "unit": "px",
+                    "top": "15",
+                    "right": "15",
+                    "bottom": "15",
+                    "left": "15",
+                    "isLinked": true
+                },
+                "box_shadow": {
+                    "horizontal": 0,
+                    "vertical": 5,
+                    "blur": 10,
+                    "spread": 0,
+                    "color": "rgba(30,64,90,0.5)"
+                }
+            },
+            "buttons": [
+                {
+                    "template_id": 37,
+                    "template_title": "Global Header",
+                    "button_id": "e607b40",
+                    "path": "Global Header/7afd383d/528f78a2",
+                    "text": "get started ",
+                    "size": "md",
+                    "align": "center",
+                    "typography": {
+                        "font_size": {
+                            "unit": "px",
+                            "size": 15,
+                            "sizes": []
+                        },
+                        "font_weight": null,
+                        "text_transform": "uppercase",
+                        "font_style": "italic",
+                        "letter_spacing": {
+                            "unit": "px",
+                            "size": 1,
+                            "sizes": []
+                        }
+                    },
+                    "colors": {
+                        "text": null,
+                        "background": "#1e405a",
+                        "hover_text": null,
+                        "hover_background": "#157537"
+                    },
+                    "border": {
+                        "width": null,
+                        "color": null,
+                        "radius": null
+                    },
+                    "padding": {
+                        "unit": "px",
+                        "top": "15",
+                        "right": "15",
+                        "bottom": "15",
+                        "left": "15",
+                        "isLinked": true
+                    },
+                    "box_shadow": {
+                        "horizontal": 0,
+                        "vertical": 5,
+                        "blur": 10,
+                        "spread": 0,
+                        "color": "rgba(30,64,90,0.5)"
+                    }
+                }
+            ]
+        },
+        "3fc8ce64160fdd446b1e285f82bc5e64": {
+            "sample": {
+                "template_id": 33,
+                "template_title": "Medical Practice > Home 2",
+                "button_id": "5b977b0",
+                "path": "Medical Practice > Home 2/10ad9db/7c56ec8a",
+                "text": "Schedule Appointment",
+                "size": "md",
+                "align": "left",
+                "typography": {
+                    "font_size": {
+                        "unit": "px",
+                        "size": 14
+                    },
+                    "font_weight": "500",
+                    "text_transform": "uppercase",
+                    "font_style": null,
+                    "letter_spacing": null
+                },
+                "colors": {
+                    "text": null,
+                    "background": "#d61747",
+                    "hover_text": null,
+                    "hover_background": "#1b80f3"
+                },
+                "border": {
+                    "width": {
+                        "unit": "px",
+                        "top": "1",
+                        "right": "1",
+                        "bottom": "1",
+                        "left": "1",
+                        "isLinked": true
+                    },
+                    "color": "#d61747",
+                    "radius": {
+                        "unit": "px",
+                        "top": "4",
+                        "right": "4",
+                        "bottom": "4",
+                        "left": "4",
+                        "isLinked": true
+                    }
+                },
+                "padding": null,
+                "box_shadow": null
+            },
+            "buttons": [
+                {
+                    "template_id": 33,
+                    "template_title": "Medical Practice > Home 2",
+                    "button_id": "5b977b0",
+                    "path": "Medical Practice > Home 2/10ad9db/7c56ec8a",
+                    "text": "Schedule Appointment",
+                    "size": "md",
+                    "align": "left",
+                    "typography": {
+                        "font_size": {
+                            "unit": "px",
+                            "size": 14
+                        },
+                        "font_weight": "500",
+                        "text_transform": "uppercase",
+                        "font_style": null,
+                        "letter_spacing": null
+                    },
+                    "colors": {
+                        "text": null,
+                        "background": "#d61747",
+                        "hover_text": null,
+                        "hover_background": "#1b80f3"
+                    },
+                    "border": {
+                        "width": {
+                            "unit": "px",
+                            "top": "1",
+                            "right": "1",
+                            "bottom": "1",
+                            "left": "1",
+                            "isLinked": true
+                        },
+                        "color": "#d61747",
+                        "radius": {
+                            "unit": "px",
+                            "top": "4",
+                            "right": "4",
+                            "bottom": "4",
+                            "left": "4",
+                            "isLinked": true
+                        }
+                    },
+                    "padding": null,
+                    "box_shadow": null
+                }
+            ]
+        },
+        "9f8b1b89d405032d70b00606698b2251": {
+            "sample": {
+                "template_id": 33,
+                "template_title": "Medical Practice > Home 2",
+                "button_id": "3feec19c",
+                "path": "Medical Practice > Home 2/63be7bee/5c7c1a31/f07cc61/62cb5c95",
+                "text": "Join Now",
+                "size": "md",
+                "align": "justify",
+                "typography": {
+                    "font_size": null,
+                    "font_weight": "500",
+                    "text_transform": "uppercase",
+                    "font_style": null,
+                    "letter_spacing": null
+                },
+                "colors": {
+                    "text": null,
+                    "background": "#1b80f3",
+                    "hover_text": null,
+                    "hover_background": "#ffffff"
+                },
+                "border": {
+                    "width": {
+                        "unit": "px",
+                        "top": "1",
+                        "right": "1",
+                        "bottom": "1",
+                        "left": "1",
+                        "isLinked": true
+                    },
+                    "color": "#1b80f3",
+                    "radius": {
+                        "unit": "px",
+                        "top": "0",
+                        "right": "0",
+                        "bottom": "0",
+                        "left": "0",
+                        "isLinked": false
+                    }
+                },
+                "padding": null,
+                "box_shadow": null
+            },
+            "buttons": [
+                {
+                    "template_id": 33,
+                    "template_title": "Medical Practice > Home 2",
+                    "button_id": "3feec19c",
+                    "path": "Medical Practice > Home 2/63be7bee/5c7c1a31/f07cc61/62cb5c95",
+                    "text": "Join Now",
+                    "size": "md",
+                    "align": "justify",
+                    "typography": {
+                        "font_size": null,
+                        "font_weight": "500",
+                        "text_transform": "uppercase",
+                        "font_style": null,
+                        "letter_spacing": null
+                    },
+                    "colors": {
+                        "text": null,
+                        "background": "#1b80f3",
+                        "hover_text": null,
+                        "hover_background": "#ffffff"
+                    },
+                    "border": {
+                        "width": {
+                            "unit": "px",
+                            "top": "1",
+                            "right": "1",
+                            "bottom": "1",
+                            "left": "1",
+                            "isLinked": true
+                        },
+                        "color": "#1b80f3",
+                        "radius": {
+                            "unit": "px",
+                            "top": "0",
+                            "right": "0",
+                            "bottom": "0",
+                            "left": "0",
+                            "isLinked": false
+                        }
+                    },
+                    "padding": null,
+                    "box_shadow": null
+                },
+                {
+                    "template_id": 33,
+                    "template_title": "Medical Practice > Home 2",
+                    "button_id": "44d0dce1",
+                    "path": "Medical Practice > Home 2/63be7bee/64d8971/df54e43/3f807370",
+                    "text": "Join Now",
+                    "size": "md",
+                    "align": "justify",
+                    "typography": {
+                        "font_size": null,
+                        "font_weight": "500",
+                        "text_transform": "uppercase",
+                        "font_style": null,
+                        "letter_spacing": null
+                    },
+                    "colors": {
+                        "text": null,
+                        "background": "#1b80f3",
+                        "hover_text": null,
+                        "hover_background": "#ffffff"
+                    },
+                    "border": {
+                        "width": {
+                            "unit": "px",
+                            "top": "1",
+                            "right": "1",
+                            "bottom": "1",
+                            "left": "1",
+                            "isLinked": true
+                        },
+                        "color": "#1b80f3",
+                        "radius": {
+                            "unit": "px",
+                            "top": "0",
+                            "right": "0",
+                            "bottom": "0",
+                            "left": "0",
+                            "isLinked": false
+                        }
+                    },
+                    "padding": null,
+                    "box_shadow": null
+                }
+            ]
+        },
+        "9b9835339bad3f28a300a5850a1c86e8": {
+            "sample": {
+                "template_id": 33,
+                "template_title": "Medical Practice > Home 2",
+                "button_id": "5c14ae19",
+                "path": "Medical Practice > Home 2/63be7bee/7401be9d/2bae0661/7a6f8052",
+                "text": "Join Now",
+                "size": "md",
+                "align": "justify",
+                "typography": {
+                    "font_size": null,
+                    "font_weight": "500",
+                    "text_transform": "uppercase",
+                    "font_style": null,
+                    "letter_spacing": null
+                },
+                "colors": {
+                    "text": null,
+                    "background": "#ffffff",
+                    "hover_text": null,
+                    "hover_background": "#1b80f3"
+                },
+                "border": {
+                    "width": {
+                        "unit": "px",
+                        "top": "1",
+                        "right": "1",
+                        "bottom": "1",
+                        "left": "1",
+                        "isLinked": true
+                    },
+                    "color": "#1b80f3",
+                    "radius": {
+                        "unit": "px",
+                        "top": "0",
+                        "right": "0",
+                        "bottom": "0",
+                        "left": "0",
+                        "isLinked": false
+                    }
+                },
+                "padding": null,
+                "box_shadow": null
+            },
+            "buttons": [
+                {
+                    "template_id": 33,
+                    "template_title": "Medical Practice > Home 2",
+                    "button_id": "5c14ae19",
+                    "path": "Medical Practice > Home 2/63be7bee/7401be9d/2bae0661/7a6f8052",
+                    "text": "Join Now",
+                    "size": "md",
+                    "align": "justify",
+                    "typography": {
+                        "font_size": null,
+                        "font_weight": "500",
+                        "text_transform": "uppercase",
+                        "font_style": null,
+                        "letter_spacing": null
+                    },
+                    "colors": {
+                        "text": null,
+                        "background": "#ffffff",
+                        "hover_text": null,
+                        "hover_background": "#1b80f3"
+                    },
+                    "border": {
+                        "width": {
+                            "unit": "px",
+                            "top": "1",
+                            "right": "1",
+                            "bottom": "1",
+                            "left": "1",
+                            "isLinked": true
+                        },
+                        "color": "#1b80f3",
+                        "radius": {
+                            "unit": "px",
+                            "top": "0",
+                            "right": "0",
+                            "bottom": "0",
+                            "left": "0",
+                            "isLinked": false
+                        }
+                    },
+                    "padding": null,
+                    "box_shadow": null
+                }
+            ]
+        },
+        "6cc942fa4793ea425a96b0630f7698f2": {
+            "sample": {
+                "template_id": 33,
+                "template_title": "Medical Practice > Home 2",
+                "button_id": "11964a03",
+                "path": "Medical Practice > Home 2/7bc97197/305da413/72aa6810/7f834e5",
+                "text": "Read More",
+                "size": "md",
+                "align": "",
+                "typography": {
+                    "font_size": {
+                        "unit": "px",
+                        "size": 14
+                    },
+                    "font_weight": "500",
+                    "text_transform": null,
+                    "font_style": null,
+                    "letter_spacing": null
+                },
+                "colors": {
+                    "text": null,
+                    "background": "rgba(0,0,0,0)",
+                    "hover_text": null,
+                    "hover_background": "rgba(0,0,0,0)"
+                },
+                "border": {
+                    "width": null,
+                    "color": null,
+                    "radius": null
+                },
+                "padding": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": false
+                },
+                "box_shadow": null
+            },
+            "buttons": [
+                {
+                    "template_id": 33,
+                    "template_title": "Medical Practice > Home 2",
+                    "button_id": "11964a03",
+                    "path": "Medical Practice > Home 2/7bc97197/305da413/72aa6810/7f834e5",
+                    "text": "Read More",
+                    "size": "md",
+                    "align": "",
+                    "typography": {
+                        "font_size": {
+                            "unit": "px",
+                            "size": 14
+                        },
+                        "font_weight": "500",
+                        "text_transform": null,
+                        "font_style": null,
+                        "letter_spacing": null
+                    },
+                    "colors": {
+                        "text": null,
+                        "background": "rgba(0,0,0,0)",
+                        "hover_text": null,
+                        "hover_background": "rgba(0,0,0,0)"
+                    },
+                    "border": {
+                        "width": null,
+                        "color": null,
+                        "radius": null
+                    },
+                    "padding": {
+                        "unit": "px",
+                        "top": "0",
+                        "right": "0",
+                        "bottom": "0",
+                        "left": "0",
+                        "isLinked": false
+                    },
+                    "box_shadow": null
+                },
+                {
+                    "template_id": 33,
+                    "template_title": "Medical Practice > Home 2",
+                    "button_id": "10fff220",
+                    "path": "Medical Practice > Home 2/7bc97197/2035d22b/5938a425/61bc36f0",
+                    "text": "Read More",
+                    "size": "md",
+                    "align": "",
+                    "typography": {
+                        "font_size": {
+                            "unit": "px",
+                            "size": 14
+                        },
+                        "font_weight": "500",
+                        "text_transform": null,
+                        "font_style": null,
+                        "letter_spacing": null
+                    },
+                    "colors": {
+                        "text": null,
+                        "background": "rgba(0,0,0,0)",
+                        "hover_text": null,
+                        "hover_background": "rgba(0,0,0,0)"
+                    },
+                    "border": {
+                        "width": null,
+                        "color": null,
+                        "radius": null
+                    },
+                    "padding": {
+                        "unit": "px",
+                        "top": "0",
+                        "right": "0",
+                        "bottom": "0",
+                        "left": "0",
+                        "isLinked": false
+                    },
+                    "box_shadow": null
+                },
+                {
+                    "template_id": 33,
+                    "template_title": "Medical Practice > Home 2",
+                    "button_id": "100bf251",
+                    "path": "Medical Practice > Home 2/7bc97197/2943aed/5e37be15/e3c9636",
+                    "text": "Read More",
+                    "size": "md",
+                    "align": "",
+                    "typography": {
+                        "font_size": {
+                            "unit": "px",
+                            "size": 14
+                        },
+                        "font_weight": "500",
+                        "text_transform": null,
+                        "font_style": null,
+                        "letter_spacing": null
+                    },
+                    "colors": {
+                        "text": null,
+                        "background": "rgba(0,0,0,0)",
+                        "hover_text": null,
+                        "hover_background": "rgba(0,0,0,0)"
+                    },
+                    "border": {
+                        "width": null,
+                        "color": null,
+                        "radius": null
+                    },
+                    "padding": {
+                        "unit": "px",
+                        "top": "0",
+                        "right": "0",
+                        "bottom": "0",
+                        "left": "0",
+                        "isLinked": false
+                    },
+                    "box_shadow": null
+                }
+            ]
+        }
+    },
+    "all_buttons": [
+        {
+            "template_id": 2523,
+            "template_title": "backup of more than 20 yrs",
+            "button_id": "54fc36fd",
+            "path": "backup of more than 20 yrs/34947aa7/551e6a8a/47f8f226/3f0c7bf4",
+            "text": "Get a Free Quote",
+            "size": "lg",
+            "align": "",
+            "typography": {
+                "font_size": null,
+                "font_weight": null,
+                "text_transform": null,
+                "font_style": null,
+                "letter_spacing": null
+            },
+            "colors": {
+                "text": null,
+                "background": "#157537",
+                "hover_text": null,
+                "hover_background": null
+            },
+            "border": {
+                "width": null,
+                "color": null,
+                "radius": null
+            },
+            "padding": null,
+            "box_shadow": null
+        },
+        {
+            "template_id": 2367,
+            "template_title": "Homepage",
+            "button_id": "1eaf0eb0",
+            "path": "Homepage/32e25c62/7eb53012",
+            "text": "Get a Free Quote",
+            "size": "lg",
+            "align": "",
+            "typography": {
+                "font_size": null,
+                "font_weight": null,
+                "text_transform": null,
+                "font_style": null,
+                "letter_spacing": null
+            },
+            "colors": {
+                "text": null,
+                "background": null,
+                "hover_text": null,
+                "hover_background": null
+            },
+            "border": {
+                "width": null,
+                "color": null,
+                "radius": null
+            },
+            "padding": null,
+            "box_shadow": null
+        },
+        {
+            "template_id": 2367,
+            "template_title": "Homepage",
+            "button_id": "509c88af",
+            "path": "Homepage/32e25c62/7eb53012",
+            "text": "Learn More",
+            "size": "lg",
+            "align": "",
+            "typography": {
+                "font_size": null,
+                "font_weight": null,
+                "text_transform": null,
+                "font_style": null,
+                "letter_spacing": null
+            },
+            "colors": {
+                "text": null,
+                "background": "rgba(2, 1, 1, 0)",
+                "hover_text": null,
+                "hover_background": null
+            },
+            "border": {
+                "width": {
+                    "unit": "px",
+                    "top": "2",
+                    "right": "2",
+                    "bottom": "2",
+                    "left": "2",
+                    "isLinked": true
+                },
+                "color": null,
+                "radius": null
+            },
+            "padding": {
+                "unit": "px",
+                "top": "18",
+                "right": "36",
+                "bottom": "18",
+                "left": "36",
+                "isLinked": false
+            },
+            "box_shadow": null
+        },
+        {
+            "template_id": 2367,
+            "template_title": "Homepage",
+            "button_id": "f35e594",
+            "path": "Homepage/2f20c8d3/4109bc32/675364ca/7f396056",
+            "text": "Learn More",
+            "size": "lg",
+            "align": "",
+            "typography": {
+                "font_size": null,
+                "font_weight": null,
+                "text_transform": null,
+                "font_style": null,
+                "letter_spacing": null
+            },
+            "colors": {
+                "text": null,
+                "background": null,
+                "hover_text": null,
+                "hover_background": null
+            },
+            "border": {
+                "width": null,
+                "color": null,
+                "radius": null
+            },
+            "padding": null,
+            "box_shadow": null
+        },
+        {
+            "template_id": 2367,
+            "template_title": "Homepage",
+            "button_id": "5fecb46c",
+            "path": "Homepage/72d2720e/7b41aa69",
+            "text": "View All Services",
+            "size": "lg",
+            "align": "center",
+            "typography": {
+                "font_size": null,
+                "font_weight": null,
+                "text_transform": null,
+                "font_style": null,
+                "letter_spacing": null
+            },
+            "colors": {
+                "text": null,
+                "background": null,
+                "hover_text": null,
+                "hover_background": null
+            },
+            "border": {
+                "width": null,
+                "color": null,
+                "radius": null
+            },
+            "padding": null,
+            "box_shadow": null
+        },
+        {
+            "template_id": 2323,
+            "template_title": "contact button",
+            "button_id": "2323",
+            "path": "contact button",
+            "text": "get started ",
+            "size": "md",
+            "align": "center",
+            "typography": {
+                "font_size": null,
+                "font_weight": null,
+                "text_transform": null,
+                "font_style": null,
+                "letter_spacing": null
+            },
+            "colors": {
+                "text": null,
+                "background": "#1e405a",
+                "hover_text": null,
+                "hover_background": "#157537"
+            },
+            "border": {
+                "width": null,
+                "color": null,
+                "radius": null
+            },
+            "padding": {
+                "unit": "px",
+                "top": "15",
+                "right": "15",
+                "bottom": "15",
+                "left": "15",
+                "isLinked": true
+            },
+            "box_shadow": {
+                "horizontal": 0,
+                "vertical": 5,
+                "blur": 10,
+                "spread": 0,
+                "color": "rgba(30,64,90,0.5)"
+            }
+        },
+        {
+            "template_id": 2004,
+            "template_title": "footer beed a",
+            "button_id": "1a1ffe4e",
+            "path": "footer beed a/2e0903f1/cbf01d",
+            "text": "CONTACT US",
+            "size": "md",
+            "align": "center",
+            "typography": {
+                "font_size": null,
+                "font_weight": null,
+                "text_transform": null,
+                "font_style": null,
+                "letter_spacing": null
+            },
+            "colors": {
+                "text": null,
+                "background": "#f6a90f",
+                "hover_text": null,
+                "hover_background": "#f6a90f"
+            },
+            "border": {
+                "width": null,
+                "color": null,
+                "radius": null
+            },
+            "padding": {
+                "unit": "px",
+                "top": "20",
+                "right": "40",
+                "bottom": "20",
+                "left": "40",
+                "isLinked": false
+            },
+            "box_shadow": {
+                "horizontal": 0,
+                "vertical": 5,
+                "blur": 10,
+                "spread": 0,
+                "color": "rgba(30,64,90,0.5)"
+            }
+        },
+        {
+            "template_id": 1989,
+            "template_title": "Looking for X",
+            "button_id": "974f7a9",
+            "path": "Looking for X/1240137/a2478cf",
+            "text": "CONTACT US",
+            "size": "md",
+            "align": "center",
+            "typography": {
+                "font_size": null,
+                "font_weight": null,
+                "text_transform": null,
+                "font_style": null,
+                "letter_spacing": null
+            },
+            "colors": {
+                "text": null,
+                "background": "#f6a90f",
+                "hover_text": null,
+                "hover_background": "#f6a90f"
+            },
+            "border": {
+                "width": null,
+                "color": null,
+                "radius": null
+            },
+            "padding": {
+                "unit": "px",
+                "top": "20",
+                "right": "40",
+                "bottom": "20",
+                "left": "40",
+                "isLinked": false
+            },
+            "box_shadow": {
+                "horizontal": 0,
+                "vertical": 5,
+                "blur": 10,
+                "spread": 0,
+                "color": "rgba(30,64,90,0.5)"
+            }
+        },
+        {
+            "template_id": 1786,
+            "template_title": "our services",
+            "button_id": "2c4bc6b",
+            "path": "our services/0528cad/20f2f83/92484de/5d24a5f",
+            "text": "get started",
+            "size": "md",
+            "align": "center",
+            "typography": {
+                "font_size": null,
+                "font_weight": null,
+                "text_transform": null,
+                "font_style": null,
+                "letter_spacing": null
+            },
+            "colors": {
+                "text": null,
+                "background": "#1e405a",
+                "hover_text": null,
+                "hover_background": "#f6a90f"
+            },
+            "border": {
+                "width": null,
+                "color": null,
+                "radius": null
+            },
+            "padding": {
+                "unit": "px",
+                "top": "20",
+                "right": "40",
+                "bottom": "20",
+                "left": "40",
+                "isLinked": false
+            },
+            "box_shadow": {
+                "horizontal": 0,
+                "vertical": 5,
+                "blur": 10,
+                "spread": 0,
+                "color": "rgba(30,64,90,0.5)"
+            }
+        },
+        {
+            "template_id": 859,
+            "template_title": "EHS Footer",
+            "button_id": "8d4b87f",
+            "path": "EHS Footer/8123f60/80bb2c1",
+            "text": "CONTACT US",
+            "size": "md",
+            "align": "center",
+            "typography": {
+                "font_size": null,
+                "font_weight": null,
+                "text_transform": null,
+                "font_style": null,
+                "letter_spacing": null
+            },
+            "colors": {
+                "text": null,
+                "background": "#f6a90f",
+                "hover_text": null,
+                "hover_background": "#157537"
+            },
+            "border": {
+                "width": null,
+                "color": null,
+                "radius": null
+            },
+            "padding": {
+                "unit": "px",
+                "top": "20",
+                "right": "40",
+                "bottom": "20",
+                "left": "40",
+                "isLinked": false
+            },
+            "box_shadow": {
+                "horizontal": 0,
+                "vertical": 5,
+                "blur": 10,
+                "spread": 0,
+                "color": "rgba(30,64,90,0.5)"
+            }
+        },
+        {
+            "template_id": 124,
+            "template_title": "Law Firm > Services 3",
+            "button_id": "328df56",
+            "path": "Law Firm > Services 3/3f8f710/6d08184",
+            "text": "CONTACT US",
+            "size": "md",
+            "align": "center",
+            "typography": {
+                "font_size": {
+                    "unit": "px",
+                    "size": "14"
+                },
+                "font_weight": "700",
+                "text_transform": "uppercase",
+                "font_style": null,
+                "letter_spacing": {
+                    "unit": "px",
+                    "size": "4.2"
+                }
+            },
+            "colors": {
+                "text": null,
+                "background": "#d28c0e",
+                "hover_text": null,
+                "hover_background": "#ad6c0c"
+            },
+            "border": {
+                "width": null,
+                "color": null,
+                "radius": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": "1"
+                }
+            },
+            "padding": {
+                "unit": "px",
+                "top": "30",
+                "right": "48",
+                "bottom": "26",
+                "left": "48",
+                "isLinked": ""
+            },
+            "box_shadow": null
+        },
+        {
+            "template_id": 124,
+            "template_title": "Law Firm > Services 3",
+            "button_id": "115c974",
+            "path": "Law Firm > Services 3/68a9525/0569776",
+            "text": "Contact Us",
+            "size": "md",
+            "align": "left",
+            "typography": {
+                "font_size": {
+                    "unit": "px",
+                    "size": "16"
+                },
+                "font_weight": "700",
+                "text_transform": "uppercase",
+                "font_style": null,
+                "letter_spacing": {
+                    "unit": "px",
+                    "size": "4.2"
+                }
+            },
+            "colors": {
+                "text": null,
+                "background": "#d28c0e",
+                "hover_text": null,
+                "hover_background": "rgba(255,255,255,0)"
+            },
+            "border": {
+                "width": {
+                    "unit": "px",
+                    "top": "3",
+                    "right": "3",
+                    "bottom": "3",
+                    "left": "3",
+                    "isLinked": "1"
+                },
+                "color": "#d28c0e",
+                "radius": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": "1"
+                }
+            },
+            "padding": {
+                "unit": "px",
+                "top": "30",
+                "right": "48",
+                "bottom": "26",
+                "left": "48",
+                "isLinked": ""
+            },
+            "box_shadow": null
+        },
+        {
+            "template_id": 114,
+            "template_title": "Law Firm > About 1",
+            "button_id": "d3253e8",
+            "path": "Law Firm > About 1/7da194f/bd93e18/9c02419/a5229a7",
+            "text": "Read More",
+            "size": "md",
+            "align": "left",
+            "typography": {
+                "font_size": {
+                    "unit": "px",
+                    "size": "18"
+                },
+                "font_weight": "700",
+                "text_transform": null,
+                "font_style": null,
+                "letter_spacing": {
+                    "unit": "px",
+                    "size": "0.9"
+                }
+            },
+            "colors": {
+                "text": null,
+                "background": "rgba(0,0,0,0)",
+                "hover_text": null,
+                "hover_background": null
+            },
+            "border": {
+                "width": null,
+                "color": null,
+                "radius": null
+            },
+            "padding": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+            },
+            "box_shadow": null
+        },
+        {
+            "template_id": 114,
+            "template_title": "Law Firm > About 1",
+            "button_id": "e4bd218",
+            "path": "Law Firm > About 1/7da194f/bd93e18/9c02419/5b1926a",
+            "text": "Read More",
+            "size": "md",
+            "align": "left",
+            "typography": {
+                "font_size": {
+                    "unit": "px",
+                    "size": "18"
+                },
+                "font_weight": "700",
+                "text_transform": null,
+                "font_style": null,
+                "letter_spacing": {
+                    "unit": "px",
+                    "size": "0.9"
+                }
+            },
+            "colors": {
+                "text": null,
+                "background": "rgba(0,0,0,0)",
+                "hover_text": null,
+                "hover_background": null
+            },
+            "border": {
+                "width": null,
+                "color": null,
+                "radius": null
+            },
+            "padding": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": ""
+            },
+            "box_shadow": null
+        },
+        {
+            "template_id": 114,
+            "template_title": "Law Firm > About 1",
+            "button_id": "f6ed1f4",
+            "path": "Law Firm > About 1/7da194f/bd93e18",
+            "text": "VIEW ALL SERVICES",
+            "size": "md",
+            "align": "center",
+            "typography": {
+                "font_size": {
+                    "unit": "px",
+                    "size": "14"
+                },
+                "font_weight": "700",
+                "text_transform": "uppercase",
+                "font_style": null,
+                "letter_spacing": {
+                    "unit": "px",
+                    "size": "4.2"
+                }
+            },
+            "colors": {
+                "text": null,
+                "background": "rgba(255,255,255,0)",
+                "hover_text": null,
+                "hover_background": "#d28c0e"
+            },
+            "border": {
+                "width": {
+                    "unit": "px",
+                    "top": "4",
+                    "right": "4",
+                    "bottom": "4",
+                    "left": "4",
+                    "isLinked": "1"
+                },
+                "color": "#d28c0e",
+                "radius": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": "1"
+                }
+            },
+            "padding": {
+                "unit": "px",
+                "top": "26",
+                "right": "46",
+                "bottom": "22",
+                "left": "46",
+                "isLinked": ""
+            },
+            "box_shadow": null
+        },
+        {
+            "template_id": 114,
+            "template_title": "Law Firm > About 1",
+            "button_id": "1f24ac3",
+            "path": "Law Firm > About 1/55e6552/4ad0f62/bbbb655/bc0d07a",
+            "text": "Free Consultation",
+            "size": "md",
+            "align": "right",
+            "typography": {
+                "font_size": {
+                    "unit": "px",
+                    "size": "16"
+                },
+                "font_weight": "700",
+                "text_transform": "uppercase",
+                "font_style": null,
+                "letter_spacing": {
+                    "unit": "px",
+                    "size": "4.2"
+                }
+            },
+            "colors": {
+                "text": null,
+                "background": "#d28c0e",
+                "hover_text": null,
+                "hover_background": "rgba(255,255,255,0)"
+            },
+            "border": {
+                "width": {
+                    "unit": "px",
+                    "top": "3",
+                    "right": "3",
+                    "bottom": "3",
+                    "left": "3",
+                    "isLinked": "1"
+                },
+                "color": "#d28c0e",
+                "radius": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": "1"
+                }
+            },
+            "padding": {
+                "unit": "px",
+                "top": "26",
+                "right": "48",
+                "bottom": "26",
+                "left": "48",
+                "isLinked": ""
+            },
+            "box_shadow": null
+        },
+        {
+            "template_id": 114,
+            "template_title": "Law Firm > About 1",
+            "button_id": "c31b531",
+            "path": "Law Firm > About 1/55e6552/4ad0f62/bbbb655/d18d0a5",
+            "text": "CONTACT US",
+            "size": "md",
+            "align": "",
+            "typography": {
+                "font_size": {
+                    "unit": "px",
+                    "size": "16"
+                },
+                "font_weight": "700",
+                "text_transform": "uppercase",
+                "font_style": null,
+                "letter_spacing": {
+                    "unit": "px",
+                    "size": "4.2"
+                }
+            },
+            "colors": {
+                "text": null,
+                "background": "rgba(255,255,255,0)",
+                "hover_text": null,
+                "hover_background": "#ffffff"
+            },
+            "border": {
+                "width": {
+                    "unit": "px",
+                    "top": "4",
+                    "right": "4",
+                    "bottom": "4",
+                    "left": "4",
+                    "isLinked": "1"
+                },
+                "color": "#ffffff",
+                "radius": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": "1"
+                }
+            },
+            "padding": {
+                "unit": "px",
+                "top": "26",
+                "right": "46",
+                "bottom": "22",
+                "left": "46",
+                "isLinked": ""
+            },
+            "box_shadow": null
+        },
+        {
+            "template_id": 91,
+            "template_title": "Law Firm > Home 1",
+            "button_id": "6a2339f",
+            "path": "Law Firm > Home 1/07324be/c8c439a/220b2b5/7046303",
+            "text": "Learn more",
+            "size": "md",
+            "align": "",
+            "typography": {
+                "font_size": {
+                    "unit": "px",
+                    "size": "16"
+                },
+                "font_weight": "700",
+                "text_transform": "uppercase",
+                "font_style": null,
+                "letter_spacing": {
+                    "unit": "px",
+                    "size": "4.2"
+                }
+            },
+            "colors": {
+                "text": null,
+                "background": "rgba(255,255,255,0)",
+                "hover_text": null,
+                "hover_background": "#ffffff"
+            },
+            "border": {
+                "width": {
+                    "unit": "px",
+                    "top": "4",
+                    "right": "4",
+                    "bottom": "4",
+                    "left": "4",
+                    "isLinked": "1"
+                },
+                "color": "#ffffff",
+                "radius": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": "1"
+                }
+            },
+            "padding": {
+                "unit": "px",
+                "top": "26",
+                "right": "46",
+                "bottom": "24",
+                "left": "46",
+                "isLinked": ""
+            },
+            "box_shadow": null
+        },
+        {
+            "template_id": 91,
+            "template_title": "Law Firm > Home 1",
+            "button_id": "a477ddb",
+            "path": "Law Firm > Home 1/07324be/c8c439a/220b2b5/1aa19d9",
+            "text": "Talk To Us",
+            "size": "md",
+            "align": "left",
+            "typography": {
+                "font_size": {
+                    "unit": "px",
+                    "size": "16"
+                },
+                "font_weight": "700",
+                "text_transform": "uppercase",
+                "font_style": null,
+                "letter_spacing": {
+                    "unit": "px",
+                    "size": "4.2"
+                }
+            },
+            "colors": {
+                "text": null,
+                "background": "#d28c0e",
+                "hover_text": null,
+                "hover_background": "rgba(255,255,255,0)"
+            },
+            "border": {
+                "width": {
+                    "unit": "px",
+                    "top": "3",
+                    "right": "3",
+                    "bottom": "3",
+                    "left": "3",
+                    "isLinked": "1"
+                },
+                "color": "#d28c0e",
+                "radius": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": "1"
+                }
+            },
+            "padding": {
+                "unit": "px",
+                "top": "26",
+                "right": "48",
+                "bottom": "26",
+                "left": "48",
+                "isLinked": ""
+            },
+            "box_shadow": null
+        },
+        {
+            "template_id": 91,
+            "template_title": "Law Firm > Home 1",
+            "button_id": "974f7a9",
+            "path": "Law Firm > Home 1/1240137/a2478cf",
+            "text": "CONTACT US",
+            "size": "md",
+            "align": "center",
+            "typography": {
+                "font_size": {
+                    "unit": "px",
+                    "size": "16"
+                },
+                "font_weight": "700",
+                "text_transform": "uppercase",
+                "font_style": null,
+                "letter_spacing": {
+                    "unit": "px",
+                    "size": "4.2"
+                }
+            },
+            "colors": {
+                "text": null,
+                "background": "#d28c0e",
+                "hover_text": null,
+                "hover_background": "rgba(255,255,255,0)"
+            },
+            "border": {
+                "width": {
+                    "unit": "px",
+                    "top": "3",
+                    "right": "3",
+                    "bottom": "3",
+                    "left": "3",
+                    "isLinked": "1"
+                },
+                "color": "#d28c0e",
+                "radius": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": "1"
+                }
+            },
+            "padding": {
+                "unit": "px",
+                "top": "30",
+                "right": "48",
+                "bottom": "26",
+                "left": "48",
+                "isLinked": ""
+            },
+            "box_shadow": null
+        },
+        {
+            "template_id": 90,
+            "template_title": "Law Firm > Home 1",
+            "button_id": "6a2339f",
+            "path": "Law Firm > Home 1/07324be/c8c439a/220b2b5/7046303",
+            "text": "Learn more",
+            "size": "md",
+            "align": "",
+            "typography": {
+                "font_size": {
+                    "unit": "px",
+                    "size": "16"
+                },
+                "font_weight": "700",
+                "text_transform": "uppercase",
+                "font_style": null,
+                "letter_spacing": {
+                    "unit": "px",
+                    "size": "4.2"
+                }
+            },
+            "colors": {
+                "text": null,
+                "background": "rgba(255,255,255,0)",
+                "hover_text": null,
+                "hover_background": "#ffffff"
+            },
+            "border": {
+                "width": {
+                    "unit": "px",
+                    "top": "4",
+                    "right": "4",
+                    "bottom": "4",
+                    "left": "4",
+                    "isLinked": "1"
+                },
+                "color": "#ffffff",
+                "radius": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": "1"
+                }
+            },
+            "padding": {
+                "unit": "px",
+                "top": "26",
+                "right": "46",
+                "bottom": "24",
+                "left": "46",
+                "isLinked": ""
+            },
+            "box_shadow": null
+        },
+        {
+            "template_id": 90,
+            "template_title": "Law Firm > Home 1",
+            "button_id": "a477ddb",
+            "path": "Law Firm > Home 1/07324be/c8c439a/220b2b5/1aa19d9",
+            "text": "Talk To Us",
+            "size": "md",
+            "align": "left",
+            "typography": {
+                "font_size": {
+                    "unit": "px",
+                    "size": "16"
+                },
+                "font_weight": "700",
+                "text_transform": "uppercase",
+                "font_style": null,
+                "letter_spacing": {
+                    "unit": "px",
+                    "size": "4.2"
+                }
+            },
+            "colors": {
+                "text": null,
+                "background": "#d28c0e",
+                "hover_text": null,
+                "hover_background": "rgba(255,255,255,0)"
+            },
+            "border": {
+                "width": {
+                    "unit": "px",
+                    "top": "3",
+                    "right": "3",
+                    "bottom": "3",
+                    "left": "3",
+                    "isLinked": "1"
+                },
+                "color": "#d28c0e",
+                "radius": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": "1"
+                }
+            },
+            "padding": {
+                "unit": "px",
+                "top": "26",
+                "right": "48",
+                "bottom": "26",
+                "left": "48",
+                "isLinked": ""
+            },
+            "box_shadow": null
+        },
+        {
+            "template_id": 90,
+            "template_title": "Law Firm > Home 1",
+            "button_id": "974f7a9",
+            "path": "Law Firm > Home 1/1240137/a2478cf",
+            "text": "CONTACT US",
+            "size": "md",
+            "align": "center",
+            "typography": {
+                "font_size": {
+                    "unit": "px",
+                    "size": "16"
+                },
+                "font_weight": "700",
+                "text_transform": "uppercase",
+                "font_style": null,
+                "letter_spacing": {
+                    "unit": "px",
+                    "size": "4.2"
+                }
+            },
+            "colors": {
+                "text": null,
+                "background": "#d28c0e",
+                "hover_text": null,
+                "hover_background": "rgba(255,255,255,0)"
+            },
+            "border": {
+                "width": {
+                    "unit": "px",
+                    "top": "3",
+                    "right": "3",
+                    "bottom": "3",
+                    "left": "3",
+                    "isLinked": "1"
+                },
+                "color": "#d28c0e",
+                "radius": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": "1"
+                }
+            },
+            "padding": {
+                "unit": "px",
+                "top": "30",
+                "right": "48",
+                "bottom": "26",
+                "left": "48",
+                "isLinked": ""
+            },
+            "box_shadow": null
+        },
+        {
+            "template_id": 37,
+            "template_title": "Global Header",
+            "button_id": "e607b40",
+            "path": "Global Header/7afd383d/528f78a2",
+            "text": "get started ",
+            "size": "md",
+            "align": "center",
+            "typography": {
+                "font_size": {
+                    "unit": "px",
+                    "size": 15,
+                    "sizes": []
+                },
+                "font_weight": null,
+                "text_transform": "uppercase",
+                "font_style": "italic",
+                "letter_spacing": {
+                    "unit": "px",
+                    "size": 1,
+                    "sizes": []
+                }
+            },
+            "colors": {
+                "text": null,
+                "background": "#1e405a",
+                "hover_text": null,
+                "hover_background": "#157537"
+            },
+            "border": {
+                "width": null,
+                "color": null,
+                "radius": null
+            },
+            "padding": {
+                "unit": "px",
+                "top": "15",
+                "right": "15",
+                "bottom": "15",
+                "left": "15",
+                "isLinked": true
+            },
+            "box_shadow": {
+                "horizontal": 0,
+                "vertical": 5,
+                "blur": 10,
+                "spread": 0,
+                "color": "rgba(30,64,90,0.5)"
+            }
+        },
+        {
+            "template_id": 33,
+            "template_title": "Medical Practice > Home 2",
+            "button_id": "65cc30a",
+            "path": "Medical Practice > Home 2/4ec0dc8c/4aa802c1",
+            "text": "Dr. Hansen Specialist Medical Center",
+            "size": "md",
+            "align": "",
+            "typography": {
+                "font_size": {
+                    "unit": "px",
+                    "size": 18
+                },
+                "font_weight": null,
+                "text_transform": null,
+                "font_style": null,
+                "letter_spacing": null
+            },
+            "colors": {
+                "text": null,
+                "background": "rgba(0,0,0,0)",
+                "hover_text": null,
+                "hover_background": null
+            },
+            "border": {
+                "width": null,
+                "color": null,
+                "radius": null
+            },
+            "padding": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": true
+            },
+            "box_shadow": null
+        },
+        {
+            "template_id": 33,
+            "template_title": "Medical Practice > Home 2",
+            "button_id": "5b977b0",
+            "path": "Medical Practice > Home 2/10ad9db/7c56ec8a",
+            "text": "Schedule Appointment",
+            "size": "md",
+            "align": "left",
+            "typography": {
+                "font_size": {
+                    "unit": "px",
+                    "size": 14
+                },
+                "font_weight": "500",
+                "text_transform": "uppercase",
+                "font_style": null,
+                "letter_spacing": null
+            },
+            "colors": {
+                "text": null,
+                "background": "#d61747",
+                "hover_text": null,
+                "hover_background": "#1b80f3"
+            },
+            "border": {
+                "width": {
+                    "unit": "px",
+                    "top": "1",
+                    "right": "1",
+                    "bottom": "1",
+                    "left": "1",
+                    "isLinked": true
+                },
+                "color": "#d61747",
+                "radius": {
+                    "unit": "px",
+                    "top": "4",
+                    "right": "4",
+                    "bottom": "4",
+                    "left": "4",
+                    "isLinked": true
+                }
+            },
+            "padding": null,
+            "box_shadow": null
+        },
+        {
+            "template_id": 33,
+            "template_title": "Medical Practice > Home 2",
+            "button_id": "3feec19c",
+            "path": "Medical Practice > Home 2/63be7bee/5c7c1a31/f07cc61/62cb5c95",
+            "text": "Join Now",
+            "size": "md",
+            "align": "justify",
+            "typography": {
+                "font_size": null,
+                "font_weight": "500",
+                "text_transform": "uppercase",
+                "font_style": null,
+                "letter_spacing": null
+            },
+            "colors": {
+                "text": null,
+                "background": "#1b80f3",
+                "hover_text": null,
+                "hover_background": "#ffffff"
+            },
+            "border": {
+                "width": {
+                    "unit": "px",
+                    "top": "1",
+                    "right": "1",
+                    "bottom": "1",
+                    "left": "1",
+                    "isLinked": true
+                },
+                "color": "#1b80f3",
+                "radius": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": false
+                }
+            },
+            "padding": null,
+            "box_shadow": null
+        },
+        {
+            "template_id": 33,
+            "template_title": "Medical Practice > Home 2",
+            "button_id": "5c14ae19",
+            "path": "Medical Practice > Home 2/63be7bee/7401be9d/2bae0661/7a6f8052",
+            "text": "Join Now",
+            "size": "md",
+            "align": "justify",
+            "typography": {
+                "font_size": null,
+                "font_weight": "500",
+                "text_transform": "uppercase",
+                "font_style": null,
+                "letter_spacing": null
+            },
+            "colors": {
+                "text": null,
+                "background": "#ffffff",
+                "hover_text": null,
+                "hover_background": "#1b80f3"
+            },
+            "border": {
+                "width": {
+                    "unit": "px",
+                    "top": "1",
+                    "right": "1",
+                    "bottom": "1",
+                    "left": "1",
+                    "isLinked": true
+                },
+                "color": "#1b80f3",
+                "radius": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": false
+                }
+            },
+            "padding": null,
+            "box_shadow": null
+        },
+        {
+            "template_id": 33,
+            "template_title": "Medical Practice > Home 2",
+            "button_id": "44d0dce1",
+            "path": "Medical Practice > Home 2/63be7bee/64d8971/df54e43/3f807370",
+            "text": "Join Now",
+            "size": "md",
+            "align": "justify",
+            "typography": {
+                "font_size": null,
+                "font_weight": "500",
+                "text_transform": "uppercase",
+                "font_style": null,
+                "letter_spacing": null
+            },
+            "colors": {
+                "text": null,
+                "background": "#1b80f3",
+                "hover_text": null,
+                "hover_background": "#ffffff"
+            },
+            "border": {
+                "width": {
+                    "unit": "px",
+                    "top": "1",
+                    "right": "1",
+                    "bottom": "1",
+                    "left": "1",
+                    "isLinked": true
+                },
+                "color": "#1b80f3",
+                "radius": {
+                    "unit": "px",
+                    "top": "0",
+                    "right": "0",
+                    "bottom": "0",
+                    "left": "0",
+                    "isLinked": false
+                }
+            },
+            "padding": null,
+            "box_shadow": null
+        },
+        {
+            "template_id": 33,
+            "template_title": "Medical Practice > Home 2",
+            "button_id": "11964a03",
+            "path": "Medical Practice > Home 2/7bc97197/305da413/72aa6810/7f834e5",
+            "text": "Read More",
+            "size": "md",
+            "align": "",
+            "typography": {
+                "font_size": {
+                    "unit": "px",
+                    "size": 14
+                },
+                "font_weight": "500",
+                "text_transform": null,
+                "font_style": null,
+                "letter_spacing": null
+            },
+            "colors": {
+                "text": null,
+                "background": "rgba(0,0,0,0)",
+                "hover_text": null,
+                "hover_background": "rgba(0,0,0,0)"
+            },
+            "border": {
+                "width": null,
+                "color": null,
+                "radius": null
+            },
+            "padding": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": false
+            },
+            "box_shadow": null
+        },
+        {
+            "template_id": 33,
+            "template_title": "Medical Practice > Home 2",
+            "button_id": "10fff220",
+            "path": "Medical Practice > Home 2/7bc97197/2035d22b/5938a425/61bc36f0",
+            "text": "Read More",
+            "size": "md",
+            "align": "",
+            "typography": {
+                "font_size": {
+                    "unit": "px",
+                    "size": 14
+                },
+                "font_weight": "500",
+                "text_transform": null,
+                "font_style": null,
+                "letter_spacing": null
+            },
+            "colors": {
+                "text": null,
+                "background": "rgba(0,0,0,0)",
+                "hover_text": null,
+                "hover_background": "rgba(0,0,0,0)"
+            },
+            "border": {
+                "width": null,
+                "color": null,
+                "radius": null
+            },
+            "padding": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": false
+            },
+            "box_shadow": null
+        },
+        {
+            "template_id": 33,
+            "template_title": "Medical Practice > Home 2",
+            "button_id": "100bf251",
+            "path": "Medical Practice > Home 2/7bc97197/2943aed/5e37be15/e3c9636",
+            "text": "Read More",
+            "size": "md",
+            "align": "",
+            "typography": {
+                "font_size": {
+                    "unit": "px",
+                    "size": 14
+                },
+                "font_weight": "500",
+                "text_transform": null,
+                "font_style": null,
+                "letter_spacing": null
+            },
+            "colors": {
+                "text": null,
+                "background": "rgba(0,0,0,0)",
+                "hover_text": null,
+                "hover_background": "rgba(0,0,0,0)"
+            },
+            "border": {
+                "width": null,
+                "color": null,
+                "radius": null
+            },
+            "padding": {
+                "unit": "px",
+                "top": "0",
+                "right": "0",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": false
+            },
+            "box_shadow": null
+        }
+    ]
+}

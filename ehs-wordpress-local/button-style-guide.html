@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EHS Button Style Guide - Elementor Consolidation</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Maven Pro', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+        }
+        
+        h1 {
+            color: #003366;
+            font-weight: 700;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+        }
+        
+        .section {
+            margin-bottom: 60px;
+        }
+        
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #003366;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #FFB81C;
+        }
+        
+        .section-description {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1rem;
+        }
+        
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 40px;
+            align-items: center;
+        }
+        
+        .button-label {
+            font-weight: 600;
+            color: #333;
+            min-width: 150px;
+            font-size: 0.9rem;
+        }
+        
+        /* Base Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            font-family: 'Maven Pro', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn:focus {
+            outline: 2px solid #FFB81C;
+            outline-offset: 2px;
+        }
+        
+        /* Primary CTA Button */
+        .btn-primary {
+            background: #003366;
+            color: #ffffff;
+            font-style: italic;
+        }
+        
+        .btn-primary:hover {
+            background: #157537;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 51, 102, 0.3);
+        }
+        
+        .btn-primary:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 8px rgba(0, 51, 102, 0.2);
+        }
+        
+        /* Secondary CTA Button */
+        .btn-secondary {
+            background: #FFB81C;
+            color: #003366;
+        }
+        
+        .btn-secondary:hover {
+            background: #157537;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 184, 28, 0.3);
+        }
+        
+        .btn-secondary:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 8px rgba(255, 184, 28, 0.2);
+        }
+        
+        /* Alternative Secondary (Gold variant) */
+        .btn-secondary-alt {
+            background: #d28c0e;
+            color: #ffffff;
+        }
+        
+        .btn-secondary-alt:hover {
+            background: #157537;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(210, 140, 14, 0.3);
+        }
+        
+        /* Tertiary/Outline Button */
+        .btn-outline {
+            background: transparent;
+            color: #003366;
+            border: 2px solid #003366;
+            box-shadow: none;
+        }
+        
+        .btn-outline:hover {
+            background: #003366;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 51, 102, 0.2);
+        }
+        
+        /* Text Link Button */
+        .btn-text {
+            background: transparent;
+            color: #003366;
+            border: none;
+            box-shadow: none;
+            padding: 10px 20px;
+            text-decoration: underline;
+        }
+        
+        .btn-text:hover {
+            color: #157537;
+            text-decoration: none;
+        }
+        
+        /* Disabled State */
+        .btn:disabled,
+        .btn-disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+        
+        /* Button Sizes */
+        .btn-sm {
+            padding: 10px 20px;
+            font-size: 13px;
+        }
+        
+        .btn-md {
+            padding: 15px 30px;
+            font-size: 15px;
+        }
+        
+        .btn-lg {
+            padding: 20px 40px;
+            font-size: 18px;
+        }
+        
+        /* Special: Header Button Style (with shadow) */
+        .btn-header {
+            background: #1e405a;
+            color: #ffffff;
+            font-style: italic;
+            box-shadow: 0 5px 10px rgba(30, 64, 90, 0.5);
+        }
+        
+        .btn-header:hover {
+            background: #157537;
+            box-shadow: 0 8px 20px rgba(30, 64, 90, 0.6);
+        }
+        
+        /* Code Block */
+        .code-block {
+            background: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            padding: 15px;
+            margin-top: 20px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            overflow-x: auto;
+        }
+        
+        .code-block code {
+            color: #d63384;
+        }
+        
+        .specs {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        
+        .specs h4 {
+            color: #003366;
+            margin-bottom: 10px;
+        }
+        
+        .specs ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .specs li {
+            padding: 5px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .specs li:last-child {
+            border-bottom: none;
+        }
+        
+        .specs strong {
+            color: #003366;
+            min-width: 120px;
+            display: inline-block;
+        }
+        
+        .color-swatch {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border-radius: 4px;
+            border: 2px solid #ddd;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+        
+        .usage-note {
+            background: #fff3cd;
+            border-left: 4px solid #FFB81C;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .usage-note strong {
+            color: #003366;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>EHS Button Style Guide</h1>
+        <p class="subtitle">Elementor Button Consolidation - Standard Button Styles</p>
+        
+        <!-- Primary CTA Button -->
+        <div class="section">
+            <h2 class="section-title">Primary CTA Button</h2>
+            <p class="section-description">
+                Main call-to-action button. Used for primary actions like "Get Started", "Contact Us", "Request Quote".
+            </p>
+            
+            <div class="button-group">
+                <span class="button-label">Normal:</span>
+                <button class="btn btn-primary btn-md">Get Started</button>
+            </div>
+            
+            <div class="button-group">
+                <span class="button-label">Hover:</span>
+                <button class="btn btn-primary btn-md" style="background: #157537;">Get Started</button>
+            </div>
+            
+            <div class="button-group">
+                <span class="button-label">Disabled:</span>
+                <button class="btn btn-primary btn-md" disabled>Get Started</button>
+            </div>
+            
+            <div class="specs">
+                <h4>Specifications:</h4>
+                <ul>
+                    <li><strong>Background:</strong> <span class="color-swatch" style="background: #003366;"></span> #003366 (Navy)</li>
+                    <li><strong>Hover Background:</strong> <span class="color-swatch" style="background: #157537;"></span> #157537 (Green)</li>
+                    <li><strong>Text Color:</strong> #ffffff (White)</li>
+                    <li><strong>Font Size:</strong> 15px</li>
+                    <li><strong>Font Weight:</strong> 600 (Semi-bold)</li>
+                    <li><strong>Font Style:</strong> Italic</li>
+                    <li><strong>Text Transform:</strong> Uppercase</li>
+                    <li><strong>Letter Spacing:</strong> 0.5px</li>
+                    <li><strong>Padding:</strong> 15px 30px</li>
+                    <li><strong>Border Radius:</strong> 5px</li>
+                    <li><strong>Box Shadow:</strong> 0 2px 8px rgba(0, 0, 0, 0.1)</li>
+                    <li><strong>Hover Shadow:</strong> 0 5px 15px rgba(0, 51, 102, 0.3)</li>
+                </ul>
+            </div>
+            
+            <div class="code-block">
+                <strong>Elementor Settings:</strong><br>
+                Size: md<br>
+                Background Color: #003366<br>
+                Hover Background: #157537<br>
+                Text Color: #ffffff<br>
+                Typography: 15px, 600, italic, uppercase<br>
+                Padding: 15px (all sides)<br>
+                Border Radius: 5px<br>
+                Box Shadow: 0 5px 10px rgba(30, 64, 90, 0.5)
+            </div>
+        </div>
+        
+        <!-- Secondary CTA Button -->
+        <div class="section">
+            <h2 class="section-title">Secondary CTA Button</h2>
+            <p class="section-description">
+                Secondary call-to-action. Used for less prominent actions, footer CTAs, or as an alternative to primary buttons.
+            </p>
+            
+            <div class="button-group">
+                <span class="button-label">Normal (Gold):</span>
+                <button class="btn btn-secondary btn-md">Contact Us</button>
+            </div>
+            
+            <div class="button-group">
+                <span class="button-label">Hover:</span>
+                <button class="btn btn-secondary btn-md" style="background: #157537; color: #ffffff;">Contact Us</button>
+            </div>
+            
+            <div class="button-group">
+                <span class="button-label">Alternative (Darker Gold):</span>
+                <button class="btn btn-secondary-alt btn-md">Contact Us</button>
+            </div>
+            
+            <div class="specs">
+                <h4>Specifications:</h4>
+                <ul>
+                    <li><strong>Background:</strong> <span class="color-swatch" style="background: #FFB81C;"></span> #FFB81C (Gold) or #d28c0e</li>
+                    <li><strong>Hover Background:</strong> <span class="color-swatch" style="background: #157537;"></span> #157537 (Green)</li>
+                    <li><strong>Text Color:</strong> #003366 (Navy) or #ffffff</li>
+                    <li><strong>Hover Text:</strong> #ffffff (White)</li>
+                    <li><strong>Font Size:</strong> 16px</li>
+                    <li><strong>Font Weight:</strong> 600 (Semi-bold)</li>
+                    <li><strong>Text Transform:</strong> Uppercase</li>
+                    <li><strong>Padding:</strong> 20px 30px</li>
+                    <li><strong>Border Radius:</strong> 5px</li>
+                    <li><strong>Box Shadow:</strong> 0 2px 8px rgba(0, 0, 0, 0.1)</li>
+                </ul>
+            </div>
+            
+            <div class="code-block">
+                <strong>Elementor Settings:</strong><br>
+                Size: md<br>
+                Background Color: #FFB81C or #d28c0e<br>
+                Hover Background: #157537<br>
+                Text Color: #003366 (or #ffffff for darker gold)<br>
+                Typography: 16px, 600, uppercase<br>
+                Padding: 20px 30px<br>
+                Border Radius: 5px<br>
+                Box Shadow: 0 5px 10px rgba(30, 64, 90, 0.5)
+            </div>
+        </div>
+        
+        <!-- Outline Button -->
+        <div class="section">
+            <h2 class="section-title">Outline Button</h2>
+            <p class="section-description">
+                Outlined button style for less prominent actions or when you want a lighter visual weight.
+            </p>
+            
+            <div class="button-group">
+                <span class="button-label">Normal:</span>
+                <button class="btn btn-outline btn-md">Learn More</button>
+            </div>
+            
+            <div class="button-group">
+                <span class="button-label">Hover:</span>
+                <button class="btn btn-outline btn-md" style="background: #003366; color: #ffffff;">Learn More</button>
+            </div>
+            
+            <div class="specs">
+                <h4>Specifications:</h4>
+                <ul>
+                    <li><strong>Background:</strong> Transparent</li>
+                    <li><strong>Hover Background:</strong> <span class="color-swatch" style="background: #003366;"></span> #003366 (Navy)</li>
+                    <li><strong>Text Color:</strong> #003366 (Navy)</li>
+                    <li><strong>Hover Text:</strong> #ffffff (White)</li>
+                    <li><strong>Border:</strong> 2px solid #003366</li>
+                    <li><strong>Font Size:</strong> 16px</li>
+                    <li><strong>Font Weight:</strong> 600</li>
+                    <li><strong>Text Transform:</strong> Uppercase</li>
+                    <li><strong>Padding:</strong> 15px 30px</li>
+                    <li><strong>Border Radius:</strong> 5px</li>
+                </ul>
+            </div>
+            
+            <div class="code-block">
+                <strong>Elementor Settings:</strong><br>
+                Size: md<br>
+                Background Color: transparent<br>
+                Hover Background: #003366<br>
+                Text Color: #003366<br>
+                Border: 2px solid #003366<br>
+                Typography: 16px, 600, uppercase<br>
+                Padding: 15px 30px<br>
+                Border Radius: 5px
+            </div>
+        </div>
+        
+        <!-- Text Link Button -->
+        <div class="section">
+            <h2 class="section-title">Text Link Button</h2>
+            <p class="section-description">
+                Minimal text link style for tertiary actions or "Read More" links.
+            </p>
+            
+            <div class="button-group">
+                <span class="button-label">Normal:</span>
+                <button class="btn btn-text btn-md">Read More</button>
+            </div>
+            
+            <div class="button-group">
+                <span class="button-label">Hover:</span>
+                <button class="btn btn-text btn-md" style="color: #157537; text-decoration: none;">Read More</button>
+            </div>
+            
+            <div class="specs">
+                <h4>Specifications:</h4>
+                <ul>
+                    <li><strong>Background:</strong> Transparent</li>
+                    <li><strong>Text Color:</strong> #003366 (Navy)</li>
+                    <li><strong>Hover Text:</strong> <span class="color-swatch" style="background: #157537;"></span> #157537 (Green)</li>
+                    <li><strong>Text Decoration:</strong> Underline (normal), none (hover)</li>
+                    <li><strong>Font Size:</strong> 16px or 18px</li>
+                    <li><strong>Font Weight:</strong> 600</li>
+                    <li><strong>Padding:</strong> 10px 20px</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Button Sizes -->
+        <div class="section">
+            <h2 class="section-title">Button Sizes</h2>
+            <p class="section-description">
+                Available button sizes for different contexts.
+            </p>
+            
+            <div class="button-group">
+                <span class="button-label">Small:</span>
+                <button class="btn btn-primary btn-sm">Small Button</button>
+            </div>
+            
+            <div class="button-group">
+                <span class="button-label">Medium (Default):</span>
+                <button class="btn btn-primary btn-md">Medium Button</button>
+            </div>
+            
+            <div class="button-group">
+                <span class="button-label">Large:</span>
+                <button class="btn btn-primary btn-lg">Large Button</button>
+            </div>
+            
+            <div class="specs">
+                <h4>Size Specifications:</h4>
+                <ul>
+                    <li><strong>Small:</strong> 10px 20px padding, 13px font</li>
+                    <li><strong>Medium:</strong> 15px 30px padding, 15px font</li>
+                    <li><strong>Large:</strong> 20px 40px padding, 18px font</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Header Button Style -->
+        <div class="section">
+            <h2 class="section-title">Header Button Style</h2>
+            <p class="section-description">
+                Special style for header navigation button (currently used in header).
+            </p>
+            
+            <div class="button-group">
+                <span class="button-label">Normal:</span>
+                <button class="btn btn-header btn-md">Get Started</button>
+            </div>
+            
+            <div class="button-group">
+                <span class="button-label">Hover:</span>
+                <button class="btn btn-header btn-md" style="background: #157537; box-shadow: 0 8px 20px rgba(30, 64, 90, 0.6);">Get Started</button>
+            </div>
+            
+            <div class="specs">
+                <h4>Specifications:</h4>
+                <ul>
+                    <li><strong>Background:</strong> <span class="color-swatch" style="background: #1e405a;"></span> #1e405a (Navy - slightly different shade)</li>
+                    <li><strong>Hover Background:</strong> <span class="color-swatch" style="background: #157537;"></span> #157537 (Green)</li>
+                    <li><strong>Text Color:</strong> #ffffff</li>
+                    <li><strong>Font Size:</strong> 15px</li>
+                    <li><strong>Font Style:</strong> Italic</li>
+                    <li><strong>Text Transform:</strong> Uppercase</li>
+                    <li><strong>Padding:</strong> 15px (all sides)</li>
+                    <li><strong>Box Shadow:</strong> 0 5px 10px rgba(30, 64, 90, 0.5)</li>
+                </ul>
+            </div>
+            
+            <div class="usage-note">
+                <strong>Note:</strong> This is the current header button style. Consider consolidating to Primary CTA style for consistency.
+            </div>
+        </div>
+        
+        <!-- Usage Guidelines -->
+        <div class="section">
+            <h2 class="section-title">Usage Guidelines</h2>
+            
+            <div class="usage-note">
+                <strong>Primary CTA Button:</strong> Use for main call-to-action buttons (Get Started, Request Quote, Contact Us in hero sections)
+            </div>
+            
+            <div class="usage-note">
+                <strong>Secondary CTA Button:</strong> Use for secondary actions, footer CTAs, or when you need multiple buttons on the same page
+            </div>
+            
+            <div class="usage-note">
+                <strong>Outline Button:</strong> Use for less prominent actions or when you want a lighter visual weight
+            </div>
+            
+            <div class="usage-note">
+                <strong>Text Link Button:</strong> Use for "Read More", "Learn More" links or tertiary actions
+            </div>
+        </div>
+        
+        <!-- Brand Colors Reference -->
+        <div class="section">
+            <h2 class="section-title">Brand Colors Reference</h2>
+            
+            <div class="specs">
+                <ul>
+                    <li><strong>Navy Primary:</strong> <span class="color-swatch" style="background: #003366;"></span> #003366</li>
+                    <li><strong>Navy Secondary:</strong> <span class="color-swatch" style="background: #1e405a;"></span> #1e405a</li>
+                    <li><strong>Gold Primary:</strong> <span class="color-swatch" style="background: #FFB81C;"></span> #FFB81C</li>
+                    <li><strong>Gold Secondary:</strong> <span class="color-swatch" style="background: #d28c0e;"></span> #d28c0e</li>
+                    <li><strong>Green (Hover/Accent):</strong> <span class="color-swatch" style="background: #157537;"></span> #157537</li>
+                    <li><strong>White:</strong> <span class="color-swatch" style="background: #ffffff; border: 2px solid #ddd;"></span> #ffffff</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

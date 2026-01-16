@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EHS Button Variants - Outline Style</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Maven Pro', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: #003366;
+            font-weight: 700;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .section {
+            background: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #003366;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #FFB81C;
+        }
+        
+        .section-description {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+        
+        .button-demo {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .button-label {
+            font-weight: 600;
+            color: #333;
+            min-width: 200px;
+            font-size: 0.9rem;
+        }
+        
+        /* Base Outline Button */
+        .btn-outline {
+            display: inline-block;
+            padding: 15px 30px;
+            font-family: 'Maven Pro', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            text-align: center;
+            border: 2px solid;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            background: transparent;
+        }
+        
+        .btn-outline:focus {
+            outline: 2px solid #FFB81C;
+            outline-offset: 2px;
+        }
+        
+        /* Primary Outline - Navy */
+        .btn-outline-primary {
+            border-color: #003366;
+            color: #003366;
+        }
+        
+        .btn-outline-primary:hover {
+            background: #003366;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 51, 102, 0.2);
+        }
+        
+        /* Primary Outline - Green Hover */
+        .btn-outline-primary-green {
+            border-color: #003366;
+            color: #003366;
+        }
+        
+        .btn-outline-primary-green:hover {
+            background: #157537;
+            border-color: #157537;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(21, 117, 55, 0.2);
+        }
+        
+        /* Secondary Outline - Gold */
+        .btn-outline-secondary {
+            border-color: #FFB81C;
+            color: #003366;
+        }
+        
+        .btn-outline-secondary:hover {
+            background: #FFB81C;
+            color: #003366;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 184, 28, 0.2);
+        }
+        
+        /* Secondary Outline - Green Hover */
+        .btn-outline-secondary-green {
+            border-color: #FFB81C;
+            color: #FFB81C;
+        }
+        
+        .btn-outline-secondary-green:hover {
+            background: #157537;
+            border-color: #157537;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(21, 117, 55, 0.2);
+        }
+        
+        /* White Outline */
+        .btn-outline-white {
+            border-color: #ffffff;
+            color: #ffffff;
+        }
+        
+        .btn-outline-white:hover {
+            background: #ffffff;
+            color: #003366;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        /* White Outline - Green Hover */
+        .btn-outline-white-green {
+            border-color: #ffffff;
+            color: #ffffff;
+        }
+        
+        .btn-outline-white-green:hover {
+            background: #157537;
+            border-color: #157537;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(21, 117, 55, 0.3);
+        }
+        
+        /* Sizes */
+        .btn-outline-sm {
+            padding: 10px 20px;
+            font-size: 14px;
+        }
+        
+        .btn-outline-md {
+            padding: 15px 30px;
+            font-size: 16px;
+        }
+        
+        .btn-outline-lg {
+            padding: 20px 40px;
+            font-size: 18px;
+        }
+        
+        /* Dark Background Section */
+        .dark-bg {
+            background: #003366;
+            color: white;
+        }
+        
+        .dark-bg .section-title {
+            color: #ffffff;
+            border-bottom-color: #FFB81C;
+        }
+        
+        .dark-bg .section-description {
+            color: #e0e0e0;
+        }
+        
+        .code-block {
+            background: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            padding: 15px;
+            margin-top: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            overflow-x: auto;
+        }
+        
+        .code-block code {
+            color: #d63384;
+        }
+        
+        .variant-info {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .variant-info strong {
+            color: #003366;
+        }
+        
+        /* Solid Button Styles */
+        .btn-solid {
+            display: inline-block;
+            padding: 15px 30px;
+            font-family: 'Maven Pro', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-solid:focus {
+            outline: 2px solid #FFB81C;
+            outline-offset: 2px;
+        }
+        
+        .btn-solid-primary {
+            background: #003366;
+            color: #ffffff;
+        }
+        
+        .btn-solid-primary:hover {
+            background: #157537;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 51, 102, 0.4);
+        }
+        
+        .btn-solid-secondary {
+            background: #FFB81C;
+            color: #003366;
+            padding: 20px 30px;
+        }
+        
+        .btn-solid-secondary:hover {
+            background: #157537;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 184, 28, 0.4);
+        }
+        
+        .btn-solid-secondary-white {
+            background: #FFB81C;
+            color: #ffffff;
+            padding: 20px 30px;
+        }
+        
+        .btn-solid-secondary-white:hover {
+            background: #157537;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 184, 28, 0.4);
+        }
+        
+        .btn-solid-green {
+            background: #157537;
+            color: #ffffff;
+        }
+        
+        .btn-solid-green:hover {
+            background: #0d4d24;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(21, 117, 55, 0.4);
+        }
+        
+        .btn-solid-gold-dark {
+            background: #d28c0e;
+            color: #ffffff;
+            padding: 20px 30px;
+        }
+        
+        .btn-solid-gold-dark:hover {
+            background: #157537;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(210, 140, 14, 0.4);
+        }
+        
+        .btn-solid-sm {
+            padding: 10px 20px;
+            font-size: 14px;
+        }
+        
+        .btn-solid-md {
+            padding: 15px 30px;
+            font-size: 16px;
+        }
+        
+        .btn-solid-lg {
+            padding: 20px 40px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>EHS Button Variants</h1>
+        <p class="subtitle">Solid & Outline Styles - All Variants</p>
+        
+        <!-- Solid Primary Buttons -->
+        <div class="section">
+            <h2 class="section-title">Solid Primary Buttons</h2>
+            <p class="section-description">Navy background with white text, green hover. Use for main CTAs.</p>
+            
+            <div class="button-demo">
+                <span class="button-label">Primary (Navy/Green):</span>
+                <button class="btn-solid btn-solid-primary btn-solid-md">Get Started</button>
+            </div>
+            
+            <div class="variant-info">
+                <strong>Elementor Settings:</strong><br>
+                Size: md | Background: #003366 | Hover: #157537<br>
+                Text: #ffffff | Typography: 16px, 600, uppercase<br>
+                Padding: 15px 30px | Border Radius: 5px | Box Shadow: Yes
+            </div>
+        </div>
+        
+        <!-- Solid Secondary Buttons -->
+        <div class="section">
+            <h2 class="section-title">Solid Secondary Buttons</h2>
+            <p class="section-description">Gold background, green hover. Use for secondary actions.</p>
+            
+            <div class="button-demo">
+                <span class="button-label">Secondary (Gold/Navy Text):</span>
+                <button class="btn-solid btn-solid-secondary btn-solid-md">Contact Us</button>
+            </div>
+            
+            <div class="button-demo">
+                <span class="button-label">Secondary (Gold/White Text):</span>
+                <button class="btn-solid btn-solid-secondary-white btn-solid-md">Contact Us</button>
+            </div>
+            
+            <div class="button-demo">
+                <span class="button-label">Darker Gold (White Text):</span>
+                <button class="btn-solid btn-solid-gold-dark btn-solid-md">Request Quote</button>
+            </div>
+            
+            <div class="variant-info">
+                <strong>Elementor Settings:</strong><br>
+                Size: md | Background: #FFB81C or #d28c0e | Hover: #157537<br>
+                Text: #003366 or #ffffff | Typography: 16px, 600, uppercase<br>
+                Padding: 20px 30px | Border Radius: 5px | Box Shadow: Yes
+            </div>
+        </div>
+        
+        <!-- Solid Green Button -->
+        <div class="section">
+            <h2 class="section-title">Solid Green Button</h2>
+            <p class="section-description">Green background with white text. Use for success/positive actions.</p>
+            
+            <div class="button-demo">
+                <span class="button-label">Green (Darker Hover):</span>
+                <button class="btn-solid btn-solid-green btn-solid-md">Submit</button>
+            </div>
+            
+            <div class="variant-info">
+                <strong>Elementor Settings:</strong><br>
+                Size: md | Background: #157537 | Hover: #0d4d24<br>
+                Text: #ffffff | Typography: 16px, 600, uppercase<br>
+                Padding: 15px 30px | Border Radius: 5px | Box Shadow: Yes
+            </div>
+        </div>
+        
+        <!-- Primary Outline Buttons -->
+        <div class="section">
+            <h2 class="section-title">Primary Outline Buttons</h2>
+            <p class="section-description">Navy border, fills on hover. Use for primary CTAs on light backgrounds.</p>
+            
+            <div class="button-demo">
+                <span class="button-label">Primary (Navy Hover):</span>
+                <button class="btn-outline btn-outline-primary btn-outline-md">Get Started</button>
+            </div>
+            
+            <div class="button-demo">
+                <span class="button-label">Primary (Green Hover):</span>
+                <button class="btn-outline btn-outline-primary-green btn-outline-md">Contact Us</button>
+            </div>
+            
+            <div class="variant-info">
+                <strong>Elementor Settings:</strong><br>
+                Size: md | Background: transparent | Hover: #003366 or #157537<br>
+                Text: #003366 | Hover Text: #ffffff | Border: 2px solid #003366<br>
+                Typography: 16px, 600, uppercase | Padding: 15px 30px | Radius: 5px
+            </div>
+        </div>
+        
+        <!-- Secondary Variants -->
+        <div class="section">
+            <h2 class="section-title">Secondary Outline Buttons</h2>
+            <p class="section-description">Gold border, fills on hover. Use for secondary actions.</p>
+            
+            <div class="button-demo">
+                <span class="button-label">Secondary (Gold Hover):</span>
+                <button class="btn-outline btn-outline-secondary btn-outline-md">Learn More</button>
+            </div>
+            
+            <div class="button-demo">
+                <span class="button-label">Secondary (Green Hover):</span>
+                <button class="btn-outline btn-outline-secondary-green btn-outline-md">Request Quote</button>
+            </div>
+            
+            <div class="variant-info">
+                <strong>Elementor Settings:</strong><br>
+                Size: md | Background: transparent | Hover: #FFB81C or #157537<br>
+                Text: #003366 or #FFB81C | Hover Text: #003366 or #ffffff<br>
+                Border: 2px solid #FFB81C | Typography: 16px, 600, uppercase
+            </div>
+        </div>
+        
+        <!-- White Variants (for dark backgrounds) -->
+        <div class="section dark-bg">
+            <h2 class="section-title">White Outline Buttons</h2>
+            <p class="section-description">White border for dark/hero backgrounds.</p>
+            
+            <div class="button-demo">
+                <span class="button-label">White (White Hover):</span>
+                <button class="btn-outline btn-outline-white btn-outline-md">Get Started</button>
+            </div>
+            
+            <div class="button-demo">
+                <span class="button-label">White (Green Hover):</span>
+                <button class="btn-outline btn-outline-white-green btn-outline-md">Contact Us</button>
+            </div>
+            
+            <div class="variant-info" style="background: rgba(255,255,255,0.1); color: #e0e0e0;">
+                <strong>Elementor Settings:</strong><br>
+                Size: md | Background: transparent | Hover: #ffffff or #157537<br>
+                Text: #ffffff | Hover Text: #003366 or #ffffff<br>
+                Border: 2px solid #ffffff | Typography: 16px, 600, uppercase
+            </div>
+        </div>
+        
+        <!-- Size Variants -->
+        <div class="section">
+            <h2 class="section-title">Size Variants</h2>
+            <p class="section-description">Different sizes for different contexts.</p>
+            
+            <div class="button-demo">
+                <span class="button-label">Small:</span>
+                <button class="btn-outline btn-outline-primary btn-outline-sm">Small Button</button>
+            </div>
+            
+            <div class="button-demo">
+                <span class="button-label">Medium (Default):</span>
+                <button class="btn-outline btn-outline-primary btn-outline-md">Medium Button</button>
+            </div>
+            
+            <div class="button-demo">
+                <span class="button-label">Large:</span>
+                <button class="btn-outline btn-outline-primary btn-outline-lg">Large Button</button>
+            </div>
+            
+            <div class="variant-info">
+                <strong>Size Specifications:</strong><br>
+                Small: 10px 20px padding, 14px font<br>
+                Medium: 15px 30px padding, 16px font<br>
+                Large: 20px 40px padding, 18px font
+            </div>
+        </div>
+        
+        <!-- Usage Examples -->
+        <div class="section">
+            <h2 class="section-title">Usage Examples</h2>
+            <p class="section-description">Common use cases for each variant.</p>
+            
+            <div class="variant-info">
+                <strong>Primary Outline (Navy Hover):</strong> Hero sections, main CTAs, service pages<br><br>
+                <strong>Primary Outline (Green Hover):</strong> When you want green brand accent on hover<br><br>
+                <strong>Secondary Outline (Gold Hover):</strong> Secondary actions, footer CTAs, alternative options<br><br>
+                <strong>Secondary Outline (Green Hover):</strong> Secondary actions with green brand accent<br><br>
+                <strong>White Outline:</strong> Dark backgrounds, hero sections with dark images<br><br>
+                <strong>White Outline (Green Hover):</strong> Dark backgrounds with green brand accent
+            </div>
+        </div>
+    </div>
+</body>
+</html>

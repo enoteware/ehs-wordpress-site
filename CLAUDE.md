@@ -8,6 +8,39 @@ This is a WordPress-based project for EHS Analytical (ehsanalytical.com), a Cali
 
 ## Development Environment
 
+### Mac Mini Development Server Setup
+
+**IMPORTANT:** This repository is set up to run on a Mac mini development server, accessible remotely from a MacBook.
+
+**Mac Mini Configuration:**
+- Project name: `ehs-mini` (configured in `.ddev/config.yaml`)
+- URL: http://ehs-mini.ddev.site
+- Local IP: 10.112.1.56 (primary), 10.112.1.27 (secondary)
+- Docker Desktop running on Mac mini
+- DDEV v1.24.10 with Mutagen sync for performance
+
+**Accessing from MacBook:**
+
+1. Add to MacBook's `/etc/hosts` file:
+   ```
+   10.112.1.56 ehs-mini.ddev.site
+   ```
+
+2. Access via browser:
+   - Site: http://ehs-mini.ddev.site
+   - Admin: http://ehs-mini.ddev.site/wp-admin
+   - Credentials: `a509f58b_admin` / `EHS-Local-Dev-2024!`
+
+3. Optional: Set up wildcard DNS with dnsmasq for all `*.ddev.site` domains
+
+**Local Environment Indicator:**
+- Orange banner at top of all pages showing:
+  - "LOCAL DEVELOPMENT" warning
+  - Server hostname (Mac mini)
+  - Current URL
+- Admin bar badge showing "LOCAL • [hostname]"
+- Only displays when `IS_DDEV_PROJECT=true` environment variable is set
+
 ### Local WordPress Development (DDEV)
 
 The main WordPress site runs in a DDEV container located in `ehs-wordpress-local/`.
@@ -18,10 +51,12 @@ cd ehs-wordpress-local
 ddev start
 ```
 
-**Accessing the site:**
-- URL: https://ehs-local.ddev.site
-- Admin: https://ehs-local.ddev.site/wp-admin
+**Current DDEV Configuration:**
+- Project name: `ehs-mini`
+- URL: http://ehs-mini.ddev.site
+- Admin: http://ehs-mini.ddev.site/wp-admin
 - Credentials defined in `.ddev/config.yaml` (WP_ADMIN_USERNAME/WP_ADMIN_PASSWORD)
+- Note: This differs from MacBook setup which uses `ehs-local` to avoid conflicts
 
 **Common DDEV commands:**
 ```bash
@@ -32,6 +67,11 @@ ddev exec wp [command]       # Run WP-CLI commands
 ddev import-db --file=dump.sql  # Import database
 ddev export-db               # Export database
 ddev logs                    # View logs
+```
+
+**Quick Commands:**
+```bash
+./regen-css.sh               # Regenerate Elementor CSS (from ehs-wordpress-local/)
 ```
 
 **Working with WordPress:**
@@ -51,6 +91,50 @@ Production site hosted on Nexcess Managed WordPress:
 - SSH connection: `ssh a96c427e_1@832f87585d.nxcli.net`
 - WordPress path: `/home/a96c427e/832f87585d.nxcli.net/html`
 - Currently managing 24 WordPress sites on shared hosting
+
+### Database and Uploads Management
+
+**Database Location:**
+- Production backup: `production-database.sql.gz` (root directory)
+- Older backup: `ehs-wordpress-local/exports/production-database.sql`
+- Always use the most recent timestamped file
+
+**Importing Database to Mac Mini:**
+```bash
+cd ehs-wordpress-local
+ddev import-db --file=/Volumes/nvme_ext_data/code/ehs/production-database.sql.gz
+```
+
+**Note:** If database file is gzipped but has `.sql` extension, rename it to `.sql.gz` first:
+```bash
+file production-database.sql  # Check if gzipped
+mv production-database.sql production-database.sql.gz
+ddev import-db --file=production-database.sql.gz
+```
+
+**Uploads Location:**
+- Backup: `uploads-backup.tar.gz` (root directory)
+- Active location: `ehs-wordpress-local/wordpress/wp-content/uploads/`
+
+**Restoring Uploads:**
+```bash
+cd /Volumes/nvme_ext_data/code/ehs
+tar -xzf uploads-backup.tar.gz -C ehs-wordpress-local/wordpress/wp-content/
+```
+
+**After Importing Database:**
+Always activate required plugins and theme:
+```bash
+ddev exec "wp plugin activate elementor elementor-pro advanced-custom-fields-pro wordpress-seo jet-elements jet-menu jet-tabs menu-icons code-snippets --path=/var/www/html/wordpress"
+ddev exec "wp theme activate hello-elementor-child --path=/var/www/html/wordpress"
+ddev exec "wp cache flush --path=/var/www/html/wordpress"
+```
+
+**Syncing Data Between MacBook and Mac Mini:**
+1. Export from MacBook: `ddev export-db --file=production-database.sql.gz`
+2. Copy database and uploads to Mac mini repository
+3. Import on Mac mini using commands above
+4. URLs are automatically correct (ehs-mini.ddev.site) in latest dumps
 
 ## Architecture
 
@@ -81,8 +165,12 @@ Production site hosted on Nexcess Managed WordPress:
 - `local-dev-fixes.php` - Suppresses PHP deprecation warnings in local environment
 
 **Local Environment Indicator:**
-- Orange "LOCAL DEVELOPMENT" header bar displayed when `IS_DDEV_PROJECT=true`
-- Implemented via hooks in `functions.php`
+- File: `inc/frontend/ddev-local-header-bar.php`
+- Orange banner at top of all pages (fixed position, z-index 999999)
+- Shows server hostname and current URL
+- Admin bar badge showing "LOCAL • [hostname]"
+- Only displays when `IS_DDEV_PROJECT=true` environment variable is set
+- Automatically included via `functions.php`
 
 **Key WordPress Plugins:**
 - Elementor Pro - Page builder
@@ -150,6 +238,115 @@ cd ehs-wordpress-local
 - `import-elementor-templates.php` - Imports templates to local
 - `assign-theme-builder-templates.php` - Assigns templates to locations
 - `copy-meta-data.php` - Copies post meta data
+
+### Quick CSS Regeneration
+
+After updating Elementor templates or button styles, regenerate CSS:
+
+```bash
+cd ehs-wordpress-local
+./regen-css.sh
+```
+
+This command:
+- Clears Elementor files cache
+- Regenerates Elementor CSS files
+- Clears Elementor transients
+- Clears WordPress object cache
+- Runs Elementor flush-css command
+
+**Alternative:** `ddev exec wp eval-file regen-elementor-css.php`
+
+### Design System & Elementor Integration
+
+**CRITICAL:** This project uses a strict separation between Elementor and theme CSS. All styling is controlled by theme CSS, not Elementor's Style settings.
+
+**Architecture:**
+- **Elementor's Role:** Structure, layout, widgets, content organization, responsive breakpoints
+- **Theme CSS Role:** All visual styling (colors, typography, spacing, effects, borders, shadows)
+- **Integration Method:** Apply CSS classes via Elementor's "Advanced → CSS Classes" field
+
+**Design System Documentation:**
+- **Complete Style Guide:** `ehs-wordpress-local/style-guide.html` - Visual reference with all components
+- **Quick Reference:** `ehs-wordpress-local/DESIGN_SYSTEM.md` - Developer quick reference
+- **Theme CSS:** `wordpress/wp-content/themes/hello-elementor-child/style.css` - All styling definitions
+
+**How to Style Elementor Widgets:**
+
+1. **DO NOT use Elementor's Style tab for:**
+   - Colors (background, text, border)
+   - Typography (font family, size, weight)
+   - Spacing (padding, margin) - unless for layout only
+   - Effects (shadows, borders)
+
+2. **DO use Elementor's Style tab for:**
+   - Layout properties (width, alignment, positioning)
+   - Responsive visibility
+   - Content organization
+
+3. **Apply styling via CSS classes:**
+   - Go to widget → Advanced → CSS Classes
+   - Add theme CSS classes (e.g., `btn btn-primary btn-md`)
+   - Reference `style-guide.html` or `DESIGN_SYSTEM.md` for available classes
+
+**Available CSS Classes:**
+
+**Buttons:**
+- `.btn.btn-primary` - Navy background, green hover
+- `.btn.btn-secondary` - Gold background, green hover
+- `.btn.btn-outline` - Transparent with navy border
+- `.btn-sm`, `.btn-md`, `.btn-lg` - Size modifiers
+
+**Forms:**
+- `.form-input` - Text/email inputs
+- `.form-textarea` - Textarea fields
+- `.form-select` - Select dropdowns
+- `.form-label` - Form labels
+- `.form-error` - Error state
+- `.form-success` - Success state
+
+**Cards:**
+- `.card` - Standard card container
+- `.card-title` - Card heading
+- `.card-content` - Card body text
+
+**Brand Colors (CSS Variables):**
+- `var(--ehs-navy)` - #003366
+- `var(--ehs-gold)` - #FFB81C
+- `var(--ehs-light-gray)` - #F5F5F5
+- `var(--ehs-dark-gray)` - #333333
+- `var(--ehs-white)` - #FFFFFF
+
+**Spacing Scale:**
+Use these values consistently: 4px, 8px, 12px, 16px, 20px, 24px, 32px, 40px, 60px, 80px
+
+**Typography:**
+- Headings: Maven Pro, 700 weight, #003366 color
+- Body: Maven Pro, 400 weight, #333333 color
+- See `style-guide.html` for complete typography hierarchy
+
+**Clearing Elementor Site Settings:**
+If Elementor Site Settings need to be cleared (to ensure theme CSS takes full control):
+```bash
+cd ehs-wordpress-local
+ddev exec wp eval-file clear-elementor-site-settings.php --path=/var/www/html/wordpress
+```
+
+**Best Practices:**
+- Always reference `style-guide.html` before creating new styles
+- Add new CSS classes to `style.css` with clear comments
+- Document new classes in `DESIGN_SYSTEM.md`
+- Never set colors/typography in Elementor Style tab
+- Use CSS variables for brand colors
+- Follow spacing scale values
+- Test in Elementor by applying CSS classes
+
+**Example Workflow:**
+1. Need to style a button? Check `style-guide.html` for button variants
+2. Add Button widget in Elementor
+3. Go to Advanced → CSS Classes, add `btn btn-primary btn-md`
+4. Leave Style tab colors/typography empty
+5. Widget now uses theme CSS styling
 
 ### Elementor CLI Commands
 
@@ -597,3 +794,106 @@ Code can detect DDEV environment via:
 - Items include content review, WordPress operations, SEO setup, testing, approval
 - System uses idempotency keys to prevent duplicate operations
 - API returns structured task data with checklist relationships
+
+## Troubleshooting
+
+### Mac Mini DDEV Setup Issues
+
+**Docker Desktop Not Running:**
+```bash
+open -a Docker
+# Wait 30-60 seconds for Docker to initialize
+docker info  # Verify Docker is ready
+```
+
+**macOS Keychain Access Issues (when SSH'd in):**
+```bash
+# Option 1: Unlock keychain
+security -v unlock-keychain ~/Library/Keychains/login.keychain-db
+
+# Option 2: Logout of Docker Hub (for public images)
+docker logout
+```
+
+**DDEV Project Name Conflicts:**
+```bash
+# If changing project name from ehs-local to ehs-mini:
+ddev stop --unlist ehs-local
+ddev start
+```
+
+**Database Import Issues:**
+
+1. Check file type first:
+   ```bash
+   file production-database.sql
+   ```
+
+2. If file is gzipped but named `.sql`:
+   ```bash
+   mv production-database.sql production-database.sql.gz
+   ddev import-db --file=production-database.sql.gz
+   ```
+
+3. If database import succeeds but site shows blank/default WordPress:
+   ```bash
+   # Activate plugins and theme
+   ddev exec "wp plugin activate elementor elementor-pro advanced-custom-fields-pro --path=/var/www/html/wordpress"
+   ddev exec "wp theme activate hello-elementor-child --path=/var/www/html/wordpress"
+   ddev exec "wp cache flush --path=/var/www/html/wordpress"
+   ```
+
+**Uploads Not Showing:**
+```bash
+# Verify uploads directory exists and has content
+ls -la ehs-wordpress-local/wordpress/wp-content/uploads/
+# Should show years 2019-2026 and other directories
+
+# If missing, extract from backup
+tar -xzf uploads-backup.tar.gz -C ehs-wordpress-local/wordpress/wp-content/
+```
+
+**Cannot Access Site from MacBook:**
+
+1. Verify Mac mini IP address:
+   ```bash
+   ifconfig | grep "inet " | grep -v 127.0.0.1
+   ```
+
+2. Add to MacBook's `/etc/hosts`:
+   ```bash
+   sudo nano /etc/hosts
+   # Add: 10.112.1.56 ehs-mini.ddev.site
+   ```
+
+3. Test connectivity:
+   ```bash
+   ping 10.112.1.56
+   curl -I http://10.112.1.56
+   ```
+
+**Site Shows Old/Cached Content:**
+```bash
+ddev exec "wp cache flush --path=/var/www/html/wordpress"
+ddev exec "wp eval-file /var/www/html/regen-elementor-css.php --path=/var/www/html/wordpress"
+# Hard refresh browser: Cmd+Shift+R (Mac) or Ctrl+Shift+R (Windows)
+```
+
+### WP-CLI Path Issues
+
+All WP-CLI commands must include `--path=/var/www/html/wordpress` because docroot is set to `wordpress/`:
+
+```bash
+# Correct:
+ddev exec "wp cache flush --path=/var/www/html/wordpress"
+
+# Incorrect (will fail):
+ddev exec "wp cache flush"
+```
+
+### Docker Desktop Data Location
+
+Mac mini Docker Desktop is configured to use external NVMe storage. If Docker fails to start, verify data location is accessible:
+```bash
+ls -la /Volumes/data/docker  # Or wherever Docker is configured
+```

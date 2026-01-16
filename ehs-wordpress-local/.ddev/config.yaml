@@ -1,4 +1,4 @@
-name: ehs-local
+name: ehs-mini
 type: wordpress
 docroot: wordpress
 php_version: "8.3"

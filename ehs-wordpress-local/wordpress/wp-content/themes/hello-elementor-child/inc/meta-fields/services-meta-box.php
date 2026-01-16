@@ -31,25 +31,14 @@ add_action('add_meta_boxes', 'ehs_add_services_meta_boxes');
 function ehs_service_details_meta_box_callback($post) {
     wp_nonce_field('ehs_service_meta_box', 'ehs_service_meta_box_nonce');
 
-    $service_category = get_post_meta($post->ID, 'service_category', true);
     $service_short_description = get_post_meta($post->ID, 'service_short_description', true);
     $service_icon = get_post_meta($post->ID, 'service_icon', true);
-    $service_area = get_post_meta($post->ID, 'service_area', true);
-    $service_certifications = get_post_meta($post->ID, 'service_certifications', true);
-    $service_target_audience = get_post_meta($post->ID, 'service_target_audience', true);
     $service_related_services = get_post_meta($post->ID, 'service_related_services', true);
     $service_featured = get_post_meta($post->ID, 'service_featured', true);
     $service_order = get_post_meta($post->ID, 'service_order', true);
 
     ?>
     <table class="form-table">
-        <tr>
-            <th><label for="service_category"><?php _e('Service Category', 'hello-elementor-child'); ?></label></th>
-            <td>
-                <input type="text" id="service_category" name="service_category" value="<?php echo esc_attr($service_category); ?>" class="regular-text" />
-                <p class="description"><?php _e('Category for this service (e.g., Construction Safety, Environmental, Industrial Hygiene)', 'hello-elementor-child'); ?></p>
-            </td>
-        </tr>
         <tr>
             <th><label for="service_short_description"><?php _e('Short Description', 'hello-elementor-child'); ?></label></th>
             <td>
@@ -69,32 +58,6 @@ function ehs_service_details_meta_box_callback($post) {
                     <?php endif; ?>
                 </div>
                 <p class="description"><?php _e('Icon image for this service', 'hello-elementor-child'); ?></p>
-            </td>
-        </tr>
-        <tr>
-            <th><label for="service_area"><?php _e('Service Area', 'hello-elementor-child'); ?></label></th>
-            <td>
-                <select id="service_area" name="service_area" class="regular-text">
-                    <option value=""><?php _e('Select Service Area', 'hello-elementor-child'); ?></option>
-                    <option value="California" <?php selected($service_area, 'California'); ?>><?php _e('California', 'hello-elementor-child'); ?></option>
-                    <option value="Federal" <?php selected($service_area, 'Federal'); ?>><?php _e('Federal', 'hello-elementor-child'); ?></option>
-                    <option value="All" <?php selected($service_area, 'All'); ?>><?php _e('All', 'hello-elementor-child'); ?></option>
-                </select>
-                <p class="description"><?php _e('Geographic area this service covers', 'hello-elementor-child'); ?></p>
-            </td>
-        </tr>
-        <tr>
-            <th><label for="service_certifications"><?php _e('Certifications', 'hello-elementor-child'); ?></label></th>
-            <td>
-                <textarea id="service_certifications" name="service_certifications" rows="3" class="large-text"><?php echo esc_textarea($service_certifications); ?></textarea>
-                <p class="description"><?php _e('Relevant certifications (e.g., DVBE, SDVOSB, CIH)', 'hello-elementor-child'); ?></p>
-            </td>
-        </tr>
-        <tr>
-            <th><label for="service_target_audience"><?php _e('Target Audience', 'hello-elementor-child'); ?></label></th>
-            <td>
-                <textarea id="service_target_audience" name="service_target_audience" rows="3" class="large-text"><?php echo esc_textarea($service_target_audience); ?></textarea>
-                <p class="description"><?php _e('Who this service is for (e.g., Federal contractors, Caltrans bidders)', 'hello-elementor-child'); ?></p>
             </td>
         </tr>
         <tr>
@@ -191,18 +154,25 @@ function ehs_save_services_meta_box($post_id) {
         return;
     }
 
-    // Save meta fields
-    $fields = array(
-        'service_category',
+    // Save meta fields with appropriate sanitization
+    // Textarea fields
+    $textarea_fields = array(
         'service_short_description',
+    );
+    
+    foreach ($textarea_fields as $field) {
+        if (isset($_POST[$field])) {
+            update_post_meta($post_id, $field, sanitize_textarea_field($_POST[$field]));
+        }
+    }
+    
+    // Text/select fields
+    $text_fields = array(
         'service_icon',
-        'service_area',
-        'service_certifications',
-        'service_target_audience',
         'service_order',
     );
-
-    foreach ($fields as $field) {
+    
+    foreach ($text_fields as $field) {
         if (isset($_POST[$field])) {
             update_post_meta($post_id, $field, sanitize_text_field($_POST[$field]));
         }

@@ -15,12 +15,8 @@ if (!defined('ABSPATH')) {
  */
 function ehs_register_services_meta_fields() {
     $meta_fields = array(
-        'service_category'      => array('type' => 'string', 'sanitize' => 'sanitize_text_field'),
         'service_short_description' => array('type' => 'string', 'sanitize' => 'sanitize_textarea_field'),
         'service_icon'          => array('type' => 'integer', 'sanitize' => 'absint'),
-        'service_area'         => array('type' => 'string', 'sanitize' => 'sanitize_text_field'),
-        'service_certifications' => array('type' => 'string', 'sanitize' => 'sanitize_textarea_field'),
-        'service_target_audience' => array('type' => 'string', 'sanitize' => 'sanitize_textarea_field'),
         'service_related_services' => array('type' => 'string', 'sanitize' => 'sanitize_text_field'),
         'service_featured'     => array('type' => 'boolean', 'sanitize' => 'rest_sanitize_boolean'),
         'service_order'        => array('type' => 'integer', 'sanitize' => 'absint'),

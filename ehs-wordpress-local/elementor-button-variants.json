@@ -1,0 +1,646 @@
+{
+  "button_variants": {
+    "solid_primary": {
+      "name": "EHS Solid Primary",
+      "description": "Solid navy button with white text, green hover",
+      "settings": {
+        "size": "md",
+        "background_color": "#003366",
+        "button_background_hover_color": "#157537",
+        "text_color": "#ffffff",
+        "button_text_hover_color": "#ffffff",
+        "border_width": {
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "unit": "px",
+          "isLinked": true
+        },
+        "border_color": "#003366",
+        "button_border_hover_color": "#157537",
+        "border_radius": {
+          "top": "5",
+          "right": "5",
+          "bottom": "5",
+          "left": "5",
+          "unit": "px",
+          "isLinked": true
+        },
+        "typography_typography": "custom",
+        "typography_font_size": {
+          "unit": "px",
+          "size": 16
+        },
+        "typography_font_weight": "600",
+        "typography_text_transform": "uppercase",
+        "text_padding": {
+          "top": 15,
+          "right": 30,
+          "bottom": 15,
+          "left": 30,
+          "unit": "px",
+          "isLinked": false
+        },
+        "button_box_shadow_box_shadow_type": "yes",
+        "button_box_shadow_box_shadow": {
+          "horizontal": 0,
+          "vertical": 5,
+          "blur": 10,
+          "spread": 0,
+          "color": "rgba(0, 51, 102, 0.3)"
+        }
+      }
+    },
+    "solid_secondary": {
+      "name": "EHS Solid Secondary",
+      "description": "Solid gold button with navy text, green hover",
+      "settings": {
+        "size": "md",
+        "background_color": "#FFB81C",
+        "button_background_hover_color": "#157537",
+        "text_color": "#003366",
+        "button_text_hover_color": "#ffffff",
+        "border_width": {
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "unit": "px",
+          "isLinked": true
+        },
+        "border_color": "#FFB81C",
+        "button_border_hover_color": "#157537",
+        "border_radius": {
+          "top": "5",
+          "right": "5",
+          "bottom": "5",
+          "left": "5",
+          "unit": "px",
+          "isLinked": true
+        },
+        "typography_typography": "custom",
+        "typography_font_size": {
+          "unit": "px",
+          "size": 16
+        },
+        "typography_font_weight": "600",
+        "typography_text_transform": "uppercase",
+        "text_padding": {
+          "top": 20,
+          "right": 30,
+          "bottom": 20,
+          "left": 30,
+          "unit": "px",
+          "isLinked": false
+        },
+        "button_box_shadow_box_shadow_type": "yes",
+        "button_box_shadow_box_shadow": {
+          "horizontal": 0,
+          "vertical": 5,
+          "blur": 10,
+          "spread": 0,
+          "color": "rgba(30, 64, 90, 0.5)"
+        }
+      }
+    },
+    "solid_secondary_white": {
+      "name": "EHS Solid Secondary (White Text)",
+      "description": "Solid gold button with white text, green hover",
+      "settings": {
+        "size": "md",
+        "background_color": "#FFB81C",
+        "button_background_hover_color": "#157537",
+        "text_color": "#ffffff",
+        "button_text_hover_color": "#ffffff",
+        "border_width": {
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "unit": "px",
+          "isLinked": true
+        },
+        "border_color": "#FFB81C",
+        "button_border_hover_color": "#157537",
+        "border_radius": {
+          "top": "5",
+          "right": "5",
+          "bottom": "5",
+          "left": "5",
+          "unit": "px",
+          "isLinked": true
+        },
+        "typography_typography": "custom",
+        "typography_font_size": {
+          "unit": "px",
+          "size": 16
+        },
+        "typography_font_weight": "600",
+        "typography_text_transform": "uppercase",
+        "text_padding": {
+          "top": 20,
+          "right": 30,
+          "bottom": 20,
+          "left": 30,
+          "unit": "px",
+          "isLinked": false
+        },
+        "button_box_shadow_box_shadow_type": "yes",
+        "button_box_shadow_box_shadow": {
+          "horizontal": 0,
+          "vertical": 5,
+          "blur": 10,
+          "spread": 0,
+          "color": "rgba(30, 64, 90, 0.5)"
+        }
+      }
+    },
+    "solid_green": {
+      "name": "EHS Solid Green",
+      "description": "Solid green button with white text, darker green hover",
+      "settings": {
+        "size": "md",
+        "background_color": "#157537",
+        "button_background_hover_color": "#0d4d24",
+        "text_color": "#ffffff",
+        "button_text_hover_color": "#ffffff",
+        "border_width": {
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "unit": "px",
+          "isLinked": true
+        },
+        "border_color": "#157537",
+        "button_border_hover_color": "#0d4d24",
+        "border_radius": {
+          "top": "5",
+          "right": "5",
+          "bottom": "5",
+          "left": "5",
+          "unit": "px",
+          "isLinked": true
+        },
+        "typography_typography": "custom",
+        "typography_font_size": {
+          "unit": "px",
+          "size": 16
+        },
+        "typography_font_weight": "600",
+        "typography_text_transform": "uppercase",
+        "text_padding": {
+          "top": 15,
+          "right": 30,
+          "bottom": 15,
+          "left": 30,
+          "unit": "px",
+          "isLinked": false
+        },
+        "button_box_shadow_box_shadow_type": "yes",
+        "button_box_shadow_box_shadow": {
+          "horizontal": 0,
+          "vertical": 5,
+          "blur": 10,
+          "spread": 0,
+          "color": "rgba(21, 117, 55, 0.3)"
+        }
+      }
+    },
+    "solid_gold_darker": {
+      "name": "EHS Solid Gold (Darker)",
+      "description": "Solid darker gold button with white text, green hover",
+      "settings": {
+        "size": "md",
+        "background_color": "#d28c0e",
+        "button_background_hover_color": "#157537",
+        "text_color": "#ffffff",
+        "button_text_hover_color": "#ffffff",
+        "border_width": {
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "unit": "px",
+          "isLinked": true
+        },
+        "border_color": "#d28c0e",
+        "button_border_hover_color": "#157537",
+        "border_radius": {
+          "top": "5",
+          "right": "5",
+          "bottom": "5",
+          "left": "5",
+          "unit": "px",
+          "isLinked": true
+        },
+        "typography_typography": "custom",
+        "typography_font_size": {
+          "unit": "px",
+          "size": 16
+        },
+        "typography_font_weight": "600",
+        "typography_text_transform": "uppercase",
+        "text_padding": {
+          "top": 20,
+          "right": 30,
+          "bottom": 20,
+          "left": 30,
+          "unit": "px",
+          "isLinked": false
+        },
+        "button_box_shadow_box_shadow_type": "yes",
+        "button_box_shadow_box_shadow": {
+          "horizontal": 0,
+          "vertical": 5,
+          "blur": 10,
+          "spread": 0,
+          "color": "rgba(30, 64, 90, 0.5)"
+        }
+      }
+    },
+    "outline_primary": {
+      "name": "EHS Outline Primary",
+      "description": "Primary outline button - Navy border, fills with navy on hover",
+      "settings": {
+        "size": "md",
+        "background_color": "transparent",
+        "button_background_hover_color": "#003366",
+        "text_color": "#003366",
+        "button_text_hover_color": "#ffffff",
+        "border_width": {
+          "top": "2",
+          "right": "2",
+          "bottom": "2",
+          "left": "2",
+          "unit": "px",
+          "isLinked": true
+        },
+        "border_color": "#003366",
+        "button_border_hover_color": "#003366",
+        "border_radius": {
+          "top": "5",
+          "right": "5",
+          "bottom": "5",
+          "left": "5",
+          "unit": "px",
+          "isLinked": true
+        },
+        "typography_typography": "custom",
+        "typography_font_size": {
+          "unit": "px",
+          "size": 16
+        },
+        "typography_font_weight": "600",
+        "typography_text_transform": "uppercase",
+        "text_padding": {
+          "top": 15,
+          "right": 30,
+          "bottom": 15,
+          "left": 30,
+          "unit": "px",
+          "isLinked": false
+        },
+        "button_box_shadow_box_shadow_type": "none"
+      }
+    },
+    "outline_primary_green_hover": {
+      "name": "EHS Outline Primary (Green Hover)",
+      "description": "Primary outline button with green hover fill",
+      "settings": {
+        "size": "md",
+        "background_color": "transparent",
+        "button_background_hover_color": "#157537",
+        "text_color": "#003366",
+        "button_text_hover_color": "#ffffff",
+        "border_width": {
+          "top": "2",
+          "right": "2",
+          "bottom": "2",
+          "left": "2",
+          "unit": "px",
+          "isLinked": true
+        },
+        "border_color": "#003366",
+        "button_border_hover_color": "#157537",
+        "border_radius": {
+          "top": "5",
+          "right": "5",
+          "bottom": "5",
+          "left": "5",
+          "unit": "px",
+          "isLinked": true
+        },
+        "typography_typography": "custom",
+        "typography_font_size": {
+          "unit": "px",
+          "size": 16
+        },
+        "typography_font_weight": "600",
+        "typography_text_transform": "uppercase",
+        "text_padding": {
+          "top": 15,
+          "right": 30,
+          "bottom": 15,
+          "left": 30,
+          "unit": "px",
+          "isLinked": false
+        },
+        "button_box_shadow_box_shadow_type": "none"
+      }
+    },
+    "outline_secondary": {
+      "name": "EHS Outline Secondary",
+      "description": "Secondary outline button - Gold border, fills with gold on hover",
+      "settings": {
+        "size": "md",
+        "background_color": "transparent",
+        "button_background_hover_color": "#FFB81C",
+        "text_color": "#003366",
+        "button_text_hover_color": "#003366",
+        "border_width": {
+          "top": "2",
+          "right": "2",
+          "bottom": "2",
+          "left": "2",
+          "unit": "px",
+          "isLinked": true
+        },
+        "border_color": "#FFB81C",
+        "button_border_hover_color": "#FFB81C",
+        "border_radius": {
+          "top": "5",
+          "right": "5",
+          "bottom": "5",
+          "left": "5",
+          "unit": "px",
+          "isLinked": true
+        },
+        "typography_typography": "custom",
+        "typography_font_size": {
+          "unit": "px",
+          "size": 16
+        },
+        "typography_font_weight": "600",
+        "typography_text_transform": "uppercase",
+        "text_padding": {
+          "top": 15,
+          "right": 30,
+          "bottom": 15,
+          "left": 30,
+          "unit": "px",
+          "isLinked": false
+        },
+        "button_box_shadow_box_shadow_type": "none"
+      }
+    },
+    "outline_secondary_green_hover": {
+      "name": "EHS Outline Secondary (Green Hover)",
+      "description": "Secondary outline button with green hover fill",
+      "settings": {
+        "size": "md",
+        "background_color": "transparent",
+        "button_background_hover_color": "#157537",
+        "text_color": "#FFB81C",
+        "button_text_hover_color": "#ffffff",
+        "border_width": {
+          "top": "2",
+          "right": "2",
+          "bottom": "2",
+          "left": "2",
+          "unit": "px",
+          "isLinked": true
+        },
+        "border_color": "#FFB81C",
+        "button_border_hover_color": "#157537",
+        "border_radius": {
+          "top": "5",
+          "right": "5",
+          "bottom": "5",
+          "left": "5",
+          "unit": "px",
+          "isLinked": true
+        },
+        "typography_typography": "custom",
+        "typography_font_size": {
+          "unit": "px",
+          "size": 16
+        },
+        "typography_font_weight": "600",
+        "typography_text_transform": "uppercase",
+        "text_padding": {
+          "top": 15,
+          "right": 30,
+          "bottom": 15,
+          "left": 30,
+          "unit": "px",
+          "isLinked": false
+        },
+        "button_box_shadow_box_shadow_type": "none"
+      }
+    },
+    "outline_white": {
+      "name": "EHS Outline White",
+      "description": "White outline button for dark backgrounds",
+      "settings": {
+        "size": "md",
+        "background_color": "transparent",
+        "button_background_hover_color": "#ffffff",
+        "text_color": "#ffffff",
+        "button_text_hover_color": "#003366",
+        "border_width": {
+          "top": "2",
+          "right": "2",
+          "bottom": "2",
+          "left": "2",
+          "unit": "px",
+          "isLinked": true
+        },
+        "border_color": "#ffffff",
+        "button_border_hover_color": "#ffffff",
+        "border_radius": {
+          "top": "5",
+          "right": "5",
+          "bottom": "5",
+          "left": "5",
+          "unit": "px",
+          "isLinked": true
+        },
+        "typography_typography": "custom",
+        "typography_font_size": {
+          "unit": "px",
+          "size": 16
+        },
+        "typography_font_weight": "600",
+        "typography_text_transform": "uppercase",
+        "text_padding": {
+          "top": 15,
+          "right": 30,
+          "bottom": 15,
+          "left": 30,
+          "unit": "px",
+          "isLinked": false
+        },
+        "button_box_shadow_box_shadow_type": "none"
+      }
+    },
+    "outline_white_green_hover": {
+      "name": "EHS Outline White (Green Hover)",
+      "description": "White outline button with green hover for dark backgrounds",
+      "settings": {
+        "size": "md",
+        "background_color": "transparent",
+        "button_background_hover_color": "#157537",
+        "text_color": "#ffffff",
+        "button_text_hover_color": "#ffffff",
+        "border_width": {
+          "top": "2",
+          "right": "2",
+          "bottom": "2",
+          "left": "2",
+          "unit": "px",
+          "isLinked": true
+        },
+        "border_color": "#ffffff",
+        "button_border_hover_color": "#157537",
+        "border_radius": {
+          "top": "5",
+          "right": "5",
+          "bottom": "5",
+          "left": "5",
+          "unit": "px",
+          "isLinked": true
+        },
+        "typography_typography": "custom",
+        "typography_font_size": {
+          "unit": "px",
+          "size": 16
+        },
+        "typography_font_weight": "600",
+        "typography_text_transform": "uppercase",
+        "text_padding": {
+          "top": 15,
+          "right": 30,
+          "bottom": 15,
+          "left": 30,
+          "unit": "px",
+          "isLinked": false
+        },
+        "button_box_shadow_box_shadow_type": "none"
+      }
+    },
+    "outline_small": {
+      "name": "EHS Outline Small",
+      "description": "Small size outline button",
+      "settings": {
+        "size": "sm",
+        "background_color": "transparent",
+        "button_background_hover_color": "#003366",
+        "text_color": "#003366",
+        "button_text_hover_color": "#ffffff",
+        "border_width": {
+          "top": "2",
+          "right": "2",
+          "bottom": "2",
+          "left": "2",
+          "unit": "px",
+          "isLinked": true
+        },
+        "border_color": "#003366",
+        "button_border_hover_color": "#003366",
+        "border_radius": {
+          "top": "5",
+          "right": "5",
+          "bottom": "5",
+          "left": "5",
+          "unit": "px",
+          "isLinked": true
+        },
+        "typography_typography": "custom",
+        "typography_font_size": {
+          "unit": "px",
+          "size": 14
+        },
+        "typography_font_weight": "600",
+        "typography_text_transform": "uppercase",
+        "text_padding": {
+          "top": 10,
+          "right": 20,
+          "bottom": 10,
+          "left": 20,
+          "unit": "px",
+          "isLinked": false
+        },
+        "button_box_shadow_box_shadow_type": "none"
+      }
+    },
+    "outline_large": {
+      "name": "EHS Outline Large",
+      "description": "Large size outline button",
+      "settings": {
+        "size": "lg",
+        "background_color": "transparent",
+        "button_background_hover_color": "#003366",
+        "text_color": "#003366",
+        "button_text_hover_color": "#ffffff",
+        "border_width": {
+          "top": "2",
+          "right": "2",
+          "bottom": "2",
+          "left": "2",
+          "unit": "px",
+          "isLinked": true
+        },
+        "border_color": "#003366",
+        "button_border_hover_color": "#003366",
+        "border_radius": {
+          "top": "5",
+          "right": "5",
+          "bottom": "5",
+          "left": "5",
+          "unit": "px",
+          "isLinked": true
+        },
+        "typography_typography": "custom",
+        "typography_font_size": {
+          "unit": "px",
+          "size": 18
+        },
+        "typography_font_weight": "600",
+        "typography_text_transform": "uppercase",
+        "text_padding": {
+          "top": 20,
+          "right": 40,
+          "bottom": 20,
+          "left": 40,
+          "unit": "px",
+          "isLinked": false
+        },
+        "button_box_shadow_box_shadow_type": "none"
+      }
+    }
+  },
+  "usage_guide": {
+    "solid_primary": "Primary CTA - Navy background, white text, green hover. Use for main actions, header buttons, hero sections.",
+    "solid_secondary": "Secondary CTA - Gold background, navy text, green hover. Use for secondary actions.",
+    "solid_secondary_white": "Secondary CTA - Gold background, white text, green hover. Better contrast option.",
+    "solid_green": "Green CTA - Green background, white text. Use for success/positive actions.",
+    "solid_gold_darker": "Darker gold CTA - Darker gold background, white text, green hover. Alternative secondary.",
+    "outline_primary": "Use for primary CTAs on light backgrounds",
+    "outline_primary_green_hover": "Use for primary CTAs with green brand accent",
+    "outline_secondary": "Use for secondary actions on light backgrounds",
+    "outline_secondary_green_hover": "Use for secondary actions with green brand accent",
+    "outline_white": "Use on dark/hero backgrounds",
+    "outline_white_green_hover": "Use on dark/hero backgrounds with green accent",
+    "outline_small": "Use for compact spaces, sidebars, cards",
+    "outline_large": "Use for hero sections, prominent CTAs"
+  },
+  "elementor_global_widget_instructions": {
+    "step_1": "In Elementor, go to Site Settings > Global Widgets",
+    "step_2": "Create a new Global Widget for each button variant",
+    "step_3": "Apply the settings from the JSON above to each widget",
+    "step_4": "Save as Global Widget with the variant name",
+    "step_5": "Use the Global Widget throughout your site for consistency"
+  }
+}

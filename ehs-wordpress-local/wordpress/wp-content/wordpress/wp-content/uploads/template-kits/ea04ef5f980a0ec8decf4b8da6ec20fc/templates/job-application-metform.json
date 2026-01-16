@@ -1,0 +1,315 @@
+{
+    "version": "0.4",
+    "title": "Job Application Metform",
+    "type": "section",
+    "metadata": {
+        "template_type": "section-other",
+        "include_in_zip": "1",
+        "elementor_pro_required": null,
+        "wp_page_template": "elementor_canvas"
+    },
+    "content": [
+        {
+            "id": "21198bf8",
+            "settings": [],
+            "elements": [
+                {
+                    "id": "1d2767ad",
+                    "settings": {
+                        "_column_size": 100,
+                        "padding": {
+                            "unit": "px",
+                            "top": "20",
+                            "right": "20",
+                            "bottom": "20",
+                            "left": "20",
+                            "isLinked": true
+                        }
+                    },
+                    "elements": [
+                        {
+                            "id": "30a80ec7",
+                            "settings": {
+                                "mf_input_label_status": "",
+                                "mf_input_label": "Text",
+                                "mf_input_name": "mf-text",
+                                "mf_input_placeholder": "Your Name",
+                                "mf_input_validation_warning_message": "Something went wrong.",
+                                "_margin": {
+                                    "unit": "px",
+                                    "top": "0",
+                                    "right": "0",
+                                    "bottom": "16",
+                                    "left": "0",
+                                    "isLinked": false
+                                }
+                            },
+                            "elements": [],
+                            "isInner": false,
+                            "widgetType": "mf-text",
+                            "elType": "widget"
+                        },
+                        {
+                            "id": "469193b5",
+                            "settings": {
+                                "mf_input_label_status": "",
+                                "mf_input_label": "Email",
+                                "mf_input_name": "mf-email",
+                                "mf_input_placeholder": "Email Address",
+                                "mf_input_validation_warning_message": "Something went wrong.",
+                                "_margin": {
+                                    "unit": "px",
+                                    "top": "0",
+                                    "right": "0",
+                                    "bottom": "16",
+                                    "left": "0",
+                                    "isLinked": false
+                                }
+                            },
+                            "elements": [],
+                            "isInner": false,
+                            "widgetType": "mf-email",
+                            "elType": "widget"
+                        },
+                        {
+                            "id": "2fa095e8",
+                            "settings": {
+                                "mf_input_label_status": "",
+                                "mf_input_label": "Telephone",
+                                "mf_input_name": "mf-telephone",
+                                "mf_input_placeholder": "Phone Number",
+                                "mf_input_validation_warning_message": "Something went wrong.",
+                                "_margin": {
+                                    "unit": "px",
+                                    "top": "0",
+                                    "right": "0",
+                                    "bottom": "16",
+                                    "left": "0",
+                                    "isLinked": false
+                                }
+                            },
+                            "elements": [],
+                            "isInner": false,
+                            "widgetType": "mf-telephone",
+                            "elType": "widget"
+                        },
+                        {
+                            "id": "f23957c",
+                            "settings": {
+                                "mf_input_label_status": "",
+                                "mf_input_label": "URL",
+                                "mf_input_name": "mf-url",
+                                "mf_input_placeholder": "Website \/ Portfolio URL",
+                                "mf_input_validation_warning_message": "Something went wrong.",
+                                "_margin": {
+                                    "unit": "px",
+                                    "top": "0",
+                                    "right": "0",
+                                    "bottom": "16",
+                                    "left": "0",
+                                    "isLinked": false
+                                }
+                            },
+                            "elements": [],
+                            "isInner": false,
+                            "widgetType": "mf-url",
+                            "elType": "widget"
+                        },
+                        {
+                            "id": "221993e1",
+                            "settings": {
+                                "mf_input_label_status": "",
+                                "mf_input_label": "Textarea",
+                                "mf_input_name": "mf-textarea",
+                                "mf_input_placeholder": "Why do you want to work with us?",
+                                "mf_input_validation_warning_message": "Something went wrong.",
+                                "_margin": {
+                                    "unit": "px",
+                                    "top": "0",
+                                    "right": "0",
+                                    "bottom": "32",
+                                    "left": "0",
+                                    "isLinked": false
+                                }
+                            },
+                            "elements": [],
+                            "isInner": false,
+                            "widgetType": "mf-textarea",
+                            "elType": "widget"
+                        },
+                        {
+                            "id": "7c00cd7f",
+                            "settings": {
+                                "structure": "20"
+                            },
+                            "elements": [
+                                {
+                                    "id": "52064b93",
+                                    "settings": {
+                                        "_column_size": 50,
+                                        "_inline_size": 55.089,
+                                        "content_position": "center",
+                                        "padding": {
+                                            "unit": "px",
+                                            "top": "0",
+                                            "right": "0",
+                                            "bottom": "0",
+                                            "left": "0",
+                                            "isLinked": false
+                                        }
+                                    },
+                                    "elements": [
+                                        {
+                                            "id": "763552d5",
+                                            "settings": {
+                                                "mf_input_label_status": "",
+                                                "mf_input_label": "Checkbox",
+                                                "mf_input_name": "mf-checkbox",
+                                                "mf_input_list": [
+                                                    {
+                                                        "mf_input_option_text": "",
+                                                        "mf_input_option_value": "Agreed",
+                                                        "mf_input_option_status": "",
+                                                        "_id": "51edd3a"
+                                                    }
+                                                ],
+                                                "mf_input_validation_warning_message": "Something went wrong.",
+                                                "mf_input_option_color": "#333333",
+                                                "mf_input_option_icon_color": "#BFBFBF",
+                                                "mf_input_option_icon_color_checked": "#838383",
+                                                "_margin": {
+                                                    "unit": "px",
+                                                    "top": "0",
+                                                    "right": "-13",
+                                                    "bottom": "0",
+                                                    "left": "0",
+                                                    "isLinked": false
+                                                },
+                                                "_padding": {
+                                                    "unit": "px",
+                                                    "top": "0",
+                                                    "right": "0",
+                                                    "bottom": "0",
+                                                    "left": "0",
+                                                    "isLinked": false
+                                                },
+                                                "_element_width": "auto"
+                                            },
+                                            "elements": [],
+                                            "isInner": false,
+                                            "widgetType": "mf-checkbox",
+                                            "elType": "widget"
+                                        },
+                                        {
+                                            "id": "18981db7",
+                                            "settings": {
+                                                "title": "I have read and agree to the <a href=\"#\">Policy<\/a>",
+                                                "header_size": "span",
+                                                "_element_width": "auto"
+                                            },
+                                            "elements": [],
+                                            "isInner": false,
+                                            "widgetType": "heading",
+                                            "elType": "widget"
+                                        }
+                                    ],
+                                    "isInner": true,
+                                    "elType": "column"
+                                },
+                                {
+                                    "id": "dcece4e",
+                                    "settings": {
+                                        "_column_size": 50,
+                                        "_inline_size": 44.822,
+                                        "padding": {
+                                            "unit": "px",
+                                            "top": "0",
+                                            "right": "0",
+                                            "bottom": "0",
+                                            "left": "0",
+                                            "isLinked": true
+                                        }
+                                    },
+                                    "elements": [
+                                        {
+                                            "id": "32b3d2d6",
+                                            "settings": {
+                                                "mf_btn_text": "Submit Application",
+                                                "mf_btn_align": "right",
+                                                "mf_btn_text_padding": {
+                                                    "unit": "px",
+                                                    "top": "16",
+                                                    "right": "48",
+                                                    "bottom": "16",
+                                                    "left": "48",
+                                                    "isLinked": false
+                                                },
+                                                "mf_btn_typography_typography": "custom",
+                                                "mf_btn_typography_font_family": "Space Mono",
+                                                "mf_btn_typography_font_size": {
+                                                    "unit": "px",
+                                                    "size": 11,
+                                                    "sizes": []
+                                                },
+                                                "mf_btn_typography_font_weight": "500",
+                                                "mf_btn_typography_text_transform": "uppercase",
+                                                "mf_btn_typography_letter_spacing": {
+                                                    "unit": "px",
+                                                    "size": 2,
+                                                    "sizes": []
+                                                },
+                                                "mf_btn_bg_color_background": "classic",
+                                                "mf_btn_bg_color_color": "#FF7800",
+                                                "mf_btn_bg_hover_color_background": "classic",
+                                                "mf_btn_bg_hover_color_color": "#E36B00",
+                                                "mf_btn_border_radius": {
+                                                    "unit": "px",
+                                                    "top": "40",
+                                                    "right": "40",
+                                                    "bottom": "40",
+                                                    "left": "40",
+                                                    "isLinked": true
+                                                },
+                                                "mf_btn_box_shadow_group_box_shadow_type": "yes",
+                                                "mf_btn_box_shadow_group_box_shadow": {
+                                                    "horizontal": 0,
+                                                    "vertical": 0,
+                                                    "blur": 10,
+                                                    "spread": 0,
+                                                    "color": "rgba(0, 0, 0, 0)"
+                                                },
+                                                "mf_btn_align_mobile": "left",
+                                                "_margin_mobile": {
+                                                    "unit": "px",
+                                                    "top": "24",
+                                                    "right": "0",
+                                                    "bottom": "0",
+                                                    "left": "0",
+                                                    "isLinked": false
+                                                },
+                                                "mf_btn_text_color": "#FFFFFF",
+                                                "mf_btn_hover_color": ""
+                                            },
+                                            "elements": [],
+                                            "isInner": false,
+                                            "widgetType": "mf-button",
+                                            "elType": "widget"
+                                        }
+                                    ],
+                                    "isInner": true,
+                                    "elType": "column"
+                                }
+                            ],
+                            "isInner": true,
+                            "elType": "section"
+                        }
+                    ],
+                    "isInner": false,
+                    "elType": "column"
+                }
+            ],
+            "isInner": false,
+            "elType": "section"
+        }
+    ]
+}

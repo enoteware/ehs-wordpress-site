@@ -24,6 +24,7 @@ chmod +x *.sh
 
 ### Step-by-Step Migration
 
+**From Nexcess:**
 ```bash
 # 1. Export from Nexcess
 ./1-export-from-nexcess.sh DOMAIN.com
@@ -35,6 +36,16 @@ chmod +x *.sh
 
 # 4. Setup SSL (after DNS propagates)
 ./3-setup-ssl.sh DOMAIN.com email@example.com
+```
+
+**From Local DDEV:**
+```bash
+# Migrate local DDEV site to DigitalOcean
+./import-ddev-to-digitalocean.sh DDEV_PROJECT_NAME DOMAIN [DDEV_PATH]
+
+# Example:
+./import-ddev-to-digitalocean.sh ehs-mini dev.ehsanalytical.com
+./import-ddev-to-digitalocean.sh ehs-mini dev.ehsanalytical.com ../ehs-wordpress-local
 ```
 
 ## Migration Process
@@ -68,6 +79,24 @@ The SSL script:
 - Updates WordPress URLs to HTTPS
 - Forces SSL in wp-config.php
 
+### DDEV to DigitalOcean Migration
+
+The `import-ddev-to-digitalocean.sh` script:
+- Exports database from local DDEV project
+- Creates wp-content archive from DDEV
+- Uploads files to DigitalOcean server
+- Backs up existing site on server
+- Imports database and wp-content
+- Updates URLs from DDEV domain to production domain
+- Sets proper file permissions
+- Clears all caches (WordPress, Elementor, Nginx)
+- Automatically detects WordPress path on server
+
+**Requirements:**
+- DDEV project must be running
+- WordPress site must already exist on DigitalOcean server
+- Database credentials must be configured in wp-config.php
+
 ## File Structure
 
 ```
@@ -75,6 +104,7 @@ migration-scripts/
 ├── 1-export-from-nexcess.sh      # Export site from Nexcess
 ├── 2-import-to-digitalocean.sh   # Import to DO server
 ├── 3-setup-ssl.sh                # Setup SSL certificate
+├── import-ddev-to-digitalocean.sh # Import from local DDEV
 ├── quick-migrate.sh              # All-in-one migration
 ├── list-nexcess-sites.sh         # List all sites on Nexcess
 └── backups/                      # Backup storage
