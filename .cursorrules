@@ -1,4 +1,36 @@
-# Cursor Rules for EHS Project
+# Cursor Rules for EHS WordPress Project
+
+## Project Context
+
+This is a WordPress-based project for EHS Analytical Solutions (ehsanalytical.com).
+
+**Key Directories:**
+- `ehs-wordpress-local/` - Local WordPress development (DDEV)
+- `ehs-wordpress-local/wordpress/wp-content/themes/hello-elementor-child/` - Custom theme (main code)
+- `migration-scripts/` - Server migration and deployment tools
+- `docs/` - Project documentation
+
+**Documentation:**
+- Start with `docs/index.md` for navigation
+- See `CLAUDE.md` for detailed development instructions
+- Check `docs/hosting.md` for server info
+
+## Code Conventions
+
+### PHP (WordPress/Theme)
+- Follow WordPress Coding Standards
+- Use `esc_html()`, `esc_attr()`, `wp_nonce_field()` for security
+- Prefix functions with `ehs_` to avoid conflicts
+- Use `--path=/var/www/html/wordpress` for WP-CLI in DDEV
+
+### CSS
+- Use CSS custom properties for brand colors (defined in `style.css`)
+- Follow the design system in `ehs-wordpress-local/style-guide/`
+- Don't use Elementor Style tab for colors/typography - use CSS classes instead
+
+### JavaScript
+- Use vanilla JS where possible
+- jQuery is available via WordPress
 
 ## Slash Commands
 
@@ -17,4 +49,41 @@ cd ehs-wordpress-local && ./regen-css.sh
 - Clears WordPress object cache
 - Runs Elementor flush-css command
 
-**Usage:** Run `/regen-css` after making Elementor template changes to see updates immediately.
+## Common Commands
+
+### DDEV Commands
+```bash
+ddev start                           # Start local environment
+ddev stop                            # Stop containers
+ddev exec "wp plugin list --path=/var/www/html/wordpress"
+ddev exec "wp cache flush --path=/var/www/html/wordpress"
+```
+
+### Template Sync
+```bash
+cd ehs-wordpress-local && ./sync-elementor-templates.sh
+```
+
+### Deploy to DigitalOcean
+```bash
+cd migration-scripts && ./import-ddev-to-digitalocean.sh ehs-mini dev.ehsanalytical.com
+```
+
+## Important Notes
+
+1. **Never commit secrets** - `.env` files are gitignored
+2. **Use WP-CLI path** - Always include `--path=/var/www/html/wordpress` in DDEV
+3. **Check hosting.md** - Server details at `docs/hosting.md`
+4. **Design system** - Reference `ehs-wordpress-local/style-guide/style-guide.html`
+
+## File Locations
+
+| What | Where |
+|------|-------|
+| Theme PHP | `ehs-wordpress-local/wordpress/wp-content/themes/hello-elementor-child/` |
+| Theme CSS | `.../hello-elementor-child/style.css` |
+| Theme JS | `.../hello-elementor-child/assets/js/` |
+| Post Types | `.../hello-elementor-child/inc/post-types/` |
+| Meta Fields | `.../hello-elementor-child/inc/meta-fields/` |
+| Migration Scripts | `migration-scripts/` |
+| Docs | `docs/` |

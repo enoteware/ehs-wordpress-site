@@ -1,0 +1,60 @@
+# .rgignore - Exclude from ripgrep searches for faster results
+# These patterns speed up grep/rg operations in the codebase
+
+# WordPress Core (not relevant for code searches)
+ehs-wordpress-local/wordpress/wp-admin/
+ehs-wordpress-local/wordpress/wp-includes/
+ehs-wordpress-local/wordpress/wp-content/plugins/
+ehs-wordpress-local/wordpress/wp-content/uploads/
+
+# Parent themes
+ehs-wordpress-local/wordpress/wp-content/themes/hello-elementor/
+ehs-wordpress-local/wordpress/wp-content/themes/twenty*/
+
+# Exports and backups
+ehs-wordpress-local/exports/
+*.sql
+*.sql.gz
+
+# Node modules
+node_modules/
+
+# Generated/binary files
+*.min.js
+*.min.css
+*.map
+*.woff
+*.woff2
+*.ttf
+*.eot
+*.ico
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+*.pdf
+
+# Archives
+*.tar.gz
+*.zip
+*.gz
+
+# Logs and temp
+*.log
+*.tmp
+*.cache
+
+# Build artifacts
+dist/
+build/
+
+# Screenshots
+screenshots/
+ehs-wordpress-local/screenshots-comparison/
+
+# Vendored code
+project-organization/02-micro-site-vercel/deployed-site/
+
+# Testing
+.playwright-mcp/
