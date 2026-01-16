@@ -344,8 +344,8 @@ class EHS_Mega_Menu_Walker extends Walker_Nav_Menu {
             $attributes .= ! empty($item->xfn)        ? ' rel="'    . esc_attr($item->xfn        ) .'"' : '';
             $attributes .= ! empty($item->url)        ? ' href="'   . esc_attr($item->url        ) .'"' : '';
 
-            // Determine service icon based on title
-            $service_icon = $this->get_service_icon($item->title);
+            // Determine service icon based on title and URL
+            $service_icon = $this->get_service_icon($item->title, $item->url);
 
             $output .= '<a' . $attributes .'>';
             $output .= $service_icon;
@@ -404,8 +404,16 @@ class EHS_Mega_Menu_Walker extends Walker_Nav_Menu {
 
     /**
      * Get service icon based on title - stroke-width 2 to match header icons
+     * First tries to get icon from service post type, then falls back to keyword matching
      */
-    function get_service_icon($title) {
+    function get_service_icon($title, $url = '') {
+        // First, try to find the service post and get its icon
+        $service_icon = $this->get_service_icon_from_post($title, $url);
+        if ($service_icon) {
+            return $service_icon;
+        }
+
+        // Fall back to keyword matching
         $title_lower = strtolower($title);
 
         // Icon SVGs with stroke-width="2" matching phone/nav icons
@@ -418,6 +426,7 @@ class EHS_Mega_Menu_Walker extends Walker_Nav_Menu {
             // Testing & Assessment
             'air quality' => '<svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"></path></svg>',
             'indoor' => '<svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"></path></svg>',
+            'mold testing' => '<svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v6m6-6v6"></path><path d="M3 10h18"></path><path d="M5 10v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V10"></path><circle cx="9" cy="15" r="1"></circle><circle cx="15" cy="15" r="1"></circle><path d="M12 10v5"></path></svg>',
             'mold' => '<svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>',
             'asbestos' => '<svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>',
             'water' => '<svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>',
@@ -425,8 +434,8 @@ class EHS_Mega_Menu_Walker extends Walker_Nav_Menu {
             'smoke' => '<svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg>',
 
             // Construction Safety
-            'ssho' => '<svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 18v3c0 .6.4 1 1 1h4v-3h3v-3h2l1.4-1.4a6.5 6.5 0 1 0-4-4L2 18z"></path><circle cx="16.5" cy="7.5" r=".5"></circle></svg>',
-            'construction' => '<svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="8" rx="1"></rect><path d="M17 14v7"></path><path d="M7 14v7"></path><path d="M17 3v3"></path><path d="M7 3v3"></path><path d="M10 14 L14 14"></path></svg>',
+            'ssho' => '<svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 10V6a2 2 0 0 1 2-2h0a2 2 0 0 1 2 2v4"></path><path d="M4 10h16"></path><path d="M6 10v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-9"></path><path d="M6 10a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2"></path><line x1="9" y1="14" x2="9" y2="16"></line><line x1="15" y1="14" x2="15" y2="16"></line></svg>',
+            'construction' => '<svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 10V6a2 2 0 0 1 2-2h0a2 2 0 0 1 2 2v4"></path><path d="M4 10h16"></path><path d="M6 10v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-9"></path><path d="M6 10a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2"></path><line x1="9" y1="14" x2="9" y2="16"></line><line x1="15" y1="14" x2="15" y2="16"></line></svg>',
             'lead' => '<svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>',
             'caltrans' => '<svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg>',
             'safety' => '<svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>',
@@ -452,6 +461,96 @@ class EHS_Mega_Menu_Walker extends Walker_Nav_Menu {
 
         // Default icon - arrow right (for any unmatched service)
         return '<svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>';
+    }
+
+    /**
+     * Get service icon from service post type
+     * Looks up service post by title or URL and returns its SVG icon
+     * 
+     * @param string $title Menu item title
+     * @param string $url Menu item URL (optional)
+     * @return string|false SVG markup or false if not found
+     */
+    function get_service_icon_from_post($title, $url = '') {
+        // Try to find service post by title first using WP_Query (replaces deprecated get_page_by_title)
+        // WP_Query doesn't have a direct 'title' parameter, so we query by exact title match
+        global $wpdb;
+        
+        $service_id = $wpdb->get_var($wpdb->prepare(
+            "SELECT ID FROM {$wpdb->posts} 
+            WHERE post_type = 'services' 
+            AND post_status = 'publish' 
+            AND post_title = %s 
+            LIMIT 1",
+            $title
+        ));
+        
+        $service = $service_id ? get_post($service_id) : null;
+        
+        // If not found by title and URL provided, try to extract slug from URL
+        if (!$service && !empty($url)) {
+            $url_path = parse_url($url, PHP_URL_PATH);
+            $url_path = trim($url_path, '/');
+            if (!empty($url_path)) {
+                $service = get_page_by_path($url_path, OBJECT, 'services');
+            }
+        }
+
+        // If still not found, try searching by slug derived from title
+        if (!$service) {
+            $slug = sanitize_title($title);
+            $service = get_page_by_path($slug, OBJECT, 'services');
+        }
+
+        if (!$service) {
+            return false;
+        }
+
+        // Get service_icon meta field (attachment ID)
+        $icon_id = get_post_meta($service->ID, 'service_icon', true);
+        if (!$icon_id) {
+            return false;
+        }
+
+        // Get attachment file path
+        $icon_path = get_attached_file($icon_id);
+        if (!$icon_path || !file_exists($icon_path)) {
+            return false;
+        }
+
+        // Check if it's an SVG file
+        $file_ext = strtolower(pathinfo($icon_path, PATHINFO_EXTENSION));
+        if ($file_ext !== 'svg') {
+            // If it's not an SVG, we could return the image URL, but for menu we want SVG
+            // So return false to fall back to keyword matching
+            return false;
+        }
+
+        // Read SVG file content
+        $svg_content = file_get_contents($icon_path);
+        if (!$svg_content) {
+            return false;
+        }
+
+        // Add service-icon class and ensure proper attributes
+        // Remove any existing class attributes and add our class
+        $svg_content = preg_replace('/class=["\'][^"\']*["\']/', '', $svg_content);
+        
+        // Ensure stroke-width is 2 to match other menu icons
+        $svg_content = preg_replace('/stroke-width=["\']?[^"\'\s>]+["\']?/i', 'stroke-width="2"', $svg_content);
+        
+        // Add class and ensure fill is none
+        $svg_content = preg_replace('/<svg\s+/', '<svg class="service-icon" ', $svg_content);
+        $svg_content = preg_replace('/<svg([^>]*)>/', '<svg$1 fill="none">', $svg_content);
+        
+        // Ensure stroke is currentColor
+        if (strpos($svg_content, 'stroke=') === false) {
+            $svg_content = preg_replace('/<svg([^>]*)>/', '<svg$1 stroke="currentColor">', $svg_content);
+        } else {
+            $svg_content = preg_replace('/stroke=["\'][^"\']*["\']/i', 'stroke="currentColor"', $svg_content);
+        }
+
+        return $svg_content;
     }
 }
 
@@ -618,5 +717,50 @@ function ehs_get_reading_time($post_id = null) {
     $word_count = str_word_count(strip_tags($content));
     $reading_time = ceil($word_count / 200);
     return max(1, $reading_time);
+}
+
+// ========================================
+// DISABLE EMOJI CONVERSION FOR FOOTER SVGs
+// ========================================
+
+/**
+ * Prevent WordPress from converting SVGs to emoji images in footer
+ * This ensures footer contact icons render as SVGs, not emoji images
+ */
+add_filter('wp_kses_allowed_html', 'ehs_allow_svg_in_footer', 10, 2);
+function ehs_allow_svg_in_footer($allowed, $context) {
+    if ($context === 'post' || $context === 'page') {
+        $allowed['svg'] = array(
+            'xmlns' => array(),
+            'viewbox' => array(),
+            'fill' => array(),
+            'stroke' => array(),
+            'stroke-width' => array(),
+            'stroke-linecap' => array(),
+            'stroke-linejoin' => array(),
+            'width' => array(),
+            'height' => array(),
+        );
+        $allowed['path'] = array(
+            'd' => array(),
+        );
+    }
+    return $allowed;
+}
+
+/**
+ * Disable emoji conversion for footer template output
+ */
+add_action('template_redirect', 'ehs_disable_emoji_for_footer');
+function ehs_disable_emoji_for_footer() {
+    // Only disable emoji on footer output
+    if (is_admin() || wp_doing_ajax()) {
+        return;
+    }
+    
+    // Remove emoji conversion filters temporarily when rendering footer
+    remove_filter('the_content', 'wp_staticize_emoji');
+    remove_filter('the_excerpt', 'wp_staticize_emoji');
+    remove_filter('widget_text_content', 'wp_staticize_emoji');
 }
 

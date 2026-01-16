@@ -17,7 +17,15 @@ get_header();
 <!-- ========================================
      HERO SECTION
      ======================================== -->
-<section class="ehs-hero-section" style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/about-background.jpg');">
+<?php
+// Get hero image from media library (ID 2358)
+$hero_image_url = wp_get_attachment_image_url(2358, 'full');
+if (!$hero_image_url) {
+    // Fallback to default image if media ID doesn't exist
+    $hero_image_url = get_stylesheet_directory_uri() . '/assets/images/about-background.jpg';
+}
+?>
+<section class="ehs-hero-section" style="background-image: url('<?php echo esc_url($hero_image_url); ?>');">
     <div class="hero-overlay"></div>
     <div class="hero-content">
         <h1>About EHS Analytical</h1>

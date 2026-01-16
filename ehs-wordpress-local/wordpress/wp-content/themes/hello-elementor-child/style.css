@@ -1977,25 +1977,12 @@ a:visited {
     width: 20px;
     height: 20px;
     stroke: #ffffff !important;
+    fill: none;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Make emoji images white (WordPress converts some SVGs to emoji images) */
-.ehs-footer-contact-icon img.emoji {
-    filter: brightness(0) invert(1);
-    width: 16px;
-    height: 16px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    opacity: 1;
 }
 
 .ehs-footer-contact li:hover .ehs-footer-contact-icon svg {
     stroke: var(--ehs-gold) !important;
-    transform: scale(1.1);
-}
-
-.ehs-footer-contact li:hover .ehs-footer-contact-icon img.emoji {
-    filter: brightness(0) invert(1) sepia(1) saturate(5) hue-rotate(15deg);
     transform: scale(1.1);
 }
 
@@ -2528,7 +2515,7 @@ a:visited {
 /* Mega Menu Grid Layout - Equal Width Columns */
 .mega-menu-content {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
