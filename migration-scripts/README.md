@@ -48,6 +48,21 @@ chmod +x *.sh
 ./import-ddev-to-digitalocean.sh ehs-mini dev.ehsanalytical.com ../ehs-wordpress-local
 ```
 
+**Quick Deploy (for iterative development):**
+```bash
+# Theme only - fastest (~5 seconds)
+./quick-deploy-to-do.sh
+
+# All wp-content files (~1-2 minutes)
+./quick-deploy-to-do.sh --full
+
+# Database only
+./quick-deploy-to-do.sh --db
+
+# Everything (files + database)
+./quick-deploy-to-do.sh --all
+```
+
 ## Migration Process
 
 ### Phase 1: Export from Nexcess
@@ -105,7 +120,9 @@ migration-scripts/
 ├── 2-import-to-digitalocean.sh   # Import to DO server
 ├── 3-setup-ssl.sh                # Setup SSL certificate
 ├── import-ddev-to-digitalocean.sh # Import from local DDEV
+├── quick-deploy-to-do.sh         # Fast iterative deploys to DO
 ├── quick-migrate.sh              # All-in-one migration
+├── setup-cloudflare-dns.sh       # Automate Cloudflare DNS setup
 ├── list-nexcess-sites.sh         # List all sites on Nexcess
 └── backups/                      # Backup storage
     └── DOMAIN.com/
