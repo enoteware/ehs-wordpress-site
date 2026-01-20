@@ -20,10 +20,36 @@
     function initMegaMenu() {
         const menuItems = document.querySelectorAll('.ehs-header-nav .menu-item-has-children');
         const megaMenus = document.querySelectorAll('.mega-menu');
+        const hideTimers = new WeakMap();
         
         if (!menuItems.length || !megaMenus.length) {
             return; // No mega menus found
         }
+
+        function showMenu(megaMenu) {
+            if (!megaMenu) return;
+            const timer = hideTimers.get(megaMenu);
+            if (timer) {
+                clearTimeout(timer);
+                hideTimers.delete(megaMenu);
+            }
+            megaMenu.style.display = 'block';
+        }
+
+        function scheduleHide(menuItem, megaMenu) {
+            if (!megaMenu) return;
+            const timer = setTimeout(function() {
+                megaMenu.style.display = 'none';
+            }, 150);
+            hideTimers.set(megaMenu, timer);
+        }
+
+        // Mark mega menu parents for layout-specific styling
+        menuItems.forEach(function(menuItem) {
+            if (menuItem.querySelector('.mega-menu')) {
+                menuItem.classList.add('has-mega-menu');
+            }
+        });
 
         // Desktop: Hover to open
         menuItems.forEach(function(menuItem) {
@@ -33,14 +59,14 @@
             // Hover handlers - use mouseenter/mouseleave on both item and menu
             menuItem.addEventListener('mouseenter', function() {
                 if (window.innerWidth > 767) {
-                    megaMenu.style.display = 'block';
+                    showMenu(megaMenu);
                 }
             });
 
             // Keep menu open when hovering over the mega menu itself
             megaMenu.addEventListener('mouseenter', function() {
                 if (window.innerWidth > 767) {
-                    megaMenu.style.display = 'block';
+                    showMenu(megaMenu);
                 }
             });
 
@@ -49,7 +75,7 @@
                 if (window.innerWidth > 767) {
                     // Check if we're moving to the mega menu
                     if (!megaMenu.contains(e.relatedTarget)) {
-                        megaMenu.style.display = 'none';
+                        scheduleHide(menuItem, megaMenu);
                     }
                 }
             });
@@ -58,7 +84,7 @@
                 if (window.innerWidth > 767) {
                     // Check if we're moving back to the menu item
                     if (!menuItem.contains(e.relatedTarget)) {
-                        megaMenu.style.display = 'none';
+                        scheduleHide(menuItem, megaMenu);
                     }
                 }
             });

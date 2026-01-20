@@ -77,3 +77,6 @@ __pycache__/
 
 # Deployed sites (vendored code)
 project-organization/02-micro-site-vercel/deployed-site/
+
+# Archive (obsolete docs and scripts - don't index)
+archive/

@@ -154,3 +154,8 @@ tmp-*.json
 # Deployed/Vendored Code
 # ============================================
 project-organization/02-micro-site-vercel/deployed-site/
+
+# ============================================
+# Archive (obsolete docs and scripts)
+# ============================================
+archive/

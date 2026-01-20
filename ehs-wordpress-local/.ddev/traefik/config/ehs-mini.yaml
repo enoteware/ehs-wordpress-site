@@ -1,0 +1,104 @@
+#ddev-generated
+# If you remove the ddev-generated line above you
+# are responsible for maintaining this file. DDEV will not then
+# update it, for example if you add `additional_hostnames`, etc.
+
+http:
+  routers:
+    ehs-mini-xhgui-80-http:
+      entrypoints:
+        - http-8143
+      rule: HostRegexp(`^ehs-mini\.ddev\.site$`)
+      
+      service: "ehs-mini-xhgui-80"
+      ruleSyntax: v3
+      tls: false
+      # middlewares:
+      #   - "ehs-mini-redirectHttps"
+    ehs-mini-web-80-http:
+      entrypoints:
+        - http-9080
+      rule: HostRegexp(`^ehs-mini\.ddev\.site$`)
+      
+      service: "ehs-mini-web-80"
+      ruleSyntax: v3
+      tls: false
+      # middlewares:
+      #   - "ehs-mini-redirectHttps"
+    ehs-mini-web-8025-http:
+      entrypoints:
+        - http-8025
+      rule: HostRegexp(`^ehs-mini\.ddev\.site$`)
+      
+      service: "ehs-mini-web-8025"
+      ruleSyntax: v3
+      tls: false
+      # middlewares:
+      #   - "ehs-mini-redirectHttps"
+    
+    
+    ehs-mini-xhgui-80-https:
+      entrypoints:
+        - http-8142
+      rule: HostRegexp(`^ehs-mini\.ddev\.site$`)
+      
+      service: "ehs-mini-xhgui-80"
+      ruleSyntax: v3
+      
+      tls: true
+      
+    
+    
+    ehs-mini-web-80-https:
+      entrypoints:
+        - http-9443
+      rule: HostRegexp(`^ehs-mini\.ddev\.site$`)
+      
+      service: "ehs-mini-web-80"
+      ruleSyntax: v3
+      
+      tls: true
+      
+    ehs-mini-web-8025-https:
+      entrypoints:
+        - http-8026
+      rule: HostRegexp(`^ehs-mini\.ddev\.site$`)
+      
+      service: "ehs-mini-web-8025"
+      ruleSyntax: v3
+      
+      tls: true
+      
+    
+
+  middlewares:
+    ehs-mini-redirectHttps:
+      redirectScheme:
+        scheme: https
+        permanent: true
+
+  services:
+    ehs-mini-xhgui-80:
+      loadbalancer:
+        servers:
+          - url: http://ddev-ehs-mini-xhgui:80
+        
+    
+    ehs-mini-web-80:
+      loadbalancer:
+        servers:
+          - url: http://ddev-ehs-mini-web:80
+        
+    ehs-mini-web-8025:
+      loadbalancer:
+        servers:
+          - url: http://ddev-ehs-mini-web:8025
+        
+    
+    
+    
+
+tls:
+  certificates:
+    - certFile: /mnt/ddev-global-cache/traefik/certs/ehs-mini.crt
+      keyFile: /mnt/ddev-global-cache/traefik/certs/ehs-mini.key

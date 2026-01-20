@@ -8,35 +8,25 @@ This is a WordPress-based project for EHS Analytical (ehsanalytical.com), a Cali
 
 ## Development Environment
 
-### Mac Mini Development Server Setup
+### Local MacBook Development Setup
 
-**IMPORTANT:** This repository is set up to run on a Mac mini development server, accessible remotely from a MacBook.
+**MacBook Configuration:**
+- Project name: `ehs-local` (configured in `.ddev/config.yaml`)
+- URL: http://ehs-local.ddev.site
+- Docker Desktop running locally
+- DDEV handles all containerization
 
-**Mac Mini Configuration:**
-- Project name: `ehs-mini` (configured in `.ddev/config.yaml`)
-- URL: http://ehs-mini.ddev.site
-- Local IP: 10.112.1.56 (primary), 10.112.1.27 (secondary)
-- Docker Desktop running on Mac mini
-- DDEV v1.24.10 with Mutagen sync for performance
+**Accessing Locally:**
 
-**Accessing from MacBook:**
-
-1. Add to MacBook's `/etc/hosts` file:
-   ```
-   10.112.1.56 ehs-mini.ddev.site
-   ```
-
-2. Access via browser:
-   - Site: http://ehs-mini.ddev.site
-   - Admin: http://ehs-mini.ddev.site/wp-admin
-   - Credentials: `a509f58b_admin` / `EHS-Local-Dev-2024!`
-
-3. Optional: Set up wildcard DNS with dnsmasq for all `*.ddev.site` domains
+Access via browser:
+- Site: http://ehs-local.ddev.site
+- Admin: http://ehs-local.ddev.site/wp-admin
+- Credentials: `a509f58b_admin` / `EHS-Local-Dev-2024!`
 
 **Local Environment Indicator:**
 - Orange banner at top of all pages showing:
   - "LOCAL DEVELOPMENT" warning
-  - Server hostname (Mac mini)
+  - Server hostname
   - Current URL
 - Admin bar badge showing "LOCAL • [hostname]"
 - Only displays when `IS_DDEV_PROJECT=true` environment variable is set
@@ -52,11 +42,10 @@ ddev start
 ```
 
 **Current DDEV Configuration:**
-- Project name: `ehs-mini`
-- URL: http://ehs-mini.ddev.site
-- Admin: http://ehs-mini.ddev.site/wp-admin
+- Project name: `ehs-local`
+- URL: http://ehs-local.ddev.site
+- Admin: http://ehs-local.ddev.site/wp-admin
 - Credentials defined in `.ddev/config.yaml` (WP_ADMIN_USERNAME/WP_ADMIN_PASSWORD)
-- Note: This differs from MacBook setup which uses `ehs-local` to avoid conflicts
 
 **Common DDEV commands:**
 ```bash
@@ -99,10 +88,10 @@ Production site hosted on Nexcess Managed WordPress:
 - Older backup: `ehs-wordpress-local/exports/production-database.sql`
 - Always use the most recent timestamped file
 
-**Importing Database to Mac Mini:**
+**Importing Database:**
 ```bash
 cd ehs-wordpress-local
-ddev import-db --file=/Volumes/nvme_ext_data/code/ehs/production-database.sql.gz
+ddev import-db --file=../production-database.sql.gz
 ```
 
 **Note:** If database file is gzipped but has `.sql` extension, rename it to `.sql.gz` first:
@@ -118,7 +107,6 @@ ddev import-db --file=production-database.sql.gz
 
 **Restoring Uploads:**
 ```bash
-cd /Volumes/nvme_ext_data/code/ehs
 tar -xzf uploads-backup.tar.gz -C ehs-wordpress-local/wordpress/wp-content/
 ```
 
@@ -130,11 +118,12 @@ ddev exec "wp theme activate hello-elementor-child --path=/var/www/html/wordpres
 ddev exec "wp cache flush --path=/var/www/html/wordpress"
 ```
 
-**Syncing Data Between MacBook and Mac Mini:**
-1. Export from MacBook: `ddev export-db --file=production-database.sql.gz`
-2. Copy database and uploads to Mac mini repository
-3. Import on Mac mini using commands above
-4. URLs are automatically correct (ehs-mini.ddev.site) in latest dumps
+**Exporting Database:**
+```bash
+cd ehs-wordpress-local
+ddev export-db --file=../production-database.sql.gz
+```
+URLs are automatically correct (ehs-local.ddev.site) in exports.
 
 ## Architecture
 
@@ -846,6 +835,66 @@ All service pages follow consistent two-column layout:
 - Mobile responsive design required
 - Cross-linking between related services
 - SEO optimization via Yoast
+
+### Service Page Components
+
+Service pages support reusable components that can be added via meta box or shortcodes:
+
+**Available Components:**
+- **Video Component** - Embed YouTube/Vimeo videos with optional captions
+- **Checklist Component** - Styled lists with checkmark icons
+- **Timeline Component** - Process steps in chronological order
+
+**Adding Components:**
+
+1. **Via Meta Box** (Recommended):
+   - Edit service post → Scroll to "Service Components" meta box
+   - Click "+ Add Video", "+ Add Checklist", or "+ Add Timeline"
+   - Configure component fields
+   - Components auto-render in page content
+
+2. **Via Shortcodes**:
+   ```php
+   [service_video url="https://youtube.com/watch?v=..." caption="Optional caption"]
+   [service_checklist title="Our Services" items="Item 1|Item 2|Item 3"]
+   [service_timeline title="Our Process" steps='[{"step":"Step 1","description":"Desc 1"}]']
+   ```
+
+**Component Files:**
+- Meta fields: `inc/meta-fields/services-components-meta-fields.php`
+- Meta box UI: `inc/meta-fields/services-components-meta-box.php`
+- Render functions: `inc/frontend/service-components-render.php`
+- Shortcodes: `inc/frontend/service-components-shortcodes.php`
+- Styles: `style.css` (`.service-component-*` classes)
+
+**Documentation:**
+- Usage guide: `docs/SERVICE_COMPONENTS_GUIDE.md`
+- Component audit: `docs/service-components-audit.md`
+
+### Service Content Migration
+
+Migrate content from live Elementor pages to dev site with design system transformation.
+
+**Script:** `ehs-wordpress-local/wordpress/migrate-service-content-complete.php`
+
+**Quick Usage:**
+```bash
+# Configure at top of script:
+# $dry_run = false, $single_service = 'service-slug' or null for all
+
+cd ehs-wordpress-local
+ddev exec "wp eval-file /var/www/html/wordpress/migrate-service-content-complete.php --path=/var/www/html/wordpress"
+```
+
+**What it migrates:**
+- Section headings → `.service-section-heading`
+- Body text (with bold/italic) → `.service-text`
+- Bullet lists → `.service-content-list`
+- Images → `.service-image-container`
+- Image galleries → `.service-image-gallery` (2-column grid)
+- Project timelines → `ehs_render_project_timeline()` component
+
+**Documentation:** `docs/SERVICE_CONTENT_MIGRATION.md`
 
 ### Template Synchronization
 

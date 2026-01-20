@@ -538,7 +538,7 @@ function ehs_render_service_card($service) {
         $excerpt = trim($excerpt);
     }
     
-    $thumbnail = get_the_post_thumbnail_url($service->ID, 'medium');
+    $thumbnail = get_the_post_thumbnail_url($service->ID, 'large');
     $icon_id = get_post_meta($service->ID, 'service_icon', true);
 
     ob_start();
@@ -767,7 +767,7 @@ function ehs_render_article_card($post) {
     }
 
     $excerpt = has_excerpt($post->ID) ? get_the_excerpt($post->ID) : wp_trim_words(strip_shortcodes($post->post_content), 20);
-    $thumbnail = get_the_post_thumbnail_url($post->ID, 'medium');
+    $thumbnail = get_the_post_thumbnail_url($post->ID, 'large');
     $date = get_the_date('', $post->ID);
     $author = get_the_author_meta('display_name', $post->post_author);
     $categories = get_the_category($post->ID);

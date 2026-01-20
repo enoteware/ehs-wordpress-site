@@ -25,7 +25,24 @@ while (have_posts()) : the_post();
 
     // Generate ToC from content headings
     $raw_content = get_the_content();
+    // Service content is stored as pre-formatted HTML. Running `wpautop` here can
+    // corrupt complex markup (e.g., timelines) by injecting stray <p></p> tags.
+    // Apply standard content filters while temporarily disabling wpautop.
+    $wpautop_priority = has_filter('the_content', 'wpautop');
+    $shortcode_unautop_priority = has_filter('the_content', 'shortcode_unautop');
+    if ($wpautop_priority !== false) {
+        remove_filter('the_content', 'wpautop', $wpautop_priority);
+    }
+    if ($shortcode_unautop_priority !== false) {
+        remove_filter('the_content', 'shortcode_unautop', $shortcode_unautop_priority);
+    }
     $raw_content = apply_filters('the_content', $raw_content);
+    if ($shortcode_unautop_priority !== false) {
+        add_filter('the_content', 'shortcode_unautop', $shortcode_unautop_priority);
+    }
+    if ($wpautop_priority !== false) {
+        add_filter('the_content', 'wpautop', $wpautop_priority);
+    }
     $toc_data = ehs_service_toc_generate($raw_content);
     $content_with_ids = ehs_service_toc_inject_ids($raw_content, $toc_data);
     ?>
@@ -37,20 +54,6 @@ while (have_posts()) : the_post();
             <?php if ($service_short_description) : ?>
                 <div class="service-hero-subtitle"><?php echo esc_html($service_short_description); ?></div>
             <?php endif; ?>
-            <?php 
-            $excerpt = get_the_excerpt();
-            if (!empty($excerpt)) {
-                // Remove ellipses and trailing dots
-                $excerpt = rtrim($excerpt, '.…');
-                $excerpt = preg_replace('/\.{2,}/', '.', $excerpt);
-                $excerpt = html_entity_decode($excerpt, ENT_QUOTES, 'UTF-8');
-                // Ensure it ends with a period if it's a complete sentence
-                if (!empty($excerpt) && !preg_match('/[.!?]$/', $excerpt)) {
-                    $excerpt .= '.';
-                }
-            ?>
-                <div class="service-hero-text"><?php echo esc_html($excerpt); ?></div>
-            <?php } ?>
         </div>
     </section>
 
@@ -73,6 +76,40 @@ while (have_posts()) : the_post();
                 <div class="service-section">
                     <?php echo $content_with_ids; ?>
                 </div>
+
+                <!-- Service Special Content - Accordions -->
+                <?php
+                ob_start();
+                ehs_render_service_accordions();
+                $accordions_output = ob_get_clean();
+                if (!empty($accordions_output)) :
+                ?>
+                    <div class="service-section">
+                        <?php echo $accordions_output; ?>
+                    </div>
+                <?php endif; ?>
+
+                <!-- Service Special Content - Video -->
+                <?php
+                ob_start();
+                ehs_render_service_youtube_video();
+                $video_output = ob_get_clean();
+                if (!empty($video_output)) :
+                ?>
+                    <div class="service-section">
+                        <?php echo $video_output; ?>
+                    </div>
+                <?php endif; ?>
+
+                <!-- Service Components (from meta field) -->
+                <?php 
+                $components_output = ehs_render_service_components();
+                if (!empty($components_output)) :
+                ?>
+                    <div class="service-section">
+                        <?php echo $components_output; ?>
+                    </div>
+                <?php endif; ?>
 
                 <!-- Related Services Cards -->
                 <?php ehs_service_related_cards(); ?>

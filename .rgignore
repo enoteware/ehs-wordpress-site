@@ -58,3 +58,6 @@ project-organization/02-micro-site-vercel/deployed-site/
 
 # Testing
 .playwright-mcp/
+
+# Archive (obsolete docs and scripts)
+archive/

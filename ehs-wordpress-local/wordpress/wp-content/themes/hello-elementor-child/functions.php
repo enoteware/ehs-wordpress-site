@@ -25,11 +25,30 @@ function hello_elementor_child_enqueue_styles() {
 
     // Load child theme CSS with high priority to ensure it loads after Elementor CSS
     // This prevents Elementor CSS from overriding theme styles
+    // Use filemtime for cache busting to ensure latest CSS loads
     wp_enqueue_style(
         'hello-elementor-child-style',
         get_stylesheet_uri(),
         array('hello-elementor-parent-style'),
-        wp_get_theme()->get('Version')
+        filemtime(get_stylesheet_directory() . '/style.css')
+    );
+
+    // Enqueue accordion JavaScript
+    wp_enqueue_script(
+        'ehs-service-accordions',
+        get_stylesheet_directory_uri() . '/assets/js/service-accordions.js',
+        array(),
+        wp_get_theme()->get('Version'),
+        true
+    );
+
+    // Enqueue project timeline JavaScript
+    wp_enqueue_script(
+        'ehs-project-timeline',
+        get_stylesheet_directory_uri() . '/assets/js/project-timeline.js',
+        array(),
+        wp_get_theme()->get('Version'),
+        true
     );
 }
 
@@ -54,6 +73,8 @@ require_once get_stylesheet_directory() . '/inc/taxonomies/services-taxonomies.p
 
 require_once get_stylesheet_directory() . '/inc/meta-fields/services-meta-fields.php';
 require_once get_stylesheet_directory() . '/inc/meta-fields/services-meta-box.php';
+require_once get_stylesheet_directory() . '/inc/meta-fields/services-components-meta-fields.php';
+require_once get_stylesheet_directory() . '/inc/meta-fields/services-components-meta-box.php';
 require_once get_stylesheet_directory() . '/inc/meta-fields/credentials-meta-fields.php';
 require_once get_stylesheet_directory() . '/inc/meta-fields/credentials-meta-box.php';
 require_once get_stylesheet_directory() . '/inc/meta-fields/clients-meta-fields.php';
@@ -73,6 +94,13 @@ require_once get_stylesheet_directory() . '/inc/admin/contact-form-settings.php'
 require_once get_stylesheet_directory() . '/inc/admin/contact-form-entries.php';
 require_once get_stylesheet_directory() . '/inc/admin/style-guide-page.php';
 require_once get_stylesheet_directory() . '/inc/admin/acf-site-options.php';
+require_once get_stylesheet_directory() . '/inc/admin/acf-service-special-content.php';
+
+// ========================================
+// FRONTEND RENDERING
+// ========================================
+
+require_once get_stylesheet_directory() . '/inc/frontend/service-special-content.php';
 
 /**
  * Enqueue Admin Styles
@@ -227,6 +255,8 @@ require_once get_stylesheet_directory() . '/inc/helpers/site-options.php';
 
 require_once get_stylesheet_directory() . '/inc/frontend/ddev-local-header-bar.php';
 require_once get_stylesheet_directory() . '/inc/frontend/service-content-blocks.php';
+require_once get_stylesheet_directory() . '/inc/frontend/service-components-render.php';
+require_once get_stylesheet_directory() . '/inc/frontend/service-components-shortcodes.php';
 require_once get_stylesheet_directory() . '/inc/frontend/contact-form.php';
 require_once get_stylesheet_directory() . '/inc/frontend/contact-form-handler.php';
 require_once get_stylesheet_directory() . '/inc/frontend/home-page-functions.php';
@@ -555,6 +585,169 @@ class EHS_Mega_Menu_Walker extends Walker_Nav_Menu {
 }
 
 /**
+ * Ensure all published Services appear in the mega menu.
+ * Groups services by service_category terms (falls back to "More Services") and injects
+ * missing links as additional mega menu columns under the Services parent item.
+ */
+add_filter('wp_nav_menu_objects', 'ehs_fill_services_mega_menu', 10, 2);
+function ehs_fill_services_mega_menu($items, $args = null) {
+    // Only adjust the primary header menu
+    if (empty($items) || !is_object($args) || !isset($args->theme_location) || $args->theme_location !== 'menu-1') {
+        return $items;
+    }
+
+    // Locate the top-level Services item
+    $services_parent = null;
+    foreach ($items as $item) {
+        if ($item->menu_item_parent == 0 && (stripos($item->title, 'service') !== false || (isset($item->url) && stripos($item->url, '/services') !== false))) {
+            $services_parent = $item;
+            break;
+        }
+    }
+
+    if (!$services_parent) {
+        return $items;
+    }
+
+    // Collect URLs already present under Services to avoid duplicates
+    $existing_urls = array();
+    foreach ($items as $item) {
+        if ($item->menu_item_parent == $services_parent->ID || $item->menu_item_parent != 0) {
+            if (!empty($item->url)) {
+                $existing_urls[untrailingslashit(strtolower($item->url))] = true;
+            }
+        }
+    }
+
+    // Fetch all published services ordered by service_order then title
+    $services = get_posts(array(
+        'post_type'      => 'services',
+        'post_status'    => 'publish',
+        'numberposts'    => -1,
+        'orderby'        => array('meta_value_num' => 'ASC', 'title' => 'ASC'),
+        'meta_key'       => 'service_order',
+        'suppress_filters' => false,
+    ));
+
+    if (empty($services)) {
+        return $items;
+    }
+
+    // Map existing column headers by title for reuse
+    $existing_columns = array();
+    foreach ($items as $item) {
+        if ($item->menu_item_parent == $services_parent->ID) {
+            $existing_columns[strtolower(trim($item->title))] = $item->ID;
+        }
+    }
+
+    $columns = array();
+    $uncategorized = array();
+
+    foreach ($services as $service) {
+        $url = untrailingslashit(strtolower(get_permalink($service)));
+        if (isset($existing_urls[$url])) {
+            continue; // already in menu
+        }
+
+        $terms = wp_get_post_terms($service->ID, 'service_category');
+        if (!is_wp_error($terms) && !empty($terms)) {
+            $term = $terms[0];
+            $columns[$term->term_id]['term'] = $term;
+            $columns[$term->term_id]['items'][] = $service;
+        } else {
+            $uncategorized[] = $service;
+        }
+    }
+
+    // Nothing new to add
+    if (empty($columns) && empty($uncategorized)) {
+        return $items;
+    }
+
+    $next_id = -1; // virtual IDs for new menu items
+    $max_order = max(wp_list_pluck($items, 'menu_order'));
+
+    // Helper to create a nav menu item object
+    $make_item = function($args) use (&$next_id, &$max_order) {
+        $obj = new stdClass();
+        $obj->ID = $obj->db_id = $next_id--;
+        $obj->menu_item_parent = isset($args['parent']) ? $args['parent'] : 0;
+        $obj->object_id = isset($args['object_id']) ? $args['object_id'] : 0;
+        $obj->object = isset($args['object']) ? $args['object'] : 'custom';
+        $obj->type = isset($args['type']) ? $args['type'] : 'custom';
+        $obj->type_label = isset($args['type_label']) ? $args['type_label'] : 'Custom Link';
+        $obj->title = isset($args['title']) ? $args['title'] : '';
+        $obj->url = isset($args['url']) ? $args['url'] : '';
+        $obj->target = '';
+        $obj->attr_title = '';
+        $obj->description = '';
+        $obj->classes = isset($args['classes']) ? $args['classes'] : array();
+        $obj->xfn = '';
+        $obj->status = '';
+        $obj->menu_order = ++$max_order;
+        return $obj;
+    };
+
+    // Build term-based columns
+    foreach ($columns as $data) {
+        $term = $data['term'];
+        $term_title = $term->name;
+        $parent_id = isset($existing_columns[strtolower(trim($term_title))]) ? $existing_columns[strtolower(trim($term_title))] : null;
+
+        if (!$parent_id) {
+            $column_item = $make_item(array(
+                'parent' => $services_parent->ID,
+                'title'  => $term_title,
+            ));
+            $items[] = $column_item;
+            $parent_id = $column_item->ID;
+        }
+
+        foreach ($data['items'] as $service) {
+            $items[] = $make_item(array(
+                'parent'    => $parent_id,
+                'title'     => get_the_title($service),
+                'url'       => get_permalink($service),
+                'object'    => 'services',
+                'object_id' => $service->ID,
+                'type'      => 'post_type',
+                'type_label'=> __('Service', 'hello-elementor-child'),
+            ));
+        }
+    }
+
+    // Add uncategorized services under a fallback column
+    if (!empty($uncategorized)) {
+        $fallback_title = 'More Services';
+        $fallback_parent = isset($existing_columns[strtolower(trim($fallback_title))]) ? $existing_columns[strtolower(trim($fallback_title))] : null;
+
+        if (!$fallback_parent) {
+            $fallback_item = $make_item(array(
+                'parent' => $services_parent->ID,
+                'title'  => $fallback_title,
+            ));
+            $items[] = $fallback_item;
+            $fallback_parent = $fallback_item->ID;
+        }
+
+        foreach ($uncategorized as $service) {
+            $items[] = $make_item(array(
+                'parent'    => $fallback_parent,
+                'title'     => get_the_title($service),
+                'url'       => get_permalink($service),
+                'object'    => 'services',
+                'object_id' => $service->ID,
+                'type'      => 'post_type',
+                'type_label'=> __('Service', 'hello-elementor-child'),
+            ));
+        }
+    }
+
+    return $items;
+}
+
+/**
  * Enqueue Mega Menu JavaScript
  */
 add_action('wp_enqueue_scripts', 'ehs_enqueue_mega_menu_assets');
@@ -763,4 +956,3 @@ function ehs_disable_emoji_for_footer() {
     remove_filter('the_excerpt', 'wp_staticize_emoji');
     remove_filter('widget_text_content', 'wp_staticize_emoji');
 }
-
