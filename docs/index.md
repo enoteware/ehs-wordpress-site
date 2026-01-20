@@ -7,6 +7,7 @@ Welcome to the EHS Analytical Solutions project documentation. This knowledge ba
 - **[Architecture Overview](architecture.md)** - System architecture, main modules, data flow
 - **[Development Setup](dev-setup.md)** - Installation, environment variables, required tools
 - **[Hosting Infrastructure](hosting.md)** - DigitalOcean, Nexcess, DDEV server details
+- **[DigitalOcean SSH Setup](DIGITALOCEAN_SSH_SETUP.md)** - SSH key configuration for deployments
 - **[Workflows](workflows.md)** - Common development tasks, build/test/lint/release processes
 - **[Runbooks](runbooks.md)** - Debugging playbooks, log locations, known issues
 

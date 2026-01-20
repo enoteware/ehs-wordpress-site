@@ -27,12 +27,49 @@ This project uses multiple hosting environments:
 
 ### SSH Access
 
+**SSH Key Setup:**
+
+The DigitalOcean server uses key-based authentication. The project uses a dedicated SSH key for DigitalOcean deployments.
+
+**Required SSH Key:**
+- **Location:** `~/.ssh/id_ed25519_do`
+- **Public Key:** `~/.ssh/id_ed25519_do.pub`
+- **Configuration:** Set in `.env.migration-server` as `MIGRATION_SSH_KEY=~/.ssh/id_ed25519_do`
+
+**Connecting to Server:**
+
 ```bash
-# Connect to server
+# Using the DigitalOcean key
+ssh -i ~/.ssh/id_ed25519_do root@134.199.221.85
+
+# Or add to ~/.ssh/config for easier access:
+# Host ehs-do
+#   HostName 134.199.221.85
+#   User root
+#   IdentityFile ~/.ssh/id_ed25519_do
+# Then use: ssh ehs-do
+```
+
+**Initial Key Setup (if needed):**
+
+If the key isn't already on the server, add it:
+
+```bash
+# 1. Copy your public key
+cat ~/.ssh/id_ed25519_do.pub
+
+# 2. SSH into server (using password or existing key)
 ssh root@134.199.221.85
 
-# Using SSH key (recommended)
-ssh -i ~/.ssh/id_ed25519 root@134.199.221.85
+# 3. Add the key to authorized_keys
+mkdir -p ~/.ssh
+echo "YOUR_PUBLIC_KEY_HERE" >> ~/.ssh/authorized_keys
+chmod 600 ~/.ssh/authorized_keys
+chmod 700 ~/.ssh
+
+# 4. Test connection
+exit
+ssh -i ~/.ssh/id_ed25519_do root@134.199.221.85
 ```
 
 ### Software Stack

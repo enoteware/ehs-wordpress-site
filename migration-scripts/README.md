@@ -132,6 +132,8 @@ migration-scripts/
 
 ## Configuration
 
+**Important:** See [DigitalOcean SSH Setup Guide](../docs/DIGITALOCEAN_SSH_SETUP.md) for SSH key configuration.
+
 Required environment files in parent directory:
 
 **`.env`** - Nexcess credentials
@@ -142,11 +144,23 @@ SSH_PASSWORD=<password>
 ```
 
 **`.env.migration-server`** - DigitalOcean server info
+
+See `docs/.env.migration-server.example` for a template. Required variables:
+
 ```bash
 MIGRATION_SERVER_IP=134.199.221.85
+MIGRATION_SERVER_REGION=sfo3
+MIGRATION_SERVER_SIZE=s-2vcpu-4gb
 MIGRATION_SSH_USER=root
-MYSQL_ROOT_PASSWORD=EHS-Migration-2026!
+MIGRATION_SSH_KEY=~/.ssh/id_ed25519_do  # Must use DigitalOcean key
+MYSQL_ROOT_PASSWORD=your-secure-password
 ```
+
+**Critical:** The `MIGRATION_SSH_KEY` must be set to `~/.ssh/id_ed25519_do` (the DigitalOcean-specific key). This key must be authorized on the server.
+
+**Quick SSH Setup:**
+1. See [DigitalOcean SSH Setup Guide](../docs/DIGITALOCEAN_SSH_SETUP.md) for complete instructions
+2. Quick test: `ssh -i ~/.ssh/id_ed25519_do root@134.199.221.85`
 
 ## Site Prioritization
 

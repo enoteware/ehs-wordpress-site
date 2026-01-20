@@ -3,11 +3,21 @@
 # Quick Deploy to DigitalOcean
 # Fast deployment of local DDEV changes directly to DO server
 #
+# Prerequisites:
+#   - SSH key configured in .env.migration-server (MIGRATION_SSH_KEY)
+#   - Key must be authorized on DigitalOcean server
+#   - See docs/DIGITALOCEAN_SSH_SETUP.md for setup instructions
+#
 # Usage:
-#   ./quick-deploy-to-do.sh              # Sync theme only (fastest)
-#   ./quick-deploy-to-do.sh --full       # Sync all wp-content
+#   ./quick-deploy-to-do.sh              # Sync theme only (fastest, ~5 seconds)
+#   ./quick-deploy-to-do.sh --full       # Sync all wp-content (~1-2 minutes)
 #   ./quick-deploy-to-do.sh --db         # Sync database only
 #   ./quick-deploy-to-do.sh --all        # Sync everything (files + db)
+#
+# Configuration:
+#   - Server IP: Set in .env.migration-server (MIGRATION_SERVER_IP)
+#   - SSH Key: Set in .env.migration-server (MIGRATION_SSH_KEY)
+#   - Remote Domain: dev.ehsanalytical.com (hardcoded in script)
 #
 
 set -e
@@ -35,13 +45,25 @@ fi
 
 SERVER_IP="${MIGRATION_SERVER_IP}"
 SSH_USER="${MIGRATION_SSH_USER:-root}"
+SSH_KEY="${MIGRATION_SSH_KEY:-}"
+
+# Expand tilde in SSH key path
+if [ -n "$SSH_KEY" ]; then
+    SSH_KEY="${SSH_KEY/#\~/$HOME}"
+fi
+
+# Build SSH command with key if specified
+SSH_CMD="ssh"
+if [ -n "$SSH_KEY" ] && [ -f "$SSH_KEY" ]; then
+    SSH_CMD="ssh -i $SSH_KEY"
+fi
 
 # Auto-detect WordPress path from nginx config
-REMOTE_PATH=$(ssh "${SSH_USER}@${SERVER_IP}" "grep -h 'root ' /etc/nginx/sites-enabled/${REMOTE_DOMAIN} 2>/dev/null | head -1 | awk '{print \$2}' | tr -d ';'" 2>/dev/null)
+REMOTE_PATH=$($SSH_CMD "${SSH_USER}@${SERVER_IP}" "grep -h 'root ' /etc/nginx/sites-enabled/${REMOTE_DOMAIN} 2>/dev/null | head -1 | awk '{print \$2}' | tr -d ';'" 2>/dev/null)
 
 if [ -z "$REMOTE_PATH" ]; then
     # Fallback: find wp-config.php
-    REMOTE_PATH=$(ssh "${SSH_USER}@${SERVER_IP}" "find /var/www -name 'wp-config.php' 2>/dev/null | head -1 | xargs dirname" 2>/dev/null)
+    REMOTE_PATH=$($SSH_CMD "${SSH_USER}@${SERVER_IP}" "find /var/www -name 'wp-config.php' 2>/dev/null | head -1 | xargs dirname" 2>/dev/null)
 fi
 
 if [ -z "$REMOTE_PATH" ]; then
@@ -104,7 +126,11 @@ cd "${DDEV_PATH}"
 if [ "$SYNC_THEME" = true ]; then
     echo -e "${YELLOW}→ Syncing theme files...${NC}"
 
-    rsync -avz --checksum --delete \
+    RSYNC_CMD="rsync -avz --checksum --delete"
+    if [ -n "$SSH_KEY" ] && [ -f "$SSH_KEY" ]; then
+        RSYNC_CMD="$RSYNC_CMD -e \"ssh -i $SSH_KEY\""
+    fi
+    eval $RSYNC_CMD \
         --exclude='.git' \
         --exclude='node_modules' \
         --exclude='.DS_Store' \
@@ -118,7 +144,11 @@ fi
 if [ "$SYNC_FULL" = true ]; then
     echo -e "${YELLOW}→ Syncing wp-content (this may take a minute)...${NC}"
 
-    rsync -avz --checksum --delete \
+    RSYNC_CMD="rsync -avz --checksum --delete"
+    if [ -n "$SSH_KEY" ] && [ -f "$SSH_KEY" ]; then
+        RSYNC_CMD="$RSYNC_CMD -e \"ssh -i $SSH_KEY\""
+    fi
+    eval $RSYNC_CMD \
         --exclude='.git' \
         --exclude='node_modules' \
         --exclude='.DS_Store' \
@@ -142,10 +172,14 @@ if [ "$SYNC_DB" = true ]; then
     ddev export-db --file="${DB_FILE}" --gzip=false
 
     echo -e "${YELLOW}→ Uploading to server...${NC}"
-    scp "${DB_FILE}" "${SSH_USER}@${SERVER_IP}:/tmp/quick-deploy-db.sql"
+    SCP_CMD="scp"
+    if [ -n "$SSH_KEY" ] && [ -f "$SSH_KEY" ]; then
+        SCP_CMD="scp -i $SSH_KEY"
+    fi
+    $SCP_CMD "${DB_FILE}" "${SSH_USER}@${SERVER_IP}:/tmp/quick-deploy-db.sql"
 
     echo -e "${YELLOW}→ Importing database and updating URLs...${NC}"
-    ssh "${SSH_USER}@${SERVER_IP}" << EOF
+    $SSH_CMD "${SSH_USER}@${SERVER_IP}" << EOF
 cd ${REMOTE_PATH}
 
 # Get database credentials from wp-config.php
@@ -170,7 +204,7 @@ fi
 
 # Clear caches on remote server
 echo -e "${YELLOW}→ Clearing caches...${NC}"
-ssh "${SSH_USER}@${SERVER_IP}" << EOF
+$SSH_CMD "${SSH_USER}@${SERVER_IP}" << EOF
 cd ${REMOTE_PATH}
 
 # Clear WordPress caches
