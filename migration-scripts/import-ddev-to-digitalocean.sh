@@ -28,6 +28,20 @@ else
     exit 1
 fi
 
+# Setup SSH key
+SSH_KEY="${MIGRATION_SSH_KEY:-}"
+if [ -n "$SSH_KEY" ]; then
+    SSH_KEY="${SSH_KEY/#\~/$HOME}"
+fi
+
+# Build SSH/SCP commands with key if specified
+SSH_CMD="ssh"
+SCP_CMD="scp"
+if [ -n "$SSH_KEY" ] && [ -f "$SSH_KEY" ]; then
+    SSH_CMD="ssh -i $SSH_KEY"
+    SCP_CMD="scp -i $SSH_KEY"
+fi
+
 echo "=== Importing DDEV site to DigitalOcean ==="
 echo "DDEV Project: ${DDEV_PROJECT}"
 echo "Domain: ${DOMAIN}"
@@ -75,8 +89,8 @@ echo ""
 
 # Upload files to server
 echo "=== Step 2: Uploading to DigitalOcean server ==="
-scp "${TEMP_DIR}/ddev-export.sql.gz" root@${MIGRATION_SERVER_IP}:/tmp/
-scp "${TEMP_DIR}/ddev-wpcontent.tar.gz" root@${MIGRATION_SERVER_IP}:/tmp/
+$SCP_CMD "${TEMP_DIR}/ddev-export.sql.gz" root@${MIGRATION_SERVER_IP}:/tmp/
+$SCP_CMD "${TEMP_DIR}/ddev-wpcontent.tar.gz" root@${MIGRATION_SERVER_IP}:/tmp/
 echo "✓ Files uploaded"
 echo ""
 
@@ -88,7 +102,7 @@ if [ "$DOMAIN" != "${DOMAIN#test.}" ]; then
 fi
 
 echo "=== Step 3: Importing on server ==="
-ssh root@${MIGRATION_SERVER_IP} << EOF
+$SSH_CMD root@${MIGRATION_SERVER_IP} << EOF
 set -e
 
 WP_PATH="${WP_PATH}"
