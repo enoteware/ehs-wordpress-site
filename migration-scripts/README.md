@@ -63,6 +63,12 @@ chmod +x *.sh
 ./quick-deploy-to-do.sh --all
 ```
 
+**SSH Key Setup Helper:**
+```bash
+# Check if SSH key is configured and get setup instructions
+./add-ssh-key-to-server.sh
+```
+
 ## Migration Process
 
 ### Phase 1: Export from Nexcess
