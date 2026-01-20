@@ -3,6 +3,16 @@
 
 Automated scripts for migrating 24 WordPress sites from Nexcess to DigitalOcean VPS.
 
+## Currently Deployed
+
+| Site | URL | Status |
+|------|-----|--------|
+| dev.ehsanalytical.com | https://dev.ehsanalytical.com | ✅ Live |
+
+**Server:** 134.199.221.85 (Ubuntu 22.04, Nginx, MariaDB 10.6, PHP 8.1)
+
+See [DEPLOYMENT_STATUS.md](DEPLOYMENT_STATUS.md) for full details.
+
 ## Prerequisites
 
 - ✓ DigitalOcean server running (IP: 134.199.221.85)

@@ -1,69 +1,97 @@
 # Deployment Status
 
-## ✅ SSH Key Setup - COMPLETE
+## ✅ dev.ehsanalytical.com - LIVE
 
-**Status:** SSH key is successfully configured and working!
+**Deployed:** January 20, 2026
+**URL:** https://dev.ehsanalytical.com
+**Server:** 134.199.221.85 (DigitalOcean SFO3)
 
-- ✅ `.env.migration-server` updated to use `id_ed25519_do`
-- ✅ SSH key added to server's `authorized_keys`
-- ✅ SSH connection tested and working
-- ✅ Helper script confirms key is authorized
+### Server Stack
+| Component | Version |
+|-----------|---------|
+| OS | Ubuntu 22.04 LTS |
+| Web Server | Nginx 1.18 |
+| Database | MariaDB 10.6.22 |
+| PHP | 8.1.2-FPM |
+| WP-CLI | 2.12.0 |
+| SSL | Let's Encrypt (auto-renewal via Certbot) |
 
-**Test Results:**
-```bash
-$ ssh -i ~/.ssh/id_ed25519_do root@134.199.221.85
-✓ Connection successful!
-```
+### Deployment Details
+- **WordPress Path:** `/var/www/dev.ehsanalytical.com/html/`
+- **Database:** `dev_ehsanalytical`
+- **DB User:** `wp_ehs`
+- **Nginx Config:** `/etc/nginx/sites-available/dev.ehsanalytical.com`
+- **SSL Cert:** `/etc/letsencrypt/live/dev.ehsanalytical.com/`
+- **Cloudflare:** Proxied (orange cloud)
 
-## ⏳ WordPress Setup Required
+### Credentials
+- **SSH:** `ssh -i ~/.ssh/id_ed25519_do root@134.199.221.85`
+- **WP Admin:** https://dev.ehsanalytical.com/wp-admin
+- **DB Password:** See `.env.migration-server` (MYSQL variable)
 
-**Status:** WordPress site needs to be set up on the DigitalOcean server before deployment.
+---
 
-**Current State:**
-- Server is running (Ubuntu 22.04)
-- SSH access is configured
-- WordPress installation not found on server
+## Quick Commands
 
-**Next Steps:**
-
-1. **Set up WordPress on the server** (if not done yet):
-   - Either migrate from Nexcess using migration scripts
-   - Or set up a fresh WordPress installation
-   - WordPress should be located at: `/var/www/dev.ehsanalytical.com/html/` (or similar)
-
-2. **Once WordPress is set up**, the deployment script will work:
-   ```bash
-   cd migration-scripts
-   ./quick-deploy-to-do.sh  # Theme sync (fastest)
-   ./quick-deploy-to-do.sh --full  # All wp-content
-   ./quick-deploy-to-do.sh --all  # Everything
-   ```
-
-## Migration Scripts Available
-
-- `1-export-from-nexcess.sh` - Export from Nexcess
-- `2-import-to-digitalocean.sh` - Import to DO server
-- `import-ddev-to-digitalocean.sh` - Import from local DDEV
-- `quick-deploy-to-do.sh` - Fast iterative deploys (requires existing WordPress)
-- `quick-migrate.sh` - All-in-one migration
-
-## Verification Commands
-
-**Test SSH:**
-```bash
-cd migration-scripts
-./add-ssh-key-to-server.sh
-```
-
-**Test Deployment (after WordPress is set up):**
+### Deploy Theme Changes (Fastest)
 ```bash
 cd migration-scripts
 ./quick-deploy-to-do.sh
 ```
 
+### Deploy All wp-content
+```bash
+./quick-deploy-to-do.sh --full
+```
+
+### Deploy Database Only
+```bash
+./quick-deploy-to-do.sh --db
+```
+
+### Deploy Everything
+```bash
+./quick-deploy-to-do.sh --all
+```
+
+### SSH to Server
+```bash
+ssh -i ~/.ssh/id_ed25519_do root@134.199.221.85
+```
+
+### Server-Side WP-CLI
+```bash
+ssh -i ~/.ssh/id_ed25519_do root@134.199.221.85 "cd /var/www/dev.ehsanalytical.com/html && wp cache flush --allow-root"
+```
+
+---
+
+## Maintenance
+
+### Clear Caches
+```bash
+ssh -i ~/.ssh/id_ed25519_do root@134.199.221.85 "cd /var/www/dev.ehsanalytical.com/html && wp cache flush --allow-root && wp elementor flush-css --allow-root"
+```
+
+### Check Nginx Status
+```bash
+ssh -i ~/.ssh/id_ed25519_do root@134.199.221.85 "nginx -t && systemctl status nginx"
+```
+
+### View Error Logs
+```bash
+ssh -i ~/.ssh/id_ed25519_do root@134.199.221.85 "tail -50 /var/log/nginx/dev.ehsanalytical.com_error.log"
+```
+
+### Renew SSL (auto, but manual if needed)
+```bash
+ssh -i ~/.ssh/id_ed25519_do root@134.199.221.85 "certbot renew --dry-run"
+```
+
+---
+
 ## Related Documentation
 
-- [SSH Key Setup Guide](../docs/DIGITALOCEAN_SSH_SETUP.md)
-- [SSH Key Analysis](../docs/SSH_KEY_ANALYSIS.md)
-- [Hosting Infrastructure](../docs/hosting.md)
 - [Migration Scripts README](README.md)
+- [SSH Key Setup Guide](../docs/DIGITALOCEAN_SSH_SETUP.md)
+- [Full Migration Plan](../NEXCESS_TO_DIGITALOCEAN_MIGRATION_PLAN.md)
