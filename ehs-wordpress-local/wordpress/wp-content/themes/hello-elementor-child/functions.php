@@ -11,6 +11,26 @@ if (!defined('ABSPATH')) {
 }
 
 // ========================================
+// ENABLE SVG UPLOADS
+// ========================================
+
+add_filter('upload_mimes', 'ehs_allow_svg_upload');
+function ehs_allow_svg_upload($mimes) {
+    $mimes['svg'] = 'image/svg+xml';
+    $mimes['svgz'] = 'image/svg+xml';
+    return $mimes;
+}
+
+add_filter('wp_check_filetype_and_ext', 'ehs_fix_svg_mime_type', 10, 5);
+function ehs_fix_svg_mime_type($data, $file, $filename, $mimes, $real_mime = null) {
+    if (isset($data['ext']) && $data['ext'] === 'svg') {
+        $data['type'] = 'image/svg+xml';
+        $data['ext'] = 'svg';
+    }
+    return $data;
+}
+
+// ========================================
 // PARENT THEME STYLES
 // ========================================
 
@@ -82,6 +102,18 @@ require_once get_stylesheet_directory() . '/inc/meta-fields/clients-meta-box.php
 require_once get_stylesheet_directory() . '/inc/meta-fields/team-meta-fields.php';
 
 // ========================================
+// LOGO FALLBACK (ensure logo SVGs in uploads to avoid 404)
+// ========================================
+
+require_once get_stylesheet_directory() . '/inc/logo-fallback.php';
+
+// ========================================
+// MEDIA FALLBACK (placeholder when attachment file missing from uploads)
+// ========================================
+
+require_once get_stylesheet_directory() . '/inc/media-fallback.php';
+
+// ========================================
 // ADMIN CUSTOMIZATIONS
 // ========================================
 
@@ -93,6 +125,7 @@ require_once get_stylesheet_directory() . '/inc/admin/disable-comments.php';
 require_once get_stylesheet_directory() . '/inc/admin/contact-form-settings.php';
 require_once get_stylesheet_directory() . '/inc/admin/contact-form-entries.php';
 require_once get_stylesheet_directory() . '/inc/admin/style-guide-page.php';
+require_once get_stylesheet_directory() . '/inc/admin/services-order-sync.php';
 require_once get_stylesheet_directory() . '/inc/admin/acf-site-options.php';
 require_once get_stylesheet_directory() . '/inc/admin/acf-service-special-content.php';
 
@@ -101,6 +134,29 @@ require_once get_stylesheet_directory() . '/inc/admin/acf-service-special-conten
 // ========================================
 
 require_once get_stylesheet_directory() . '/inc/frontend/service-special-content.php';
+require_once get_stylesheet_directory() . '/inc/content-icons.php';
+
+/**
+ * Ensure project timeline has progress element for scroll-fill animation.
+ * project-timeline.js requires .project-timeline__progress inside the timeline;
+ * inject it when missing so the timeline animates on scroll.
+ */
+add_filter('the_content', 'ehs_ensure_project_timeline_progress', 5);
+function ehs_ensure_project_timeline_progress($content) {
+    if (strpos($content, 'project-timeline__line') === false) {
+        return $content;
+    }
+    if (strpos($content, 'project-timeline__progress') !== false) {
+        return $content;
+    }
+    $progress = '<div class="project-timeline__progress" aria-hidden="true"></div>';
+    $content = preg_replace(
+        '/(<div\s+class="[^"]*project-timeline__line[^"]*"[^>]*>)/',
+        '$1' . $progress,
+        $content
+    );
+    return $content;
+}
 
 /**
  * Enqueue Admin Styles
@@ -250,6 +306,81 @@ function ehs_fix_favicon_https() {
 require_once get_stylesheet_directory() . '/inc/helpers/site-options.php';
 
 // ========================================
+// FRONT PAGE SEO (from Business Information → Homepage SEO; overrides Yoast on homepage so client can edit in one place)
+// ========================================
+add_filter('pre_get_document_title', 'ehs_front_page_document_title', 10, 1);
+function ehs_front_page_document_title($title) {
+    if (!is_front_page()) {
+        return $title;
+    }
+    $t = ehs_get_option('homepage_seo_title');
+    return $t ? $t : $title;
+}
+
+add_action('wp_head', 'ehs_front_page_meta_description', 5);
+function ehs_front_page_meta_description() {
+    if (!is_front_page()) {
+        return;
+    }
+    $d = ehs_get_option('homepage_seo_description');
+    if ($d) {
+        echo '<meta name="description" content="' . esc_attr($d) . '">' . "\n";
+    }
+}
+
+add_filter('wpseo_opengraph_title', function ($title) {
+    if (!is_front_page()) {
+        return $title;
+    }
+    $t = ehs_get_option('homepage_seo_title');
+    return $t ? $t : $title;
+}, 20);
+add_filter('wpseo_opengraph_desc', function ($desc) {
+    if (!is_front_page()) {
+        return $desc;
+    }
+    $d = ehs_get_option('homepage_seo_description');
+    return $d ? $d : $desc;
+}, 20);
+add_filter('wpseo_twitter_title', function ($title) {
+    if (!is_front_page()) {
+        return $title;
+    }
+    $t = ehs_get_option('homepage_seo_title');
+    return $t ? $t : $title;
+}, 20);
+add_filter('wpseo_twitter_description', function ($desc) {
+    if (!is_front_page()) {
+        return $desc;
+    }
+    $d = ehs_get_option('homepage_seo_description');
+    return $d ? $d : $desc;
+}, 20);
+
+// Lead Compliance Plan service page SEO (PHP template at /lead-compliance-plan-services/)
+add_filter('pre_get_document_title', 'ehs_lead_compliance_plan_document_title', 10, 1);
+function ehs_lead_compliance_plan_document_title($title) {
+    if (!is_singular('services')) {
+        return $title;
+    }
+    if (get_post_field('post_name', get_queried_object_id()) !== 'lead-compliance-plan-services') {
+        return $title;
+    }
+    return 'Lead Compliance Plan Services | DVBE CIH Experts | Caltrans Approved';
+}
+
+add_action('wp_head', 'ehs_lead_compliance_plan_meta_description', 6);
+function ehs_lead_compliance_plan_meta_description() {
+    if (!is_singular('services')) {
+        return;
+    }
+    if (get_post_field('post_name', get_queried_object_id()) !== 'lead-compliance-plan-services') {
+        return;
+    }
+    echo '<meta name="description" content="DVBE-certified Lead Compliance Plan development for Caltrans bridge projects. CIH experts in Cal/OSHA 1532.1 compliance, Work Area Monitoring, and lead exposure assessment. 100+ plans completed across all 12 California districts.">' . "\n";
+}
+
+// ========================================
 // FRONTEND FEATURES
 // ========================================
 
@@ -259,6 +390,7 @@ require_once get_stylesheet_directory() . '/inc/frontend/service-components-rend
 require_once get_stylesheet_directory() . '/inc/frontend/service-components-shortcodes.php';
 require_once get_stylesheet_directory() . '/inc/frontend/contact-form.php';
 require_once get_stylesheet_directory() . '/inc/frontend/contact-form-handler.php';
+require_once get_stylesheet_directory() . '/inc/wp-mail-resend.php';
 require_once get_stylesheet_directory() . '/inc/frontend/home-page-functions.php';
 require_once get_stylesheet_directory() . '/inc/frontend/credential-cards.php';
 
@@ -354,6 +486,15 @@ class EHS_Mega_Menu_Walker extends Walker_Nav_Menu {
             }
         }
         
+        // Add has-mega-menu for Services (top-level item with children) so mega menu layout applies
+        if ($depth === 0 && in_array('menu-item-has-children', $classes)) {
+            $title_lower = strtolower($item->title);
+            $url = isset($item->url) ? strtolower($item->url) : '';
+            if (strpos($title_lower, 'service') !== false || strpos($url, '/services') !== false) {
+                $classes[] = 'has-mega-menu';
+            }
+        }
+        
         $class_names = join(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item, $args));
         $class_names = $class_names ? ' class="' . esc_attr($class_names) . '"' : '';
         
@@ -364,7 +505,7 @@ class EHS_Mega_Menu_Walker extends Walker_Nav_Menu {
             // Second level items become column headers in mega menu
             // Output column div and title, but NOT the ul (that comes from start_lvl for depth 2)
             $output .= $indent . '<div class="mega-menu-column">';
-            $output .= '<h4 class="mega-menu-column-title">' . esc_html($item->title) . '</h4>';
+            $output .= '<h4 class="mega-menu-column-title">' . nl2br(esc_html($item->title)) . '</h4>';
             // The <ul class="sub-menu"> will be opened by start_lvl when depth === 2
         } elseif ($depth === 2) {
             // Third level items - links within columns (these are the actual service links)
@@ -585,9 +726,172 @@ class EHS_Mega_Menu_Walker extends Walker_Nav_Menu {
 }
 
 /**
- * Ensure all published Services appear in the mega menu.
- * Groups services by service_category terms (falls back to "More Services") and injects
- * missing links as additional mega menu columns under the Services parent item.
+ * Canonical 5-column mega menu structure (per DEVELOPER_IMPLEMENTATION_GUIDE.md Part 1).
+ * Order and titles are fixed; services are mapped into these columns only.
+ */
+function ehs_mega_menu_canonical_columns() {
+    return array(
+        "EHS\nConsulting", /* two-line title for even column headers */
+        'Construction Safety',
+        'Industrial Hygiene',
+        'Environmental Testing',
+        'Specialized Services',
+    );
+}
+
+/**
+ * Map a service (by title/slug) to one of the 5 canonical column indices (0-4).
+ * Returns column index or null if not in nav (e.g. excluded).
+ *
+ * @param string $title Service post title
+ * @param string $slug  Service post slug
+ * @return int|null 0-4 for column index, or null to exclude
+ */
+function ehs_mega_menu_service_to_column($title, $slug) {
+    $t = strtolower($title);
+    $s = strtolower($slug);
+
+    // Exclude from nav (per guide)
+    if (strpos($t, 'ergonomic') !== false || strpos($t, 'fume hood') !== false ||
+        strpos($s, 'ergonomic') !== false || strpos($s, 'fume-hood') !== false) {
+        return null;
+    }
+
+    // Column 1: EHS Consulting — EHS Consulting, EHS Staff Outsourcing
+    if (strpos($t, 'ehs consulting') !== false || strpos($s, 'ehs-consulting') !== false) {
+        return 0;
+    }
+    if (strpos($t, 'staff outsourcing') !== false || strpos($t, 'ehs staff') !== false ||
+        strpos($s, 'staff-outsourcing') !== false || strpos($s, 'ehs-staff') !== false) {
+        return 0;
+    }
+
+    // Column 2: Construction Safety — Construction Safety Consulting, SSHO, Caltrans, Federal Contracting
+    if (strpos($t, 'construction safety') !== false || strpos($s, 'construction-safety') !== false) {
+        return 1;
+    }
+    if (strpos($t, 'ssho') !== false || strpos($t, 'federal military') !== false ||
+        strpos($s, 'ssho') !== false || strpos($s, 'federal-military') !== false) {
+        return 1;
+    }
+    if (strpos($t, 'caltrans') !== false || strpos($s, 'caltrans') !== false) {
+        return 1;
+    }
+    if (strpos($t, 'federal contracting') !== false || strpos($s, 'federal-contracting') !== false) {
+        return 1;
+    }
+
+    // Column 3: Industrial Hygiene — Industrial Hygiene Services, Lead Compliance Plans
+    if (strpos($t, 'industrial hygiene') !== false || strpos($s, 'industrial-hygiene') !== false) {
+        return 2;
+    }
+    if (strpos($t, 'lead compliance') !== false || strpos($s, 'lead-compliance') !== false) {
+        return 2;
+    }
+
+    // Column 4: Environmental Testing — Mold Testing, Asbestos Testing, Indoor Air Quality
+    if (strpos($t, 'mold testing') !== false || strpos($s, 'mold-testing') !== false) {
+        return 3;
+    }
+    if (strpos($t, 'asbestos') !== false || strpos($s, 'asbestos') !== false) {
+        return 3;
+    }
+    if (strpos($t, 'indoor air quality') !== false || strpos($s, 'indoor-air-quality') !== false ||
+        strpos($t, 'iaq') !== false) {
+        return 3;
+    }
+
+    // Column 5: Specialized Services — Water Damage Assessments, Fire & Smoke Assessments
+    if (strpos($t, 'water damage') !== false || strpos($s, 'water-damage') !== false) {
+        return 4;
+    }
+    if (strpos($t, 'fire') !== false && strpos($t, 'smoke') !== false) {
+        return 4;
+    }
+    if (strpos($t, 'fire & smoke') !== false || strpos($t, 'fire and smoke') !== false) {
+        return 4;
+    }
+    if (strpos($s, 'fire') !== false && strpos($s, 'smoke') !== false) {
+        return 4;
+    }
+    if (strpos($t, 'smoke assessment') !== false) {
+        return 4;
+    }
+
+    // Unmapped services go to Specialized Services (column 5) per guide
+    return 4;
+}
+
+/**
+ * Canonical services display order: section titles and post IDs in the order they appear in the mega menu.
+ * This is the single source of truth for "services menu order". Sync applies it to the built-in menu_order post field + service_section meta.
+ * Ergonomic / Fume Hood are excluded (not listed).
+ *
+ * @return array<int, array{title: string, ids: int[]}>
+ */
+function ehs_services_display_order() {
+    return array(
+        array(
+            'title' => 'EHS Consulting',
+            'ids' => array(3286, 3287), // Environmental Health and Safety EHS Consulting, EHS Staff Outsourcing
+        ),
+        array(
+            'title' => 'Construction Safety',
+            'ids' => array(3277, 3269, 3273, 3275), // Construction Safety, SSHO, Caltrans, Federal Contracting
+        ),
+        array(
+            'title' => 'Industrial Hygiene',
+            'ids' => array(3285, 3271), // Industrial Hygiene San Diego, Lead Compliance Plan Services
+        ),
+        array(
+            'title' => 'Environmental Testing',
+            'ids' => array(3283, 3282, 3284), // Mold Testing, Asbestos Testing, Indoor Air Quality
+        ),
+        array(
+            'title' => 'Specialized Services',
+            'ids' => array(3280, 3279), // Water Damage Assessments, Fire and Smoke Assessments
+        ),
+    );
+}
+
+/**
+ * Apply the canonical services display order to service posts.
+ * Sets the built-in menu_order post field (running index) and service_section meta for each post found by ID.
+ * Run on-demand via admin "Sync order" or WP-CLI; not automatic.
+ *
+ * @return array{updated: int, skipped: int[]} Count of posts updated and list of IDs not found or not published.
+ */
+function ehs_sync_services_display_order() {
+    $order = 0;
+    $updated = 0;
+    $skipped = array();
+    foreach (ehs_services_display_order() as $section) {
+        $title = $section['title'];
+        foreach ($section['ids'] as $post_id) {
+            $post_id = (int) $post_id;
+            if ($post_id <= 0) {
+                continue;
+            }
+            $post = get_post($post_id);
+            if (!$post || $post->post_type !== 'services' || $post->post_status !== 'publish') {
+                $skipped[] = $post_id;
+                continue;
+            }
+            wp_update_post(array(
+                'ID'         => $post->ID,
+                'menu_order' => $order,
+            ));
+            update_post_meta($post->ID, 'service_section', $title);
+            $order++;
+            $updated++;
+        }
+    }
+    return array('updated' => $updated, 'skipped' => $skipped);
+}
+
+/**
+ * Ensure Services mega menu has exactly 5 columns, 1 row, no duplicates.
+ * Replaces WP menu children under Services with the canonical 5 columns and mapped service links.
  */
 add_filter('wp_nav_menu_objects', 'ehs_fill_services_mega_menu', 10, 2);
 function ehs_fill_services_mega_menu($items, $args = null) {
@@ -609,67 +913,31 @@ function ehs_fill_services_mega_menu($items, $args = null) {
         return $items;
     }
 
-    // Collect URLs already present under Services to avoid duplicates
-    $existing_urls = array();
-    foreach ($items as $item) {
-        if ($item->menu_item_parent == $services_parent->ID || $item->menu_item_parent != 0) {
-            if (!empty($item->url)) {
-                $existing_urls[untrailingslashit(strtolower($item->url))] = true;
-            }
-        }
-    }
+    $canonical_columns = ehs_mega_menu_canonical_columns();
 
-    // Fetch all published services ordered by service_order then title
-    $services = get_posts(array(
-        'post_type'      => 'services',
-        'post_status'    => 'publish',
-        'numberposts'    => -1,
-        'orderby'        => array('meta_value_num' => 'ASC', 'title' => 'ASC'),
-        'meta_key'       => 'service_order',
-        'suppress_filters' => false,
-    ));
-
-    if (empty($services)) {
-        return $items;
-    }
-
-    // Map existing column headers by title for reuse
-    $existing_columns = array();
+    // Collect IDs of all items that are UNDER Services (children + descendants only; keep Services parent)
+    $under_services_ids = array();
     foreach ($items as $item) {
         if ($item->menu_item_parent == $services_parent->ID) {
-            $existing_columns[strtolower(trim($item->title))] = $item->ID;
+            $under_services_ids[$item->ID] = true;
+        }
+    }
+    foreach ($items as $item) {
+        if (isset($under_services_ids[$item->menu_item_parent])) {
+            $under_services_ids[$item->ID] = true;
         }
     }
 
-    $columns = array();
-    $uncategorized = array();
+    // Keep Services parent and all other top-level items; remove only Services' children and descendants
+    $items = array_filter($items, function ($item) use ($under_services_ids) {
+        return !isset($under_services_ids[$item->ID]);
+    });
+    $items = array_values($items);
 
-    foreach ($services as $service) {
-        $url = untrailingslashit(strtolower(get_permalink($service)));
-        if (isset($existing_urls[$url])) {
-            continue; // already in menu
-        }
+    $next_id = -1;
+    $max_order = !empty($items) ? max(wp_list_pluck($items, 'menu_order')) : 0;
 
-        $terms = wp_get_post_terms($service->ID, 'service_category');
-        if (!is_wp_error($terms) && !empty($terms)) {
-            $term = $terms[0];
-            $columns[$term->term_id]['term'] = $term;
-            $columns[$term->term_id]['items'][] = $service;
-        } else {
-            $uncategorized[] = $service;
-        }
-    }
-
-    // Nothing new to add
-    if (empty($columns) && empty($uncategorized)) {
-        return $items;
-    }
-
-    $next_id = -1; // virtual IDs for new menu items
-    $max_order = max(wp_list_pluck($items, 'menu_order'));
-
-    // Helper to create a nav menu item object
-    $make_item = function($args) use (&$next_id, &$max_order) {
+    $make_item = function ($args) use (&$next_id, &$max_order) {
         $obj = new stdClass();
         $obj->ID = $obj->db_id = $next_id--;
         $obj->menu_item_parent = isset($args['parent']) ? $args['parent'] : 0;
@@ -689,62 +957,153 @@ function ehs_fill_services_mega_menu($items, $args = null) {
         return $obj;
     };
 
-    // Build term-based columns
-    foreach ($columns as $data) {
-        $term = $data['term'];
-        $term_title = $term->name;
-        $parent_id = isset($existing_columns[strtolower(trim($term_title))]) ? $existing_columns[strtolower(trim($term_title))] : null;
+    // Create exactly 5 column headers in order
+    $column_parent_ids = array();
+    foreach ($canonical_columns as $i => $title) {
+        $col = $make_item(array('parent' => $services_parent->ID, 'title' => $title));
+        $items[] = $col;
+        $column_parent_ids[$i] = $col->ID;
+    }
 
-        if (!$parent_id) {
-            $column_item = $make_item(array(
-                'parent' => $services_parent->ID,
-                'title'  => $term_title,
-            ));
-            $items[] = $column_item;
-            $parent_id = $column_item->ID;
+    // Fetch all published services (built-in menu_order; supports page-attributes)
+    $services = get_posts(array(
+        'post_type'      => 'services',
+        'post_status'    => 'publish',
+        'numberposts'    => -1,
+        'orderby'        => array('menu_order' => 'ASC', 'title' => 'ASC'),
+        'suppress_filters' => false,
+    ));
+
+    $seen_urls = array();
+    $column_children = array_fill(0, 5, array());
+
+    foreach ($services as $service) {
+        $title = get_the_title($service);
+        $slug = $service->post_name;
+        $url = get_permalink($service);
+        $url_key = untrailingslashit(strtolower($url));
+
+        if (isset($seen_urls[$url_key])) {
+            continue;
         }
+        $col_index = ehs_mega_menu_service_to_column($title, $slug);
+        if ($col_index === null) {
+            continue;
+        }
+        $seen_urls[$url_key] = true;
+        $column_children[$col_index][] = array(
+            'title' => $title,
+            'url'   => $url,
+            'id'    => $service->ID,
+        );
+    }
 
-        foreach ($data['items'] as $service) {
+    // Append child items per column (preserve order within column)
+    foreach ($column_children as $col_index => $children) {
+        $parent_id = $column_parent_ids[$col_index];
+        foreach ($children as $c) {
             $items[] = $make_item(array(
-                'parent'    => $parent_id,
-                'title'     => get_the_title($service),
-                'url'       => get_permalink($service),
-                'object'    => 'services',
-                'object_id' => $service->ID,
-                'type'      => 'post_type',
-                'type_label'=> __('Service', 'hello-elementor-child'),
+                'parent'     => $parent_id,
+                'title'      => $c['title'],
+                'url'        => $c['url'],
+                'object'     => 'services',
+                'object_id'  => $c['id'],
+                'type'       => 'post_type',
+                'type_label' => __('Service', 'hello-elementor-child'),
             ));
         }
     }
 
-    // Add uncategorized services under a fallback column
-    if (!empty($uncategorized)) {
-        $fallback_title = 'More Services';
-        $fallback_parent = isset($existing_columns[strtolower(trim($fallback_title))]) ? $existing_columns[strtolower(trim($fallback_title))] : null;
-
-        if (!$fallback_parent) {
-            $fallback_item = $make_item(array(
-                'parent' => $services_parent->ID,
-                'title'  => $fallback_title,
-            ));
-            $items[] = $fallback_item;
-            $fallback_parent = $fallback_item->ID;
+    // Remove Ergonomic Evaluations and Fume Hood Certifications from nav (even if in WP menu)
+    $items = array_filter($items, function ($item) {
+        $title = isset($item->title) ? strtolower($item->title) : '';
+        $url  = isset($item->url) ? strtolower($item->url) : '';
+        if (strpos($title, 'ergonomic') !== false || strpos($title, 'fume hood') !== false) {
+            return false;
         }
+        if (strpos($url, 'ergonomic') !== false || strpos($url, 'fume-hood') !== false) {
+            return false;
+        }
+        return true;
+    });
+    $items = array_values($items);
 
-        foreach ($uncategorized as $service) {
-            $items[] = $make_item(array(
-                'parent'    => $fallback_parent,
-                'title'     => get_the_title($service),
-                'url'       => get_permalink($service),
-                'object'    => 'services',
-                'object_id' => $service->ID,
-                'type'      => 'post_type',
-                'type_label'=> __('Service', 'hello-elementor-child'),
-            ));
+    // Ensure Services parent has menu-item-has-children so walker/CSS/JS apply mega menu.
+    // The walker checks wp_get_nav_menu_items() (DB only); our columns have negative IDs and
+    // are not in the DB, so the walker would not add the class. Set it here on the filtered list.
+    foreach ($items as $item) {
+        if ($item->ID === $services_parent->ID) {
+            $item->classes = isset($item->classes) && is_array($item->classes) ? $item->classes : array();
+            if (!in_array('menu-item-has-children', $item->classes)) {
+                $item->classes[] = 'menu-item-has-children';
+            }
+            if (!in_array('has-mega-menu', $item->classes)) {
+                $item->classes[] = 'has-mega-menu';
+            }
+            break;
         }
     }
 
     return $items;
+}
+
+/**
+ * Remove outdated "Need a Construction Safety Consultant?" from nav (per Navigation Menu Discrepancies task).
+ * Runs after ehs_fill_services_mega_menu so it applies to the final menu (including top-level custom links).
+ */
+add_filter('wp_nav_menu_objects', 'ehs_remove_construction_consultant_landing_from_nav', 20, 2);
+function ehs_remove_construction_consultant_landing_from_nav($items, $args = null) {
+    if (empty($items) || !is_object($args) || !isset($args->theme_location) || $args->theme_location !== 'menu-1') {
+        return $items;
+    }
+    $outdated_title = 'Need a Construction Safety Consultant?';
+    $outdated_slugs = array('need-a-construction-safety-consultant', 'construction-safety-consultant');
+    $remove_ids = array();
+    foreach ($items as $item) {
+        $title_match = isset($item->title) && stripos($item->title, $outdated_title) !== false;
+        $url = isset($item->url) ? strtolower($item->url) : '';
+        $slug_match = false;
+        foreach ($outdated_slugs as $slug) {
+            if (strpos($url, $slug) !== false) {
+                $slug_match = true;
+                break;
+            }
+        }
+        if ($title_match || $slug_match) {
+            $remove_ids[$item->ID] = true;
+        }
+    }
+    // Also remove any item whose parent is being removed
+    foreach ($items as $item) {
+        if (isset($item->menu_item_parent) && isset($remove_ids[$item->menu_item_parent])) {
+            $remove_ids[$item->ID] = true;
+        }
+    }
+    return array_values(array_filter($items, function ($item) use ($remove_ids) {
+        return !isset($remove_ids[$item->ID]);
+    }));
+}
+
+/**
+ * Point nav menu About link to /about/ (mega menu and header nav).
+ * Menu item may be stored as about-us in WP; we output /about/ for consistency.
+ */
+add_filter('wp_nav_menu_objects', 'ehs_nav_menu_about_canonical_url', 25, 2);
+function ehs_nav_menu_about_canonical_url($items, $args = null) {
+	if (empty($items)) {
+		return $items;
+	}
+	$about_url = function_exists('ehs_get_page_url') ? ehs_get_page_url('about') : home_url('/about/');
+	foreach ($items as $item) {
+		if (empty($item->url)) {
+			continue;
+		}
+		$path = trim(parse_url($item->url, PHP_URL_PATH), '/');
+		if (in_array(strtolower($path), array('about-us', 'about'), true)) {
+			$item->url = $about_url;
+		}
+	}
+	return $items;
 }
 
 /**
@@ -832,6 +1191,21 @@ add_filter('template_include', function ($template) {
 
     return $template;
 }, 99);
+
+/**
+ * Ensure singular service pages always use theme PHP header/footer (not Elementor Theme Builder).
+ * Task: Template Inconsistency – avoids old nav/footer/copyright on these URLs:
+ * - /environmental-health-and-safety-ehs-consulting/
+ * - /ehs-staff-outsourcing/
+ * - /industrial-hygiene-san-diego/
+ * - /san-diego-indoor-air-quality-testing/
+ */
+add_filter('elementor/theme/get_location_templates/template_id', function ($template_id, $location) {
+    if (is_singular('services') && in_array($location, array('header', 'footer'), true)) {
+        return 0;
+    }
+    return $template_id;
+}, 10, 2);
 
 // ========================================
 // ELEMENTOR DESIGN SYSTEM INTEGRATION
@@ -923,9 +1297,14 @@ function ehs_get_reading_time($post_id = null) {
 add_filter('wp_kses_allowed_html', 'ehs_allow_svg_in_footer', 10, 2);
 function ehs_allow_svg_in_footer($allowed, $context) {
     if ($context === 'post' || $context === 'page') {
+        $allowed['span'] = array(
+            'class' => array(),
+            'aria-hidden' => array(),
+        );
         $allowed['svg'] = array(
             'xmlns' => array(),
             'viewbox' => array(),
+            'viewBox' => array(),
             'fill' => array(),
             'stroke' => array(),
             'stroke-width' => array(),
@@ -937,8 +1316,57 @@ function ehs_allow_svg_in_footer($allowed, $context) {
         $allowed['path'] = array(
             'd' => array(),
         );
+        $allowed['circle'] = array(
+            'cx' => array(),
+            'cy' => array(),
+            'r' => array(),
+        );
+        $allowed['polyline'] = array(
+            'points' => array(),
+        );
+        $allowed['rect'] = array(
+            'x' => array(),
+            'y' => array(),
+            'width' => array(),
+            'height' => array(),
+            'rx' => array(),
+            'ry' => array(),
+        );
     }
     return $allowed;
+}
+
+/**
+ * Redirect legacy fire/smoke URL to canonical (per Navigation Menu Discrepancies task).
+ */
+add_action('template_redirect', 'ehs_redirect_california_fire_smoke', 5);
+function ehs_redirect_california_fire_smoke() {
+    if (is_admin() || wp_doing_ajax()) {
+        return;
+    }
+    $request_uri = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : '';
+    $path = trim(parse_url($request_uri, PHP_URL_PATH), '/');
+    if (strtolower($path) === 'california-fire-and-smoke-assessments') {
+        wp_safe_redirect(home_url('/fire-and-smoke-assessment/'), 301);
+        exit;
+    }
+}
+
+/**
+ * Redirect legacy /industrial-hygiene/ to canonical service URL.
+ * Task: Broken/Inconsistent Internal Links - all links use /industrial-hygiene-san-diego/.
+ */
+add_action('template_redirect', 'ehs_redirect_industrial_hygiene_legacy', 5);
+function ehs_redirect_industrial_hygiene_legacy() {
+	if (is_admin() || wp_doing_ajax()) {
+		return;
+	}
+	$request_uri = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : '';
+	$path = trim(parse_url($request_uri, PHP_URL_PATH), '/');
+	if (strtolower($path) === 'industrial-hygiene') {
+		wp_safe_redirect(home_url('/industrial-hygiene-san-diego/'), 301);
+		exit;
+	}
 }
 
 /**

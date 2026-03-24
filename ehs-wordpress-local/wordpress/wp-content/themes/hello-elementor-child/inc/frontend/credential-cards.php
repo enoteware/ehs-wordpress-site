@@ -101,6 +101,88 @@ function ehs_render_credential_card($credential) {
 }
 
 /**
+ * Normalize credential card input to array shape (title, description, image, link).
+ *
+ * @param array|WP_Post $card Card data array or credential post.
+ * @return array|null Card array or null if invalid.
+ */
+function ehs_credential_card_simple_normalize($card) {
+    if (is_a($card, 'WP_Post')) {
+        if ($card->post_type !== 'credentials') {
+            return null;
+        }
+        return [
+            'title'       => get_the_title($card),
+            'description' => get_the_excerpt($card) ?: wp_trim_words(get_the_content(null, false, $card), 30),
+            'image'       => get_the_post_thumbnail_url($card, 'medium'),
+            'link'        => get_permalink($card),
+        ];
+    }
+    if (is_array($card) && isset($card['title'])) {
+        return [
+            'title'       => isset($card['title']) ? $card['title'] : '',
+            'description' => isset($card['description']) ? $card['description'] : '',
+            'image'       => isset($card['image']) ? $card['image'] : '',
+            'link'        => isset($card['link']) ? $card['link'] : '',
+        ];
+    }
+    return null;
+}
+
+/**
+ * Render simple credential card (footer and other compact contexts).
+ *
+ * Outputs HTML for a single credential with optional image, title, description.
+ * Accepts card array (title, description, image, link) or WP_Post.
+ *
+ * @param array|WP_Post $card Card data or credential post.
+ * @param array         $args Optional. e.g. show_description (default true).
+ * @return void Outputs HTML directly
+ */
+function ehs_render_credential_card_simple($card, $args = []) {
+    $data = ehs_credential_card_simple_normalize($card);
+    if ($data === null) {
+        return;
+    }
+
+    $args = wp_parse_args($args, [
+        'show_description' => true,
+    ]);
+
+    $title = $data['title'];
+    $description = $data['description'];
+    $image = $data['image'];
+    $link = $data['link'];
+    ?>
+    <article class="ehs-credential-card-simple">
+        <?php if (!empty($image)) : ?>
+            <div class="ehs-credential-card-simple__image">
+                <?php if (!empty($link)) : ?>
+                    <a href="<?php echo esc_url($link); ?>">
+                        <img src="<?php echo esc_url($image); ?>" alt="<?php echo esc_attr($title); ?>" loading="lazy" />
+                    </a>
+                <?php else : ?>
+                    <img src="<?php echo esc_url($image); ?>" alt="<?php echo esc_attr($title); ?>" loading="lazy" />
+                <?php endif; ?>
+            </div>
+        <?php endif; ?>
+        <div class="ehs-credential-card-simple__content">
+            <h3 class="ehs-credential-card-simple__title">
+                <?php if (!empty($link)) : ?>
+                    <a href="<?php echo esc_url($link); ?>" class="ehs-credential-card-simple__link"><?php echo esc_html($title); ?></a>
+                <?php else : ?>
+                    <?php echo esc_html($title); ?>
+                <?php endif; ?>
+            </h3>
+            <?php if ($args['show_description'] && !empty($description)) : ?>
+                <p class="ehs-credential-card-simple__description"><?php echo esc_html($description); ?></p>
+            <?php endif; ?>
+        </div>
+    </article>
+    <?php
+}
+
+/**
  * Render Credentials Grid
  *
  * Outputs a grid of credential cards

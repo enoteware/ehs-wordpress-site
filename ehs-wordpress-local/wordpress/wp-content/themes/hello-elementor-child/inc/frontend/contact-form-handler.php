@@ -286,6 +286,10 @@ function ehs_send_resend_email($api_key, $email_data) {
         $body['bcc'] = is_array($email_data['bcc']) ? $email_data['bcc'] : array($email_data['bcc']);
     }
 
+    if (isset($email_data['attachments']) && !empty($email_data['attachments'])) {
+        $body['attachments'] = $email_data['attachments'];
+    }
+
     $response = wp_remote_post($url, array(
         'headers' => array(
             'Authorization' => 'Bearer ' . $api_key,

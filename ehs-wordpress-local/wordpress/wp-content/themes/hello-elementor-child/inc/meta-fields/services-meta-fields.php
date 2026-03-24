@@ -20,6 +20,7 @@ function ehs_register_services_meta_fields() {
         'service_related_services' => array('type' => 'string', 'sanitize' => 'sanitize_text_field'),
         'service_featured'     => array('type' => 'boolean', 'sanitize' => 'rest_sanitize_boolean'),
         'service_order'        => array('type' => 'integer', 'sanitize' => 'absint'),
+        'service_section'      => array('type' => 'string', 'sanitize' => 'sanitize_text_field'),
     );
 
     foreach ($meta_fields as $field => $config) {

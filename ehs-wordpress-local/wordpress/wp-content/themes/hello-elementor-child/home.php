@@ -200,7 +200,7 @@ if (!empty($sticky_posts)) {
         <div class="ehs-insights-cta-content">
             <h2>Stay Informed on EHS Best Practices</h2>
             <p>Get the latest insights on environmental health, safety regulations, and compliance strategies delivered to your inbox.</p>
-            <a href="<?php echo home_url('/contact/'); ?>" class="ehs-btn ehs-btn-solid-secondary ehs-btn-lg">
+            <a href="<?php echo esc_url( ehs_get_page_url( 'contact' ) ); ?>" class="ehs-btn ehs-btn-solid-secondary ehs-btn-lg">
                 Contact Our Experts
             </a>
         </div>

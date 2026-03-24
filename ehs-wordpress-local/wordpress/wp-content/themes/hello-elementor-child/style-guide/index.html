@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EHS Design System - Index</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
+        }
+        
+        body {
+            font-family: 'Maven Pro', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            padding: 0;
+            line-height: 1.6;
+        }
+        
+        /* Design System Navigation Styles */
+        .design-system-nav {
+            background: #003366;
+            color: white;
+            padding: 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 10000;
+            margin-bottom: 0;
+            width: 100%;
+            max-width: 100%;
+            overflow: visible;
+        }
+        
+        .design-system-nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            overflow: visible;
+        }
+        
+        .design-system-nav-brand {
+            flex: 0 0 auto;
+        }
+        
+        .design-system-nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 0;
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+        }
+        
+        .design-system-nav-logo:hover {
+            opacity: 0.9;
+        }
+        
+        .design-system-nav-logo-img {
+            height: 40px;
+            width: auto;
+            display: block;
+        }
+        
+        .design-system-nav-logo-text {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: white;
+            white-space: nowrap;
+        }
+        
+        .design-system-nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 0;
+            align-items: center;
+        }
+        
+        .design-system-nav-item {
+            position: relative;
+        }
+        
+        .design-system-nav-link {
+            display: block;
+            padding: 15px 20px;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.2s ease;
+            border-bottom: 3px solid transparent;
+            white-space: nowrap;
+        }
+        
+        .design-system-nav-link:hover {
+            color: #FFB81C;
+            background: rgba(255, 184, 28, 0.1);
+        }
+        
+        .design-system-nav-link:focus {
+            outline: 2px solid #FFB81C;
+            outline-offset: -2px;
+        }
+        
+        /* Active state */
+        .design-system-nav-item:has(a[href="index.html"]) a[href="index.html"],
+        .design-system-nav-item:has(a[href="./"]) a[href="./"],
+        .design-system-nav-item:has(a[href="."]) a[href="."] {
+            color: #FFB81C;
+            border-bottom-color: #FFB81C;
+        }
+        
+        /* Dropdown */
+        .design-system-nav-item-has-dropdown {
+            position: relative;
+        }
+        
+        .design-system-nav-arrow {
+            font-size: 0.7rem;
+            margin-left: 5px;
+            transition: transform 0.2s ease;
+        }
+        
+        .design-system-nav-item-has-dropdown:hover .design-system-nav-arrow {
+            transform: rotate(180deg);
+        }
+        
+        .design-system-nav-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 200px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            border-radius: 0 0 8px 8px;
+            list-style: none;
+            margin: 0;
+            padding: 8px 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 10001;
+        }
+        
+        .design-system-nav-item-has-dropdown:hover .design-system-nav-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .design-system-nav-dropdown li {
+            margin: 0;
+        }
+        
+        .design-system-nav-dropdown a {
+            display: block;
+            padding: 12px 20px;
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+        
+        .design-system-nav-dropdown a:hover {
+            background: #F5F5F5;
+            color: #003366;
+        }
+        
+        /* Tablet and smaller - prevent overflow */
+        @media (max-width: 991px) {
+            .design-system-nav-container {
+                padding: 0 15px;
+            }
+            
+            .design-system-nav-link {
+                padding: 15px 12px;
+                font-size: 14px;
+            }
+        }
+        
+        /* Mobile */
+        @media (max-width: 767px) {
+            .design-system-nav-container {
+                flex-direction: column;
+                padding: 0;
+            }
+            
+            .design-system-nav-brand {
+                width: 100%;
+                text-align: center;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            .design-system-nav-logo {
+                justify-content: center;
+            }
+            
+            .design-system-nav-logo-text {
+                display: none;
+            }
+            
+            .design-system-nav-menu {
+                width: 100%;
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .design-system-nav-item {
+                width: 100%;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            .design-system-nav-link {
+                width: 100%;
+                text-align: center;
+                padding: 15px 20px;
+            }
+            
+            .design-system-nav-dropdown {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                background: rgba(0, 0, 0, 0.1);
+                border-radius: 0;
+            }
+        }
+        
+        .main-content {
+            padding: 60px 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 60px;
+            border-radius: 8px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+        }
+        
+        h1 {
+            color: #003366;
+            font-weight: 700;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+        }
+        
+        .nav-section {
+            margin-bottom: 40px;
+        }
+        
+        .nav-section h2 {
+            color: #003366;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #FFB81C;
+        }
+        
+        .nav-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .nav-links li {
+            margin-bottom: 12px;
+        }
+        
+        .nav-links a {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 20px;
+            background: #003366;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        
+        .nav-links a:hover {
+            background: #FFB81C;
+            color: #003366;
+            transform: translateX(5px);
+        }
+        
+        .nav-links a::after {
+            content: "→";
+            margin-left: auto;
+            font-size: 1.2rem;
+        }
+        
+        .description {
+            color: #666;
+            font-size: 0.95rem;
+            margin-top: 5px;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Design System Navigation -->
+    <nav class="design-system-nav" id="design-system-nav">
+        <div class="design-system-nav-container">
+            <div class="design-system-nav-brand">
+                <a href="index.html" class="design-system-nav-logo">
+                    <img src="../wordpress/wp-content/wordpress/wp-content/uploads/2019/11/final-logo.svg" alt="EHS Analytical Solutions" class="design-system-nav-logo-img">
+                    <span class="design-system-nav-logo-text">Design System</span>
+                </a>
+            </div>
+            <ul class="design-system-nav-menu">
+                <li class="design-system-nav-item">
+                    <a href="index.html" class="design-system-nav-link">Home</a>
+                </li>
+                <li class="design-system-nav-item">
+                    <a href="style-guide.html" class="design-system-nav-link">Style Guide</a>
+                </li>
+                <li class="design-system-nav-item design-system-nav-item-has-dropdown">
+                    <a href="#" class="design-system-nav-link">Demos <span class="design-system-nav-arrow">▼</span></a>
+                    <ul class="design-system-nav-dropdown">
+                        <li><a href="style-guide-assets/demos/mega-menu-demo.html">Mega Menu</a></li>
+                        <li><a href="style-guide-assets/demos/service-template-demo.html">Service Template</a></li>
+                    </ul>
+                </li>
+                <li class="design-system-nav-item">
+                    <a href="DESIGN_SYSTEM.md" class="design-system-nav-link">Quick Reference</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="main-content">
+        <div class="container">
+        <h1>EHS Design System</h1>
+        <p class="subtitle">Complete design system documentation and style guide</p>
+        
+        <div class="nav-section">
+            <h2>Documentation</h2>
+            <ul class="nav-links">
+                <li>
+                    <a href="style-guide.html">
+                        <span>Complete Style Guide</span>
+                    </a>
+                    <div class="description">Full visual reference with all components, colors, typography, and examples</div>
+                </li>
+                <li>
+                    <a href="DESIGN_SYSTEM.md">
+                        <span>Quick Reference (Markdown)</span>
+                    </a>
+                    <div class="description">Developer quick reference guide for CSS classes and design specifications</div>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="nav-section">
+            <h2>Interactive Demos</h2>
+            <ul class="nav-links">
+                <li>
+                    <a href="style-guide-assets/demos/mega-menu-demo.html">
+                        <span>Mega Menu Demo</span>
+                    </a>
+                    <div class="description">Standalone interactive demo of the mega menu navigation component</div>
+                </li>
+                <li>
+                    <a href="style-guide-assets/demos/service-template-demo.html">
+                        <span>Service Template Demo</span>
+                    </a>
+                    <div class="description">Standalone demo of the service page template structure</div>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="nav-section">
+            <h2>Resources</h2>
+            <ul class="nav-links">
+                <li>
+                    <a href="../../MEGA_MENU_DESIGN_RECOMMENDATIONS.md">
+                        <span>Mega Menu Implementation Guide</span>
+                    </a>
+                    <div class="description">Complete guide for implementing mega menu with code examples</div>
+                </li>
+                <li>
+                    <a href="style-guide-assets/README.md">
+                        <span>Assets Documentation</span>
+                    </a>
+                    <div class="description">Documentation for JavaScript files and demo pages</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    </div>
+</body>
+</html>

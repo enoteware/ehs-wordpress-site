@@ -20,6 +20,14 @@
         headers.forEach(header => {
             header.addEventListener('click', toggleAccordion);
             header.addEventListener('keydown', handleKeydown);
+            // If rendered open by default (e.g. EHS Staff Outsourcing), set maxHeight so resize/toggle work
+            if (header.getAttribute('aria-expanded') === 'true') {
+                const contentId = header.getAttribute('aria-controls');
+                const content = contentId ? document.getElementById(contentId) : null;
+                if (content) {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                }
+            }
         });
     }
 

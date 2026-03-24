@@ -170,7 +170,7 @@ function ehs_unified_cta($title = '', $text = '', $show_phone_button = true) {
         $text = 'Contact us today to discuss your project needs with our certified EHS professionals.';
     }
     
-    $contact_url = home_url('/contact/');
+    $contact_url = ehs_get_page_url('contact');
     $phone_number = ehs_get_option('phone');
     $phone_link = ehs_get_phone(true);
     ?>
@@ -181,9 +181,7 @@ function ehs_unified_cta($title = '', $text = '', $show_phone_button = true) {
             <div class="service-cta-buttons">
                 <a href="<?php echo esc_url($contact_url); ?>" class="ehs-btn ehs-btn-solid-secondary ehs-btn-lg">Contact Us Today</a>
                 <?php if ($show_phone_button && $phone_number) : ?>
-                    <a href="tel:<?php echo esc_attr($phone_link); ?>" class="ehs-btn ehs-btn-outline-white ehs-btn-lg">
-                        <span style="font-size: 1.2rem; font-weight: 700;"><?php echo esc_html($phone_number); ?></span>
-                    </a>
+                    <a href="tel:<?php echo esc_attr($phone_link); ?>" class="ehs-btn ehs-btn-outline-white ehs-btn-lg"><?php echo esc_html($phone_number); ?></a>
                 <?php endif; ?>
             </div>
         </div>
@@ -209,7 +207,7 @@ function ehs_service_cta($title = '', $text = '', $button_text = 'Get a Free Quo
         $text = 'Contact us today for a free consultation and quote. Our team of certified professionals is ready to help with your project.';
     }
     if (empty($button_url)) {
-        $button_url = home_url('/contact/');
+        $button_url = ehs_get_page_url('contact');
     }
     
     // Use unified CTA but allow custom button text
@@ -225,9 +223,7 @@ function ehs_service_cta($title = '', $text = '', $button_text = 'Get a Free Quo
                 $phone_link = ehs_get_phone(true);
                 if ($phone_number) :
                 ?>
-                    <a href="tel:<?php echo esc_attr($phone_link); ?>" class="ehs-btn ehs-btn-outline-white ehs-btn-lg">
-                        <span style="font-size: 1.2rem; font-weight: 700;"><?php echo esc_html($phone_number); ?></span>
-                    </a>
+                    <a href="tel:<?php echo esc_attr($phone_link); ?>" class="ehs-btn ehs-btn-outline-white ehs-btn-lg"><?php echo esc_html($phone_number); ?></a>
                 <?php endif; ?>
             </div>
         </div>
@@ -325,13 +321,12 @@ function ehs_service_meta_cards($post_id = 0) {
 function ehs_service_sidebar_menu() {
     $current_id = get_the_ID();
     
-    // Get all published services, ordered by service_order meta field
+    // Get all published services, ordered by built-in menu_order (page-attributes)
     $services = get_posts(array(
         'post_type' => 'services',
         'posts_per_page' => -1,
         'post_status' => 'publish',
-        'orderby' => 'meta_value_num',
-        'meta_key' => 'service_order',
+        'orderby' => 'menu_order',
         'order' => 'ASC',
     ));
     
@@ -513,6 +508,44 @@ function ehs_service_toc_sidebar($toc_data = array()) {
 }
 
 /**
+ * Whether to show menu_order next to service titles on the front-end (for sanity checking).
+ * Set to true when ?show_order=1 (or ?show_oder=1 typo) is in the URL, or when EHS_SHOW_SERVICE_ORDER constant is defined and true.
+ *
+ * @return bool
+ */
+function ehs_show_service_order_on_front() {
+    if (defined('EHS_SHOW_SERVICE_ORDER') && EHS_SHOW_SERVICE_ORDER) {
+        return true;
+    }
+    if (isset($_GET['show_order']) && $_GET['show_order'] === '1') {
+        return true;
+    }
+    if (isset($_GET['show_oder']) && $_GET['show_oder'] === '1') {
+        return true;
+    }
+    return false;
+}
+
+/**
+ * Optional order badge for service card titles (front-end). Empty unless show_order is active.
+ *
+ * @param WP_Post|int $post Service post object or post ID
+ * @return string HTML span with menu_order, or empty string
+ */
+function ehs_service_card_order_badge($post) {
+    if (!ehs_show_service_order_on_front()) {
+        return '';
+    }
+    $p = is_object($post) ? $post : get_post($post);
+    if (!$p || $p->post_type !== 'services') {
+        return '';
+    }
+    // Read from DB so we always get the current menu_order (post object may not have it in some contexts)
+    $order = (int) get_post_field('menu_order', $p->ID);
+    return ' <span class="service-card__order-badge" aria-hidden="true" style="color:#646970; font-weight:400; font-size:0.85em;">(' . $order . ')</span>';
+}
+
+/**
  * Render a single service card
  *
  * @param WP_Post $service Service post object
@@ -541,9 +574,18 @@ function ehs_render_service_card($service) {
     $thumbnail = get_the_post_thumbnail_url($service->ID, 'large');
     $icon_id = get_post_meta($service->ID, 'service_icon', true);
 
+    $permalink = get_permalink($service->ID);
+    $aria_label = sprintf(
+        /* translators: %s: service title */
+        __('Learn more about %s', 'hello-elementor-child'),
+        $service->post_title
+    );
+
     ob_start();
     ?>
-    <article class="service-card">
+    <a href="<?php echo esc_url($permalink); ?>"
+       class="service-card"
+       aria-label="<?php echo esc_attr($aria_label); ?>">
         <?php if ($thumbnail) : ?>
             <div class="service-card__image">
                 <img src="<?php echo esc_url($thumbnail); ?>"
@@ -557,20 +599,20 @@ function ehs_render_service_card($service) {
         <?php endif; ?>
         <div class="service-card__content">
             <h3 class="service-card__title">
-                <?php echo esc_html($service->post_title); ?>
+                <?php echo esc_html($service->post_title);
+                echo ehs_service_card_order_badge($service); ?>
             </h3>
             <?php if (!empty($excerpt)) : ?>
                 <p class="service-card__excerpt">
                     <?php echo esc_html(wp_trim_words($excerpt, 20)); ?>
                 </p>
             <?php endif; ?>
-            <a href="<?php echo esc_url(get_permalink($service->ID)); ?>"
-               class="service-card__link">
+            <span class="service-card__link">
                 <?php esc_html_e('Learn More', 'hello-elementor-child'); ?>
                 <span class="screen-reader-text"><?php printf(esc_html__('about %s', 'hello-elementor-child'), $service->post_title); ?></span>
-            </a>
+            </span>
         </div>
-    </article>
+    </a>
     <?php
     return ob_get_clean();
 }
@@ -615,6 +657,17 @@ function ehs_render_service_cards_grid($services, $section_title = '', $section_
 }
 
 /**
+ * Render matching credential cards for the current service (from checklist/relationship).
+ * Returns HTML string or empty string. Stub returns empty until ACF/relationship is defined.
+ *
+ * @return string HTML markup or empty string
+ */
+function ehs_render_service_matching_credentials() {
+	// No service_credentials / matching credentials meta implemented yet; return empty so page and footer load.
+	return '';
+}
+
+/**
  * Output related services card grid
  *
  * Displays related services based on service_related_services meta field
@@ -656,11 +709,12 @@ function ehs_service_related_cards($post_id = 0, $section_title = 'Related Servi
  * Service Cards Shortcode
  *
  * Usage examples:
- * [service_cards] - Display all services
+ * [service_cards] - Display all services (ordered by built-in menu_order; run Settings > Services Order sync first)
  * [service_cards ids="123,456,789"] - Display specific services by ID
  * [service_cards category="construction-safety"] - Display services by category slug
  * [service_cards title="Our Services" count="6" orderby="title" order="ASC"]
  * [service_cards featured="1"] - Display only featured services
+ * orderby: menu_order (default), title, date, meta_value (requires meta_key)
  *
  * @param array $atts Shortcode attributes
  * @return string HTML markup
@@ -672,21 +726,26 @@ function ehs_service_cards_shortcode($atts) {
         'area' => '',             // Service area slug
         'featured' => '',         // Show only featured (1) or non-featured (0)
         'count' => -1,            // Number of services to display (-1 for all)
-        'orderby' => 'menu_order', // Order by: menu_order, title, date, meta_value
+        'orderby' => 'menu_order', // menu_order (default), title, date, meta_value
         'order' => 'ASC',         // Order direction: ASC, DESC
         'title' => '',            // Section title (empty to hide)
         'exclude' => '',          // Comma-separated IDs to exclude
     ), $atts, 'service_cards');
 
+    $exclude_ids = !empty($atts['exclude']) ? array_filter(array_map('absint', explode(',', $atts['exclude']))) : array();
+    $count = intval($atts['count']);
+
     $args = array(
         'post_type' => 'services',
-        'posts_per_page' => intval($atts['count']),
+        'posts_per_page' => $count > 0 ? $count : -1,
         'post_status' => 'publish',
         'orderby' => $atts['orderby'],
         'order' => strtoupper($atts['order']),
     );
 
-    // Handle specific IDs
+    if ($atts['orderby'] === 'meta_value' || $atts['orderby'] === 'meta_value_num') {
+        $args['meta_key'] = isset($atts['meta_key']) ? $atts['meta_key'] : 'service_order';
+    }
     if (!empty($atts['ids'])) {
         $ids = array_filter(array_map('absint', explode(',', $atts['ids'])));
         if (!empty($ids)) {
@@ -694,8 +753,6 @@ function ehs_service_cards_shortcode($atts) {
             $args['orderby'] = 'post__in';
         }
     }
-
-    // Handle category filter
     if (!empty($atts['category'])) {
         $args['tax_query'] = array(
             array(
@@ -705,8 +762,6 @@ function ehs_service_cards_shortcode($atts) {
             ),
         );
     }
-
-    // Handle area filter
     if (!empty($atts['area'])) {
         if (isset($args['tax_query'])) {
             $args['tax_query']['relation'] = 'AND';
@@ -719,8 +774,6 @@ function ehs_service_cards_shortcode($atts) {
             'terms' => sanitize_text_field($atts['area']),
         );
     }
-
-    // Handle featured filter
     if ($atts['featured'] !== '') {
         $args['meta_query'] = array(
             array(
@@ -730,18 +783,8 @@ function ehs_service_cards_shortcode($atts) {
             ),
         );
     }
-
-    // Handle orderby meta_value
-    if ($atts['orderby'] === 'meta_value') {
-        $args['meta_key'] = 'service_order';
-    }
-
-    // Handle exclude
-    if (!empty($atts['exclude'])) {
-        $exclude_ids = array_filter(array_map('absint', explode(',', $atts['exclude'])));
-        if (!empty($exclude_ids)) {
-            $args['post__not_in'] = $exclude_ids;
-        }
+    if (!empty($exclude_ids)) {
+        $args['post__not_in'] = $exclude_ids;
     }
 
     $services = get_posts($args);

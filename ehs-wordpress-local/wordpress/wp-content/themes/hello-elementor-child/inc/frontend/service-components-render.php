@@ -13,61 +13,6 @@ if (!defined('ABSPATH')) {
 }
 
 /**
- * Minify component HTML to avoid wpautop corrupting shortcode output.
- *
- * Some environments/plugins end up applying wpautop after shortcode expansion.
- * Removing inter-tag whitespace/newlines prevents stray <p></p> tags from being
- * injected into complex component markup (e.g., timelines).
- *
- * @param string $html Raw HTML
- * @return string Minified HTML (whitespace between tags removed)
- */
-function ehs_service_component_minify_html($html) {
-    if (!is_string($html) || $html === '') {
-        return '';
-    }
-
-    $html = trim($html);
-    return preg_replace('/>\\s+</', '><', $html);
-}
-
-/**
- * Normalize project timeline data to avoid duplicated/mismatched years.
- *
- * Editors sometimes include the year prefix in the title (e.g. "2023 – Project"),
- * which can then disagree with the separate `year` field. Prefer a year prefix
- * embedded in the title when present and strip it from the visible title.
- *
- * @param array $project Project data
- * @return array Normalized project data
- */
-function ehs_project_timeline_normalize_project($project) {
-    if (!is_array($project)) {
-        return array();
-    }
-
-    $year = isset($project['year']) ? trim((string) $project['year']) : '';
-    $title = isset($project['title']) ? trim((string) $project['title']) : '';
-
-    if ($title !== '') {
-        $decoded_title = html_entity_decode($title, ENT_QUOTES, 'UTF-8');
-        if (preg_match('/^\\s*(\\d{4})\\s*[-–—]\\s*(.+)\\s*$/u', $decoded_title, $matches)) {
-            $title_year = $matches[1];
-            $title_rest = trim($matches[2]);
-
-            if ($title_rest !== '') {
-                $project['title'] = $title_rest;
-            }
-            if ($title_year !== '' && $title_year !== $year) {
-                $project['year'] = $title_year;
-            }
-        }
-    }
-
-    return $project;
-}
-
-/**
  * Render video component
  *
  * @param array $component Component data
@@ -108,7 +53,7 @@ function ehs_render_service_video($component) {
         <?php endif; ?>
     </div>
     <?php
-    return ehs_service_component_minify_html(ob_get_clean());
+    return ob_get_clean();
 }
 
 /**
@@ -174,7 +119,7 @@ function ehs_render_service_checklist($component) {
         </ul>
     </div>
     <?php
-    return ehs_service_component_minify_html(ob_get_clean());
+    return ob_get_clean();
 }
 
 /**
@@ -222,78 +167,7 @@ function ehs_render_service_timeline($component) {
         </div>
     </div>
     <?php
-    return ehs_service_component_minify_html(ob_get_clean());
-}
-
-/**
- * Render project timeline/portfolio component
- *
- * @param string $title Section title
- * @param array $projects Array of project data
- * @return string HTML markup
- */
-function ehs_render_project_timeline($title, $projects) {
-    if (empty($projects) || !is_array($projects)) {
-        return '';
-    }
-
-    ob_start();
-    ?>
-    <div class="service-component service-component-projects">
-        <?php if (!empty($title)) : ?>
-            <h2 class="service-component-projects__title"><?php echo esc_html($title); ?></h2>
-        <?php endif; ?>
-        <div class="project-timeline">
-            <div class="project-timeline__line">
-                <div class="project-timeline__progress"></div>
-            </div>
-            <?php foreach ($projects as $index => $project) : ?>
-                <?php $project = ehs_project_timeline_normalize_project($project); ?>
-                <div class="project-timeline__item" data-index="<?php echo $index; ?>">
-                    <div class="project-timeline__marker">
-                        <div class="project-timeline__icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                                <line x1="16" y1="2" x2="16" y2="6"></line>
-                                <line x1="8" y1="2" x2="8" y2="6"></line>
-                                <line x1="3" y1="10" x2="21" y2="10"></line>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="project-timeline__card">
-                        <div class="project-timeline__card-header">
-                            <?php if (!empty($project['year'])) : ?>
-                                <span class="project-timeline__card-year"><?php echo esc_html($project['year']); ?></span>
-                            <?php endif; ?>
-                            <?php if (!empty($project['title'])) : ?>
-                                <h3 class="project-timeline__card-title"><?php echo esc_html($project['title']); ?></h3>
-                            <?php endif; ?>
-                            <?php if (!empty($project['value'])) : ?>
-                                <span class="project-timeline__card-value"><?php echo esc_html($project['value']); ?></span>
-                            <?php endif; ?>
-                        </div>
-                        <div class="project-timeline__card-body">
-                            <?php if (!empty($project['client'])) : ?>
-                                <p class="project-timeline__card-client">
-                                    <strong>Client:</strong> <?php echo esc_html($project['client']); ?>
-                                </p>
-                            <?php endif; ?>
-                            <?php if (!empty($project['description'])) : ?>
-                                <p class="project-timeline__card-description"><?php echo esc_html($project['description']); ?></p>
-                            <?php endif; ?>
-                        </div>
-                        <?php if (!empty($project['service'])) : ?>
-                            <div class="project-timeline__card-footer">
-                                <span class="project-timeline__card-service"><?php echo esc_html($project['service']); ?></span>
-                            </div>
-                        <?php endif; ?>
-                    </div>
-                </div>
-            <?php endforeach; ?>
-        </div>
-    </div>
-    <?php
-    return ehs_service_component_minify_html(ob_get_clean());
+    return ob_get_clean();
 }
 
 /**

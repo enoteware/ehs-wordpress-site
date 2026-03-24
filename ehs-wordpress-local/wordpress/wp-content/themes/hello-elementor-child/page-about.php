@@ -51,9 +51,7 @@ if (!$hero_image_url) {
                 understands the importance of rigorous safety standards and unwavering compliance.
             </p>
             <p style="font-size: 1.1rem; line-height: 1.8; color: var(--ehs-dark-gray); margin-bottom: 0;">
-                Our certified professionals hold industry-leading credentials including CIH, CSP, CHST, and PMP certifications.
-                With over 20 years of experience and 500+ successful projects, we've established ourselves as trusted advisors
-                to California's construction, manufacturing, healthcare, and government sectors.
+                Our certified professionals hold industry-leading credentials including Certified Industrial Hygienist (CIH), Certified Safety Professional (CSP), Construction Health and Safety Technician (CHST), Certified Asbestos Consultant (CAC), Project Management Professional (PMP), Safety Management Specialist (SMS), Certified Instructional Trainer (CIT), and Certified Utility Safety Professional (CUSP). With over 20 years of experience and 500+ successful projects, we've established ourselves as trusted advisors to California's construction, manufacturing, healthcare, and government sectors.
             </p>
         </div>
     </div>
@@ -69,7 +67,7 @@ if (!$hero_image_url) {
                 <h2>Veteran-Owned Excellence</h2>
                 <p style="font-size: 1.1rem; line-height: 1.8; color: var(--ehs-dark-gray); margin-bottom: 30px;">
                     EHS Analytical Solutions is proudly owned and operated by disabled military veterans with decades of 
-                    construction safety and environmental health experience. Our certifications provide real value to your projects.
+                    EHS and construction safety experience. Our certifications provide real value to your projects.
                 </p>
 
                 <div class="metrics-row">
@@ -127,7 +125,7 @@ if (!$hero_image_url) {
      ======================================== -->
 <section class="ehs-services-section">
     <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
-        <h2>Our Team</h2>
+        <h2>Our Leadership Team</h2>
         <p style="text-align: center; font-size: 1.1rem; color: var(--ehs-dark-gray); max-width: 800px; margin: 0 auto 60px;">
             Meet the certified professionals leading EHS Analytical Solutions.
         </p>
@@ -237,7 +235,7 @@ if (!$hero_image_url) {
                 </div>
                 <h3>Industry Credentials</h3>
                 <p>
-                    Our certified professionals hold CIH, CSP, CHST, PMP, CUSP, and IOSH certifications, ensuring 
+                    Our certified professionals hold CIH, CSP, CHST, CAC, SMS, CIT, PMP, and CUSP certifications, ensuring 
                     the highest standards of expertise in every project.
                 </p>
             </div>

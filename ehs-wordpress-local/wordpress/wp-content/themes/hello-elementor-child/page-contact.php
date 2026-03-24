@@ -17,7 +17,7 @@ get_header();
 <!-- ========================================
      HERO SECTION
      ======================================== -->
-<section class="ehs-hero-section" style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/hero-background.jpg');">
+<section class="ehs-hero-section ehs-hero-section--contact" style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/hero-background.jpg');">
     <div class="hero-overlay"></div>
     <div class="hero-content">
         <h1>Contact Us</h1>
@@ -25,6 +25,85 @@ get_header();
     </div>
 </section>
 
+
+<section class="ehs-credentials-section">
+    <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;">
+            <!-- Contact Form -->
+            <div>
+                <h2 style="font-family: 'Maven Pro', sans-serif; text-align: left; margin-bottom: 30px;">
+                    Send Us a Message
+                </h2>
+                <p style="font-size: 1rem; line-height: 1.8; color: var(--ehs-dark-gray); margin-bottom: 40px;">
+                    Fill out the form below and we'll get back to you as soon as possible. For urgent matters,
+                    please call us directly at <a href="tel:<?php echo esc_attr( ehs_get_phone(true) ); ?>" style="color: var(--ehs-navy); font-weight: 600;"><?php echo esc_html( ehs_get_option('phone') ); ?></a>.
+                </p>
+                <?php echo ehs_render_contact_form(array(
+                    'show_name' => true,
+                    'show_phone' => true,
+                    'show_company' => true,
+                    'submit_text' => 'Send Message',
+                )); ?>
+            </div>
+
+            <!-- Certifications & Info -->
+            <div>
+                <h2 style="font-family: 'Maven Pro', sans-serif; text-align: left; margin-bottom: 30px;">
+                    Why Choose EHS Analytical?
+                </h2>
+                
+                <div style="margin-bottom: 40px;">
+                    <h3 style="font-family: 'Maven Pro', sans-serif; font-weight: 700; font-size: 1.25rem; color: var(--ehs-navy); margin-bottom: 15px;">
+                        Service-Disabled Veteran-Owned
+                    </h3>
+                    <p style="font-size: 1rem; line-height: 1.8; color: var(--ehs-dark-gray); margin-bottom: 0;">
+                        As a certified SDVOSB and DVBE, we help contractors meet their small business participation goals 
+                        while delivering the highest quality EHS services in the industry.
+                    </p>
+                </div>
+
+                <div style="margin-bottom: 40px;">
+                    <h3 style="font-family: 'Maven Pro', sans-serif; font-weight: 700; font-size: 1.25rem; color: var(--ehs-navy); margin-bottom: 15px;">
+                        Industry-Leading Credentials
+                    </h3>
+                    <p style="font-size: 1rem; line-height: 1.8; color: var(--ehs-dark-gray); margin-bottom: 20px;">
+                        Our team holds CIH, CSP, CHST, CAC, SMS, CIT, PMP, and CUSP certifications, ensuring expert-level 
+                        expertise on every project.
+                    </p>
+                    <div class="ehs-credential-cards-grid ehs-credentials-section__cards">
+                        <?php
+                        $contact_certs = ehs_get_all_credential_cards();
+                        $contact_certs = array_slice($contact_certs, 0, 9);
+                        foreach ($contact_certs as $cert) {
+                            ehs_render_credential_card_simple($cert, array('show_description' => false));
+                        }
+                        ?>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 40px;">
+                    <h3 style="font-family: 'Maven Pro', sans-serif; font-weight: 700; font-size: 1.25rem; color: var(--ehs-navy); margin-bottom: 15px;">
+                        Proven Track Record
+                    </h3>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="padding: 10px 0; border-bottom: 1px solid #e0e0e0; font-size: 1rem; color: var(--ehs-dark-gray);">
+                            <strong style="color: var(--ehs-navy);">20+ Years</strong> of experience
+                        </li>
+                        <li style="padding: 10px 0; border-bottom: 1px solid #e0e0e0; font-size: 1rem; color: var(--ehs-dark-gray);">
+                            <strong style="color: var(--ehs-navy);">500+ Projects</strong> completed successfully
+                        </li>
+                        <li style="padding: 10px 0; border-bottom: 1px solid #e0e0e0; font-size: 1rem; color: var(--ehs-dark-gray);">
+                            <strong style="color: var(--ehs-navy);">California & Federal</strong> project expertise
+                        </li>
+                        <li style="padding: 10px 0; font-size: 1rem; color: var(--ehs-dark-gray);">
+                            <strong style="color: var(--ehs-navy);">OSHA, Cal/OSHA, EM 385-1-1</strong> compliance specialists
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <!-- ========================================
      CONTACT INFORMATION SECTION
      ======================================== -->
@@ -89,109 +168,36 @@ get_header();
 </section>
 
 <!-- ========================================
-     CONTACT FORM SECTION
-     ======================================== -->
-<section class="ehs-credentials-section">
-    <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;">
-            <!-- Contact Form -->
-            <div>
-                <h2 style="font-family: 'Maven Pro', sans-serif; text-align: left; margin-bottom: 30px;">
-                    Send Us a Message
-                </h2>
-                <p style="font-size: 1rem; line-height: 1.8; color: var(--ehs-dark-gray); margin-bottom: 40px;">
-                    Fill out the form below and we'll get back to you as soon as possible. For urgent matters,
-                    please call us directly at <a href="tel:<?php echo esc_attr( ehs_get_phone(true) ); ?>" style="color: var(--ehs-navy); font-weight: 600;"><?php echo esc_html( ehs_get_option('phone') ); ?></a>.
-                </p>
-                <?php echo ehs_render_contact_form(array(
-                    'show_name' => true,
-                    'show_phone' => true,
-                    'show_company' => true,
-                    'submit_text' => 'Send Message',
-                )); ?>
-            </div>
-
-            <!-- Certifications & Info -->
-            <div>
-                <h2 style="font-family: 'Maven Pro', sans-serif; text-align: left; margin-bottom: 30px;">
-                    Why Choose EHS Analytical?
-                </h2>
-                
-                <div style="margin-bottom: 40px;">
-                    <h3 style="font-family: 'Maven Pro', sans-serif; font-weight: 700; font-size: 1.25rem; color: var(--ehs-navy); margin-bottom: 15px;">
-                        Service-Disabled Veteran-Owned
-                    </h3>
-                    <p style="font-size: 1rem; line-height: 1.8; color: var(--ehs-dark-gray); margin-bottom: 0;">
-                        As a certified SDVOSB and DVBE, we help contractors meet their small business participation goals 
-                        while delivering the highest quality EHS services in the industry.
-                    </p>
-                </div>
-
-                <div style="margin-bottom: 40px;">
-                    <h3 style="font-family: 'Maven Pro', sans-serif; font-weight: 700; font-size: 1.25rem; color: var(--ehs-navy); margin-bottom: 15px;">
-                        Industry-Leading Credentials
-                    </h3>
-                    <p style="font-size: 1rem; line-height: 1.8; color: var(--ehs-dark-gray); margin-bottom: 20px;">
-                        Our team holds CIH, CSP, CHST, PMP, CUSP, and IOSH certifications, ensuring expert-level 
-                        expertise on every project.
-                    </p>
-                    <div class="badge-grid" style="grid-template-columns: repeat(3, 1fr); gap: 15px;">
-                        <?php 
-                        // Show a subset of badges
-                        $key_badges = array('CIH', 'CSP', 'CHST', 'PMP', 'SDVOSB', 'DVBE');
-                        $all_badges = array(
-                            'CIH' => array('name' => 'CIH', 'full_name' => 'Certified Industrial Hygienist', 'image' => 'cih-badge.svg'),
-                            'CSP' => array('name' => 'CSP', 'full_name' => 'Certified Safety Professional', 'image' => 'csp-badge.svg'),
-                            'CHST' => array('name' => 'CHST', 'full_name' => 'Construction Health and Safety Technician', 'image' => 'chst-badge.svg'),
-                            'PMP' => array('name' => 'PMP', 'full_name' => 'Project Management Professional', 'image' => 'pmp-badge.svg'),
-                            'SDVOSB' => array('name' => 'SDVOSB', 'full_name' => 'Service-Disabled Veteran-Owned Small Business', 'image' => 'sdvosb-badge.svg'),
-                            'DVBE' => array('name' => 'DVBE', 'full_name' => 'Disabled Veteran Business Enterprise', 'image' => 'dvbe-badge.svg'),
-                        );
-                        $badge_dir = get_stylesheet_directory_uri() . '/assets/images/badges/';
-                        foreach ($key_badges as $badge_key):
-                            if (isset($all_badges[$badge_key])):
-                                $badge = $all_badges[$badge_key];
-                        ?>
-                            <div class="badge-item">
-                                <img src="<?php echo esc_url($badge_dir . $badge['image']); ?>" 
-                                     alt="<?php echo esc_attr($badge['full_name']); ?>" 
-                                     title="<?php echo esc_attr($badge['full_name']); ?>">
-                            </div>
-                        <?php 
-                            endif;
-                        endforeach; 
-                        ?>
-                    </div>
-                </div>
-
-                <div style="margin-bottom: 40px;">
-                    <h3 style="font-family: 'Maven Pro', sans-serif; font-weight: 700; font-size: 1.25rem; color: var(--ehs-navy); margin-bottom: 15px;">
-                        Proven Track Record
-                    </h3>
-                    <ul style="list-style: none; padding: 0; margin: 0;">
-                        <li style="padding: 10px 0; border-bottom: 1px solid #e0e0e0; font-size: 1rem; color: var(--ehs-dark-gray);">
-                            <strong style="color: var(--ehs-navy);">20+ Years</strong> of experience
-                        </li>
-                        <li style="padding: 10px 0; border-bottom: 1px solid #e0e0e0; font-size: 1rem; color: var(--ehs-dark-gray);">
-                            <strong style="color: var(--ehs-navy);">500+ Projects</strong> completed successfully
-                        </li>
-                        <li style="padding: 10px 0; border-bottom: 1px solid #e0e0e0; font-size: 1rem; color: var(--ehs-dark-gray);">
-                            <strong style="color: var(--ehs-navy);">California & Federal</strong> project expertise
-                        </li>
-                        <li style="padding: 10px 0; font-size: 1rem; color: var(--ehs-dark-gray);">
-                            <strong style="color: var(--ehs-navy);">OSHA, Cal/OSHA, EM 385-1-1</strong> compliance specialists
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 <!-- ========================================
      RESPONSIVE ADJUSTMENTS
      ======================================== -->
 <style>
+.ehs-hero-section--contact { min-height: 300px; }
+
+/* Contact page: compact cards so form and phone appear above the fold */
+.ehs-services-section {
+    padding: 40px 32px;
+}
+.ehs-services-section .container > div[style*="grid-template-columns: repeat(3, 1fr)"] {
+    gap: 30px !important;
+    margin-bottom: 30px !important;
+}
+.ehs-services-section .service-col {
+    padding: 20px 15px;
+}
+.ehs-services-section .service-col-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+.ehs-services-section .service-col-icon svg {
+    width: 40px;
+    height: 40px;
+}
+.ehs-services-section .service-col h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+}
 @media (max-width: 992px) {
     .ehs-services-section .container > div[style*="grid-template-columns: repeat(3, 1fr)"] {
         grid-template-columns: 1fr !important;
@@ -203,13 +209,13 @@ get_header();
         gap: 40px !important;
     }
     
-    .badge-grid {
+    .ehs-credential-cards-grid {
         grid-template-columns: repeat(3, 1fr) !important;
     }
 }
 
 @media (max-width: 768px) {
-    .badge-grid {
+    .ehs-credential-cards-grid {
         grid-template-columns: repeat(2, 1fr) !important;
     }
 }

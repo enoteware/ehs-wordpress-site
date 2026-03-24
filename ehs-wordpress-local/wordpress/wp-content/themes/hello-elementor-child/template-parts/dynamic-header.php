@@ -39,7 +39,7 @@ $header_nav_menu = wp_nav_menu( [
 
 // Phone number and contact URL (from Site Options)
 $phone_number = ehs_get_option('phone');
-$contact_url = esc_url( home_url( '/contact/' ) );
+$contact_url = esc_url( ehs_get_page_url( 'contact' ) );
 ?>
 
 <header id="site-header" class="ehs-header">
@@ -74,11 +74,13 @@ $contact_url = esc_url( home_url( '/contact/' ) );
 				</nav>
 			<?php endif; ?>
 			
-			<!-- Contact Column -->
+			<!-- Contact Column: phone and Get Started are both buttons per design system (.ehs-header-button + .ehs-btn) -->
 			<div class="ehs-header-contact">
-				<a href="tel:<?php echo esc_attr( preg_replace( '/[^0-9+]/', '', $phone_number ) ); ?>" class="ehs-header-phone">
-					<?php echo esc_html( $phone_number ); ?>
-				</a>
+				<div class="ehs-header-button">
+					<a href="tel:<?php echo esc_attr( preg_replace( '/[^0-9+]/', '', $phone_number ) ); ?>" class="ehs-btn ehs-btn-solid-secondary ehs-btn-md" aria-label="Call <?php echo esc_attr( $phone_number ); ?>">
+						<?php echo esc_html( $phone_number ); ?>
+					</a>
+				</div>
 				<div class="ehs-header-button">
 					<a href="<?php echo $contact_url; ?>" class="ehs-btn ehs-btn-solid-primary ehs-btn-md">
 						Get Started
@@ -112,7 +114,7 @@ $contact_url = esc_url( home_url( '/contact/' ) );
 				echo $mobile_nav_menu; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				?>
 				<div class="hero-cta-group">
-					<a href="<?php echo $contact_url; ?>" class="ehs-btn ehs-btn-solid-green ehs-btn-lg">
+					<a href="<?php echo $contact_url; ?>" class="ehs-btn ehs-btn-solid-primary ehs-btn-lg">
 						Get Started
 					</a>
 				</div>

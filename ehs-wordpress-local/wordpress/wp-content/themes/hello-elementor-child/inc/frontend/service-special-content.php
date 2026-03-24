@@ -29,6 +29,8 @@ function ehs_render_service_accordions($post_id = null) {
 
     echo '<div class="service-accordions-container">';
 
+    $accordions_open_by_default = (bool) get_field('service_accordions_open_by_default', $post_id);
+
     foreach ($accordions as $index => $accordion) {
         $accordion_id = 'accordion-' . $post_id . '-' . $index;
         $title = isset($accordion['accordion_title']) ? sanitize_text_field($accordion['accordion_title']) : '';
@@ -38,13 +40,18 @@ function ehs_render_service_accordions($post_id = null) {
             continue;
         }
 
+        $is_open = $accordions_open_by_default;
+        $aria_expanded = $is_open ? 'true' : 'false';
+        $header_class = 'accordion-header' . ($is_open ? ' is-open' : '');
+        $content_class = 'accordion-content' . ($is_open ? ' is-open' : '');
+
         echo '<div class="service-accordion">';
-        echo '<button class="accordion-header" aria-expanded="false" aria-controls="' . esc_attr($accordion_id) . '">';
+        echo '<button class="' . esc_attr($header_class) . '" aria-expanded="' . esc_attr($aria_expanded) . '" aria-controls="' . esc_attr($accordion_id) . '">';
         echo '<span class="accordion-title">' . esc_html($title) . '</span>';
         echo '<span class="accordion-icon" aria-hidden="true">+</span>';
         echo '</button>';
 
-        echo '<div id="' . esc_attr($accordion_id) . '" class="accordion-content" role="region" aria-labelledby="accordion-header-' . esc_attr($accordion_id) . '">';
+        echo '<div id="' . esc_attr($accordion_id) . '" class="' . esc_attr($content_class) . '" role="region" aria-labelledby="accordion-header-' . esc_attr($accordion_id) . '">';
         echo '<div class="accordion-inner">';
 
         // Parse items - support both newline-separated and pipe-separated formats
@@ -54,7 +61,12 @@ function ehs_render_service_accordions($post_id = null) {
             echo '<ul class="accordion-items">';
             foreach ($item_list as $item) {
                 if (!empty($item)) {
-                    echo '<li>' . esc_html($item) . '</li>';
+                    // Remove <br />, <br>, and newlines so list items render as single lines
+                    $item_clean = preg_replace('/\s*<br\s*\/?>\s*|\r\n|\r|\n/i', ' ', $item);
+                    $item_clean = trim(preg_replace('/\s+/', ' ', $item_clean));
+                    if ($item_clean !== '') {
+                        echo '<li>' . esc_html($item_clean) . '</li>';
+                    }
                 }
             }
             echo '</ul>';

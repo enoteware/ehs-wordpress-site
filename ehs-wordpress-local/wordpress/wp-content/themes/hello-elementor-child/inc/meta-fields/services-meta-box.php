@@ -35,7 +35,7 @@ function ehs_service_details_meta_box_callback($post) {
     $service_icon = get_post_meta($post->ID, 'service_icon', true);
     $service_related_services = get_post_meta($post->ID, 'service_related_services', true);
     $service_featured = get_post_meta($post->ID, 'service_featured', true);
-    $service_order = get_post_meta($post->ID, 'service_order', true);
+    $service_order = (int) $post->menu_order; // Built-in WordPress post field
 
     ?>
     <table class="form-table">
@@ -93,10 +93,10 @@ function ehs_service_details_meta_box_callback($post) {
             </td>
         </tr>
         <tr>
-            <th><label for="service_order"><?php _e('Service Order', 'hello-elementor-child'); ?></label></th>
+            <th><label for="service_order"><?php _e('Order (menu_order)', 'hello-elementor-child'); ?></label></th>
             <td>
-                <input type="number" id="service_order" name="service_order" value="<?php echo esc_attr($service_order ? $service_order : '0'); ?>" min="0" class="small-text" />
-                <p class="description"><?php _e('Order for menu display (lower numbers appear first)', 'hello-elementor-child'); ?></p>
+                <input type="number" id="service_order" name="service_order" value="<?php echo esc_attr($service_order); ?>" min="0" class="small-text" />
+                <p class="description"><?php _e('Display order (built-in menu_order; lower numbers appear first)', 'hello-elementor-child'); ?></p>
             </td>
         </tr>
     </table>
@@ -139,6 +139,12 @@ function ehs_service_details_meta_box_callback($post) {
  * Save Services Meta Box Data
  */
 function ehs_save_services_meta_box($post_id) {
+    // Prevent re-entry when we call wp_update_post() below (which fires save_post_services again)
+    static $saving = false;
+    if ($saving) {
+        return;
+    }
+
     // Check nonce
     if (!isset($_POST['ehs_service_meta_box_nonce']) || !wp_verify_nonce($_POST['ehs_service_meta_box_nonce'], 'ehs_service_meta_box')) {
         return;
@@ -166,15 +172,21 @@ function ehs_save_services_meta_box($post_id) {
         }
     }
     
-    // Text/select fields
-    $text_fields = array(
-        'service_icon',
-        'service_order',
-    );
-    
-    foreach ($text_fields as $field) {
-        if (isset($_POST[$field])) {
-            update_post_meta($post_id, $field, sanitize_text_field($_POST[$field]));
+    // Text/select fields (meta)
+    if (isset($_POST['service_icon'])) {
+        update_post_meta($post_id, 'service_icon', sanitize_text_field($_POST['service_icon']));
+    }
+
+    // Built-in menu_order (WordPress post field). Guard re-entry so wp_update_post doesn't re-trigger this callback.
+    if (isset($_POST['service_order'])) {
+        $saving = true;
+        try {
+            wp_update_post(array(
+                'ID'         => $post_id,
+                'menu_order' => absint($_POST['service_order']),
+            ));
+        } finally {
+            $saving = false;
         }
     }
 

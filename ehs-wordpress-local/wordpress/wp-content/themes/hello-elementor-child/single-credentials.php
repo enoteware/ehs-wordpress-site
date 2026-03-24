@@ -25,8 +25,7 @@ while (have_posts()) : the_post();
     $type = get_post_meta(get_the_ID(), 'credential_type', true);
     $featured = get_post_meta(get_the_ID(), 'credential_featured', true);
 
-    // Get featured image for hero background
-    $hero_image = get_the_post_thumbnail_url(get_the_ID(), 'full');
+    // Featured image used for sidebar logo only (hero is solid navy)
     $featured_image = get_the_post_thumbnail(get_the_ID(), 'medium', array('class' => 'credential-single-logo'));
 
     // Map category to CSS class
@@ -45,8 +44,8 @@ while (have_posts()) : the_post();
     }
     ?>
 
-    <!-- Credential Hero Section -->
-    <section class="service-hero" style="background-image: url('<?php echo esc_url($hero_image ? $hero_image : get_stylesheet_directory_uri() . '/assets/images/hero-background.jpg'); ?>');">
+    <!-- Credential Hero Section (solid navy, no background image) -->
+    <section class="service-hero credential-hero--solid">
         <div class="service-hero-content">
             <?php if ($acronym) : ?>
                 <div style="display: inline-block; background: var(--ehs-gold); color: var(--ehs-navy); font-family: 'Maven Pro', sans-serif; font-weight: 700; font-size: 1.5rem; padding: 12px 24px; border-radius: 8px; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px;">
@@ -149,7 +148,7 @@ while (have_posts()) : the_post();
 
                 <!-- Back to Credentials Link -->
                 <div style="margin-top: 30px;">
-                    <a href="/credentials/" class="ehs-btn ehs-btn-outline-primary ehs-btn-md" style="display: block; text-align: center; text-decoration: none;">
+                    <a href="<?php echo esc_url( get_post_type_archive_link( 'credentials' ) ); ?>" class="ehs-btn ehs-btn-outline-primary ehs-btn-md" style="display: block; text-align: center; text-decoration: none;">
                         ← View All Credentials
                     </a>
                 </div>

@@ -17,6 +17,25 @@ if (function_exists('acf_add_local_field_group')) {
         'title' => 'Service Special Content',
         'fields' => [
             [
+                'key' => 'field_service_accordions_open_by_default',
+                'label' => 'Accordions open by default',
+                'name' => 'service_accordions_open_by_default',
+                'type' => 'true_false',
+                'instructions' => 'If enabled, accordion sections on this service page will be expanded when the page loads.',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => [
+                    'width' => '100',
+                    'class' => '',
+                    'id' => '',
+                ],
+                'message' => '',
+                'default_value' => 0,
+                'ui' => 1,
+                'ui_on_text' => 'Yes',
+                'ui_off_text' => 'No',
+            ],
+            [
                 'key' => 'field_service_accordions',
                 'label' => 'Service Accordions',
                 'name' => 'service_accordions',

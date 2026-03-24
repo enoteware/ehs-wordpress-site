@@ -31,58 +31,35 @@ $phone_number = ehs_get_option('phone');
 $email = ehs_get_option('email_secondary');
 $hours = ehs_get_hours();
 
-// Address (from Site Options)
-$company_name = ehs_get_option('company_name');
-$address_line1 = ehs_get_option('address_line1');
-$address_line2 = ehs_get_option('address_line2');
-$address_city_state = ehs_get_city_state_zip();
-
 // Social media links (from Site Options)
 $social_links = ehs_get_social_links(false);
 
-// Featured Credentials (from Site Options - relationship field to Credentials CPT)
-$certifications = ehs_get_credential_cards();
+// All credentials for footer (ordered by credential_order meta)
+$certifications = ehs_get_all_credential_cards();
 
-// Footer navigation menu
-$footer_nav_menu = wp_nav_menu( [
-	'theme_location' => 'menu-2',
-	'fallback_cb' => false,
-	'container' => false,
-	'echo' => false,
-	'menu_class' => 'ehs-footer-nav',
-] );
+// Footer navigation menu (hidden on single service pages to avoid redundant links under logo)
+$footer_nav_menu = '';
+if ( ! is_singular( 'services' ) ) {
+	$footer_nav_menu = wp_nav_menu( [
+		'theme_location' => 'menu-2',
+		'fallback_cb' => false,
+		'container' => false,
+		'echo' => false,
+		'menu_class' => 'ehs-footer-nav',
+	] );
+}
 ?>
 
 <footer id="site-footer" class="ehs-footer">
 	<div class="ehs-footer-container">
 		
-		<!-- Certifications Section (from Featured Credentials in Site Options) -->
+		<!-- Professional Certifications & Affiliations (all credentials, ordered by canonical order) -->
 		<?php if ( ! empty( $certifications ) ) : ?>
-			<div class="ehs-footer-section" style="margin-bottom: 60px;">
-				<h2 class="ehs-footer-heading" style="text-align: center; margin-bottom: 40px;">Professional Affiliations & Certifications</h2>
-				<div class="ehs-footer-grid" style="grid-template-columns: repeat(<?php echo min( count( $certifications ), 3 ); ?>, 1fr);">
+			<div class="ehs-footer-credentials-section">
+				<h2 class="ehs-footer-heading">Professional Certifications & Affiliations</h2>
+				<div class="ehs-footer-credentials-grid">
 					<?php foreach ( $certifications as $cert ) : ?>
-						<div class="ehs-footer-section" style="text-align: center;">
-							<?php if ( ! empty( $cert['image'] ) ) : ?>
-								<?php if ( ! empty( $cert['link'] ) ) : ?>
-									<a href="<?php echo esc_url( $cert['link'] ); ?>">
-										<img src="<?php echo esc_url( $cert['image'] ); ?>" alt="<?php echo esc_attr( $cert['title'] ); ?>" style="max-width: 80%; height: auto; margin-bottom: 20px;" />
-									</a>
-								<?php else : ?>
-									<img src="<?php echo esc_url( $cert['image'] ); ?>" alt="<?php echo esc_attr( $cert['title'] ); ?>" style="max-width: 80%; height: auto; margin-bottom: 20px;" />
-								<?php endif; ?>
-							<?php endif; ?>
-							<h3 class="ehs-footer-heading" style="font-size: 1.1rem; margin-bottom: 12px;">
-								<?php if ( ! empty( $cert['link'] ) ) : ?>
-									<a href="<?php echo esc_url( $cert['link'] ); ?>" class="ehs-footer-link">
-										<?php echo esc_html( $cert['title'] ); ?>
-									</a>
-								<?php else : ?>
-									<?php echo esc_html( $cert['title'] ); ?>
-								<?php endif; ?>
-							</h3>
-							<p class="ehs-footer-text" style="font-size: 0.95rem;"><?php echo esc_html( $cert['description'] ); ?></p>
-						</div>
+						<?php ehs_render_credential_card_simple( $cert, [ 'show_description' => false ] ); ?>
 					<?php endforeach; ?>
 				</div>
 			</div>
@@ -95,16 +72,11 @@ $footer_nav_menu = wp_nav_menu( [
 			<div class="ehs-footer-section">
 				<div class="ehs-footer-logo">
 					<?php
-					if ( has_custom_logo() ) {
-						the_custom_logo();
-					} else {
-						?>
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-							<?php echo esc_html( $site_name ); ?>
-						</a>
-						<?php
-					}
+					$footer_logo_url = get_stylesheet_directory_uri() . '/assets/images/logos/ehs_logo_white.png';
 					?>
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+						<img src="<?php echo esc_url( $footer_logo_url ); ?>" alt="<?php echo esc_attr( $site_name ); ?>" loading="lazy" />
+					</a>
 				</div>
 				<?php if ( $tagline ) : ?>
 					<p class="ehs-footer-text"><?php echo esc_html( $tagline ); ?></p>
@@ -176,20 +148,10 @@ $footer_nav_menu = wp_nav_menu( [
 				</ul>
 			</div>
 			
-			<!-- Address Column -->
+			<!-- Address Column (canonical: ehs_render_footer_address) -->
 			<div class="ehs-footer-section">
 				<h4 class="ehs-footer-heading">Our address</h4>
-				<div class="ehs-footer-address-wrapper">
-					<span class="ehs-footer-contact-icon">
-						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-					</span>
-					<p class="ehs-footer-address">
-						<strong><?php echo esc_html( $company_name ); ?></strong><br />
-						<?php echo esc_html( $address_line1 ); ?><br />
-						<?php echo esc_html( $address_line2 ); ?><br />
-						<?php echo esc_html( $address_city_state ); ?>
-					</p>
-				</div>
+				<?php ehs_render_footer_address( true ); ?>
 			</div>
 			
 		</div>

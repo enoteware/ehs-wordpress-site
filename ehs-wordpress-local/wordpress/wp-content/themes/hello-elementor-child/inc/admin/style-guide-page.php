@@ -1,8 +1,9 @@
 <?php
 /**
  * Style Guide Admin Page
- * 
- * Displays the EHS Design System Style Guide in WordPress admin
+ *
+ * Displays the EHS Design System Style Guide in WordPress admin.
+ * Source of truth: theme style-guide/ folder (single location, deploys with theme).
  */
 
 if (!defined('ABSPATH')) {
@@ -17,11 +18,11 @@ function ehs_add_style_guide_menu() {
     add_menu_page(
         'EHS Style Guide',
         'Style Guide',
-        'edit_posts', // Capability - any user who can edit posts
+        'edit_posts',
         'ehs-style-guide',
         'ehs_render_style_guide_page',
-        'dashicons-art', // Icon
-        30 // Position
+        'dashicons-art',
+        30
     );
 }
 
@@ -29,35 +30,63 @@ function ehs_add_style_guide_menu() {
  * Render the Style Guide page
  */
 function ehs_render_style_guide_page() {
-    $style_guide_path = get_stylesheet_directory() . '/style-guide.html';
-    
+    $style_guide_path = get_stylesheet_directory() . '/style-guide/style-guide.html';
     if (!file_exists($style_guide_path)) {
-        echo '<div class="wrap"><h1>Style Guide</h1><p>Style guide file not found at: ' . esc_html($style_guide_path) . '</p></div>';
+        echo '<div class="wrap"><h1>Style Guide</h1><p>Style guide not found at: <code>' . esc_html($style_guide_path) . '</code></p></div>';
         return;
     }
-    
-    // Get the HTML content
+
     $html_content = file_get_contents($style_guide_path);
-    
-    // Replace all asset paths with WordPress URLs
-    
-    // 1. Replace uploads paths (logos and media)
-    // Pattern: wordpress/wp-content/wordpress/wp-content/uploads/... → wp-content/uploads/...
-    $html_content = preg_replace(
+
+    $theme_logos_url = get_stylesheet_directory_uri() . '/assets/images/logos/';
+    $theme_logos_dir = get_stylesheet_directory() . '/assets/images/logos/';
+    $theme_uri = get_stylesheet_directory_uri();
+    $style_guide_uri = $theme_uri . '/style-guide';
+
+    // 1. docs paths: ../wordpress/wp-content/... → content URL
+    $html_content = preg_replace_callback(
+        '#\.\./wordpress/wp-content/(?:wordpress/wp-content/)?uploads/([^"\']+)#',
+        function ($m) use ($theme_logos_url, $theme_logos_dir) {
+            $subpath = $m[1];
+            $upload_file = WP_CONTENT_DIR . '/uploads/' . $subpath;
+            $basename = basename($subpath);
+            if (!file_exists($upload_file) && preg_match('#^(2019/11/final-logo\.svg|2019/09/final-logo-vertical\.svg)$#', $subpath) && file_exists($theme_logos_dir . $basename)) {
+                return esc_url($theme_logos_url . $basename);
+            }
+            return esc_url(content_url('uploads/' . $subpath));
+        },
+        $html_content
+    );
+    // 2. wordpress/wp-content/... (theme or legacy paths)
+    $html_content = preg_replace_callback(
         '#wordpress/wp-content/wordpress/wp-content/uploads/([^"\']+)#',
-        content_url('uploads/$1'),
+        function ($m) use ($theme_logos_url, $theme_logos_dir) {
+            $subpath = $m[1];
+            $upload_file = WP_CONTENT_DIR . '/uploads/' . $subpath;
+            $basename = basename($subpath);
+            if (!file_exists($upload_file) && preg_match('#^(2019/11/final-logo\.svg|2019/09/final-logo-vertical\.svg)$#', $subpath) && file_exists($theme_logos_dir . $basename)) {
+                return esc_url($theme_logos_url . $basename);
+            }
+            return esc_url(content_url('uploads/' . $subpath));
+        },
         $html_content
     );
-    
-    // Also handle direct wp-content/uploads paths
-    $html_content = preg_replace(
-        '#wp-content/uploads/([^"\']+)#',
-        content_url('uploads/$1'),
+    $html_content = preg_replace_callback(
+        '#(src|href)="wp-content/uploads/([^"\']+)"#',
+        function ($m) use ($theme_logos_url, $theme_logos_dir) {
+            $subpath = $m[2];
+            $upload_file = WP_CONTENT_DIR . '/uploads/' . $subpath;
+            if (!file_exists($upload_file) && preg_match('#^(2019/11/final-logo\.svg|2019/09/final-logo-vertical\.svg)$#', $subpath) && file_exists($theme_logos_dir . basename($subpath))) {
+                return $m[1] . '="' . esc_url($theme_logos_url . basename($subpath)) . '"';
+            }
+            return $m[1] . '="' . esc_url(content_url('uploads/' . $subpath)) . '"';
+        },
         $html_content
     );
+    // 3. style-guide-assets/ → theme style-guide/style-guide-assets/ URL
+    $html_content = str_replace('style-guide-assets/', $style_guide_uri . '/style-guide-assets/', $html_content);
     
-    // 2. Replace theme asset paths
-    // Pattern: assets/service-icons/... → theme/assets/service-icons/...
+    // 4. Theme asset paths: assets/service-icons/... → theme URL
     $theme_assets_url = get_stylesheet_directory_uri() . '/assets/';
     $html_content = str_replace(
         'assets/service-icons/',
@@ -65,7 +94,7 @@ function ehs_render_style_guide_page() {
         $html_content
     );
     
-    // 3. Replace square logo path (check multiple possible locations)
+    // 5. Square logo path (check multiple possible locations)
     $square_logo_url = null;
     
     // Check WordPress media library (search for attachment with filename)
@@ -103,11 +132,16 @@ function ehs_render_style_guide_page() {
                 }
             }
             
-            // Check theme directory as last resort
+            // Check theme directory (logos folder first, then theme root)
             if (!$square_logo_url) {
-                $square_logo_theme = get_stylesheet_directory() . '/ehs_logo_sq.svg';
-                if (file_exists($square_logo_theme)) {
-                    $square_logo_url = get_stylesheet_directory_uri() . '/ehs_logo_sq.svg';
+                $square_logo_in_logos = get_stylesheet_directory() . '/assets/images/logos/ehs_logo_sq.svg';
+                if (file_exists($square_logo_in_logos)) {
+                    $square_logo_url = get_stylesheet_directory_uri() . '/assets/images/logos/ehs_logo_sq.svg';
+                } else {
+                    $square_logo_theme = get_stylesheet_directory() . '/ehs_logo_sq.svg';
+                    if (file_exists($square_logo_theme)) {
+                        $square_logo_url = get_stylesheet_directory_uri() . '/ehs_logo_sq.svg';
+                    }
                 }
             }
         }
@@ -127,36 +161,39 @@ function ehs_render_style_guide_page() {
         );
     }
     
-    // 4. Replace any relative paths that might reference theme files
+    // 6. Other relative paths ../... → theme URL
     $html_content = preg_replace(
         '#(src|href)="\.\./([^"]+)"#',
-        '$1="' . get_stylesheet_directory_uri() . '/$2"',
+        '$1="' . $theme_uri . '/$2"',
         $html_content
     );
     
-    // Extract style tag content and add to admin head
-    if (preg_match('/<style[^>]*>(.*?)<\/style>/is', $html_content, $style_matches)) {
-        $style_content = $style_matches[1];
-        add_action('admin_head', function() use ($style_content) {
-            echo '<style>' . $style_content . '</style>';
-        }, 999);
+    // Extract all style tag content – output in page (admin_head already ran before this callback)
+    $style_output = '';
+    if (preg_match_all('/<style[^>]*>(.*?)<\/style>/is', $html_content, $style_matches, PREG_SET_ORDER)) {
+        foreach ($style_matches as $style_match) {
+            $style_output .= $style_match[1];
+        }
     }
-    
+
     // Extract body content (everything between <body> and </body>)
     $body_content = $html_content;
     if (preg_match('/<body[^>]*>(.*?)<\/body>/is', $html_content, $matches)) {
         $body_content = $matches[1];
     }
-    
+
     // Extract and append script content
     if (preg_match_all('/<script[^>]*>(.*?)<\/script>/is', $html_content, $script_matches, PREG_SET_ORDER)) {
         foreach ($script_matches as $script_match) {
             $body_content .= '<script>' . $script_match[1] . '</script>';
         }
     }
-    
-    // Wrap in a div to override admin styles and provide full-width display
-    echo '<div style="margin: -20px -20px 0 -20px; background: #f5f5f5; min-height: calc(100vh - 32px);">';
+
+    // Wrap in a div and inject styles so they apply (admin_head runs before this page, so we output CSS here)
+    echo '<div class="ehs-style-guide-wrap" style="margin: -20px -20px 0 -20px; background: #f5f5f5; min-height: calc(100vh - 32px);">';
+    if ($style_output !== '') {
+        echo '<style id="ehs-style-guide-css">' . $style_output . '</style>';
+    }
     echo $body_content;
     echo '</div>';
 }

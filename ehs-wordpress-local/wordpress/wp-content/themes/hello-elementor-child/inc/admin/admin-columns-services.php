@@ -12,6 +12,26 @@ if (!defined('ABSPATH')) {
 }
 
 /**
+ * Show menu_order next to post title in Services list (edit.php?post_type=services) for sanity when ordering.
+ */
+add_filter('the_title', 'ehs_services_admin_title_with_menu_order', 10, 2);
+function ehs_services_admin_title_with_menu_order($title, $post_id = null) {
+    if (!is_admin() || empty($post_id)) {
+        return $title;
+    }
+    $screen = function_exists('get_current_screen') ? get_current_screen() : null;
+    if (!$screen || $screen->id !== 'edit-services') {
+        return $title;
+    }
+    $post = get_post($post_id);
+    if (!$post || $post->post_type !== 'services') {
+        return $title;
+    }
+    $order = (int) $post->menu_order;
+    return $title . ' <span class="ehs-menu-order-badge" style="color:#646970; font-weight:normal; font-size:12px;">(' . $order . ')</span>';
+}
+
+/**
  * Add custom columns to Services admin list
  */
 add_filter('manage_services_posts_columns', 'ehs_services_custom_columns');
@@ -101,7 +121,8 @@ function ehs_services_column_content($column_name, $post_id) {
             break;
 
         case 'service_order':
-            $order = get_post_meta($post_id, 'service_order', true);
+            $post_obj = get_post($post_id);
+            $order = $post_obj ? (int) $post_obj->menu_order : 0;
             echo $order ? esc_html($order) : '<span style="color: #999;">0</span>';
             break;
     }
@@ -113,7 +134,7 @@ function ehs_services_column_content($column_name, $post_id) {
 add_filter('manage_edit-services_sortable_columns', 'ehs_services_sortable_columns');
 function ehs_services_sortable_columns($columns) {
     $columns['service_featured'] = 'service_featured';
-    $columns['service_order'] = 'service_order';
+    $columns['service_order'] = 'menu_order'; // Built-in post field
     return $columns;
 }
 
@@ -126,23 +147,18 @@ function ehs_services_column_orderby($query) {
         return;
     }
 
-    // Only for Services post type
     if ($query->get('post_type') !== 'services') {
         return;
     }
 
     $orderby = $query->get('orderby');
-    $meta_fields = array('service_featured', 'service_order');
-
-    if (in_array($orderby, $meta_fields)) {
-        $query->set('meta_key', $orderby);
-
-        // Use numeric ordering for order and featured
-        if (in_array($orderby, array('service_order', 'service_featured'))) {
-            $query->set('orderby', 'meta_value_num');
-        } else {
-            $query->set('orderby', 'meta_value');
-        }
+    if ($orderby === 'menu_order') {
+        $query->set('orderby', 'menu_order');
+        return;
+    }
+    if ($orderby === 'service_featured') {
+        $query->set('meta_key', 'service_featured');
+        $query->set('orderby', 'meta_value_num');
     }
 }
 

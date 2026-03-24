@@ -167,7 +167,7 @@ while (have_posts()) : the_post();
 
                 <!-- Back to Clients Link -->
                 <div style="margin-top: 30px;">
-                    <a href="/clients/" class="ehs-btn ehs-btn-outline-primary ehs-btn-md" style="display: block; text-align: center; text-decoration: none;">
+                    <a href="<?php echo esc_url( get_post_type_archive_link( 'clients' ) ); ?>" class="ehs-btn ehs-btn-outline-primary ehs-btn-md" style="display: block; text-align: center; text-decoration: none;">
                         ← View All Clients
                     </a>
                 </div>

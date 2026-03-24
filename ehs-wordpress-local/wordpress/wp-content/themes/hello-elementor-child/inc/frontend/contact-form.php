@@ -33,7 +33,7 @@ function ehs_render_contact_form($args = array()) {
     
     ob_start();
     ?>
-    <form id="<?php echo esc_attr($args['form_id']); ?>" class="ehs-contact-form <?php echo esc_attr($args['class']); ?>" data-nonce="<?php echo esc_attr($nonce); ?>">
+    <form id="<?php echo esc_attr($args['form_id']); ?>" class="ehs-contact-form <?php echo esc_attr($args['class']); ?>" method="post" action="" data-nonce="<?php echo esc_attr($nonce); ?>">
         <div class="ehs-form-messages"></div>
         
         <?php if ($args['show_name']): ?>

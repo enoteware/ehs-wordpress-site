@@ -25,6 +25,25 @@ function ehs_add_contact_form_settings_page() {
 add_action('admin_menu', 'ehs_add_contact_form_settings_page');
 
 /**
+ * Admin notice when Resend API key is not set (contact form won't send email)
+ */
+function ehs_contact_form_resend_notice() {
+    $screen = get_current_screen();
+    if (!$screen || $screen->id !== 'settings_page_ehs-contact-form-settings') {
+        return;
+    }
+    if (!current_user_can('manage_options')) {
+        return;
+    }
+    $api_key = get_option('ehs_resend_api_key', '');
+    if (!empty($api_key)) {
+        return;
+    }
+    echo '<div class="notice notice-warning"><p><strong>Contact form:</strong> Resend API key is not set. Form submissions are saved in the database but no email is sent. Configure Resend below and use “Send Test Email” to verify.</p></div>';
+}
+add_action('admin_notices', 'ehs_contact_form_resend_notice');
+
+/**
  * Render settings page
  */
 function ehs_render_contact_form_settings_page() {

@@ -270,7 +270,7 @@ if (!empty($categories)) {
         <div class="ehs-insights-cta-content">
             <h2>Need Expert EHS Guidance?</h2>
             <p>Our certified professionals can help you navigate complex environmental health and safety regulations.</p>
-            <a href="<?php echo home_url('/contact/'); ?>" class="ehs-btn ehs-btn-solid-secondary ehs-btn-lg">
+            <a href="<?php echo esc_url( ehs_get_page_url( 'contact' ) ); ?>" class="ehs-btn ehs-btn-solid-secondary ehs-btn-lg">
                 Schedule a Consultation
             </a>
         </div>

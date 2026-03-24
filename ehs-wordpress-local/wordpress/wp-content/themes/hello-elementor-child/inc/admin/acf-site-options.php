@@ -271,6 +271,43 @@ function ehs_register_site_options_fields() {
         'menu_order' => 4,
     ]);
 
+    // Homepage SEO (title & description for search and when link is shared — overrides Yoast on homepage)
+    acf_add_local_field_group([
+        'key' => 'group_ehs_homepage_seo',
+        'title' => 'Homepage SEO',
+        'fields' => [
+            [
+                'key' => 'field_ehs_homepage_seo_title',
+                'label' => 'Homepage SEO Title',
+                'name' => 'ehs_homepage_seo_title',
+                'type' => 'text',
+                'default_value' => 'Environmental Health & Safety Solutions | California & Federal Projects | Since 2004',
+                'placeholder' => 'Shown in browser tab, search results, and when the homepage link is shared',
+                'instructions' => 'Used as the page title and for link previews (e.g. when sharing the homepage on social or in chat). Keep it concise.',
+            ],
+            [
+                'key' => 'field_ehs_homepage_seo_description',
+                'label' => 'Homepage SEO Description',
+                'name' => 'ehs_homepage_seo_description',
+                'type' => 'textarea',
+                'rows' => 3,
+                'default_value' => 'CIH and CSP certified EHS consulting for manufacturing, data centers, biotech, aerospace, and construction. California and nationwide. SDVOSB/DVBE for federal and state government projects.',
+                'placeholder' => 'Short description for search engines and link previews',
+                'instructions' => 'Shown in search snippets and when the homepage link is shared. Avoid long lists or Caltrans-only focus if you want a general message.',
+            ],
+        ],
+        'location' => [
+            [
+                [
+                    'param' => 'options_page',
+                    'operator' => '==',
+                    'value' => 'ehs-site-options',
+                ],
+            ],
+        ],
+        'menu_order' => 5,
+    ]);
+
     // Service Area
     acf_add_local_field_group([
         'key' => 'group_ehs_service_area',
@@ -327,6 +364,162 @@ function ehs_register_site_options_fields() {
             ],
         ],
         'menu_order' => 6,
+    ]);
+
+    // Homepage Media (service card images + federal agency logos)
+    acf_add_local_field_group([
+        'key' => 'group_ehs_homepage_media',
+        'title' => 'Homepage Media',
+        'fields' => [
+            [
+                'key' => 'field_ehs_home_media_tab_services',
+                'label' => 'Featured & Additional Service Images',
+                'name' => '',
+                'type' => 'tab',
+            ],
+            [
+                'key' => 'field_ehs_home_ssho_image',
+                'label' => 'SSHO Services (Featured)',
+                'name' => 'ehs_home_ssho_image',
+                'type' => 'image',
+                'return_format' => 'id',
+                'preview_size' => 'medium',
+                'library' => 'all',
+            ],
+            [
+                'key' => 'field_ehs_home_construction_safety_image',
+                'label' => 'Construction Safety Consulting (Featured)',
+                'name' => 'ehs_home_construction_safety_image',
+                'type' => 'image',
+                'return_format' => 'id',
+                'preview_size' => 'medium',
+                'library' => 'all',
+            ],
+            [
+                'key' => 'field_ehs_home_caltrans_image',
+                'label' => 'Caltrans Construction Safety (Featured)',
+                'name' => 'ehs_home_caltrans_image',
+                'type' => 'image',
+                'return_format' => 'id',
+                'preview_size' => 'medium',
+                'library' => 'all',
+            ],
+            [
+                'key' => 'field_ehs_home_federal_contracting_image',
+                'label' => 'Federal Contracting Services (Featured)',
+                'name' => 'ehs_home_federal_contracting_image',
+                'type' => 'image',
+                'return_format' => 'id',
+                'preview_size' => 'medium',
+                'library' => 'all',
+            ],
+            [
+                'key' => 'field_ehs_home_industrial_hygiene_image',
+                'label' => 'Industrial Hygiene Services (Featured)',
+                'name' => 'ehs_home_industrial_hygiene_image',
+                'type' => 'image',
+                'return_format' => 'id',
+                'preview_size' => 'medium',
+                'library' => 'all',
+            ],
+            [
+                'key' => 'field_ehs_home_lead_compliance_image',
+                'label' => 'Lead Compliance Plan Services (Featured)',
+                'name' => 'ehs_home_lead_compliance_image',
+                'type' => 'image',
+                'return_format' => 'id',
+                'preview_size' => 'medium',
+                'library' => 'all',
+            ],
+            [
+                'key' => 'field_ehs_home_ehs_consulting_image',
+                'label' => 'EHS Consulting (Additional)',
+                'name' => 'ehs_home_ehs_consulting_image',
+                'type' => 'image',
+                'return_format' => 'id',
+                'preview_size' => 'medium',
+                'library' => 'all',
+            ],
+            [
+                'key' => 'field_ehs_home_environmental_testing_image',
+                'label' => 'Environmental Testing (Additional)',
+                'name' => 'ehs_home_environmental_testing_image',
+                'type' => 'image',
+                'return_format' => 'id',
+                'preview_size' => 'medium',
+                'library' => 'all',
+            ],
+            [
+                'key' => 'field_ehs_home_media_tab_agencies',
+                'label' => 'Federal Agency Logos',
+                'name' => '',
+                'type' => 'tab',
+            ],
+            [
+                'key' => 'field_ehs_home_usace_logo',
+                'label' => 'USACE Logo',
+                'name' => 'ehs_home_usace_logo',
+                'type' => 'image',
+                'return_format' => 'id',
+                'preview_size' => 'thumbnail',
+                'library' => 'all',
+            ],
+            [
+                'key' => 'field_ehs_home_navfac_logo',
+                'label' => 'NAVFAC Logo',
+                'name' => 'ehs_home_navfac_logo',
+                'type' => 'image',
+                'return_format' => 'id',
+                'preview_size' => 'thumbnail',
+                'library' => 'all',
+            ],
+            [
+                'key' => 'field_ehs_home_va_logo',
+                'label' => 'VA Logo',
+                'name' => 'ehs_home_va_logo',
+                'type' => 'image',
+                'return_format' => 'id',
+                'preview_size' => 'thumbnail',
+                'library' => 'all',
+            ],
+            [
+                'key' => 'field_ehs_home_air_force_logo',
+                'label' => 'Air Force Logo',
+                'name' => 'ehs_home_air_force_logo',
+                'type' => 'image',
+                'return_format' => 'id',
+                'preview_size' => 'thumbnail',
+                'library' => 'all',
+            ],
+            [
+                'key' => 'field_ehs_home_dod_logo',
+                'label' => 'DoD Logo',
+                'name' => 'ehs_home_dod_logo',
+                'type' => 'image',
+                'return_format' => 'id',
+                'preview_size' => 'thumbnail',
+                'library' => 'all',
+            ],
+            [
+                'key' => 'field_ehs_home_caltrans_logo',
+                'label' => 'Caltrans Logo',
+                'name' => 'ehs_home_caltrans_logo',
+                'type' => 'image',
+                'return_format' => 'id',
+                'preview_size' => 'thumbnail',
+                'library' => 'all',
+            ],
+        ],
+        'location' => [
+            [
+                [
+                    'param' => 'options_page',
+                    'operator' => '==',
+                    'value' => 'ehs-site-options',
+                ],
+            ],
+        ],
+        'menu_order' => 7,
     ]);
 }
 add_action('acf/init', 'ehs_register_site_options_fields');
