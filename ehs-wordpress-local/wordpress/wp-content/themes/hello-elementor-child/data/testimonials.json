@@ -1,0 +1,96 @@
+{
+  "business": "EHS Analytical Solutions, Inc.",
+  "source": "Google Business Profile",
+  "aggregate": {
+    "rating": 4.7,
+    "review_count": 14
+  },
+  "google_reviews_link_note": "Link cards to the Google Business Profile reviews page for EHS Analytical Solutions, Inc., San Diego",
+  "testimonials": [
+    {
+      "id": "chris-mcandrew",
+      "reviewer": "Chris McAndrew",
+      "stars": 5,
+      "service": "construction-safety",
+      "truncated": false,
+      "quote": "We've partnered with EHS Analytical Solutions since 2023 to provide on-site construction safety support at our facility. Their safety professionals have become an extension of our EHS team, helping us navigate complex projects while maintaining our safety standards. They're responsive, knowledgeable about our operations, and bring both technical expertise and practical problem-solving to the table. It's been a great partnership, and I'd recommend them to any facility needing reliable construction safety consulting.",
+      "homepage_short_version": "Their safety professionals have become an extension of our EHS team\u2026 It's been a great partnership, and I'd recommend them to any facility needing reliable construction safety consulting.",
+      "placements": [
+        "homepage",
+        "/construction-safety-consulting/"
+      ]
+    },
+    {
+      "id": "mark-hayes",
+      "reviewer": "Mark Hayes",
+      "stars": 5,
+      "service": "industrial-hygiene",
+      "truncated": true,
+      "quote": "EHS Analytical Solutions has been our go-to partner for industrial hygiene monitoring at FRCSW for several years now. Their Certified Industrial Hygienists consistently deliver thorough, professional work and have become trusted advisors to \u2026",
+      "placements": [
+        "/industrial-hygiene-san-diego/"
+      ]
+    },
+    {
+      "id": "darryl-gurholt",
+      "reviewer": "Darryl Gurholt",
+      "stars": 5,
+      "service": "industrial-hygiene",
+      "truncated": true,
+      "quote": "I reached out to Adam (EHS Analytical Solutions) to conduct employee air monitoring for various production processes at our facility. Adam was very helpful in providing information on the scope of the work and also providing a completive \u2026",
+      "note": "'completive' is the reviewer's own typo (likely 'competitive') \u2014 keep verbatim or trim the quote before that word.",
+      "placements": [
+        "/industrial-hygiene-san-diego/"
+      ]
+    },
+    {
+      "id": "jessica-perer",
+      "reviewer": "Jessica Perer",
+      "stars": 5,
+      "service": "ehs-consulting",
+      "truncated": true,
+      "quote": "For the past two years, EHS has provided excellent support regarding safety and compliance in running a small biotech company. Both Josh and Adam have been absolutely amazing and as a scientist who cannot focus as much on lab safety, they \u2026",
+      "placements": [
+        "homepage",
+        "/environmental-health-and-safety-ehs-consulting/"
+      ]
+    },
+    {
+      "id": "joe-nuccio",
+      "reviewer": "Joe Nuccio",
+      "stars": 5,
+      "service": "ehs-consulting",
+      "truncated": true,
+      "quote": "We hired EHS Analytical Solutions to perform our baseline analysis for our newly relocated pharmaceutical laboratory which included (IIPP, Chemical Hygiene and Hazardous Waste Management Plan)s. We were very impressed with his \u2026",
+      "note": "Unusual parenthesis placement is verbatim from the reviewer.",
+      "placements": [
+        "/environmental-health-and-safety-ehs-consulting/"
+      ]
+    },
+    {
+      "id": "dan-treiber",
+      "reviewer": "dan treiber",
+      "display_name": "Dan Treiber",
+      "note": "Google displays this reviewer's name in lowercase; capitalize for the site per brief rule 3.",
+      "stars": 5,
+      "service": "ehs-consulting",
+      "truncated": true,
+      "quote": "EHS is professional, knowledgeable, and with rapid response time by email, phone, or even for an emergency on-site visit. Adam and EHS within just two weeks inspected our facility, made detailed safety recommendations, facilitated the \u2026",
+      "placements": [
+        "homepage"
+      ]
+    },
+    {
+      "id": "jordan-karney-chaim",
+      "reviewer": "Jordan Karney Chaim",
+      "stars": 5,
+      "service": "asbestos-testing",
+      "truncated": true,
+      "quote": "We contacted Adam at EHS to help us determine the levels of asbestos in our recently-purchased home. He was incredibly patient and generous with his time, fielding multiple phone calls to help us understand our situation and provide peace \u2026",
+      "placements": [
+        "/san-diego-asbestos-testing/"
+      ]
+    }
+  ],
+  "google_reviews_url": "https://www.google.com/search?q=EHS+Analytical+Solutions+Inc+San+Diego+reviews"
+}

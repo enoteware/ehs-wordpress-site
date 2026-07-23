@@ -393,6 +393,7 @@ require_once get_stylesheet_directory() . '/inc/frontend/contact-form-handler.ph
 require_once get_stylesheet_directory() . '/inc/wp-mail-resend.php';
 require_once get_stylesheet_directory() . '/inc/frontend/home-page-functions.php';
 require_once get_stylesheet_directory() . '/inc/frontend/credential-cards.php';
+require_once get_stylesheet_directory() . '/inc/frontend/testimonials-render.php';
 
 // ========================================
 // MEGA MENU
