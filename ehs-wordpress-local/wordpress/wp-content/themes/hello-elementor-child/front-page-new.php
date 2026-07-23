@@ -416,6 +416,12 @@ foreach ($all_ordered as $p) {
 </section>
 
 <!-- ========================================
+     CLIENT TESTIMONIALS (Google reviews)
+     Between trust/about area and Latest Insights per client brief
+     ======================================== -->
+<?php if (function_exists('ehs_homepage_testimonials')) { ehs_homepage_testimonials(); } ?>
+
+<!-- ========================================
      LATEST RESOURCES SECTION
      ======================================== -->
 <section class="ehs-resources-section">
