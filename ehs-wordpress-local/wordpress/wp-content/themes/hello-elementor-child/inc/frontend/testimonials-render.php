@@ -458,14 +458,6 @@ function ehs_service_testimonial_placements() {
             'title'         => 'What Our Clients Say',
             'show_badge'    => false,
         ),
-        'san-diego-asbestos-testing' => array(
-            'path'          => '/san-diego-asbestos-testing/',
-            'layout'        => 'full',
-            'ids'           => array('jordan-karney-chaim'),
-            'after_heading' => null,
-            'title'         => 'What Our Clients Say',
-            'show_badge'    => false,
-        ),
     );
 }
 
