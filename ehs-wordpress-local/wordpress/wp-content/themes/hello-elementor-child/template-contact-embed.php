@@ -109,7 +109,8 @@ if ( 'POST' === $contact_embed_method ) {
 				$turnstile_ok = ! empty( $body['success'] )
 					&& in_array( $turnstile_hostname, $turnstile_allowed_hostnames, true )
 					&& ( ! $request_origin_hostname || $request_origin_hostname === $turnstile_hostname )
-					&& ( empty( $body['action'] ) || 'contact_submit' === $body['action'] );
+					&& isset( $body['action'] )
+					&& 'contact_submit' === $body['action'];
 			}
 		}
 		if ( ! $contact_embed_error && ! $turnstile_ok ) {
