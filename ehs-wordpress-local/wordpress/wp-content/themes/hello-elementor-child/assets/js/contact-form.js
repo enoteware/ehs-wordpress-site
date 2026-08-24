@@ -94,6 +94,7 @@
         const formData = {
             action: 'ehs_submit_contact_form',
             nonce: nonce,
+            form_token: $form.find('[name="form_token"]').val() || '',
             turnstile_token: currentToken,
             name: $form.find('[name="name"]').val() || '',
             email: $form.find('[name="email"]').val() || '',

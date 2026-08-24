@@ -45,6 +45,7 @@ function ehs_render_contact_form($args = array()) {
                 name="name" 
                 required 
                 aria-required="true"
+                maxlength="100"
                 placeholder="Your name"
             />
         </div>
@@ -58,6 +59,7 @@ function ehs_render_contact_form($args = array()) {
                 name="email" 
                 required 
                 aria-required="true"
+                maxlength="254"
                 placeholder="your.email@example.com"
             />
         </div>
@@ -69,6 +71,7 @@ function ehs_render_contact_form($args = array()) {
                 type="tel" 
                 id="<?php echo esc_attr($args['form_id']); ?>-phone" 
                 name="phone" 
+                maxlength="40"
                 placeholder="(555) 123-4567"
             />
         </div>
@@ -81,6 +84,7 @@ function ehs_render_contact_form($args = array()) {
                 type="text" 
                 id="<?php echo esc_attr($args['form_id']); ?>-company" 
                 name="company" 
+                maxlength="150"
                 placeholder="Company name"
             />
         </div>
@@ -94,6 +98,7 @@ function ehs_render_contact_form($args = array()) {
                 name="subject" 
                 required 
                 aria-required="true"
+                maxlength="150"
                 placeholder="What is this regarding?"
             />
         </div>
@@ -106,9 +111,12 @@ function ehs_render_contact_form($args = array()) {
                 rows="5" 
                 required 
                 aria-required="true"
+                maxlength="5000"
                 placeholder="Tell us how we can help..."
             ></textarea>
         </div>
+
+        <input type="hidden" name="form_token" value="<?php echo esc_attr(ehs_contact_form_create_token()); ?>" />
         
         <!-- Honeypot field (hidden from users, visible to bots) -->
         <div class="ehs-honeypot" style="position: absolute; left: -9999px; opacity: 0;">
@@ -126,7 +134,7 @@ function ehs_render_contact_form($args = array()) {
         <?php $turnstile_site_key = get_option('ehs_turnstile_site_key', ''); ?>
         <?php if (!empty($turnstile_site_key)): ?>
         <div class="ehs-form-field ehs-turnstile-container">
-            <div class="cf-turnstile" data-sitekey="<?php echo esc_attr($turnstile_site_key); ?>" data-callback="ehsTurnstileCallback" data-theme="light"></div>
+            <div class="cf-turnstile" data-sitekey="<?php echo esc_attr($turnstile_site_key); ?>" data-action="contact_submit" data-callback="ehsTurnstileCallback" data-theme="light"></div>
             <input type="hidden" name="turnstile_token" id="<?php echo esc_attr($args['form_id']); ?>-turnstile-token" />
         </div>
         <?php endif; ?>

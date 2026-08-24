@@ -11,6 +11,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+nocache_headers();
 get_header();
 ?>
 

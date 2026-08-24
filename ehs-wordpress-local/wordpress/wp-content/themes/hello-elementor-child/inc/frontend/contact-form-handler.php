@@ -11,15 +11,59 @@ if (!defined('ABSPATH')) {
 }
 
 /**
+ * Create a signed token used to reject instant and stale form replays.
+ *
+ * @return string
+ */
+function ehs_contact_form_create_token() {
+    $timestamp = time();
+    $signature = hash_hmac('sha256', (string) $timestamp, wp_salt('nonce'));
+    return $timestamp . '.' . $signature;
+}
+
+/**
+ * Require the form to be between two seconds and one hour old.
+ *
+ * @param string $token Signed form token.
+ * @return bool
+ */
+function ehs_contact_form_verify_token($token) {
+    $parts = explode('.', sanitize_text_field($token), 2);
+    if (count($parts) !== 2 || !ctype_digit($parts[0])) {
+        return false;
+    }
+
+    $timestamp = (int) $parts[0];
+    $age = time() - $timestamp;
+    $expected = hash_hmac('sha256', (string) $timestamp, wp_salt('nonce'));
+
+    return $age >= 2 && $age <= HOUR_IN_SECONDS && hash_equals($expected, $parts[1]);
+}
+
+/**
  * AJAX handler for contact form submission
  */
 function ehs_handle_contact_form_submission() {
+    $content_length = isset($_SERVER['CONTENT_LENGTH']) ? absint($_SERVER['CONTENT_LENGTH']) : 0;
+    if ($content_length > 32768) {
+        wp_send_json_error(array(
+            'message' => 'The request is too large. Please shorten the message and try again.'
+        ), 413);
+    }
+
+    $origin = isset($_SERVER['HTTP_ORIGIN']) ? esc_url_raw(wp_unslash($_SERVER['HTTP_ORIGIN']), array('https')) : '';
+    if ($origin && !in_array(strtolower(untrailingslashit($origin)), array('https://ehsanalytical.com', 'https://www.ehsanalytical.com'), true)) {
+        wp_send_json_error(array(
+            'message' => 'This form cannot be submitted from that website.'
+        ), 403);
+    }
+
     // Verify nonce
-    if (!isset($_POST['nonce']) || !wp_verify_nonce($_POST['nonce'], 'ehs_contact_form_nonce')) {
+    $nonce = isset($_POST['nonce']) ? sanitize_text_field(wp_unslash($_POST['nonce'])) : '';
+    if (!$nonce || !wp_verify_nonce($nonce, 'ehs_contact_form_nonce')) {
         wp_send_json_error(array(
             'message' => 'Security check failed. Please refresh the page and try again.'
-        ));
-        return;
+        ), 403);
     }
 
     // Check honeypot field (bots will fill this)
@@ -28,66 +72,85 @@ function ehs_handle_contact_form_submission() {
         wp_send_json_success(array(
             'message' => 'Thank you! Your message has been sent.'
         ));
-        return;
+    }
+
+    $form_token = isset($_POST['form_token']) ? wp_unslash($_POST['form_token']) : '';
+    if (!ehs_contact_form_verify_token($form_token)) {
+        wp_send_json_error(array(
+            'message' => 'The form expired or was submitted too quickly. Please reload the page and try again.'
+        ), 400);
     }
 
     // Verify Cloudflare Turnstile if enabled
     $turnstile_secret = get_option('ehs_turnstile_secret_key', '');
-    $turnstile_token = isset($_POST['turnstile_token']) ? sanitize_text_field($_POST['turnstile_token']) : '';
+    $turnstile_site_key = get_option('ehs_turnstile_site_key', '');
+    $turnstile_token = isset($_POST['turnstile_token']) ? sanitize_text_field(wp_unslash($_POST['turnstile_token'])) : '';
     $turnstile_verified = false;
 
-    if (!empty($turnstile_secret)) {
-        if (empty($turnstile_token)) {
-            wp_send_json_error(array(
-                'message' => 'Please complete the verification challenge.'
-            ));
-            return;
-        }
-
-        $turnstile_valid = ehs_verify_turnstile($turnstile_token, $turnstile_secret);
-        if (!$turnstile_valid) {
-            wp_send_json_error(array(
-                'message' => 'Bot verification failed. Please try again.'
-            ));
-            return;
-        }
-        $turnstile_verified = true;
+    if (empty($turnstile_secret) || empty($turnstile_site_key)) {
+        error_log('[EHS Contact Form] Turnstile is not configured');
+        wp_send_json_error(array(
+            'message' => 'The form is temporarily unavailable. Please try again later.'
+        ), 503);
     }
 
+    if (empty($turnstile_token)) {
+        wp_send_json_error(array(
+            'message' => 'Please complete the verification challenge.'
+        ), 400);
+    }
+
+    $turnstile_valid = ehs_verify_turnstile($turnstile_token, $turnstile_secret);
+    if (!$turnstile_valid) {
+        wp_send_json_error(array(
+            'message' => 'Bot verification failed. Please try again.'
+        ), 400);
+    }
+    $turnstile_verified = true;
+
     // Sanitize and validate input
-    $name = isset($_POST['name']) ? sanitize_text_field($_POST['name']) : '';
-    $email = isset($_POST['email']) ? sanitize_email($_POST['email']) : '';
-    $phone = isset($_POST['phone']) ? sanitize_text_field($_POST['phone']) : '';
-    $company = isset($_POST['company']) ? sanitize_text_field($_POST['company']) : '';
-    $subject = isset($_POST['subject']) ? sanitize_text_field($_POST['subject']) : '';
-    $message = isset($_POST['message']) ? sanitize_textarea_field($_POST['message']) : '';
+    $name_raw = isset($_POST['name']) ? wp_unslash($_POST['name']) : '';
+    $email_raw = isset($_POST['email']) ? wp_unslash($_POST['email']) : '';
+    $phone_raw = isset($_POST['phone']) ? wp_unslash($_POST['phone']) : '';
+    $company_raw = isset($_POST['company']) ? wp_unslash($_POST['company']) : '';
+    $subject_raw = isset($_POST['subject']) ? wp_unslash($_POST['subject']) : '';
+    $message_raw = isset($_POST['message']) ? wp_unslash($_POST['message']) : '';
+    $name = sanitize_text_field($name_raw);
+    $email = sanitize_email($email_raw);
+    $phone = sanitize_text_field($phone_raw);
+    $company = sanitize_text_field($company_raw);
+    $subject = sanitize_text_field($subject_raw);
+    $message = sanitize_textarea_field($message_raw);
+
+    if (strlen($name_raw) > 100 || strlen($email_raw) > 254 || strlen($phone_raw) > 40 || strlen($company_raw) > 150 || strlen($subject_raw) > 150 || strlen($message_raw) > 5000) {
+        wp_send_json_error(array(
+            'message' => 'One or more fields are too long. Please shorten them and try again.'
+        ), 400);
+    }
 
     // Validate required fields
     if (empty($name) || empty($email) || empty($subject) || empty($message)) {
         wp_send_json_error(array(
             'message' => 'Please fill in all required fields.'
-        ));
-        return;
+        ), 400);
     }
 
     // Validate email format
     if (!is_email($email)) {
         wp_send_json_error(array(
             'message' => 'Please enter a valid email address.'
-        ));
-        return;
+        ), 400);
     }
 
     // Rate limiting - prevent spam
     $ip_address = ehs_get_client_ip();
-    $rate_limit_key = 'ehs_contact_form_' . md5($ip_address);
+    $rate_limit_key = 'ehs_contact_form_' . substr(hash_hmac('sha256', $ip_address, wp_salt('nonce')), 0, 32);
     $submission_count = get_transient($rate_limit_key);
 
     if ($submission_count && $submission_count >= 3) {
         wp_send_json_error(array(
             'message' => 'Too many submissions. Please try again later.'
-        ));
-        return;
+        ), 429);
     }
 
     // Increment rate limit counter
@@ -233,7 +296,7 @@ function ehs_create_contact_form_entries_table() {
     $charset_collate = $wpdb->get_charset_collate();
 
     // Check if table already exists
-    if ($wpdb->get_var("SHOW TABLES LIKE '$table_name'") === $table_name) {
+    if ($wpdb->get_var($wpdb->prepare('SHOW TABLES LIKE %s', $wpdb->esc_like($table_name))) === $table_name) {
         return;
     }
 
@@ -330,6 +393,7 @@ function ehs_verify_turnstile($token, $secret) {
             'secret' => $secret,
             'response' => $token,
             'remoteip' => ehs_get_client_ip(),
+            'idempotency_key' => wp_generate_uuid4(),
         ),
         'timeout' => 10,
     ));
@@ -339,9 +403,20 @@ function ehs_verify_turnstile($token, $secret) {
         return false;
     }
 
+    if (wp_remote_retrieve_response_code($response) !== 200) {
+        error_log('[EHS Contact Form] Turnstile verification returned a non-200 response');
+        return false;
+    }
+
     $body = json_decode(wp_remote_retrieve_body($response), true);
 
-    if (isset($body['success']) && $body['success'] === true) {
+    if (!is_array($body)) {
+        return false;
+    }
+
+    $hostname = isset($body['hostname']) ? strtolower(sanitize_text_field($body['hostname'])) : '';
+    $action = isset($body['action']) ? sanitize_text_field($body['action']) : '';
+    if (!empty($body['success']) && in_array($hostname, array('ehsanalytical.com', 'www.ehsanalytical.com'), true) && $action === 'contact_submit') {
         return true;
     }
 
@@ -359,25 +434,6 @@ function ehs_verify_turnstile($token, $secret) {
  * @return string IP address
  */
 function ehs_get_client_ip() {
-    $ip_keys = array(
-        'HTTP_CF_CONNECTING_IP', // Cloudflare
-        'HTTP_X_REAL_IP',        // Nginx proxy
-        'HTTP_X_FORWARDED_FOR',  // Proxy
-        'REMOTE_ADDR',           // Standard
-    );
-
-    foreach ($ip_keys as $key) {
-        if (!empty($_SERVER[$key])) {
-            $ip = $_SERVER[$key];
-            // Handle comma-separated IPs (X-Forwarded-For)
-            if (strpos($ip, ',') !== false) {
-                $ip = trim(explode(',', $ip)[0]);
-            }
-            if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE)) {
-                return $ip;
-            }
-        }
-    }
-
-    return isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '0.0.0.0';
+    $ip = isset($_SERVER['REMOTE_ADDR']) ? sanitize_text_field(wp_unslash($_SERVER['REMOTE_ADDR'])) : '';
+    return filter_var($ip, FILTER_VALIDATE_IP) ? $ip : '0.0.0.0';
 }
